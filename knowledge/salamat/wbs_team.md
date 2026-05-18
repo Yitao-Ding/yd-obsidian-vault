@@ -93,6 +93,64 @@ Component + Client Component に変換する。
 - [ ] 実際の活動写真・人名画像への差し替え (現状一部プレースホルダー)
 - [ ] Impact Stats を Trust 要素として復活させるか再検討
 
+## ✅ うまく行ったこと
+
+- **Claude Design → Claude Code のリレー**が想定以上にスムーズ。HTML/CSS/JS prototype を
+  そのまま Next.js + Tailwind v4 + Server/Client component に再構築するパターンが確立
+- **`tar -xzf` で handoff bundle 展開** → README + chat transcript + 全ソースを順に読む方式が
+  低オーバーヘッド。「ブラウザでレンダリング禁止」の README 指示通り、HTML/CSS を直読みで充分
+- **scroll-driven 飛行機アニメ**を Framer Motion なしで実装できた (生の rAF + SVG
+  `getPointAtLength` + `viewBox` スケーリング)。依存最小化に成功
+- **Tweaks Panel + localStorage** で、デザイン詰めをコード再ビルドなしで回せる仕組みに
+- **AskUserQuestion で先に方針確認** (上書きvs全書き直し、Tweaks有無、Impact Stats削除、
+  飛行機今期実装か) → 後戻りゼロで2時間程度で全セクション完了
+- **CSS変数 + Tailwind v4 `@theme inline`** の併用で、Tweaks のランタイム書き換えと
+  Tailwind ユーティリティの両方が同居できた
+
+## ❌ 詰まったこと
+
+- **lucide-react v1.16.0 が Instagram/Facebook/X アイコンを削除している** ことを初版で
+  踏み抜いた → 今回はインライン SVG に切替済み
+- **Next.js 16 の next/font 型定義で Sora の `style: ["normal", "italic"]` が拒否**
+  された (italic は normal の variant 扱い) → `style` プロパティ自体を外して解決
+- **`Write` ツールは事前 Read 必須**。既存ファイルの上書きで何度かハマった (vision-value.tsx
+  など)。`Edit` でもこの制約は同じで、log.md でも踏んだ
+- **巨大コンテキスト引き継ぎ後の context loss**：別セッションで「lecture-hub の Dexie 作業」と
+  混線しかけた。プロジェクトパスを明示する確認質問で軌道修正
+- **vault の log.md / active_projects.md が他セッションと同時編集**で linter 反映に
+  時間差 → 都度 Read してから Edit すれば安全
+- **Vault の auto-sync が走るタイミングが読めない**。stage しても次の bash 実行前に
+  commit されていることがある (今回もそう) → 上書きを避けるため、push 前に必ず git status
+
+## 📋 次回同じことをするときのチェックリスト
+
+### Claude Design handoff の取り込み
+
+1. URL を WebFetch → 「Binary content」エラーが返るので、`tool-results/webfetch-*.bin` の
+   実体パスを Bash で `file` して gzip 確認
+2. `mkdir /tmp/<name> && tar -xzf <bin> -C /tmp/<name>` で展開
+3. `wbs/README.md` を最初に Read (handoff の前提を確認)
+4. `wbs/chats/chat1.md` を Read (ユーザーが何を欲しがっているか、どこに落ち着いたか)
+5. `wbs/project/<開いていたファイル>.html` を Read (エントリーポイント)
+6. import している styles.css / 各 component.jsx を順に Read
+7. ここまで読んで初めて AskUserQuestion で実装スコープを確認 (上書き / 全書き直し / Tweaks 扱い / etc.)
+
+### Next.js 16 + Tailwind v4 への移植
+
+- `next/font/google` で Sora は `style: italic` を指定しない (variant扱い)
+- `:root` レベルの CSS 変数は `<html>` に乗せる (フォント変数は body だと :root から見えない)
+- 設計トークンは `globals.css` の `@theme inline { --color-foo: var(--foo) }` でTailwindに繋ぐ
+- `useTweaks` のようなクライアント状態は `homepage-client.tsx` に集約、`page.tsx` は薄く保つ
+- `lucide-react v1.16+` ではブランドアイコン (SNS系) が無い前提で、インラインSVG用意
+- `Write` する前に必ず `Read` (既存ファイル) — 触ってないファイルでも同様
+
+### 検証 (ネット不要範囲)
+
+- `npx tsc --noEmit` → 型エラーゼロが必須
+- `npm run build` → Turbopack ビルド通過を確認
+- dev server は curl で HTTP 200 確認まで。目視は家でやる
+- Lighthouse / 実機目視・DB接続を伴う動作確認は後回し
+
 ## 関連
 
 - [[index]] - Salamat 領域ハブ
