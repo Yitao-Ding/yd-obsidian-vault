@@ -1,0 +1,18 @@
+{
+  "colorGroups": [
+    {"query": "path:identity", "color": {"a": 1, "rgb": 5431987}},
+    {"query": "path:current_state", "color": {"a": 1, "rgb": 2473058}},
+    {"query": "path:mistakes", "color": {"a": 1, "rgb": 14701119}},
+    {"query": "path:knowledge", "color": {"a": 1, "rgb": 14921005}},
+    {"query": "path:decisions", "color": {"a": 1, "rgb": 11186942}}
+  ],
+  "showTags": false,
+  "showAttachments": false,
+  "hideUnresolved": false,
+  "showOrphans": true,
+  "centerStrength": 0.5,
+  "repelStrength": 10,
+  "linkStrength": 1,
+  "linkDistance": 250,
+  "scale": 1
+}

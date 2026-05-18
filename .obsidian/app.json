@@ -1,0 +1,11 @@
+{
+  "promptDelete": false,
+  "newFileLocation": "current",
+  "useTab": true,
+  "tabSize": 2,
+  "alwaysUpdateLinks": true,
+  "spellcheck": false,
+  "useMarkdownLinks": false,
+  "defaultViewMode": "source",
+  "livePreview": true
+}

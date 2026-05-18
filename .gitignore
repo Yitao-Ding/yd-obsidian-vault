@@ -1,0 +1,26 @@
+# Obsidian
+.obsidian/workspace*
+.obsidian/cache
+.obsidian/appearance.json
+
+# Community plugin binaries (manifest.json と data.json は追跡する)
+.obsidian/plugins/*/main.js
+.obsidian/plugins/*/styles.css
+
+# Trash
+.trash/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+*.tmp
+*.swp
+*~
+
+# Sensitive (uncomment if needed)
+# **/confidential/
+# **/secrets/
+# **/*credential*.md
+# **/*token*.md
