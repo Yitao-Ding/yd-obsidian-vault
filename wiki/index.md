@@ -12,6 +12,8 @@
 ### コア (Claude の外部記憶)
 - [[CLAUDE]] — エントリポイント
 - [[00_CLAUDE_BOOT]] — 起動時必読
+- [[vault_workflow]] — **1日の運用フロー (迷ったら最初にここ)** ⭐
+- [[obsidian_vault]] — Vault そのものの運用マニュアル
 - [[claude_mistakes]] — ミス記録の親
 
 ### アイデンティティ

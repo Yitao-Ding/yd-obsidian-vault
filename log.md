@@ -78,3 +78,5 @@
   - current_state/current_focus.md の vidkit次の機能を tutorial モード → **tighten (FCPXMLラウンドトリップ第一弾)** に変更
   - current_state/recent_decisions.md に「FCPXMLラウンドトリップ採用」と「vidkit autocut モード追加」の 2 件を新規ブロックとして追記 ([[2026-05-18_FCPXML_ラウンドトリップ採用]] と [[vidkit]] にリンク)
   - この log.md エントリ追記
+[2026-05-18 19:00] Claude (デスクトップアプリ) が今日確立されたワークフロー自体を knowledge/programming/tools/vault_workflow.md として保存 (409行) — 1日の運用フロー、セッション開始の3パターン、保存フロー、並行作業の運用、月次メンテナンス、Phase 1→2→3 自動化フェーズ、必須3セクション付き
+[2026-05-18 19:01] YD が vsync で baf3f52..c147ce6 を GitHub に push 完了 (Vault 構築日の作業を全 GitHub 同期)
