@@ -1,6 +1,6 @@
 ---
 type: current_state
-last_updated: 2026-05-18 (Lecture Hub 個人用転換 + Phase 2 全完了で更新)
+last_updated: 2026-05-18 (vidkit autocut 完成 + FCPXML ラウンドトリップ採用で更新)
 update_frequency: 週1回以上
 ---
 
@@ -18,13 +18,19 @@ update_frequency: 週1回以上
 - **関連**: `~/Downloads/obsidian-vault-setup/`
 
 ### 2. vidkit (動画前処理CLI)
-- **状況**: dance モード完成、TIME Instagram_最終２.mp4 で実機テスト済み
-- **次のアクション**:
+- **状況**:
+  - dance モード完成 (TIME Instagram_最終２.mp4 で実機テスト済み)
+  - **autocut モード完成 (2026-05-18)** — FCP用無音カット FCPXML 1.13 出力、lecture/vlog 2プリセット、Skill `~/.claude/skills/fcp-autocut/` 登録済み
+  - lecture モードは未完成 (pyannote HF_TOKEN 待ち)
+- **次のアクション** (優先度順):
+  - [ ] **★ FCPXML ラウンドトリップ第一弾 = tighten オペレーション実装** (既存FCPプロジェクトの各クリップ内の残り無音をさらに詰める)
+  - [ ] FCPXMLリーダーを汎用モジュールとして実装 (後続オペレーションでも再利用)
   - [ ] lecture モード仕上げ (pyannote HF_TOKEN セットアップ)
   - [ ] tutorial モード設計・実装 (Webサイト制作チュートリアル動画 → 実装)
   - [ ] Obsidian Vault 連携 (`--vault-path` オプション)
+- **将来のFCPXMLオペレーション候補**: speaker-filter / marker-batch / beat-snap (蛹用途) / roles-bulk
 - **パス**: `/Users/ittou/projects/vidkit`
-- **関連**: `knowledge/programming/tools/vidkit.md`
+- **関連**: `knowledge/programming/tools/vidkit.md`, `decisions/2026-05-18_FCPXML_ラウンドトリップ採用.md`
 
 ### 3. 平成たち祭 動画制作
 - **状況**: 撮影完了 (5/6)、DaVinciプロジェクト修復が必要だった

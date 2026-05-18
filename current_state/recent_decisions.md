@@ -10,6 +10,30 @@ update_frequency: 意思決定のたび
 
 ## 2026-05-18
 
+### FCP 自動編集の手段として FCPXML ラウンドトリップを採用
+- **背景**: vidkit autocut 完成直後、YDが「FCPX内でClaudeが自動操作できないか」と質問。FCP 自動編集の現実解を検討
+- **選択肢**:
+  - A. computer-use MCP で GUI 操作 (画面ピクセル単位)
+  - B. AppleScript (macOS 伝統)
+  - C. FCPXML ラウンドトリップ (Export XML → 変換 → Import XML)
+- **決定**: **C** (FCPXMLラウンドトリップ)
+- **理由**:
+  - A はタイムライン上のピクセル精密制御が脆い、FCP のレイアウト変更で壊れる
+  - B は Apple が FCP X のスクリプティング機能を意図的に削っているのでほぼ無理
+  - C は Auto-Editor / Recut / Trint など業界の自動化ツールが全部採用している実績ある方式
+  - 既存 vidkit autocut が一方向 FCPXML 生成を実装済みで、双方向に拡張する形が自然
+- **第一弾オペレーション**: tighten (既存FCPプロジェクトの各クリップ内の残り無音をさらに詰める)
+- **詳細**: [[2026-05-18_FCPXML_ラウンドトリップ採用]]
+
+### vidkit に autocut モード追加 (FCP用無音カット FCPXML 生成)
+- **背景**: トーク/講義/Vlog/インタビュー動画をFCPで本編集する前に無音を機械的にカットしたかった
+- **決定**: vidkit に `autocut` モードを追加 (dance/lecture と並列のモード)
+- **構成**: ffmpeg silencedetect → keep-segment 計算 → FCPXML 1.13 シリアライザ → `~/Downloads/vidkit_YYYY-MM-DD_autocut_<id>/autocut.fcpxml`
+- **プリセット**: `lecture` (タイト: -30dB/0.4s) と `vlog` (緩め: -35dB/0.8s)
+- **Skill登録**: `~/.claude/skills/fcp-autocut/SKILL.md` で FCP関連キーワードを自動トリガー
+- **検証**: 12秒テストクリップで両プリセット動作確認、xmllint通過、フレーム精度の有理数時刻計算成功
+- **詳細**: [[vidkit]] の `autocut モード` セクション
+
 ### Obsidian Vault を「Claudeの外部記憶」として構築
 - **背景**: Claudeの記憶喪失問題に毎回悩まされていた。メモリ機能だけでは不十分
 - **選択肢**:

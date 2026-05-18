@@ -1,6 +1,6 @@
 ---
 type: current_state
-last_updated: 2026-05-18
+last_updated: 2026-05-18 (vidkit の次の機能 = tighten に更新)
 ---
 
 # 今、最も注力していること
@@ -18,9 +18,10 @@ last_updated: 2026-05-18
 ## 🌱 並行進行 (今週〜今月)
 
 ### vidkit の進化
-- **次の機能**: tutorial モード (Webサイト制作チュートリアル動画 → 実装)
-- **モチベーション**: 学習効率を桁違いに上げたい
-- **状態**: 基本機能完成、新機能設計中
+- **次の機能**: **FCPXML ラウンドトリップ第一弾 = tighten オペレーション** (FCPで荒く並べた素材 → Claudeでクリップ内残り無音をさらに詰める → 戻す)
+- **モチベーション**: autocut が完成したので、次は「Claudeに FCP の中をいじってもらう」第一歩。computer-use や AppleScript が使えない FCP に対する唯一の現実解
+- **状態**: autocut モード完成 (2026-05-18)、FCPXML ラウンドトリップ採用決定、tighten 未着手
+- **その後の候補**: speaker-filter / marker-batch / beat-snap (蛹用) / roles-bulk / tutorial モード
 
 ### 平成たち祭 動画完成
 - **次の作業**: DaVinciプロジェクト修復確認 → 構成決定 → 編集
