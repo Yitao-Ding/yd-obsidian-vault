@@ -194,6 +194,45 @@ supabase/migrations/            0001/0002/0003
 - AI メッセージへの引用 / コードブロックレンダリング (現状 plain text)
 - モバイル PWA としての最適化 (touch / viewport)
 
+---
+
+## ✅ うまく行ったこと
+
+- **BlockNote 0.51 (ariakit) + Drizzle + Vercel Blob の組み合わせが認証なしで完動** — 個人用 Notion クローンのスタックとして今のところベスト
+- **`after()` (`next/server`) で保存後の embedding 再生成を非同期に逃せる** — 保存自体は速いまま pgvector が更新される。Server Action でも使えるのが効く
+- **Topbar の `SyncIndicator` を `MutationObserver` で `<html>` の class を監視する設計** — ダークモード切替に追従しやすく、状態の重複管理が消える
+- **`plainTextFromDocument` / `plainTextAround` の共通化** — AI Slash / embedding / 全文検索の 3 ヶ所の重複が消えて保守性が上がった
+- **vitest 26 件、全部 DB 非依存** — ネット無くても回せる。CI 不要、`pnpm test` 一発
+- **`drizzle-kit push` ではなく SQL migration 手書き** — pgvector / SECURITY DEFINER / RLS を意識した DDL を温存できる。Supabase との相性も良い
+- **`@ai-sdk/react` の `useChat` + `DefaultChatTransport` の `prepareSendMessagesRequest` で `threadId` を毎リクエスト付与** — 既存スレッド再開もスムーズ
+
+## ❌ 詰まったこと
+
+- **`createReactBlockSpec` の返り値はファクトリ関数** — `MathBlock` を schema にそのまま渡すと TS エラー。`MathBlock()` で呼ぶ必要あり
+- **BlockNote の `render` 内に React Hook を書くと `react-hooks/rules-of-hooks` 違反** — `render: (props) => <InnerView {...props} />` の形に分離する必要がある
+- **Slash menu のカスタム化に 3 つの import が必要** — `SuggestionMenuController` + `getDefaultReactSlashMenuItems` (どちらも `@blocknote/react`) + `filterSuggestionItems` (`@blocknote/core`)。1 ヶ所からは出てこない
+- **pgvector の演算子: cosine `<=>` / 内積 `<#>` / L2 `<->`** — クエリ書く時に混同しやすい。今回は `<=>` (cosine distance)、score は `1 - (a <=> b)` で類似度に変換
+- **embedding 次元 (768) と ivfflat `lists`** — `text-embedding-004` は 768、OpenAI `text-embedding-3-small` は 1536。次元を変えると schema と index ごと作り直し必要
+- **BlockNote document JSON の `block.content`** — `undefined` だったり配列だったりするので、必ず `Array.isArray()` で防御。共通ヘルパーに集約済み
+- **Next.js 15 + React 19 + Tailwind v4 + BlockNote の peer dep がうるさい** — `pnpm install` で警告は出るが動く。深追いせず無視
+
+## 📋 次回同じことをするときのチェックリスト
+
+- [ ] `pnpm install` 直後に `pnpm exec tsc --noEmit` で型が通るか確認
+- [ ] migration は順序厳守 (`0001` → `0002` → `0003`)、Supabase SQL Editor で貼り付け実行
+- [ ] `.env.local` の必須 keys を埋めてから `pnpm dev` (`DATABASE_URL` だけは絶対必要)
+- [ ] 新しいカスタムブロックを追加するときは:
+  - [ ] `createReactBlockSpec(config, impl)` の返り値はファクトリ → `schema.ts` で `MyBlock()` を呼ぶ
+  - [ ] `render` 内に Hook を書かず、内部コンポーネントに切り出す
+  - [ ] `propSchema` の default 値は **その型のリテラル** で書く (default: "" / default: 0 / default: true)
+- [ ] Slash menu に項目を増やすときは `src/components/editor/ai-slash-items.tsx` の `customSlashItems` を編集
+- [ ] BlockNote document を扱うコードを書く前に `src/lib/blocknote/text.ts` のヘルパーで足りるか確認 (新たに `block.content.map(...)` を書かない)
+- [ ] AI モデルを切り替えるなら `src/lib/ai/providers.ts` の `DEFAULT_MODELS` を編集
+- [ ] embedding 次元を変える場合は **migration を必ず更新** + 既存 `embedding` を NULL に → `/admin/reindex` で再生成
+- [ ] Cron を追加するときは `vercel.json` に schedule + `/api/cron/<name>/route.ts` + `isAuthorizedCron(req)` の 3 点セット
+- [ ] 削除後の build で `.next/types/` の幻影エラーが出たら `rm -rf .next tsconfig.tsbuildinfo`
+- [ ] サンドボックスから Postgres ポートが抜けない事故への備え: migration は SQL Editor 適用、自動化を試みない
+
 ## 🔗 関連
 
 - [[2026-05-17_lecture_hub_MVP_shipped]] (もし作るなら)

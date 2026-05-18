@@ -91,6 +91,40 @@ tags: [lecture-hub, auth, supabase, drizzle, scope-reduction]
 - **個人用と宣言した瞬間、設計判断が一気にシンプルになる** — マルチテナントの呪縛から外れると、Drizzle のクエリも、env の管理も、エラーハンドリングも全部楽になる
 - **Supabase は「Postgres + Vault + Auth」のセットで売られているが、Postgres だけ使うのも全然アリ** — DATABASE_URL があれば pgvector / tsvector も普通に使える
 
+---
+
+## ✅ うまく行ったこと
+
+- **PostgREST → Drizzle 一本化が機械的に進んだ** — schema は元から定義済みだったので、`supabase.from(...).select()` を `db.select().from(...)` に置換するだけ。`owner_id` 列削除も型エラーが全箇所出てくれて漏れなく追跡できた
+- **認証ディレクトリを `rm -rf` で一気に削除できた** — `(auth)/`, `(app)/settings/`, `lib/auth/`, `lib/supabase/`, `api/v1/`, `middleware.ts` がグラフ的に末端だったので参照漏れゼロ。事前に `grep -rn` で参照を 1 回確認したのが効いた
+- **migration 0002 を「冪等な DDL」で書いたら何度叩いても壊れない** — `do $$ if exists ... end$$` パターンで policy 一括 drop、`alter table ... drop column if exists`、`create index if not exists`。再実行で副作用ゼロ
+- **AI キーを env vars に集約 → コードが綺麗になり CLAUDE.md にも「Vault 復活禁止」と明記できた** — Server Action から非同期 RPC 1 本減ったのでレスポンス速度も改善
+- **1 セッションで Phase A〜D4 を一気通貫** — 中間で大きな路線変更なし。フェーズごとに `pnpm exec tsc --noEmit` を回す習慣で型エラーを早期検出
+- **vitest を入れた瞬間に 26 件パスした** — 純粋関数を切り出して個別にエクスポートしていたおかげで、テストを後付けでも書きやすい構造になっていた
+
+## ❌ 詰まったこと
+
+- **Phase A 完了直後の `pnpm build` で `.next/types/app/(auth)/login/page.ts などが見つからない` の TS エラー** — 削除済みのルートを `.next/types/validator.ts` がまだ参照していた。`rm -rf .next tsconfig.tsbuildinfo` で解消
+- **`createReactBlockSpec` の返り値が「ファクトリ関数」だと知らずに `MathBlock` を直接 schema に渡してエラー** — TS が `(options?) => BlockSpec` を `BlockSpec` に代入できないと教えてくれて発覚。`MathBlock()` で呼び出す必要あり
+- **BlockNote の `render` 内に `useState` を直書きしたら `react-hooks/rules-of-hooks` で ESLint 拒否** — `render` は React コンポーネント名でないため Hook を呼べない。`MathView` / `PdfView` / `AudioView` を内部コンポーネントとして切り出して `render: (props) => <MathView {...} />` の形に修正
+- **Slash menu に項目を追加する API が分かりづらい** — `@blocknote/react` の `SuggestionMenuController` + `getDefaultReactSlashMenuItems` + `@blocknote/core` の `filterSuggestionItems` の 3 つを別 import で揃える必要がある
+- **`useChat` (Vercel AI SDK v6) の API が v5 と全然違う** — `messages` を直接渡せず、`DefaultChatTransport` + `prepareSendMessagesRequest` を経由する必要がある。マイグレーションガイドを読みながら手探り
+- **サンドボックスから Supabase Postgres 5432/6543 への TCP がブロックされ migration 自動適用不可** — HTTPS REST (Supabase API) は到達するのに Postgres プロトコルだけ抜けない。途中で気付き、ユーザーに「家で SQL Editor から適用」と引き渡した
+
+## 📋 次回同じ判断をするときのチェックリスト
+
+- [ ] 「個人用かマルチテナントか」をプロジェクト初期に明確に決める — 後から「個人用に転換」は今回みたいに 1 日で剥がせるが、その逆 (個人用 → マルチテナント) は遥かに重い
+- [ ] マルチテナントを温存するコストを事前に見積もる: Server Action × N、RLS、Vault、PAT、env 管理、migration の order…
+- [ ] 個人用と決まったら **全レイヤから `owner_id` を一括で消す覚悟** を最初に固める (半端は最悪)
+- [ ] PostgREST → ORM 移行は「schema があれば機械的」なので、Drizzle / Prisma の schema を先に固める
+- [ ] AI キーは個人用なら **絶対に env** (Vault に置く理由が無い)
+- [ ] migration は必ず `drop ... if exists` の冪等 DDL で書く (再実行で副作用ゼロを保証)
+- [ ] BlockNote の `createReactBlockSpec` は **ファクトリ関数を返す** → `XxxBlock()` で呼ぶ
+- [ ] BlockNote `render` の中に React Hook を直書きしない → 内部コンポーネントに切り出す
+- [ ] 削除後の build で `.next/types/` 由来の TS エラーが出たら `.next/` と `tsconfig.tsbuildinfo` を rm
+- [ ] フェーズ完了ごとに `pnpm exec tsc --noEmit` を回す (build は最後の 1 回でいい)
+- [ ] サンドボックスから Supabase Postgres ポートが抜けない前提で、migration は SQL Editor 適用に倒す (ユーザーに任せる、自動化を試みない)
+
 ## 関連
 
 - [[lecture_hub]] — プロジェクトの全体マニュアル

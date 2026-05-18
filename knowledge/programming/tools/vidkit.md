@@ -208,3 +208,81 @@ Webサイト制作チュートリアル動画 → Markdown手順書 + Claude Cod
 
 新機能追加・モード追加のたびにこのファイルを更新する。
 意思決定が伴う場合は `decisions/` にも記録。
+
+---
+
+## ✅ うまく行ったこと
+
+### 全体設計
+- **uv + Typer の組み合わせ**: パッケージ管理とCLI構築が爆速で進んだ。新しいモード追加も既存パターンを踏襲するだけで済む。
+- **asyncio.gather 並列処理**: 4Kの15秒動画を281秒で完走 (シーン検出 + 文字起こし + フレーム抽出が同時並行)。シーケンシャル処理なら倍以上かかってた。
+- **モード制で機能拡張**: dance / lecture / autocut が同じCLIで使い分けられる。新機能追加時に既存機能を壊さない。
+
+### dance モード
+- **MLX-Whisper (large-v3) が爆速かつ高精度**: M5 Max のNeural Engine をフル活用、CPUより数倍速い。
+- **PySceneDetect のシーン検出が想像以上に正確**: ダンスMVの細かいカット (0.3秒の最短カット) も拾えた。
+- **4K 60fps 維持で1080pフレーム抽出**: 画質劣化なしで分析素材に変換。
+
+### autocut モード (新規)
+- **既存 vidkit インフラの流用**: ffmpeg, pipeline.py, cli.py を流用、ゼロから書いたのは silence.py と fcpxml.py だけ。
+- **FCPXML 1.13 シリアライザがバグなく一発で動作**: 有理数時刻計算 (frameDuration 100/3000s) もフレーム整列も完璧。
+- **xmllint --noout 通過**: XMLの構造的正しさが保証された。
+- **2プリセット (lecture/vlog) で実用カバー率高い**: トーク用 (-30dB / 0.4s) と Vlog用 (-35dB / 0.8s) で大半のユースケース対応。
+- **Skill 化で自動ロード成功**: `~/.claude/skills/fcp-autocut/SKILL.md` に置くだけで、FCP/FCPXML/無音カット等のキーワードでClaude Codeが自動ロード。
+
+### Plan エージェント (Opus 4.7) の活用
+- 実装前に **設計を Plan エージェントに検証してもらった** → 後の手戻りゼロ。
+
+## ❌ 詰まったこと
+
+### dance モード
+- **初回 large-v3 モデルのダウンロードが遅い**: 281秒のうち実質5分はモデルDL。初回だけなので2回目以降は問題ないが、最初焦った。
+- **pyannote の HF_TOKEN セットアップが面倒**: HuggingFace でゲート付きモデルのリクエスト承認待ちが発生。lecture モード未完成の主因。
+
+### autocut モード
+- **FCPXML の audioRate の型が場所によって違う**: sequence では文字列 "44.1k"、asset では整数 44100。これは FCPXML 1.13 の仕様で、最初は統一しようとしてXMLパースエラーになった。
+- **frameDuration の有理数表現**: 30fps NDF は 100/3000s と書く必要がある。1/30 と書くとフレームずれが発生。
+- **絶対 file:// URL 必須**: media-rep src を相対パスにすると FCP が見つけられない。
+
+### 一般的な詰まり
+- **「FCP内でClaudeが操作」の幻想**: AppleScript はFCPでは事実上使えない、computer-use MCP もピクセル精密制御は脆い → 結局 FCPXML ラウンドトリップしか実用解がない、と気づくのに時間がかかった (詳細: [[2026-05-18_FCPXML_ラウンドトリップ採用]])。
+
+## 📋 次回同じことをするときのチェックリスト
+
+### vidkit の新モードを追加するとき
+
+- [ ] **既存パターンを踏襲する**: `cli.py` に新モード追加 → `pipeline.py` に分岐追加 → `modules/` か直下に新モジュール追加
+- [ ] **prompts/ に対応プロンプトを置く**: モードごとに使うClaude向け指示
+- [ ] **Skill登録するか判断**: 頻繁に使うなら `~/.claude/skills/<name>/SKILL.md` を作る (Claude Codeが自動ロード)
+- [ ] **テストクリップを用意**: ffmpegの lavfi で小さな合成テスト動画を作って検証 (実動画前)
+- [ ] **xmllint で検証**: XML出力するモードなら必須
+- [ ] **プリセットを2つ以上用意**: 1つだとカスタマイズが面倒、3つ以上だと選択肢過多
+
+### autocut を本番動画で使うとき
+
+- [ ] 動画ファイルパスに**日本語/スペース/特殊文字が含まれてないか**確認 (一応動くが、念のため)
+- [ ] プリセット選択: トーク・講義系 → `lecture`、Vlog・インタビュー → `vlog`
+- [ ] 必要なら閾値カスタマイズ: `--silence-threshold` (dB)、`--min-silence` (秒)、`--pad` (秒)
+- [ ] 出力された FCPXML は **新規プロジェクトとして** FCP にインポート (既存に上書きしない)
+- [ ] FCPで開く: `open -a "Final Cut Pro" /path/to/autocut.fcpxml`
+- [ ] **FCPの自動起動はしない仕様**なので、起動忘れに注意
+
+### FCPXML 周りで新機能を作るとき
+
+- [ ] `audioRate` の型: sequence は文字列、asset は整数 (混同すると壊れる)
+- [ ] `frameDuration` は有理数表記: 30fps NDF なら `100/3000s`、24fps なら `100/2400s`
+- [ ] `media-rep src` は**必ず絶対 file:// URL**
+- [ ] `offset` は前クリップの累積和、`start` は元動画内の開始時刻、`duration` はクリップの長さ
+- [ ] フレーム整列: `duration` は frameDuration の整数倍にする
+- [ ] 検証: `xmllint --noout` で構造的正しさ確認 + 実機 FCP でインポートテスト
+
+### lecture モードを完成させるとき (将来)
+
+- [ ] HuggingFace で pyannote/speaker-diarization-community-1 のリクエスト承認を待つ (数時間〜数日)
+- [ ] `.env` に `HF_TOKEN=<token>` を設定
+- [ ] テストクリップで動作確認: 複数話者音声を用意
+- [ ] プロンプト (lecture_brief.md, standard.md, deep.md) を実講義音声で調整
+
+---
+
+## 🔗 関連 (再掲)

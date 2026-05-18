@@ -209,6 +209,83 @@ git pull --rebase
 
 → archive/ への移動が遅れている可能性。Claudeにレビュー依頼。
 
+---
+
+## ✅ うまく行ったこと
+
+### 設計
+
+- **Karpathy LLM Wiki + 堀口 Mistakes フォルダのハイブリッド** — 構造論と運用論の両輪で組んだら、互いの欠点を補い合った。片方だけだと不完全
+- **Mistakesフォルダに初期17件仕込み** — 過去会話を `conversation_search` で掘って実例ベースで埋めたので、初日から「次のClaudeが同じ過ちを避ける」仕組みが稼働
+- **Markdown のみ構成** — ChatGPT / Gemini / Cursor からも素のテキストとして読める。AI ロックインを回避できた
+- **Git + GitHub Private** — バックアップ・履歴・別端末同期が一発で揃った。iCloud と違って `.obsidian/workspace.json` の同期衝突問題もない
+
+### 運用
+
+- **Phase 1 → 2 → 3 の段階設計** — いきなり全自動を狙わず、まず手動でパターン学習する設計。フル自動化失敗のリスクを抑えた
+- **保存トリガー5種類の明文化** — Mistakes 2回目 / YD「重要」発言 / 新ツール採用 / プロジェクト完了 / 好み変化 — 判断基準が言語化されていて、迷いが少ない
+- **エイリアス4種 (`vault` `vsync` `vstatus` `vlog`)** — 運用開始初日から「ターミナル4文字で同期」が回る状態に
+- **プラグインバイナリは Git 追跡対象から除外** — manifest.json と data.json のみ追跡。リポジトリ軽量、別端末では同名プラグインを再インストールする運用
+
+## ❌ 詰まったこと
+
+### 認識ずれ
+
+- **「Vault作っただけで Claude 会話が自動連携される」と最初期に勘違いしがち** — 実際は明示的に書き込まないと空のまま。気づくのに議論が要った
+- **「機密分離Vault」を最初検討した** — 結局 1Vault + `_private/` + `.gitignore` で十分と判明。最初から1Vaultでよかった
+- **「フル自動化は今日からできる」と思いがち** — メモリ機能とのリアルタイム同期は技術的に不可能、段階運用が現実解
+
+### 複数AI間の協調
+
+- **複数 Claude セッションが同じ Vault を同時編集** — `log.md` や `active_projects.md` に外部変更が入ることがある。`system-reminder` で気づける運用に頼っている
+- **Obsidian UI のファイルツリーが外部追加を即時拾わない** — ターミナル / 別 Claude で作ったファイルが Obsidian 上で見えないことがある。`⌘+O` ファイル検索 or Vault 再オープンで解決
+
+### 設定の境界
+
+- **`.obsidian/` 配下を Obsidian 自身が書き換える** — `core-plugins.json` などは Obsidian 起動時に diff が出る。`.gitignore` で workspace / cache / appearance を除外する設計が必要
+- **プラグインバイナリを Git に含めるべきか問題** — 含めれば再現性高、除外すれば軽量。今回は除外して manifest のみ追跡
+
+## 📋 次回同じことをするときのチェックリスト
+
+### 別端末でこの Vault を再現したい時
+
+- [ ] `git clone git@github.com:Yitao-Ding/yd-obsidian-vault.git ~/ObsidianVault`
+- [ ] Obsidian.app をインストール (`brew install --cask obsidian`)
+- [ ] Obsidian で「Open folder as vault」 → `~/ObsidianVault` を選ぶ
+- [ ] 「Trust author and enable plugins」を選択
+- [ ] コミュニティプラグインを再インストール: Dataview / Templater / Calendar
+- [ ] `~/.zshrc` にエイリアス4つを追記 (`vault` `vsync` `vstatus` `vlog`)
+- [ ] `gh auth status` で GitHub 認証確認
+
+### 日々の運用で守ること
+
+- [ ] 区切りごとに `vsync` で push (git add + commit + push 一発)
+- [ ] パスワード / API キー / 認証情報は **絶対に書き込まない** (別ツールで管理)
+- [ ] Claude が「保存しました」と言ったら、実ファイルを `ls` で検証
+- [ ] 重複情報は新規ノートを作らず既存に追記
+- [ ] 機密度の高い情報は抽象化して書き込む
+
+### Phase 2 移行の判断
+
+- [ ] Phase 1 で 50件以上の保存実績
+- [ ] YD が「もう判断基準分かったから自動化していい」と発言
+- [ ] 保存トリガー5種類が体感で身についた状態
+
+### Phase 3 (フル自動) 移行の判断
+
+- [ ] Phase 2 で2週間以上安定運用
+- [ ] `~/.claude/hooks/` の自動化スクリプトが書ける状態
+- [ ] ロールバック手順が確立されている
+
+### よくある落とし穴
+
+- [ ] 「Vault は箱、中身は明示的に書く」を忘れない
+- [ ] iCloud + Obsidian の併用は `.obsidian/workspace.json` 同期衝突に注意
+- [ ] Obsidian UI のファイルツリーキャッシュ更新は手動 (Vault 再オープン or `⌘+O` で確認)
+- [ ] 複数 Claude セッション同時編集は `system-reminder` で検知して尊重する
+
+---
+
 ## 📚 関連ドキュメント
 
 - [[CLAUDE]] — Vault憲法

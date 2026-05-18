@@ -143,6 +143,71 @@ Anthropic 公式の対話型 CLI / IDE エージェント。
 - **Agent** — サブエージェント生成。並列調査や独立タスク向け、コンテキスト節約に有効
 - **ToolSearch** — 多数の deferred ツール (Gmail / Notion / Figma / Calendar など MCP 連携) を必要時にロード
 
+---
+
+## ✅ うまく行ったこと
+
+### Vault 構築タスクで効いたこと
+
+- **`settings.json` の `permissions.allow` 事前整備** — `Bash(git:*)` `Bash(mkdir:*)` `Bash(cp:*)` `Write(~/ObsidianVault/**)` `Edit(~/ObsidianVault/**)` を許可リストに入れただけで、Step 1-13 で承認プロンプトはほぼゼロ。`--dangerously-skip-permissions` を使わず安全 + 速度を両立できた
+- **指示書を別ファイル化** — `~/Downloads/obsidian-vault-setup/99_CC_実行指示_フル装備.md` を渡すだけで構築開始。プロンプト本体は「これを読んで通りにやって」のメタ指示にできた。修正・再利用が楽
+- **TaskCreate で13ステップ可視化** — IDE 側でも進捗バーが見える。長いセッションでも何がどこまで進んだか一目で分かった
+- **並列ツール呼び出し** — 初期状況把握で Bash を 4-5 本同時投げ → 数秒で全環境確認完了
+- **AskUserQuestion を能動的に発動** — Step 10 でプラグインバイナリ (1.6MB) の追跡可否を確認 → 除外する判断を YD と共有して決定。事後の後悔を回避できた
+- **手動操作待ちが綺麗に止まる** — Step 8/9 で「開いた」「入れ終わった」のシグナル待ちが明確で、勝手に走らなかった
+- **system-reminder の外部変更通知** — Obsidian 起動後に `.obsidian/core-plugins.json` が自動更新された事を即時検知。衝突を避けながら作業継続できた
+
+## ❌ 詰まったこと
+
+### 仕様の踏み外し
+
+- **Edit ツールは事前 Read 必須** — `~/.zshrc` 編集時に「File has not been read yet」で1回失敗。同一会話内で対象ファイルを Read 済みでないと Edit / Write は通らない。詳細は [[claude_mistakes]] A-4
+- **エイリアスは Claude Code の Bash からは効かない** — `vsync` を頼まれた時、`.zshrc` を source した IDE 外部のインタラクティブシェルしかエイリアスを認識しない。Claude Code 側では alias の中身 (`cd ~/ObsidianVault && git add . && git commit -m "..." && git push`) を直接書く必要があった
+
+### 判断が難しかった
+
+- **既存ファイルが「枠だけ存在」していた時の上書き判断** — `~/ObsidianVault` がディレクトリ構造だけ作られていた。中身ゼロを確認してスキップ判定したが、中身があれば確認すべき。文脈依存の判断
+- **Obsidian 自身が `.obsidian/` 配下を書き換える** — `core-plugins.json` などは Obsidian 起動時に自動更新される。git で追跡しても恒常的に diff が出る → 人間が手で固定したい設定は最小限に絞るのが現実的
+
+### 複数セッション間の干渉
+
+- **同じ Vault を別 Claude セッションが同時編集** — `log.md` や `active_projects.md` が外部から更新される現象あり。`system-reminder` の「ファイルが modified された」通知を尊重して revert しない運用が必要
+
+## 📋 次回同じことをするときのチェックリスト
+
+### 大規模構築タスクを始める前
+
+- [ ] `~/.claude/settings.json` の `permissions.allow` を整備 (タスクで使う Bash / Write / Edit パターンを列挙)
+- [ ] `deny` で破壊操作 (`Bash(rm -rf:*)` `Bash(sudo:*)`) を必ず止める
+- [ ] 指示書を別 Markdown ファイルに切り出し、Claude Code に「これを読んで通りにやって」と渡す
+- [ ] 確定方針 (規模・分離方針・同期方式・認証情報・トーン) を冒頭で1行ずつ列挙
+- [ ] 手動操作が必要なステップは指示書で明示 (「Step N で止まる」と書く)
+- [ ] 「判断に迷う点は遠慮なく質問してください」の一文を入れる
+
+### 実行中
+
+- [ ] 既存ファイルを編集する前に必ず Read を入れる (Read → Edit の順序)
+- [ ] Read と Edit を並列発行しない
+- [ ] 進捗は `✅ Step N/M 完了: 内容` の決め打ちフォーマット
+- [ ] 大規模なら TaskCreate でタスクリスト化
+- [ ] 判断ポイントは AskUserQuestion で選択肢提示 (推奨案を1番目に置く)
+
+### 完了時
+
+- [ ] 完了報告は1〜2文 + 「次にどうするか」
+- [ ] 装飾は控えめ、結論ファースト
+- [ ] エイリアスを使う指示があったら、Claude Code 側では alias 中身を直接書く
+
+### よくある落とし穴
+
+- [ ] エイリアスは Claude Code の Bash からは効かない
+- [ ] Obsidian 起動後に `.obsidian/` 配下が自動更新される → linter 通知を都度確認
+- [ ] 既存ファイルの上書き判断は中身ゼロかどうかで分岐
+- [ ] system-reminder で外部変更通知が来たら、revert せず尊重する
+- [ ] Claude の「作りました」報告は実ファイルで検証 (Obsidian UI のキャッシュで見えないことがある)
+
+---
+
 ## 📚 関連
 
 - [[obsidian_vault]] — Vault 運用マニュアル (情報の保存ルール、運用フェーズ)
