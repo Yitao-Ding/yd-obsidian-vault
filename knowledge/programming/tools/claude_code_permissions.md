@@ -174,3 +174,4 @@ WebFetch (主要ドメイン): github.com, anthropic.com, nextjs.org, react.dev,
 ## 📝 更新履歴
 
 - 2026-05-19: 初版作成。グローバル設定 + `claude-init` 関数 + `settings.local.json` 整理を完了。
+- 2026-05-19 (深夜、監視タスク中): グローバル `~/.claude/settings.json` の `permissions.allow` に **`Bash(*)`** を追加。「Bash 全自動承認 + 既存 ask (`git push:*` / `vercel deploy:*` / `vercel --prod:*` / `vercel --yes` / `npm publish:*` / `pnpm publish:*` / `yarn publish:*` / `gh release create:*` / `sudo:*`) は維持」の構成に。並列監視タスクで複合 Bash コマンド (`P="..."; printf ...; git -C ...; find ...`) が毎回 ask されていた問題を解消。`deny > ask > allow` の優先順により push/deploy/publish/sudo は引き続き確認プロンプトが出る。

@@ -1,6 +1,6 @@
 ---
 type: current_state
-last_updated: 2026-05-18 (vidkit autocut 完成 + FCPXML ラウンドトリップ採用で更新)
+last_updated: 2026-05-19 (AI学習スプリント開始 + 朝ブリーフィング + 教科書システム追加、就活終了)
 update_frequency: 週1回以上
 ---
 
@@ -21,16 +21,18 @@ update_frequency: 週1回以上
 - **状況**:
   - dance モード完成 (TIME Instagram_最終２.mp4 で実機テスト済み)
   - **autocut モード完成 (2026-05-18)** — FCP用無音カット FCPXML 1.13 出力、lecture/vlog 2プリセット、Skill `~/.claude/skills/fcp-autocut/` 登録済み
+  - **tighten モード完成 (2026-05-19)** — 既存FCPプロジェクトの各クリップ内の残り無音を再カット、合成テストFCPXMLで検証済 (1clip→3clips、3.6s削除、xmllint通過)
+  - **tutorial モード完成 (2026-05-19)** — URL/ローカル自動判別、dance パイプライン相乗りで Claude Code が自走実装する PROMPT.md を生成
+  - **--vault-path オプション完成 (2026-05-19)** — `<vault>/raw/vidkit/<mode>/` への出力に全モード対応
   - lecture モードは未完成 (pyannote HF_TOKEN 待ち)
 - **次のアクション** (優先度順):
-  - [ ] **★ FCPXML ラウンドトリップ第一弾 = tighten オペレーション実装** (既存FCPプロジェクトの各クリップ内の残り無音をさらに詰める)
-  - [ ] FCPXMLリーダーを汎用モジュールとして実装 (後続オペレーションでも再利用)
-  - [ ] lecture モード仕上げ (pyannote HF_TOKEN セットアップ)
-  - [ ] tutorial モード設計・実装 (Webサイト制作チュートリアル動画 → 実装)
-  - [ ] Obsidian Vault 連携 (`--vault-path` オプション)
-- **将来のFCPXMLオペレーション候補**: speaker-filter / marker-batch / beat-snap (蛹用途) / roles-bulk
+  - [ ] **★ lecture モード仕上げ** (pyannote HF_TOKEN セットアップ → YD作業) — HuggingFace で `pyannote/speaker-diarization-community-1` のリクエスト承認 → `.env` に `HF_TOKEN` 設定
+  - [ ] 実 FCP プロジェクト (例: 平成たち祭・蛹) を Export XML → tighten 実機検証
+  - [x] **tighten/tutorial の Skill 化完了** (2026-05-19 00:52) — `~/.claude/skills/fcp-tighten/SKILL.md` (4.7KB) / `~/.claude/skills/video-tutorial/SKILL.md` (5.2KB)
+  - [x] **vidkit を git 初期化 + GitHub Private に push 完了** (2026-05-19 ~01:00) — `177a2f2 Initial commit` → `29deb68 docs: lecture セットアップ + tighten 実機検証手順を追加` (~01:05) → **`40cef7d fix: variable-fps 動画 (Zoom録画/screen capture) を autocut/tighten で扱えるように` (~02:00)**。origin = https://github.com/Yitao-Ding/vidkit.git、現在クリーン
+- **将来のFCPXMLオペレーション候補**: speaker-filter / marker-batch / beat-snap (蛹用途) / roles-bulk — `parse_fcpxml` + `write_fcpxml_from_parsed` の汎用モジュールが揃ったので追加コストは低い
 - **パス**: `/Users/ittou/projects/vidkit`
-- **関連**: `knowledge/programming/tools/vidkit.md`, `decisions/2026-05-18_FCPXML_ラウンドトリップ採用.md`
+- **関連**: `knowledge/programming/tools/vidkit.md`, `decisions/2026-05-18_FCPXML_ラウンドトリップ採用.md`, `decisions/2026-05-19_vidkit_tighten_tutorial_完成.md`
 
 ### 3. 平成たち祭 動画制作
 - **状況**: 撮影完了 (5/6)、DaVinciプロジェクト修復が必要だった

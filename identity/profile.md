@@ -1,6 +1,6 @@
 ---
 type: identity
-last_updated: 2026-05-18
+last_updated: 2026-05-19
 ---
 
 # YD - プロフィール
@@ -14,8 +14,14 @@ last_updated: 2026-05-18
 | **年齢** | 23歳 |
 | **性別** | 男性 |
 | **居住地** | 東京 |
-| **連絡先** | yitao0907@gmail.com |
+| **メインメアド** | yitao0907@gmail.com (普段使い・ID登録・連絡先) |
+| **AI/Claude系メアド** | save.yitao@gmail.com (Claude.ai / Anthropic Academy 等のAIサービス専用) |
 | **個人サイト** | https://yitao-ding.github.io |
+
+## 進路状況 (2026-05-19 時点)
+
+就活は終了、進路は別途決定済み。**今後の会話で就活トピックは触れない**。
+代わりに「AI学習スプリント」が新フェーズの主軸 (詳細: `decisions/2026-05-19_AI学習スプリント開始.md`)。
 
 ## 所属
 
