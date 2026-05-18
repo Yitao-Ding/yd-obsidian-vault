@@ -44,18 +44,21 @@ update_frequency: 週1回以上
 ## 🟢 アクティブ・優先度中
 
 ### 4. Salamat WBSサイト
-- **状況**: トップページ2版実装完了 (2026-05-18)。Claude Designでカンプ詰めて再送り予定
+- **状況**: ✅ Vercel初回デプロイ完了 (2026-05-18)。トップページ2版 + Tweaks Panel 公開中
+- **公開URL**: https://salamat-website-v2.vercel.app (チーム共有用、HTTP 200 確認済)
+- **個別デプロイ確認URL**: https://salamat-website-v2-pd68j01x0-yitao-dings-projects.vercel.app (Vercel Deployment Protection で 401)
 - **次のアクション**:
   - [ ] Claude Design で追加のカンプを詰める (YD)
   - [ ] 下層ページ (About / Activities / Reports / News / Members / Support / Transparency) の実装
   - [ ] お問い合わせフォーム、CMS連携、i18n
   - [ ] 本番モーション/カーソル演出の作り込み
-  - [ ] ドメイン取得 + Vercelデプロイ
+  - [ ] 独自ドメイン取得 → Vercel に紐付け
 - **チーム**: YD (実装) + Riko (内容) + Haruka (構成) + Rena (デザイン)
 - **スタック**: Next.js 16 + React 19 + Tailwind v4 + Sora/Zen Maru/Noto Sans JP
 - **パス**: `~/Downloads/07_開発・アプリ制作/salamat-website-v2`
+- **Vercel scope**: yitao-dings-projects、プロジェクト名 `salamat-website-v2`
 - **現行サイト**: `salamat-toyo.web.app` (Firebase、置き換え対象)
-- **関連**: `knowledge/salamat/wbs_team.md`
+- **関連**: `knowledge/salamat/wbs_team.md`, [[vercel]] (Vercel CLI運用知見)
 
 ### 5. Arte Grow (社会起業)
 - **状況**: Type B モデル確定、9月フィリピン視察計画中

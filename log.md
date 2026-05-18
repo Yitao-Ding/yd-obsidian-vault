@@ -80,3 +80,11 @@
   - この log.md エントリ追記
 [2026-05-18 19:00] Claude (デスクトップアプリ) が今日確立されたワークフロー自体を knowledge/programming/tools/vault_workflow.md として保存 (409行) — 1日の運用フロー、セッション開始の3パターン、保存フロー、並行作業の運用、月次メンテナンス、Phase 1→2→3 自動化フェーズ、必須3セクション付き
 [2026-05-18 19:01] YD が vsync で baf3f52..c147ce6 を GitHub に push 完了 (Vault 構築日の作業を全 GitHub 同期)
+[2026-05-18 21:30] Claude Code が Salamat WBSサイト (salamat-website-v2) を Vercel に初回デプロイ完了:
+  - 公開URL (チーム共有用): https://salamat-website-v2.vercel.app (HTTP 200 公開アクセス可)
+  - 個別デプロイURL: https://salamat-website-v2-pd68j01x0-yitao-dings-projects.vercel.app (401 = Vercel Deployment Protection 既定)
+  - 経緯: ローカル `next build` 通過 (Turbopack 3.8s, 静的 prerender 2ルート) → `vercel --yes` 初回実行 → 「Preview選択」のつもりが CLI 仕様で Production target になった (新規プロジェクト初回 `vercel` は本番扱い)
+  - 既存ブランチ: main (未コミット変更あり、デプロイには git not required で .vercel に紐付け)
+  - 知見: knowledge/programming/tools/vercel.md 新規作成、current_state/active_projects.md #4 を「Vercel初回デプロイ完了」に更新
+
+[2026-05-19 朝] Claude Code 権限システム整備 (グローバル `~/.claude/settings.json` に defaultMode:acceptEdits + Push/Deploy/Publish/sudo を ask に、settings.local.json から push/deploy 系 allow を除外、.zshrc に `claude-init` 関数追加、knowledge/programming/tools/claude_code_permissions.md 作成)
