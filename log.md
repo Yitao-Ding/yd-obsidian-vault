@@ -72,3 +72,9 @@
 [2026-05-18 18:40] CLAUDE.md の新ルール「必須3セクション (うまく行った/詰まった/チェックリスト)」を遡って Lecture Hub 関連 2 ファイルに追記:
   - decisions/2026-05-18_lecture_hub_個人用転換.md (Drizzle 移行・createReactBlockSpec ファクトリ・サンドボックス TCP ブロック等の知見を 3 セクションに整理)
   - knowledge/programming/tools/lecture_hub.md (BlockNote/pgvector/`after()`/同期インジケータの実装知見を 3 セクションに整理)
+[2026-05-18 18:50] YD が Claude Code (autocut実装セッション) に「ここで行った内容は Vault に保存されているか確認して、足りない情報があれば追記して」と依頼
+[2026-05-18 18:55] Claude Code が Vault 整合性チェックの結果、autocut機能・FCPXMLラウンドトリップ決定の主要記録 (decisions/、knowledge/vidkit.md) は既に保存済みと確認。current_state/ の 3 ファイルが stale だったため追記更新:
+  - current_state/active_projects.md #2 vidkit を「autocut完成 (2026-05-18) + tighten が新NEXT」に更新、将来のFCPXMLオペレーション候補も追記
+  - current_state/current_focus.md の vidkit次の機能を tutorial モード → **tighten (FCPXMLラウンドトリップ第一弾)** に変更
+  - current_state/recent_decisions.md に「FCPXMLラウンドトリップ採用」と「vidkit autocut モード追加」の 2 件を新規ブロックとして追記 ([[2026-05-18_FCPXML_ラウンドトリップ採用]] と [[vidkit]] にリンク)
+  - この log.md エントリ追記
