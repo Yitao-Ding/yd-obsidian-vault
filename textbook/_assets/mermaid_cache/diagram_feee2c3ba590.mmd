@@ -1,0 +1,12 @@
+sequenceDiagram
+    autonumber
+    participant A as セッションA
+    participant V as ~/ObsidianVault
+    participant D as セッションD (監視)
+
+    A->>V: log.md に「PDFパイプライン作成中」を追記
+    Note over V: ファイルが変わった!
+    D->>V: 10分後にVaultをスキャン
+    D->>V: 変更があったことを記録
+    A->>V: log.md にさらに「PDF生成成功」を追記
+    D->>V: また10分後にスキャン

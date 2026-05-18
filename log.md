@@ -107,12 +107,38 @@
 ## 監視一時停止中 (01:08 → 02:13) の出来事
 
 [2026-05-19 ~02:00] Claude Code (Lecture Hub セッション) が `2aca0d4 Fix array type mismatch in 0002 migration` を commit。家作業で `0002_drop_multitenancy.sql` を Supabase SQL Editor 適用試行中に発生した array 型の不一致を修正したと推察。
+
+## Salamat WBS v3 — Phase 1 一気実装 (別 Claude Code セッション)
+
+[2026-05-19 朝〜夕方] Claude Code (Salamat WBS セッション) が design-brief 収集 → 優先度付け → Phase 1 自走実装を1日で完了:
+  - YD が 21st.dev 風コンポーネントを8個投入 (#01〜#08) → 都度 design-brief.md に構造化記録 (参考URL / YDコメント原文 / Claude抽出 / 詰めポイント / 判定)
+  - Claude が「演出過密 / メンテコスト2倍 / 依存肥大化 / 情報伝達と装飾のバランス」を率直に懸念表明 → YD が「最初から完成形を目指す」哲学で Phase 2 持ち越し推奨だった #04 #05 を Phase 1 に繰り上げ判断
+  - YD から「ここからの作業は全て Claude 判断、最後にレビュー」の委譲を受領
+  - Phase 1 実装: #08 Hero (ZoomParallax × MeshGradient 融合, 300vh) / #06 Gallery4 構造で全カード統一 / #02 Cobe 地球儀 + #03 LocationTag で Action 再構築 / #04 Glowing Shadow + MeshGradient 簡略版でカード装飾 / #05 Radial Orbital Timeline で List⇄Orbital ビューモード切替
+  - 新規 10ファイル + 書き換え 7ファイル、依存追加: three / cobe / @paper-design/shaders-react (既存に framer-motion / embla-carousel-react / lucide-react / clsx / tailwind-merge / class-variance-authority あり)
+  - tsc / build / dev HTTP 200 通過、YD 目視レビュー「ちゃんと変わってます、大丈夫」
+  - 詰まったこと: paper-design/shaders-react 0.0.76 の API がプロンプト記載と差異 (`backgroundColor` 廃止、`spotsPerColor`→`spots`、`frame` 廃止) → `node_modules` の .d.ts を直読みして対応
+  - 写真ファイル名 vs 中身の不一致発覚: `ph-*.jpg` の中身が日本、`jp-*.jpg` の中身がフィリピン。YD指摘で Read ツール6枚並列確認 → コード上のマッピングを入れ替え (ファイル名はそのまま、Phase 2 cleanup)
+  - decisions/2026-05-19_Salamat_WBS_Phase1実装.md 新規作成
+  - mistakes/claude_mistakes.md に2件追記 (A-5: ライブラリ API バージョン差異、A-6: 画像ファイル名を信用しない)
+  - knowledge/salamat/wbs_team.md に Phase 1 セクション追記
+  - current_state/active_projects.md の #4 を Phase 1 完了 + Phase 2 残タスクに更新
 [2026-05-19 ~02:00] Claude Code (vidkit セッション) が `40cef7d fix: variable-fps 動画 (Zoom録画/screen capture) を autocut/tighten で扱えるように` を commit。可変フレームレート動画 (Zoom録画・screen capture 系) で autocut/tighten が壊れていたのを修正。
 [2026-05-19 02:13] Claude Code (監視セッション) が YD 指示で監視ループ再開 (cron 884eaa28、5分間隔)。Lecture Hub と vidkit の新 commit を補完追記、active_projects.md #2 vidkit に variable-fps 対応 commit を追記。Vault は依然 push 未実行 (M 3 + 未 add 1)。WBS は引き続き 1時間以上 commit ゼロのまま design-brief 編集続行。
 [2026-05-19 02:36] Claude Code (監視セッション) が YD 指示で `~/.claude/settings.json` の `permissions.allow` に **`Bash(*)`** を追加。監視 tick の複合 Bash (`P="..."; printf ...; git -C ...; find ...`) が毎回 ask されていた問題を解消。既存 ask (push/deploy/publish/sudo 系) は `deny > ask > allow` 優先順により維持。`knowledge/programming/tools/claude_code_permissions.md` の更新履歴にも反映。
 [2026-05-19 02:32] (commit `10f0dc8` で記録) Claude Code (vidkit セッション dive 2) が Vault に vidkit セッションの追加成果を保存: decisions/2026-05-19_vidkit_tighten_tutorial_完成.md 拡張 (実機47分動画検証 / GitHub Private / Skill 2件 / docs 2件 / variable-fps fix を必須3セクションに反映)、knowledge/programming/tools/vidkit.md 拡充 (5モード一覧 / variable-fps 注意点 / GitHub URL / Skill 3件 / docs リンク)、log.md 28行追記。active_projects.md は監視セッション側との競合を避けて除外 (連携OK)。
 [2026-05-19 ~02:40] YD or Claude デスクトップアプリが Vault に **大方針転換** を記録: `decisions/2026-05-19_AI学習スプリント開始.md` 新規 (AI学習スプリント + 朝ブリーフィング + 教科書システム + 4並列セッション割り当て A/B/C/D)、`identity/profile.md` 更新 (就活終了 + メアド 2系統 yitao0907@gmail.com / save.yitao@gmail.com + 進路状況)、`current_state/active_projects.md` の last_updated を「AI学習スプリント開始 + 朝ブリーフィング + 教科書システム追加、就活終了」に更新。自分 (監視セッション) は割り当て上「セッションD: 既存監視ループ継続」担当として明示された。
 [2026-05-19 02:41] Claude Code (監視セッション) が tick で WBSサイトの本格実装開始を検出: 直近6分で 11 ファイル変更 (新規 `cobe-globe.tsx` / `mesh-gradient-shader.tsx` / `gallery-carousel.tsx` / `location-tag.tsx` + Hero/Story/Report セクション更新)、design-brief 編集フェーズから本格コンポーネント実装フェーズへ移行。ただし依然 commit ゼロ (8 tick 連続)。
+[2026-05-19 02:55] Claude Code (監視セッション) が Vault の全 dirty 変更を 1 commit にまとめて push 完了 (`6646176 AI学習スプリント開始 + 監視ループ補正 + 権限拡張 (Bash(*))`、25 files / 1589+ / 10-)。`10f0dc8..6646176 main -> main` で GitHub `Yitao-Ding/yd-obsidian-vault` と完全同期。
+[2026-05-19 02:58] Claude Code (監視セッション) が YD 指示で監視対象を **4→8 に拡張**: 既存 (WBS / Lecture Hub / vidkit / Vault) + 新規 (textbook-engine / morning-briefing / learning/ / textbook/)。新 cron job で再起動。新規4対象の現状: `~/projects/textbook-engine` 未存在、`~/projects/morning-briefing` 未存在、`~/ObsidianVault/textbook` 未存在 (セッション A・B 起動待ち)、`~/ObsidianVault/learning` は anthropic_academy 17コーステンプレ + books/ + podcasts/ 構造で存在 (セッション C 進行中)。
+[2026-05-19 03:00 前後] **セッション A・B・C 3つ同時起動を検出**:
+  - セッションA (教科書PDFパイプライン): `~/projects/textbook-engine/` 出現 (`requirements.txt` 1 ファイルで初期化開始)、`~/ObsidianVault/textbook/README.md` 作成 (Vault 側ハブ立ち上げ)
+  - セッションB (朝ブリーフィング): `~/projects/morning-briefing/` 出現、**32 ファイル構造完成**: pyproject.toml / config.yaml / README.md / .env.example / .gitignore / .python-version、src/ 配下 4 モジュール分割 (`collectors/` / `renderer/` / `synthesizer/` / `uploader/`)、output / logs / credentials の `.gitkeep`。git init 済みだが commit はまだ (DIRTY=9 全 untracked)
+  - セッションC (AI学習ログ): `~/ObsidianVault/learning/` を大幅拡張 — `learning/README.md` 新規、`books/_template.md` + `books/README.md` 新規、`podcasts/_template.md` + `podcasts/README.md` 新規、`ai_certifications/` に新 3 サブフォルダ (claude_certified_architect / google_ai_professional / google_cloud_gen_ai_leader) と各 README.md、anthropic_academy 配下 17 コーステンプレも更新進行中
+  - セッションD (監視継続) = 自分
+[2026-05-19 03:00 前後] Vault DIRTY=8 で push 後の追加分が溜まり中 (主に learning/ と textbook/ の新規ファイル)。commit + push は YD 指示で随時。
+[2026-05-19 03:06] tick 進捗 — セッションA: `textbook-engine` 8ファイルへ拡大 (`setup.sh` / `build.sh` / `requirements.txt` / `README.md` / `templates/style.css` / `templates/template.html` / `src/build.py` / `src/__init__.py` — PDFパイプライン骨格)。セッションB: `morning-briefing` で uv 環境構築完了 (`.venv/` 作成、`uv.lock` 追加、`bin/morning-briefing` 実行ファイル生成)。Lecture Hub も動き出した — `src/components/editor/schema.ts` と `ai-slash-items.tsx` 編集 (Phase 2 完成後の調整か継続実装、要 watch)。WBS は 13 tick 連続 commit ゼロのまま静止。
+[2026-05-19 03:11] tick 進捗 — **★ セッションB が試作 PDF 生成達成** (`morning-briefing/output/2026-05-19_morning_briefing.pdf` + `.html` 出力、`templates/briefing.html.j2` + `briefing.css` テンプレ作成、`src/renderer/pdf.py` + `src/renderer/tts.py` + `src/synthesizer/briefing.py` 実装)。**★ WBS担当 CC が Vault に decisions 追加**: `decisions/2026-05-19_Salamat_WBS_Phase1実装.md` 新規 + `knowledge/salamat/wbs_team.md` 更新 (WBSの本格コンポーネント実装フェーズの記録)。セッションA: `textbook/_template/textbook_template.md` 追加 (Vault 側に教科書テンプレ)。Lecture Hub: `src/components/editor/Editor.tsx` 編集続行 (DIRTY=5)。WBS は 14 tick 連続 commit ゼロのまま。
 [2026-05-19 01:00] Claude Code (vidkit セッション) が dive 2 を完走:
   - **variable-fps fix** (commit 40cef7d): Zoom録画 / screen capture / オンライン講義 系の `r_frame_rate=600/1` 誤検出を `_pick_fps(r, avg)` で吸収。`_pick_frame_duration` 許容を 0.1 → 0.5 に緩めて 30.302 → 30 スナップ可
   - **実機ラウンドトリップ検証**: `オンデマンド経営学５-3.mp4` (852x480 / 30.302fps / 47m31s) で autocut → 479 keeps / 196.6s 削除 (2.25s 完走) → tighten で +0.8s (ほぼ冪等) → rough(1clip)→tighten で 479 clips / 196.9s 削除 (autocut と整合)、xmllint 通過
@@ -120,3 +146,35 @@
   - **Skill 2 件登録**: `~/.claude/skills/fcp-tighten/SKILL.md`、`~/.claude/skills/video-tutorial/SKILL.md` (新セッションでキーワード自動ロード)
   - **ユーザーガイド** (vidkit プロジェクト内): `docs/lecture-setup.md` (HF_TOKEN 取得 5 ステップ)、`docs/tighten-howto.md` (FCP 実プロジェクト往復手順)
   - Vault 反映 (このコミット): [[2026-05-19_vidkit_tighten_tutorial_完成]] に検証(E) / 配布・運用 / 必須3セクションを追記、[[vidkit]] に variable-fps 注意点 / Skill / docs / GitHub リンク追記
+
+## AI学習スプリント Day 0 (基盤構築) — セッションC
+
+[2026-05-19 03:00] Claude Code (セッションC) が **AI学習スプリント管理基盤を構築完了**:
+- `~/ObsidianVault/learning/` 新規作成、配下に **28ファイル** 生成
+- 構造:
+  - `learning/README.md` (3軸ハブ: 資格 / 書籍 / ポッドキャスト)
+  - `learning/ai_certifications/README.md` (4資格進捗ダッシュボード)
+  - `learning/ai_certifications/anthropic_academy/README.md` + 個別コーステンプレ **18枚** (公式ページに18コース公開を確認、decisions文書の17コースから1増)
+  - `learning/ai_certifications/{claude_certified_architect, google_ai_professional, google_cloud_gen_ai_leader}/README.md` (各試験概要 + 準備状況 + 受験予定)
+  - `learning/books/{README.md, _template.md}` (朝ブリーフィング推薦本ログ用)
+  - `learning/podcasts/{README.md, _template.md}` (購読9番組: 英Tim Ferriss/Lex/Acquired/MFM/All-In + 日COTEN/Off Topic/西野/a scope)
+- 各個別コースファイルは frontmatter で `status`/`started_at`/`completed_at`/`cert_url` を機械可読管理、CLAUDE.md (Vault憲法) の必須3セクション (うまく行った/詰まった/チェックリスト) 含む
+- 推奨受講順序 (2週間プラン): Day 1=基礎2本 / Day 2=製品 / Day 3=Claude Code / Day 4-6=API+MCP / Day 7=Skills+Subagents / Week 2=Cloud+業界別Fluency
+- 「YDへの引き寄せ」セクション全コースに記入: Salamat (260名NPO) / Arte Grow (SMB) / vidkit / Lecture Hub / Task Hub / 撮影業 への接続を1-3行でメモ
+- 試験情報を Web で最新確認: CCA-F (60問/120分/Early Access 5000人無料以降$99/5領域=Agentic 27%, Claude Code 20%, Prompt 20%, MCP 18%, Context 15%)、Google AI Pro (7モジュール+capstone/$49月/Google AI Pro 3ヶ月特典)、Google Cloud Gen AI Leader (50-60問/90分/$99/4領域)
+- active_projects.md に「★ AI学習スプリント ★」を最重要エントリとして挿入、既存番号は維持
+- 自走モード遵守: 設計判断 (進捗管理フォーマット / コース番号付け / カテゴリ分類 / 推奨受講順) は自分で決めて進行、YD確認は不要範囲
+
+## 教科書システム構築 — セッションA
+
+[2026-05-19 03:00 前後] Claude Code (セッションA) が **YD専用教科書システムを構築完了**:
+- `~/ObsidianVault/textbook/` 新規作成: README.md (目次・進捗管理) + 5領域ディレクトリ (00_basics / 01_web_development / 02_video_processing / 03_ai_engineering / 04_tools) + `_template/` (統一テンプレート) + `_output_pdf/` (PDF出力) + `_assets/mermaid_cache/` (Mermaid PNG キャッシュ)
+- `~/projects/textbook-engine/` 新規作成 (ローカルのみ、git未): Python製 Markdown → 縦長PDF 変換ツール。スタック = WeasyPrint 62 + markdown + pymdown-extensions + Pygments (one-dark) + Jinja2 + Mermaid CLI (npx mmdc)
+- `setup.sh` 一発でシステム依存 (brew: pango / cairo / gdk-pixbuf / libffi) + Python venv + Pythonパッケージ全部入る。Apple Silicon の dylib 不可視問題は `build.sh` で `DYLD_FALLBACK_LIBRARY_PATH=/opt/homebrew/lib` を通して解決
+- `templates/template.html` + `templates/style.css` で**雑誌風レイアウト**を実装: ネイビーグラデーション + アクセント円 + Kicker badge のカバーページ / h1 採番 / h2 縦線アクセント / コードブロックは ダーク背景 + 左ボーダー / Mermaid 図は薄背景カード化 / ページ番号は `N / total` 表記 / 末尾に奥付ページ
+- `_template/textbook_template.md` 統一テンプレート策定: 7セクション (1.何が起きた / 2.図解 / 3.キーコンセプト / 4.コード解説 / 5.チェックリスト / 6.関連リンク / 7.用語集)、Mermaid と用語集は必須
+- 第1号 `textbook/03_ai_engineering/01_claude_code_parallel.md` 執筆完了: 「Claude Code 4並列で何が起きてるか」、Mermaid 2枚 (flowchart + sequence)、コードブロック 8個、用語集 17項目、最終 **A4 12ページ / 753KB** PDF として `_output_pdf/01_claude_code_parallel.pdf` に生成
+- ビルドコマンドは 1コマンド: `cd ~/projects/textbook-engine && ./build.sh <markdown_path>` で `textbook/_output_pdf/` に自動出力 (textbook ディレクトリを自動検出)
+- 設計判断 (自走モード遵守): PDFライブラリ = WeasyPrint 採用 (reportlab は低レベル過ぎ、Playwright はchromium重い) / フォント = macOS 標準ヒラギノ角ゴ ProN (Noto Sans CJK は追加依存) / Mermaid = mmdc で PNG レンダリング + SHA1 ハッシュキャッシュ / シンタックスハイライト = Pygments one-dark
+- 詰まった点 (3回未満で解決): (1) WeasyPrint の libgobject 不可視 → `DYLD_FALLBACK_LIBRARY_PATH` で解決 / (2) CSS変数 `var(--navy-deep)` を radial-gradient 内で使うと WeasyPrint がコケる → ハードコード `#051728` で解決
+- Vault 反映 (このコミット): `decisions/2026-05-19_AI学習スプリント開始.md` の「4並列セッション割り当て」に セッションA 完了マーク、`current_state/active_projects.md` に教科書システム追加、`knowledge/programming/tools/textbook_engine.md` を新規作成 (必須3セクション付き)

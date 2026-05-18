@@ -11,6 +11,28 @@ update_frequency: 週1回以上
 
 ## 🟢 アクティブ・優先度高
 
+### ★ AI学習スプリント (2026-05-19 開始、最重要) ★
+
+- **状況**: ✅ 学習基盤構築完了 (セッションC、2026-05-19 03:00) — `learning/` 配下 28ファイル
+- **目標**: 4資格取得 + 朝ブリーフィングで継続的なインプット
+  1. Anthropic Academy 全18コース (2026-05-19 → 06-02、2週間スプリント)
+  2. Claude Certified Architect Foundations (60問、5領域、2026-06中旬)
+  3. Google AI Professional Certificate (Coursera、3ヶ月Google AI Pro付き、2026-06-16 → 07-31)
+  4. Google Cloud Generative AI Leader ($99、90分、2026-08、余裕あれば)
+- **次のアクション** (Week 1):
+  - [ ] **Day 1 (今日 5/19)**: AI Capabilities and Limitations + AI Fluency: Framework & Foundations
+  - [ ] Day 2 (5/20): Claude 101 + Introduction to Claude Cowork
+  - [ ] Day 3 (5/21): Claude Code 101 + Claude Code in Action
+  - [ ] Day 4-7: API → MCP → MCP Advanced → Agent Skills + Subagents
+  - [ ] Week 2 (5/26 → 6/2): Cloud (Bedrock/Vertex) + AI Fluency 各業界版
+- **受講メアド**: `save.yitao@gmail.com` (AI系専用)
+- **進捗管理**: `learning/ai_certifications/` 配下、各コースの frontmatter `status:` で機械可読化
+- **関連**:
+  - [[../learning/README]]
+  - [[../learning/ai_certifications/README]]
+  - [[../learning/ai_certifications/anthropic_academy/README]] (18コース全体マップ)
+  - [[../decisions/2026-05-19_AI学習スプリント開始]]
+
 ### 1. Obsidian Vault 構築 (今このタスク)
 - **状況**: Claude Code に渡す設計書作成中
 - **次のアクション**: Claude Codeで `~/ObsidianVault/` を構築
@@ -46,21 +68,25 @@ update_frequency: 週1回以上
 ## 🟢 アクティブ・優先度中
 
 ### 4. Salamat WBSサイト
-- **状況**: ✅ Vercel初回デプロイ完了 (2026-05-18)。トップページ2版 + Tweaks Panel 公開中
-- **公開URL**: https://salamat-website-v2.vercel.app (チーム共有用、HTTP 200 確認済)
-- **個別デプロイ確認URL**: https://salamat-website-v2-pd68j01x0-yitao-dings-projects.vercel.app (Vercel Deployment Protection で 401)
-- **次のアクション**:
-  - [ ] Claude Design で追加のカンプを詰める (YD)
-  - [ ] 下層ページ (About / Activities / Reports / News / Members / Support / Transparency) の実装
-  - [ ] お問い合わせフォーム、CMS連携、i18n
-  - [ ] 本番モーション/カーソル演出の作り込み
+- **状況**: ✅ **Phase 1 一気実装完了 (2026-05-19)** — Hero 全面リデザイン (ZoomParallax×MeshGradient 300vh) + 全カード Gallery4 統一 + Cobe 地球儀 + LocationTag (Cebu/Tokyo現地時刻) + Glowing Shadow 装飾 + List⇄Orbital ビューモード切替。tsc/build/dev HTTP200 + YD 目視確認 OK。Vercel デプロイは Phase 2 で実施。
+- **公開URL (v2版、未更新)**: https://salamat-website-v2.vercel.app (まだ Phase 1 はローカルのみ)
+- **次のアクション (Phase 2)**:
+  - [ ] Phase 1 を Vercel に再デプロイ
+  - [ ] #07 Magnetic+Fey ボタンを主要 CTA に適用
+  - [ ] #01 Three.js パーティクル背景を Hero/Action 以外のセクションに
+  - [ ] モバイル fallback の本格実装 (シェーダー→2D、ZoomParallax 簡略、地球儀静止画)
+  - [ ] 旧コード cleanup (`country-hero`/`country-cards-band`/`dot-map` CSS、`PhilippinesMap`/`JapanMap`)
+  - [ ] 写真ファイル名 cleanup (`ph-*` が日本、`jp-*` がフィリピンの実態と逆になっている)
+  - [ ] circular ストーリーレイアウトの Gallery 化判断
+  - [ ] 下層ページ実装 (About / Activities / Reports / News / Members / Support / Transparency)
+  - [ ] お問い合わせフォーム + CMS連携 (microCMS/Notion/Sanity)
   - [ ] 独自ドメイン取得 → Vercel に紐付け
 - **チーム**: YD (実装) + Riko (内容) + Haruka (構成) + Rena (デザイン)
-- **スタック**: Next.js 16 + React 19 + Tailwind v4 + Sora/Zen Maru/Noto Sans JP
+- **スタック**: Next.js 16 + React 19 + Tailwind v4 + three + cobe + @paper-design/shaders-react + framer-motion + embla-carousel-react + Sora/Zen Maru/Noto Sans JP
 - **パス**: `~/Downloads/07_開発・アプリ制作/salamat-website-v2`
 - **Vercel scope**: yitao-dings-projects、プロジェクト名 `salamat-website-v2`
 - **現行サイト**: `salamat-toyo.web.app` (Firebase、置き換え対象)
-- **関連**: `knowledge/salamat/wbs_team.md`, [[vercel]] (Vercel CLI運用知見)
+- **関連**: `knowledge/salamat/wbs_team.md`, [[2026-05-19_Salamat_WBS_Phase1実装]], [[vercel]], `~/Downloads/07_開発・アプリ制作/salamat-website-v2/design-brief.md`
 
 ### 5. Arte Grow (社会起業)
 - **状況**: Type B モデル確定、9月フィリピン視察計画中

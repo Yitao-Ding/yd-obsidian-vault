@@ -93,6 +93,72 @@ Component + Client Component に変換する。
 - [ ] 実際の活動写真・人名画像への差し替え (現状一部プレースホルダー)
 - [ ] Impact Stats を Trust 要素として復活させるか再検討
 
+---
+
+## Phase 1 (v3) 一気実装 (2026-05-19)
+
+詳細は [[2026-05-19_Salamat_WBS_Phase1実装]] および `~/Downloads/07_開発・アプリ制作/salamat-website-v2/design-brief.md` 参照。
+
+### 実装内容 (6項目)
+
+| # | 内容 | 実装ファイル (主要) |
+|---|------|------------------|
+| #08 | Hero 全面リデザイン (ZoomParallax × MeshGradient 300vh) | `sections/hero.tsx`, `effects/mesh-gradient-shader.tsx` |
+| #06 | Gallery4 構造で全カード統一 (Story/Action/Report) | `ui/gallery-carousel.tsx` |
+| #02 | Cobe 地球儀 (Action 各国背景) | `ui/cobe-globe.tsx` |
+| #03 | LocationTag (Cebu/Tokyo 現地時刻) | `ui/location-tag.tsx` |
+| #04 | Glowing Shadow + MeshGradient 装飾 (カード全部) | `globals.css` の `.gallery-card--decorated` 群 |
+| #05 | List⇄Orbital ビューモード切替 | `orbital/radial-orbital-timeline.tsx` 等5ファイル |
+
+Phase 2 持ち越し: `#07` Magnetic+Fey ボタン、`#01` Three.js パーティクル背景。
+
+### 依存追加
+
+- `three` 0.184.0 / `@types/three`
+- `cobe` 2.0.1
+- `@paper-design/shaders-react` 0.0.76
+
+(既存に framer-motion / embla-carousel-react / lucide-react / clsx / tailwind-merge / class-variance-authority あり)
+
+### 開発フロー (確立済み)
+
+```bash
+cd "/Users/ittou/Downloads/07_開発・アプリ制作/salamat-website-v2"
+./node_modules/.bin/tsc --noEmit
+./node_modules/.bin/next build
+./node_modules/.bin/next dev -p 3001 &
+sleep 6 && curl -s -o /dev/null -w "HTTP %{http_code}\n" http://localhost:3001/
+open http://localhost:3001/
+# 確認後
+lsof -ti:3001 | xargs kill
+```
+
+### Phase 1 追加の ✅ うまく行ったこと
+
+- design-brief.md (プロジェクト直下) に 8個のプロンプトを #01〜#08 として構造化記録 → 後の意思決定で参照しやすい
+- 「収集 → 優先度付け → 一気実装」の3段フェーズが破綻なく回った
+- Claude の率直な懸念表明 (技術スタック肥大化 / 演出過密) を YD が積極判断で覆す、議論型コミュニケーション
+- 既存依存の最大活用で追加は3パッケージのみ
+- TaskCreate 10タスク分解で context 切れに耐える進捗管理
+- 写真の中身確認に Read ツールで6枚並列表示
+
+### Phase 1 追加の ❌ 詰まったこと
+
+- `@paper-design/shaders-react` 0.0.76 はプロンプト記載と API 差分 (`backgroundColor` 廃止、`spotsPerColor`→`spots`、`frame` 廃止) → `node_modules/.pnpm/@paper-design+shaders@0.0.76/.../dist/shaders/*.d.ts` 直読みで対応
+- `lucide-react` v1.16 のアイコン互換性が不安 → 予防的に自前 SVG (`makeIcon`) を実装
+- `pnpm tsc` / `pnpm dev` が build scripts 問題で失敗 → `./node_modules/.bin/tsc` / `./node_modules/.bin/next` 直接呼び出しで回避
+- 写真ファイル名と中身が逆 (`ph-*.jpg` が日本、`jp-*.jpg` がフィリピン) → コード上のマッピングを入れ替えて対応、ファイル名 cleanup は Phase 2 へ
+- dev server の二重起動 → `lsof -ti:3001 | xargs kill` を使う
+
+### Phase 1 追加の 📋 次回チェックリスト
+
+- 「This is NOT the Next.js you know」 (AGENTS.md) — Next.js 16 のドキュメントを必要に応じて確認
+- `next-themes` は導入しない (現プロジェクトは独自 `.dark-mode` クラス)
+- shadcn は導入しない (既存 CSS 変数で代替実装)
+- `@paper-design/shaders-react` の API はバージョンごとに違う、`node_modules/.../dist/*.d.ts` を直読みする
+- 画像アセットを使う時は Read ツールで中身確認してから (ファイル名を信用しない)
+- TaskCreate で進捗を分解しておくと、長時間セッションでも破綻しない
+
 ## ✅ うまく行ったこと
 
 - **Claude Design → Claude Code のリレー**が想定以上にスムーズ。HTML/CSS/JS prototype を

@@ -1,0 +1,17 @@
+flowchart TB
+    User((YD<br/>ユーザー))
+
+    subgraph Mac["1台のMacBook Pro M5 Max"]
+        direction LR
+        A["Claude Code<br/>セッションA<br/>📚 教科書システム"]
+        B["Claude Code<br/>セッションB<br/>☀️ 朝ブリーフィング"]
+        C["Claude Code<br/>セッションC<br/>🎓 学習ログ整備"]
+        D["Claude Code<br/>セッションD<br/>👁 監視ループ"]
+    end
+
+    Vault[(共有ノート空間<br/>~/ObsidianVault)]
+    Repo1[(Gitリポジトリ<br/>vidkit / lecture-hub)]
+
+    User -->|起動| A & B & C & D
+    A & B & C & D -->|読み書き| Vault
+    A & B -->|たまに触る| Repo1
