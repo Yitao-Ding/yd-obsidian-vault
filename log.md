@@ -88,3 +88,31 @@
   - 知見: knowledge/programming/tools/vercel.md 新規作成、current_state/active_projects.md #4 を「Vercel初回デプロイ完了」に更新
 
 [2026-05-19 朝] Claude Code 権限システム整備 (グローバル `~/.claude/settings.json` に defaultMode:acceptEdits + Push/Deploy/Publish/sudo を ask に、settings.local.json から push/deploy 系 allow を除外、.zshrc に `claude-init` 関数追加、knowledge/programming/tools/claude_code_permissions.md 作成)
+[2026-05-19 00:45] Claude Code (監視セッション) が 4プロジェクト並行監視ループを起動 (cron job 36352460, `*/5 * * * *`)。対象: WBS / Lecture Hub / vidkit / Vault。初回tickで検出: vidkit が git 未化、WBS が Initial commit 以降未コミット、Lecture Hub に多数未コミット (削除30+/新規20+)。現在の動き: vidkit が tighten 実装中 (Vault `raw/vidkit/tighten/` に出力)、WBS が design-brief 編集中、Lecture Hub は静止。
+[2026-05-19 00:49] Claude Code (vidkit セッション) が vidkit に **tighten / tutorial / --vault-path** を 1 セッションで追加完了:
+  - `fcpxml.py` に FCPXMLリーダー (`parse_fcpxml`) + 再シリアライザ (`write_fcpxml_from_parsed`) を追加 (汎用、後続オペレーションでも再利用可)
+  - `vidkit/tighten.py` 新規 — クリップ内残り無音を ffmpeg silencedetect で検出 → 各 asset-clip を細分化 → timeline offset 累積再計算
+  - `prompts/tutorial.md` 新規 — Claude Code が動画から `TUTORIAL.md` + `code/` を自走実装する 4 ステップ指示
+  - `--vault-path` オプション全モード対応 (`<vault>/raw/vidkit/<mode>/` に出力)
+  - 検証: 12秒テスト動画 (3発話+2無音) で autocut→tighten ラウンドトリップ成功、ラフ rough.fcpxml (1clip) → tighten で 3clips 分割 (3.6s 削除)、xmllint 通過、offset 累積和・フレーム整列すべてOK
+  - 残: lecture モード (HF_TOKEN 取得待ち、YD 作業)、実FCPプロジェクトでの実機検証
+  - 関連: [[2026-05-19_vidkit_tighten_tutorial_完成]]、[[vidkit]]
+[2026-05-19 00:52] Claude Code (vidkit セッション) が tighten / tutorial を Skill 化: `~/.claude/skills/fcp-tighten/SKILL.md` (4.7KB) と `~/.claude/skills/video-tutorial/SKILL.md` (5.2KB) を作成。fcp-autocut と同じパターンでキーワードトリガー自動ロード可能に。
+[2026-05-19 00:57] Claude Code (監視セッション) が tick 4 で Skill 2件の作成を検出、Vault 未反映のため log.md と active_projects.md (#2 vidkit の Skill 化チェックを [x] 完了マーク) を補正。
+[2026-05-19 01:00 前後] Claude Code (vidkit セッション) が vidkit を **git 初期化 + GitHub Private に push 完了** — `git init` → 初期 commit `177a2f2` (Initial commit: 動画前処理 CLI (dance / lecture / autocut / tighten / tutorial)) → GitHub Private リポ `Yitao-Ding/vidkit` 作成 → push。これで監視ループ初期に検出した CRITICAL 問題「vidkit が git 未化」は完全解消。Untracked は `docs/lecture-setup.md` のみ (lecture モード仕上げで追加されたっぽいファイル、commit はまだ)。
+[2026-05-19 01:02] Claude Code (監視セッション) が tick 5 で vidkit git 化を検出、active_projects.md #2 の「git 初期化 + GitHub Private push」チェックを [x] 完了マークに補正。
+[2026-05-19 01:05 前後] Claude Code (vidkit セッション) が docs/ を 2 ファイル追加して 2 commit 目 `29deb68 docs: lecture セットアップ + tighten 実機検証手順を追加` を作成、push 済。同時に knowledge/programming/tools/vidkit.md を更新 (tighten/tutorial/--vault-path セクション + 必須3セクションを完全反映、ただし fcp-tighten / video-tutorial の Skill 登録情報は未追記、提案として保留中)。
+[2026-05-19 01:08] Claude Code (監視セッション) が tick 6 を完了、YD 指示で監視ループ (cron 36352460) を一時停止。最終状態: vidkit ✅ git 化 + 2 commits + docs 2 件、Lecture Hub ✅ クリーン (.env.local だけ編集)、WBS ⚠️ 6 tick 連続 commit ゼロ (design-brief.md 編集のみ継続)、Vault は M 3 件 + 未 add の decisions/2026-05-19_vidkit_tighten_tutorial_完成.md 1 件で git push 未実行。
+
+## 監視一時停止中 (01:08 → 02:13) の出来事
+
+[2026-05-19 ~02:00] Claude Code (Lecture Hub セッション) が `2aca0d4 Fix array type mismatch in 0002 migration` を commit。家作業で `0002_drop_multitenancy.sql` を Supabase SQL Editor 適用試行中に発生した array 型の不一致を修正したと推察。
+[2026-05-19 ~02:00] Claude Code (vidkit セッション) が `40cef7d fix: variable-fps 動画 (Zoom録画/screen capture) を autocut/tighten で扱えるように` を commit。可変フレームレート動画 (Zoom録画・screen capture 系) で autocut/tighten が壊れていたのを修正。
+[2026-05-19 02:13] Claude Code (監視セッション) が YD 指示で監視ループ再開 (cron 884eaa28、5分間隔)。Lecture Hub と vidkit の新 commit を補完追記、active_projects.md #2 vidkit に variable-fps 対応 commit を追記。Vault は依然 push 未実行 (M 3 + 未 add 1)。WBS は引き続き 1時間以上 commit ゼロのまま design-brief 編集続行。
+[2026-05-19 01:00] Claude Code (vidkit セッション) が dive 2 を完走:
+  - **variable-fps fix** (commit 40cef7d): Zoom録画 / screen capture / オンライン講義 系の `r_frame_rate=600/1` 誤検出を `_pick_fps(r, avg)` で吸収。`_pick_frame_duration` 許容を 0.1 → 0.5 に緩めて 30.302 → 30 スナップ可
+  - **実機ラウンドトリップ検証**: `オンデマンド経営学５-3.mp4` (852x480 / 30.302fps / 47m31s) で autocut → 479 keeps / 196.6s 削除 (2.25s 完走) → tighten で +0.8s (ほぼ冪等) → rough(1clip)→tighten で 479 clips / 196.9s 削除 (autocut と整合)、xmllint 通過
+  - **GitHub Private 化**: https://github.com/Yitao-Ding/vidkit (Initial commit + docs commit + variable-fps fix commit の 3 commits)
+  - **Skill 2 件登録**: `~/.claude/skills/fcp-tighten/SKILL.md`、`~/.claude/skills/video-tutorial/SKILL.md` (新セッションでキーワード自動ロード)
+  - **ユーザーガイド** (vidkit プロジェクト内): `docs/lecture-setup.md` (HF_TOKEN 取得 5 ステップ)、`docs/tighten-howto.md` (FCP 実プロジェクト往復手順)
+  - Vault 反映 (このコミット): [[2026-05-19_vidkit_tighten_tutorial_完成]] に検証(E) / 配布・運用 / 必須3セクションを追記、[[vidkit]] に variable-fps 注意点 / Skill / docs / GitHub リンク追記
