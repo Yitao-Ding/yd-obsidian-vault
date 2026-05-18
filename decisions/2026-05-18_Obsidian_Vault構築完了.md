@@ -123,12 +123,23 @@ YDは長期間、Claudeとの新セッション開始のたびに「自分が誰
 
 詳細は [[knowledge/programming/tools/obsidian_vault]] 参照。
 
+## 補足: Claude Code 側の実装メモ (2026-05-18 追記)
+
+本構築を実行した Claude Code セッションの実装ノウハウ (権限モード比較・プロンプト設計・強み弱み) は別ファイル [[claude_code]] に分離記録。
+
+実装時に追加で発生した小さな判断:
+
+- **プラグインバイナリ (main.js / styles.css) は Git 追跡対象から除外** — 計約 1.6MB。manifest.json と data.json のみ追跡し、別端末で clone した時は Obsidian で同名プラグインを再インストールする運用にした
+- **`.obsidian/appearance.json` も追跡対象から除外** — 端末ごとのフォントサイズ等が混入しないように
+- **事前 `settings.json` の `permissions.allow` がほぼ全工程の鍵だった** — `Bash(git:*)` `Bash(mkdir:*)` `Write(~/ObsidianVault/**)` `Edit(~/ObsidianVault/**)` などを許可リストに登録しておいたことで、Step 1-13 のうち権限プロンプトが必要だった場面はほぼ無かった。`--dangerously-skip-permissions` より安全で、通常モードより速い中庸案
+
 ## 関連
 
 - [[active_projects]] — Vault が解決する問題
 - [[recent_decisions]] — 直近の意思決定一覧
 - [[claude_mistakes]] — このVaultが守るべき教訓
 - [[obsidian_vault]] (knowledge) — 運用ルール詳細
+- [[claude_code]] (knowledge) — Claude Code 側の実装ノウハウ
 
 ## 出典
 

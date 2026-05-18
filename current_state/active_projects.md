@@ -1,6 +1,6 @@
 ---
 type: current_state
-last_updated: 2026-05-18
+last_updated: 2026-05-18 (WBSサイト 2版実装完了で更新)
 update_frequency: 週1回以上
 ---
 
@@ -38,11 +38,17 @@ update_frequency: 週1回以上
 ## 🟢 アクティブ・優先度中
 
 ### 4. Salamat WBSサイト
-- **状況**: 5月1日ローンチ予定だったが、現状要確認
-- **次のアクション**: 公開状況を確認、未公開なら最終仕上げ
+- **状況**: トップページ2版実装完了 (2026-05-18)。Claude Designでカンプ詰めて再送り予定
+- **次のアクション**:
+  - [ ] Claude Design で追加のカンプを詰める (YD)
+  - [ ] 下層ページ (About / Activities / Reports / News / Members / Support / Transparency) の実装
+  - [ ] お問い合わせフォーム、CMS連携、i18n
+  - [ ] 本番モーション/カーソル演出の作り込み
+  - [ ] ドメイン取得 + Vercelデプロイ
 - **チーム**: YD (実装) + Riko (内容) + Haruka (構成) + Rena (デザイン)
-- **構成**: 8ページ (Home / About / Activities / Reports / News / Members / Support / Transparency)
-- **ツール**: Wix
+- **スタック**: Next.js 16 + React 19 + Tailwind v4 + Sora/Zen Maru/Noto Sans JP
+- **パス**: `~/Downloads/07_開発・アプリ制作/salamat-website-v2`
+- **現行サイト**: `salamat-toyo.web.app` (Firebase、置き換え対象)
 - **関連**: `knowledge/salamat/wbs_team.md`
 
 ### 5. Arte Grow (社会起業)
