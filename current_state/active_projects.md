@@ -1,6 +1,6 @@
 ---
 type: current_state
-last_updated: 2026-05-18 (WBSサイト 2版実装完了で更新)
+last_updated: 2026-05-18 (Lecture Hub 個人用転換 + Phase 2 全完了で更新)
 update_frequency: 週1回以上
 ---
 
@@ -74,13 +74,23 @@ update_frequency: 週1回以上
 - **関連**: `knowledge/programming/tools/task_hub.md`
 
 ### 7. Lecture Hub (個人ナレッジハブ)
-- **状況**: ✅ 本番デプロイ完了 (2026-05-17)
-- **URL**: `https://lecture-hub-yitao-ding-yitao-dings-projects.vercel.app/`
+- **状況**: ✅ 個人用転換 + Phase 2 全完了 (2026-05-18) — 本番デプロイ更新は家でやる
+- **URL**: `https://lecture-hub-yitao-ding-yitao-dings-projects.vercel.app/` (2026-05-17 時点の MVP 版)
 - **パス**: `/Users/ittou/projects/lecture-hub`
-- **スタック**: Next.js + Supabase + BlockNote + AI SDK
-- **次のアクション**:
-  - [ ] Anthropic APIキー登録
-  - [ ] PAT 発行 → Claude Code Routine 設定
+- **スタック**: Next.js + Supabase Postgres (Auth なし) + Drizzle + BlockNote + AI SDK + pgvector + Dexie
+- **今日やったこと (2026-05-18)**:
+  - 認証システム全削除 (Supabase Auth / Vault / RLS / api_tokens / ai_keys / `(auth)` / `/api/v1`)
+  - 全クエリを PostgREST → Drizzle 一本化、AI キーは env 直読み
+  - Phase 2 全項目: ダークモード / ノート内 AI Slash / 講義テンプレ Cron / 全文検索 / AI チャット履歴 / 数式・コード・PDF / 添付・Whisper / pgvector / オフライン編集 (Dexie+sync)
+  - CLAUDE.md 整備 + vitest 26 件
+- **家でやる残作業**:
+  - [ ] Supabase SQL Editor で `0002_drop_multitenancy.sql` 適用
+  - [ ] 同じく `0003_pgvector.sql` 適用
+  - [ ] `.env.local` に `ANTHROPIC_API_KEY` / `GOOGLE_GENERATIVE_AI_API_KEY` / `OPENAI_API_KEY` / `BLOB_READ_WRITE_TOKEN` / `CRON_SECRET` を埋める
+  - [ ] Vercel ダッシュボードで Blob 統合を有効化 → `vercel env pull`
+  - [ ] `pnpm dev` で動作確認 (オフライン編集 / Slash メニュー / 同期インジケータ)
+  - [ ] `vercel --prod` で本番デプロイ更新
+- **意思決定記録**: [[2026-05-18_lecture_hub_個人用転換]]
 - **関連**: `knowledge/programming/tools/lecture_hub.md`
 
 ## 🟢 就活関連
