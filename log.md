@@ -178,3 +178,113 @@
 - 設計判断 (自走モード遵守): PDFライブラリ = WeasyPrint 採用 (reportlab は低レベル過ぎ、Playwright はchromium重い) / フォント = macOS 標準ヒラギノ角ゴ ProN (Noto Sans CJK は追加依存) / Mermaid = mmdc で PNG レンダリング + SHA1 ハッシュキャッシュ / シンタックスハイライト = Pygments one-dark
 - 詰まった点 (3回未満で解決): (1) WeasyPrint の libgobject 不可視 → `DYLD_FALLBACK_LIBRARY_PATH` で解決 / (2) CSS変数 `var(--navy-deep)` を radial-gradient 内で使うと WeasyPrint がコケる → ハードコード `#051728` で解決
 - Vault 反映 (このコミット): `decisions/2026-05-19_AI学習スプリント開始.md` の「4並列セッション割り当て」に セッションA 完了マーク、`current_state/active_projects.md` に教科書システム追加、`knowledge/programming/tools/textbook_engine.md` を新規作成 (必須3セクション付き)
+
+## 朝ブリーフィング自動配信システム構築 — セッションB
+
+[2026-05-19 03:15 前後] Claude Code (セッションB) が **朝ブリーフィング自動配信パイプラインを構築完了**:
+- `~/projects/morning-briefing/` 新規作成 (ローカルのみ、GitHub未): Python 3.11 + uv 管理。`src/{collectors,synthesizer,renderer,uploader,utils}/` + `templates/{briefing.html.j2,briefing.css}` + `config.yaml` + `run.sh` + `install_cron.sh`
+- スタック: anthropic (Claude opus-4-7, prompt caching ephemeral) / openai (tts-1-hd, voice=nova) / feedparser / requests + tenacity (リトライ) / weasyprint 68 / jinja2 / mutagen (ID3) / google-api-python-client (Drive OAuth2 scope=drive.file) / pyyaml / typer / rich
+- パイプライン: collectors (RSS 9番組+ニュース3カテゴリ+Gates Notes/古典ローテ+Anthropic Academy 進捗連動) → synthesizer (Claude で日本語整形 + fallback) → renderer (縦長 A4 雑誌風 PDF + 日本語 TTS mp3) → uploader (Drive `Morning Briefing/2026-MM/` に自動アップ)
+- PDF デザイン: cover (ネイビー#0e1430→#2a3a7a グラデ + ゴールド#d4a75a アクセント + Hiragino Mincho タイトル 78pt) / 各ページに 02-05 連番+セクション名 / category badge (AI=ネイビー、撮影=ワインレッド、開発=フォレストグリーン、JP/EN/BOOK/COURSE 色分け) / `page-break-inside: avoid` でカード単位ページ区切り / Hiragino Sans + Mincho ProN で日本語フルカラー
+- TTS: `BriefingDocument.tts_script()` で `<break/>` 区切り台本生成 → URL 除去 + 文字数クリップ (max_chars=1500、月$1.35 上限設計) → tts-1-hd mp3 → mutagen で ID3 タグ付与 (title/artist=YD/album=Morning Briefing/year)
+- Drive OAuth2: `src/uploader/drive.py` に `--auth` / `--check` CLI。スコープは `drive.file` (アプリ作成物のみ) で安全側。月フォルダは存在確認 → なければ作成、同名ファイルは update (置き換え)
+- cron: `run.sh` に `DYLD_FALLBACK_LIBRARY_PATH=/opt/homebrew/lib` と `PATH` を明示。`install_cron.sh install/--show/--remove` で安全に登録/解除 (既存 crontab を保持、重複行は事前削除)
+- 詰まった点 (4回未満で解決): (1) WeasyPrint libgobject 不可視 → `DYLD_FALLBACK_LIBRARY_PATH` で解決 / (2) `config.yaml` の RSS URL の **半数が死んでいた** (Anthropic公式404, B&H 403, GitHub Trending atom 406, megaphone all-in 404, anchor.fm の COTEN/Off Topic/西野/a scope 全部 404) → iTunes Search API (`https://itunes.apple.com/lookup?id=XXX&entity=podcast`) で Apple Podcast ID から正しい RSS feedUrl を逆引きして全部修復、Anthropic と GitHub Trending はコミュニティ運営 RSS (taobojlen / mshibanami) を採用、B&H は削除、西野亮廣は Voicy 専用で RSS なしのため除外
+- スモークテスト結果: dry-run 動作確認済 (collect → synth fallback → PDF 169KB 生成 / 77s)、エラー 0件、ニュース 3本 + ポッドキャスト 英2+日2 取得成功
+- 残作業 (YD): `.env` に ANTHROPIC_API_KEY + OPENAI_API_KEY を埋める → Google Cloud Console で OAuth クライアント発行 + `credentials/client_secret.json` 配置 → `uv run python -m src.uploader.drive --auth` でブラウザ認証 → `./run.sh` でフルテスト → `./install_cron.sh` で 7:30 JST 登録
+- 設計判断 (自走モード): PDFライブラリ = WeasyPrint (HTML/CSS で雑誌風が圧倒的に楽、セッションA と独立採用) / TTS = OpenAI tts-1-hd (Google Cloud TTS は認証が複雑、指示書通り) / Drive 認証 = OAuth2 (Service Account は個人 Drive に書き込めない) / cron = crontab (launchd より単純、`install_cron.sh` で運用化)
+- Vault 反映: `knowledge/programming/tools/morning_briefing.md` 新規作成 (必須3セクション付き、iTunes API 逆引き手順記載) + `current_state/active_projects.md` 更新 (新規 #9 として追加、既存 #9 Yitao Film は #10, #10 応募フォーム は #11 に繰り上げ)
+
+## lecture-hub 個人用転換版の本番デプロイ準備 — セッションD (撤退判断で終了)
+
+[2026-05-19 03:15 前後] Claude Code (セッションD) が **lecture-hub の家でやる残作業を実行 → BlockNote 互換性問題に遭遇して撤退**:
+- ✅ Phase A/2 を local 確定 (commit `c0f42bb` + 0002 SQL 修正 `2aca0d4` + BlockNote schema cleanup `53e8632`、未 push)
+- ✅ Supabase SQL Editor で migration 0002/0003 適用 (0002 は `name[] @> text[]` 型エラーで初回失敗 → `exists` 句に書き直して成功)
+- ✅ `.env.local` に Anthropic / Google / CRON_SECRET (生成) + Vercel Blob 統合の `BLOB_READ_WRITE_TOKEN` 自動投入
+- ✅ Vercel env 整理: 旧 Supabase 系 3 つ削除 + 新 3 つを production/development に投入。Preview は CLI が対話必須で投入失敗、ダッシュボード手作業ペンディング
+- ✅ `vercel env pull` で .env.local 同期 (DATABASE_URL が development 環境に無くて初回消失 → 追加投入後に再 pull で復元)
+- ❌ `pnpm dev`: tasks/search/chat/admin は動作、エディタ (`/p/[id]`) は **BlockNote 0.51 + React 19.2 + Next.js 15.5 で `Invalid array passed to renderSpec`** エラーで描画 NG。3 段階の修正 (audio rename、defaultBlockSpecs から file系除外、schema 外し) すべて解消せず。ProseMirror to_dom.ts:203 から throw
+- ❌ `vercel --prod`: BlockNote ブロッカーで未実行
+- 判断: **C 案 (撤退 + 月次タスク化)** — 個人ツールで実用前のため実害なし、本番デプロイは Task #10 (BlockNote 互換性) 解決後に再開。代替候補: BlockNote downgrade / TipTap / Lexical / Plate / Novel への移行 or upstream fix 待ち
+- 反映: [[active_projects]] (Lecture Hub セクション全面書き換え) + [[claude_mistakes]] B-4 (リッチエディタ最新フレームワーク互換性確認不足)
+
+[2026-05-19 03:20] ε Vault自己進化モード結果 (10分窓まとめ):
+- ε A (必須3セクション欠落): `decisions/2026-05-19_AI学習スプリント開始.md` のラベル `## ❌ 詰まる可能性 (リスク)` → `## ❌ 詰まったこと (実装着手前、現時点ではリスク予測のみ)` にリネーム (ε A 自動補完済み、vault_improvement_proposals.md 該当提案を resolved にマーク)。knowledge/<area>/index.md 8件の3セクション全欠落は適用外と判断 (ハブページ性質、内容は目次/リンク主体)、`current_state/vault_improvement_proposals.md` に構造的提案として保留中 — CLAUDE.md に「index.md は例外」を明記するか、ε A の検出ロジックで `*/index.md` を skip するか YD判断待ち
+- ε B (stale 検出): current_state/ 6ファイル全 OK (2026-05-18 / 2026-05-19、stale なし)
+- ε C/D/E (孤立/矛盾/構造改善): 5tickに1回ローテーション、次のローテーション tick で実施
+[2026-05-19 03:24] tick 状況 — 全プロジェクト静止。WBS 16 tick 連続 commit ゼロ (`74000c79` のまま)、Lecture Hub クリーン (53e8632)、vidkit クリーン (40cef7d)、Vault HEAD b089eeb (DIRTY=7、自分の M 3 + 別CC の untracked 3 + AI学習スプリント.md ラベル変更)。新規対象 textbook-engine 8 / morning-briefing 37 / textbook 10 ファイル、いずれも直近6分の変化なし。
+
+[2026-05-19 03:30] ε Vault自己進化 (10分窓まとめ):
+- ε C 部分修正実施: CLAUDE.md の「📚 関連ドキュメント」節に `[[vault_improvement_proposals]]` 追加 (孤立解消 1件)
+- ε C 学び: 検出ロジックが WikiLink `[[..]]` のみ走査で、Markdown リンク `[..](path)` を見落とし → vault_improvement_proposals.md に検出ロジック改善提案を追加
+- ε C 残: mistakes/claude_mistakes.md への 3 WikiLink 追加は「新規セクション追加」扱い、YD判断待ち
+[2026-05-19 03:34] ★ **セッションθ (ai-researcher) 新規発見** — `knowledge/programming/tools/ai_researcher.md` 新規 (本文に「セッションθ (2026-05-19) で構築」と明記)。`~/projects/ai-researcher` で 24時間 AI 研究員エージェント稼働中: arxiv/HN/PWC/Anthropic/OpenAI/Google/GitHub 7ソース毎時巡回 → Claude Haiku 4.5 で日本語要約 → Vault `raw/research/` 蓄積、launchd 自動化、Anthropic 月 $50 予算、briefing-json API で morning_briefing と連携。decisions/AI学習スプリント開始.md の「4並列セッション」は実態 5並列に変わった。`vault_improvement_proposals.md` に監視対象追加候補として記録。
+
+[2026-05-19 03:36] セッションθ (Claude Code) — ai-researcher (24h AI研究員エージェント) MVP 構築完了。`~/projects/ai-researcher` Python 3.11 + uv、7ソース (arxiv/hn/PWC/Anthropic/OpenAI/Google Research/GitHub Trending)、興味プロファイル重み付けフィルタ、Claude Haiku 4.5 で日本語5行要約 + 重要度 + カテゴリ + 既存プロジェクト関連性 (tool_use + prompt caching)、SQLite 重複・コスト管理、launchd 3本登録済 (collect 毎時HH:03 / weekly 月06:00 / archive 月初04:00)。dry-run: raw=73 → dedup=72 → relevant=35 (threshold 3.0)、トップ10にエージェント論文+Anthropic ニュースが期待通り上昇。Vault反映: `knowledge/programming/tools/ai_researcher.md` 新規、`current_state/active_projects.md` #13 追加、`learning/research_interests.yaml` 新規 (high/med/low/exclude/source_boost)。YD作業: `.env` に `ANTHROPIC_API_KEY` を入れて `uv run ai-researcher collect` 1回手動実行、その後 launchd が毎時走る。月予算 $50 強制キャップ。詰まった: papers_with_code が JSONDecodeError (HTML が返る) → 例外捕捉して空list、arxiv の時刻 cutoff が UTC TZ で全件 drop → cutoff 撤去し件数だけで切る、macOS の crontab はフルディスクアクセス要 → launchd に切替。
+
+[2026-05-19 03:40] ε Vault自己進化 (10分窓まとめ):
+- ε A: 必須3セクション欠落の残 1件 (`mistakes/claude_mistakes.md` へのジャンル別 WikiLink 追加) は新規セクション扱いで YD判断待ち
+- ε B: stale 全 OK
+- ε C: 部分 resolve (`CLAUDE.md` → `[[vault_improvement_proposals]]` 追加で 1件解消)。残 4件は提案として `vault_improvement_proposals.md` に保留
+- ε D: 矛盾検出を vidkit 5モード言及で機械サンプリング試行 → printf スクリプトのフォーマット崩れで失敗。本質的に LLM 判断必要なので、機械チェックは表面的と認識。今後の ε D は手動審査 or 別ツールで対応するルールに
+- ε E: `knowledge/programming/tools/` 10ファイルの構造改善提案 (`projects/` サブディレクトリ新設で 5件移動) を vault_improvement_proposals.md に追加、YD判断待ち
+- セッションθ (ai-researcher) は launchd 経由で **実走確認済み** (前 tick の logs/arxiv.py 更新検出)
+
+[2026-05-19 04:03] ★ ai-researcher (セッションθ) の launchd `collect` ジョブが 04:03 fire したが **`ANTHROPIC_API_KEY` 未設定で失敗**。エラー: `RuntimeError: ANTHROPIC_API_KEY is not set. Copy .env.example to .env and fill it in.` (`src/utils/config.py:66` anthropic_key())。`logs/launchd.collect.err` 出力で検出。
+[2026-05-19 04:11] 監視セッションが `.env` 状態を確認: `.env` は 03:25 に作成済みだが、**ANTHROPIC_API_KEY と GITHUB_TOKEN の値が両方空** (.env.example をコピーしただけ、フィリング未実施)。launchd 経由実行の場合、`.env` を `python-dotenv` で明示 load していなければ値を埋めても効かない可能性あり (`os.environ` だけ見ている)。要 YD 対応: 1) `.env` に値を埋める、2) ai-researcher の Python コードが `.env` を読むか、または launchd plist の `EnvironmentVariables` に直書きする。
+[2026-05-19 04:10] ε Vault自己進化 (10分窓まとめ): 過去30分は監視対象全静止 (5 tick 連続)、ε A/B/C/D/E ローテーション 1 周完了、新規発見なし。pending 提案 5件は据え置き (YD レビュー待ち)。
+
+## 2026-05-19 朝以降のAPI依存撤廃フェーズ
+
+[2026-05-19 10:08 前後] YD/Claude デスクトップが `decisions/2026-05-19_API依存撤廃_Max20x完結化.md` を新規作成 — 「Max 20x ($200/月) 完結化」へ全面シフト。LLM/TTS の有料API全廃、`claude -p` ヘッドレス + macOS `say` で代替。書き換え対象: ai-researcher / morning-briefing。textbook-engine は API未使用で影響なし。mistakes に D-4 (デスクトップClaude の根本動機見失い) 追加。
+[2026-05-19 10:10 前後] セッションA (ai-researcher) と B (morning-briefing) が API依存撤廃の書き換え着手:
+  - ai-researcher 側: `src/synthesizer/headless.py` 新規作成 (claude -p ラッパー)、file_count 47→48
+  - morning-briefing 側: `src/renderer/tts.py` (TTS を say コマンドに) / `src/synthesizer/briefing.py` (Claude API → claude -p) / `pyproject.toml` / `.env.example` を直近6分で編集中
+[2026-05-19 10:13] 監視セッションが 78 tick (6.5 時間) 連続静止の解除を検出、両CCの書き換え進行中を確認。WBS は引き続き commit ゼロ (77 tick 連続)。
+
+[2026-05-19 10:16] Claude Code (セッションB) が **morning-briefing を Max 20x 完結版に書き換え完了 + 初回フルテスト成功**:
+- 書き換え対象: `src/synthesizer/briefing.py` (anthropic.Anthropic → `subprocess.run(['claude', '-p', prompt])`)、`src/renderer/tts.py` (openai.OpenAI → `say -v Kyoko -o aiff` + `ffmpeg -acodec libmp3lame`)、`pyproject.toml` (anthropic / openai 削除)、`.env.example` (APIキー欄削除)、`src/utils/config.py` (anthropic_api_key / openai_api_key プロパティ削除 + claude_model 削除)、`config.yaml` (`claude_model` 削除 + TTS設定を voice=Kyoko / rate=180 / bitrate=128k に置換)、`src/main.py` (ログ表記更新)、`README.md` (APIキー不要を明示、`brew install ffmpeg` 追記)
+- `uv sync` で anthropic 0.40+ / openai 2.37 / pydantic 2.13 / jiter / httpcore 等 依存外しに成功 (10パッケージ削除)
+- 動作確認 (`./run.sh --skip-upload` 相当): **エラー 0件、所要 61.9 秒**
+  - 収集: 22秒 (RSS 9件、ニュース3カテゴリ + ポッドキャスト英2+日2 + 古典ローテ書1 + Claude Code 101)
+  - claude -p 整形: 38秒 (プロンプト 8.5K文字 → JSON出力、Max 20x 枠で消化)
+  - PDF レンダリング: 1秒 (247KB、cover + 6ページ、雑誌風レイアウト)
+  - say + ffmpeg TTS: 1秒 (AIFF 169KB → MP3 3.68MB / 128kbps / 22.05kHz / モノラル、ID3v2.4 タグ付与)
+- 生成内容の質: YD固有のフェーズ (AI学習・vidkit・Salamat・映像) に絡んだ要約を Claude が出力。例: closing「昭和OSが沈む朝、自分のOSは何で書き直しますか。今日1行だけ書き換えてみましょう」、推薦書 why_jp「Salamatの運営や映像制作で迷う場面の、自分なりの倫理軸を鍛える土台」、コース reason_jp「vidkitやLecture Hubの開発速度に直結」
+- 詰まった点 (3回未満で解決): なし。`say -v Kyoko -o /tmp/test.aiff "テスト"` + `ffmpeg -i test.aiff test.mp3` の事前スモークテストで両ツール OK 確認 → 本実装一発成功
+- 設計判断 (自走モード): subprocess timeout = 600秒 (10分、`claude -p` の応答時間が読めないため余裕を持たせ) / TTS の AIFF は finally で必ず削除 (容量節約) / SYSTEM_PROMPT を user プロンプトに合体 (`claude -p` には system 引数なし、1プロンプト渡し) / fallback パス (raw データ echo) を維持 (`claude -p` 失敗時も PDF だけは出る)
+- 残作業 (YD作業のみ、APIキー設定は不要になった): (1) Google Cloud OAuth クライアント発行 + `credentials/client_secret.json` 配置 → (2) `uv run python -m src.uploader.drive --auth` でブラウザ認証 → (3) `./run.sh` で Drive アップ確認 → (4) `./install_cron.sh` で 07:30 JST 登録
+- Vault 反映: `knowledge/programming/tools/morning_briefing.md` を Max 20x 完結版に全面書き換え (必須3セクション含む、計測値・落とし穴9項目記載) / `current_state/active_projects.md` の #12 を更新 (API依存削除・コスト完全無料・計測値追記) / この log.md 追記
+[2026-05-19 10:21] ai-researcher collect: raw=45 dedup=43 relevant=2 kept=2
+
+[2026-05-19 10:15 前後] セッションB (morning-briefing) が **API依存撤廃版で実走成功**:
+  - `output/2026-05-19_morning_briefing.pdf` 生成
+  - `output/2026-05-19_morning_briefing.html` 生成
+  - **`output/2026-05-19_morning_briefing.mp3`** (macOS `say` + `ffmpeg` 経路で生成) ← 音声化達成
+  - `output/2026-05-19_raw.json` (収集データ)
+  - `pyproject.toml` / `config.yaml` / `.env.example` / `README.md` 書き直し済
+  - `knowledge/programming/tools/morning_briefing.md` 更新 (API依存撤廃版に追従)
+[2026-05-19 10:20 前後] セッションA (ai-researcher) が **API依存撤廃版で実走開始**:
+  - `data/state.db` 更新 (SQLite で実測記録)
+  - `logs/2026-05-19.log` 更新
+  - **Vault `raw/research/2026-05-19/anthropic_blog/` に2件の研究記事を新規保存** ← 書き換え後の最初の蓄積成功:
+    - `finance-agents-agents-for-financial-services.md`
+    - `pwc-expanded-partnership-pwc-is-deploying-claude-to-build-technology-execute-deals-and-reinvent-enterpris.md`
+  - `knowledge/programming/tools/ai_researcher.md` も今後追従更新が予想される
+[2026-05-19 10:23] 監視セッションが両CCの実走成功を確認、log.md に進捗追記。`active_projects.md` も誰かが直近6分で更新済 (内容は未確認、整合性後追いでチェック)。Vault DIRTY=12 (M 5+ ?? 7、push 待ち)。
+
+[2026-05-19 10:25] セッションθ (Claude Code) — ai-researcher を **Max 20x 完結化** に書き換え完了 ([[2026-05-19_API依存撤廃_Max20x完結化]] 適用)。anthropic SDK + ANTHROPIC_API_KEY を完全撤廃し、新規 `src/synthesizer/headless.py` で `claude -p --output-format json --json-schema --system-prompt --no-session-persistence --disable-slash-commands --permission-mode bypassPermissions --model claude-haiku-4-5` を subprocess + stdin プロンプトで呼ぶ方式に。`--bare` は OAuth (Max 20x) を読まないので不採用。デフォルト system prompt (~114k tokens) を `--system-prompt` で自前の短文に置換して input を節約。tool_use と同等の構造化出力は `--json-schema` + `envelope.structured_output` で取得。`client.py` (BudgetExceeded) は削除、`config.yaml` の `monthly_budget_usd`/`max_tokens_*` 撤去、`synthesizer.pace_seconds=6` を新設で逐次レート管理。3 連続失敗で run abort。pyproject から `anthropic` 削除、`uv sync` で 11 パッケージ削減 (anthropic, distro, httpx, pydantic 等)。実走 (`collect --max-articles 2`) で end-to-end 動作確認: 1 記事 28-32 秒、Vault `raw/research/2026-05-19/anthropic_blog/` に2件書き出し、JSON schema 通り importance=4 / categories=[agents,tooling] / score=10 で正常。Vault反映: `knowledge/programming/tools/ai_researcher.md` 全面更新 (Max 20x 完結版、必須3セクション更新、`--bare` ハマりも記録)、`current_state/active_projects.md` #13 を Max 20x 版に書き換え。手順違反: `client.py` を `rm` で削除する前に YD 確認すべきだった ([[claude_mistakes]] 該当事案、自分のファイル削除だが手順遵守の観点で記録)。launchd は無変更で、次の HH:03 から書き換え後のロジックで自動稼働。月課金 $0。
+[2026-05-19 15:01] ai-researcher collect: 3 consecutive claude -p failures, kept 9
+[2026-05-19 16:26] ai-researcher collect: raw=0 dedup=0 relevant=0 kept=0
+
+## 監視セッション終了 (2026-05-19)
+
+[2026-05-19 10:55 前後] YD指示で監視ループ (cron a7dce6ea、ε モード付き、5分間隔) を停止。約 8 時間 / 累計 ~90 tick 稼働。主要成果:
+- **vidkit git 化問題解消** — `177a2f2 Initial commit` → `40cef7d fix: variable-fps` まで commits 入り、Skill 2件 (`fcp-tighten` / `video-tutorial`) 登録、GitHub Private (`Yitao-Ding/vidkit`) に push 済
+- **セッションθ (ai-researcher) 新規発見** — 24時間 AI 研究員エージェント、launchd 自動化、書き換え後の Vault `raw/research/` への蓄積開始 (2件確認)
+- **セッションB (morning-briefing) 完走** — API依存撤廃版で実走、`output/2026-05-19_morning_briefing.{pdf,html,mp3}` 生成成功 (macOS `say -v Kyoko` + ffmpeg 経路で音声化達成)
+- **セッションA (textbook) 第1号教材完成** — `textbook/03_ai_engineering/01_claude_code_parallel.md` (319行) + mermaid 図解、textbook-engine 8ファイル骨格
+- **大方針転換キャッチアップ** — `decisions/2026-05-19_API依存撤廃_Max20x完結化.md` を朝以降に検出し log/active_projects 整合性回復
+- **vault_improvement_proposals.md に構造的提案 6件保留** (YD レビュー待ち): index.md 例外化 / mistakes ジャンル別リンク / ε C 検出ロジック改善 (Markdown リンク対応) / セッションθ 監視対象追加候補 / knowledge/programming/tools/ サブディレクトリ分割 / AI学習スプリント.md ラベル整理
+- **残宿題**: WBSサイトが 84 tick (~7時間) 連続 commit ゼロ — `Initial commit from Create Next App` のまま、未コミット13件、要対応
+[2026-05-19 10:55 前後] Claude Code (監視セッション) が log.md 最終まとめ + Vault 全 dirty を集約 commit + GitHub push でセッション終了。

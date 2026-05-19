@@ -171,6 +171,29 @@
 
 ---
 
+### B-4. リッチエディタ系ライブラリの最新フレームワーク互換性確認不足 (頻度: 中、最終発生: 2026-05-19)
+
+**状況**: lecture-hub で **BlockNote 0.51 (ariakit) + React 19.2 + Next.js 15.5** の組み合わせで、`/p/[id]` のエディタを開いた瞬間に ProseMirror `to_dom.ts:203` から `Invalid array passed to renderSpec` が throw されてエディタが描画できない。
+
+**過去のやらかし**:
+- 2026-05-19: Phase A/2 完了後の本番デプロイ準備で発覚。3 段階の修正 (a) `defaultBlockSpecs` から `audio/image/video/file` 除外、(b) カスタム audio block を `audio` → `lectureAudio` にリネーム (default audio と衝突回避)、(c) `useCreateBlockNote` から schema を完全に外して pure BlockNote 化 — どれも解消せず。BlockNote 0.51 + React 19 + Next 15 の組み合わせ自体の bug と推定 (関連 issue: TypeCellOS/BlockNote#1347)。結果 1 日の作業が本番デプロイまで届かず blocked。
+
+**正しい挙動**:
+- リッチエディタ (BlockNote / TipTap / Lexical / Plate / Novel) は ProseMirror / React の内部実装に依存度が高く、React・Next の major / minor アップグレードで壊れやすい
+- 採用前に **GitHub issue で `react 19` `next 15` のキーワード検索** して open issue 数を確認する
+- 「最新フレームワーク × 最新エディタ」を選ぶ場合は、動かなくなった時に切り替えられる **代替候補を 1 つ事前に決めておく**
+- もしくは 1 メジャー前のフレームワーク or エディタで凌ぐ判断
+
+**再発防止**:
+- リッチエディタの採用 / アップグレード時のチェックリスト:
+  1. GitHub Issue で `react 19` / `next 15` (採用するフレームワーク版) で検索
+  2. 過去 3 ヶ月以内の open issue があれば赤信号
+  3. 代替候補を最低 1 つ pin する (TipTap / Lexical / Plate / Novel)
+- BlockNote 0.51 の同件 issue: TypeCellOS/BlockNote#1347 系
+- 関連: [[lecture_hub]] の進捗履歴
+
+---
+
 ### B-3. 商用化の見通しの過小評価 (頻度: 低)
 
 **状況**: Task Hub 等の YD のプロダクトに対して、ビジネス的妥当性を控えめに評価しがち。
@@ -418,3 +441,83 @@
 4. **YDの時間の保護** — 毎回ゼロから説明する負担を減らす
 
 **この記録を読まずに応答することは、このVault全体の存在意義を否定する行為に等しい。**
+
+
+---
+
+## カテゴリD: 文脈・記憶関連 (追加)
+
+### D-4. 会話の根本動機を設計フェーズで見失う (頻度: 高、最終発生: 2026-05-19)
+
+**状況**: 議論の出発点となった「根本動機」が、議論が進むうちに具体設計の中で忘れられ、根本動機と矛盾する設計を提案してしまう。
+
+**過去のやらかし**:
+- 2026-05-19: 出発点は「Max 20xプラン ($200/月) が使い切れない」→「使い切る目的で何ができる?」だった。
+  にもかかわらず、ai-researcher / morning-briefing の指示書で **Anthropic API + OpenAI TTS API + Google Cloud TTS** など、Max 20xの外側で動く有料APIを月$80-100規模で発生する設計で提案。
+  Claude Code 5並列を稼働させて作り込んだ後にYDに指摘されて発覚 (「APIで動かすAIは極力使わないで欲しい」)。
+
+**正しい挙動**:
+- 設計に着手する前、必ず「この議論の根本動機は何だったか」を1秒で確認する
+- 特に「コスト」「使い切る」「依存撤廃」のような縛りが冒頭にあった場合、具体設計が縛りに違反していないかチェック
+- 既存システムの常識 (例「LLM処理はAPIで」) より、ユーザー固有の縛りを優先する
+
+**再発防止**:
+- 新規システムの設計フェーズに入る直前に、以下チェック:
+  1. 会話の冒頭5メッセージの「根本動機」を再読
+  2. その動機と設計案が矛盾しないか確認
+  3. 特に「API課金」「外部依存」「月額固定枠の活用」系の前提は明示的に確認
+- このパターンは vidkit / Lecture Hub / Task Hub などの過去プロジェクトでも繰り返す可能性が高いので、習慣化する
+
+---
+
+### A-7. `rm` 実行前の確認漏れ (頻度: 低、最終発生: 2026-05-19)
+
+**状況**: 自走モードでは Push / Deploy / sudo / **rm** のみ YD に確認するルール。自分で書いたばかりのファイルでも `rm` を直接叩く前に確認が必要。
+
+**過去のやらかし**:
+- 2026-05-19: ai-researcher の Max 20x 完結化書き換えで、`src/synthesizer/client.py` (anthropic SDK ラッパー、自分が前セッションで書いたもの) を `rm` で削除。意図は明確で復元不要だったが、ルール上は YD への事前確認 or 別手段 (`git rm` / 残して空にする) を取るべきだった。
+
+**正しい挙動**:
+- `rm` を打つ前に「これは Push/Deploy/sudo/rm に該当する操作か」を 1 秒だけ自問
+- 自分のファイルでも YD に「`src/synthesizer/client.py` を削除してよいか」と一行確認
+- もしくは `git rm` (git 管理下なら) や、内容を空にして残す方針も可
+
+**再発防止**:
+- Bash で `rm` を含むコマンドを組み立てたら、実行前に AskUserQuestion で確認をする習慣
+- 例外: `/tmp` 配下の自分が作ったテンポラリファイル、`__pycache__` などの再生成可能ファイル
+
+---
+
+### A-8. `claude -p --bare` は OAuth (Max 20x) を読まない (頻度: 低、最終発生: 2026-05-19)
+
+**状況**: `claude -p` をヘッドレスで叩くとき、最小化のために `--bare` を入れがちだが、`--bare` の仕様には「Anthropic auth is strictly `ANTHROPIC_API_KEY` or apiKeyHelper via --settings (OAuth and keychain are never read)」とある。OAuth (Max 20x) が無視され、Anthropic API key が必須になってしまう。
+
+**過去のやらかし**:
+- 2026-05-19: ai-researcher の `claude -p` 化で、最初に `--bare` を入れたら `Not logged in · Please run /login` で全件失敗。出力 JSON の `total_cost_usd: 0` で気づかなければ、Anthropic API key を持っている場合に課金されてしまう設計のまま走らせる可能性があった。
+
+**正しい挙動**:
+- Max 20x 枠で動かしたい場合は `--bare` を使わない
+- 代わりに `--no-session-persistence` + `--disable-slash-commands` + `--system-prompt` 自前 で実質的な最小化を達成
+- `--bare` は明示的に Anthropic API key で動かしたい (CI など) ときだけ使う
+
+**再発防止**:
+- `claude -p` でヘッドレス実行を組む時、必ず最初に「OAuth (Max 20x) と API key のどちらで動かしたいか」を明確化
+- OAuth で動かしたい場合は `--bare` 禁止、`--system-prompt` 自前で input を節約
+
+---
+
+### B-4. 構造化出力 envelope のキー名の取り違え (頻度: 低、最終発生: 2026-05-19)
+
+**状況**: `claude -p --output-format json --json-schema ...` の応答 envelope では、validate された JSON は **`envelope["structured_output"]`** に入る。`envelope["result"]` はモデルの自然文 wrapper で、JSON ではない。
+
+**過去のやらかし**:
+- 2026-05-19: 当初 `envelope["result"]` を JSON とみなして `json.loads` しようとして失敗。`result` には「完了しました。指示通り構造化フォーマットで提供しました。」のような wrapper 文章が入っていた。
+
+**正しい挙動**:
+- `--json-schema` 使用時は **`envelope["structured_output"]`** を最初に見る
+- 念のため `envelope["result"]` からの JSON ブロック抽出フォールバックも残しておく (将来のCLI仕様変更対策)
+- 一度サンプルレスポンスを `cat` で目視確認してからパーサ実装
+
+**再発防止**:
+- `--output-format json` のレスポンス構造は実物を 1 回見る、推測しない
+- envelope 全体を log debug 出力するオプションを残しておく

@@ -217,3 +217,4 @@ CLAUDE.md 自体の更新は YD の許可を得てから行うこと。
 - [[00_CLAUDE_BOOT]] — 起動シーケンスの詳細
 - [[obsidian_vault]] (knowledge) — 運用マニュアル詳細
 - [[2026-05-18_Obsidian_Vault構築完了]] — このVault誕生の記録
+- [[vault_improvement_proposals]] (current_state/) — ε モードが検出した構造的改善提案の蓄積

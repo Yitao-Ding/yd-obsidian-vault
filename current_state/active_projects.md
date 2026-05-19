@@ -1,6 +1,6 @@
 ---
 type: current_state
-last_updated: 2026-05-19 (AI学習スプリント開始 + 朝ブリーフィング + 教科書システム追加、就活終了)
+last_updated: 2026-05-19 (AI学習スプリント開始 + 朝ブリーフィング基盤完成 + 教科書システム第1号完成、就活終了)
 update_frequency: 週1回以上
 ---
 
@@ -32,6 +32,7 @@ update_frequency: 週1回以上
   - [[../learning/ai_certifications/README]]
   - [[../learning/ai_certifications/anthropic_academy/README]] (18コース全体マップ)
   - [[../decisions/2026-05-19_AI学習スプリント開始]]
+  - [[../knowledge/programming/tools/textbook_engine]] — 教科書システム (セッションA で構築済み、運用へ)
 
 ### 1. Obsidian Vault 構築 (今このタスク)
 - **状況**: Claude Code に渡す設計書作成中
@@ -111,24 +112,75 @@ update_frequency: 週1回以上
 - **関連**: `knowledge/programming/tools/task_hub.md`
 
 ### 7. Lecture Hub (個人ナレッジハブ)
-- **状況**: ✅ 個人用転換 + Phase 2 全完了 (2026-05-18) — 本番デプロイ更新は家でやる
-- **URL**: `https://lecture-hub-yitao-ding-yitao-dings-projects.vercel.app/` (2026-05-17 時点の MVP 版)
+- **状況**: ⚠ Phase 2 + 家でやる残作業 (env/migration/Blob) 完了 (2026-05-19)、ただし **BlockNote 0.51 + React 19 + Next.js 15.5 の renderSpec エラーで本番デプロイ blocked**
+- **URL**: `https://lecture-hub-yitao-ding-yitao-dings-projects.vercel.app/` (5/17 の MVP 版のまま。認証後の routes は migration 適用で 500 のはずだが実用前のため実害なし)
 - **パス**: `/Users/ittou/projects/lecture-hub`
-- **スタック**: Next.js + Supabase Postgres (Auth なし) + Drizzle + BlockNote + AI SDK + pgvector + Dexie
-- **今日やったこと (2026-05-18)**:
-  - 認証システム全削除 (Supabase Auth / Vault / RLS / api_tokens / ai_keys / `(auth)` / `/api/v1`)
-  - 全クエリを PostgREST → Drizzle 一本化、AI キーは env 直読み
-  - Phase 2 全項目: ダークモード / ノート内 AI Slash / 講義テンプレ Cron / 全文検索 / AI チャット履歴 / 数式・コード・PDF / 添付・Whisper / pgvector / オフライン編集 (Dexie+sync)
-  - CLAUDE.md 整備 + vitest 26 件
-- **家でやる残作業**:
-  - [ ] Supabase SQL Editor で `0002_drop_multitenancy.sql` 適用
-  - [ ] 同じく `0003_pgvector.sql` 適用
-  - [ ] `.env.local` に `ANTHROPIC_API_KEY` / `GOOGLE_GENERATIVE_AI_API_KEY` / `OPENAI_API_KEY` / `BLOB_READ_WRITE_TOKEN` / `CRON_SECRET` を埋める
-  - [ ] Vercel ダッシュボードで Blob 統合を有効化 → `vercel env pull`
-  - [ ] `pnpm dev` で動作確認 (オフライン編集 / Slash メニュー / 同期インジケータ)
-  - [ ] `vercel --prod` で本番デプロイ更新
+- **スタック**: Next.js 15.5 + React 19.2 + Supabase Postgres (Auth なし) + Drizzle + BlockNote 0.51 (ariakit) + AI SDK + pgvector + Dexie
+- **2026-05-19 進捗**:
+  - ✅ Phase A/2 を local 確定 (commit `c0f42bb` + SQL 修正 `2aca0d4`、未 push)
+  - ✅ Supabase SQL Editor で 0002/0003 適用 (0002 は `name[] @> text[]` 型エラーで初回失敗 → `exists` 句で書き直して成功)
+  - ✅ `.env.local` に Anthropic / Google / CRON_SECRET (生成) + 後に Vercel Blob の `BLOB_READ_WRITE_TOKEN` 自動投入
+  - ✅ Vercel env (production/development) を整理: 旧 Supabase 系 3 つを削除、新 3 つを投入。Preview は CLI が対話必須で投入失敗 (ダッシュボード手作業ペンディング)
+  - ✅ Vercel Blob 統合済み (`vercel env pull` で全 env 同期、`DATABASE_URL` が development に無かったので追加投入後に再 pull で復元)
+  - ❌ `pnpm dev`: tasks / search / chat / admin の routes は動作、エディタ (`/p/[id]`) は renderSpec エラーで描画 NG (3度の修正 = audio rename / file系除外 / schema 外し すべて解消せず)
+  - ❌ `vercel --prod`: BlockNote ブロッカーで未実行
+- **次のアクション**:
+  - [ ] **BlockNote 互換性問題の解決** — BlockNote downgrade (0.50系) / 別エディタ (TipTap・Lexical・Plate・Novel) 移行検討 / upstream fix 待ち
+  - [ ] その後 `vercel --prod` で本番更新
+  - [ ] Vercel Preview 環境への env 投入 (ダッシュボード手作業)
+  - [ ] OPENAI_API_KEY: 今回スキップ (Whisper 用、後で Groq 対応を別タスクで)
 - **意思決定記録**: [[2026-05-18_lecture_hub_個人用転換]]
-- **関連**: `knowledge/programming/tools/lecture_hub.md`
+- **関連**: `knowledge/programming/tools/lecture_hub.md`、[[claude_mistakes]] B-4 (BlockNote 互換性)
+
+### 11. textbook-engine + 教科書システム (YD専用教科書)
+- **状況**: ✅ 構築完了 (セッションA、2026-05-19 03:00) — 第1号PDF完成
+- **パス**:
+  - パイプライン: `~/projects/textbook-engine/` (Markdown→縦長A4 PDF、WeasyPrint + Mermaid + Pygments)
+  - 教材リポジトリ: `~/ObsidianVault/textbook/` (5領域 + テンプレ + PDF出力)
+- **使い方**: `cd ~/projects/textbook-engine && ./build.sh <md_path>` → `textbook/_output_pdf/` に出力
+- **第1号**: `textbook/03_ai_engineering/01_claude_code_parallel.md` → A4 12ページ / 753KB
+- **次のアクション** (運用):
+  - [ ] 第2号以降のテーマ選定 (HTML/CSS基礎、Vercel、Git実践、Python基礎、Next.jsなど)
+  - [ ] Google Drive 自動アップ (セッションBが朝ブリーフィング用に構築する基盤に相乗り)
+  - [ ] フォント差し替えオプション (Noto Sans CJK / 明朝体プリセット) — 必要なら
+  - [ ] textbook-engine を Private GitHub に push (現状ローカルのみ) — YD指示時
+- **関連**: [[textbook_engine]]、[[2026-05-19_AI学習スプリント開始]]
+
+### 12. morning-briefing (朝ブリーフィング自動配信、Max 20x 完結版)
+- **状況**: ✅ 全パイプライン完成 (セッションB、2026-05-19 10:16) — `claude -p` + `say -v Kyoko` でフル動作確認済 (61.9秒、エラー0、PDF 247KB + MP3 3.68MB 生成)
+- **パス**: `~/projects/morning-briefing/` (Python 3.11 + uv、ローカルのみ)
+- **スタック**: feedparser + weasyprint + jinja2 + google-api-python-client (OAuth2) + crontab
+  - **LLM**: `claude -p` ヘッドレス呼び出し → Max 20x 枠内、**API課金なし**
+  - **TTS**: macOS 標準 `say -v Kyoko` + ffmpeg → **API課金なし**
+  - **anthropic / openai パッケージは依存から削除済**
+- **配信形式**: 縦長A4雑誌風PDF + 日本語TTS mp3 → Google Drive `Morning Briefing/2026-MM/` 自動アップ
+- **配信時刻**: 毎朝 07:30 JST (`./install_cron.sh` で登録、未登録)
+- **内容構成**: 今日のハイライト → 業界ニュース3本 (AI/撮影/開発) → ポッドキャストサマリ3本 → 推薦書 → 推薦コース → 締めの一言
+- **次のアクション** (YD作業、APIキー不要に簡素化):
+  - [ ] Google Cloud Console で OAuth クライアント発行 → `credentials/client_secret.json` 配置
+  - [ ] `cd ~/projects/morning-briefing && uv run python -m src.uploader.drive --auth` でブラウザ認証 (初回のみ)
+  - [ ] `./run.sh` で手動フルテスト (Drive アップロード確認)
+  - [ ] `./install_cron.sh` で 07:30 JST cron 登録
+- **設計判断**: LLM = `claude -p` (Max 20x 枠完結)、TTS = `say -v Kyoko` (macOS 標準、無料)、PDF = WeasyPrint、Drive = OAuth2 scope=drive.file (個人Drive 安全)、cron = crontab
+- **コスト**: **完全無料** (Drive APIは無料枠、LLM/TTSは Max 20x 内)
+- **計測値**: 全体 61.9 秒 (claude -p 整形 38秒、収集22秒、PDF/TTS 各1秒)
+- **方針転換**: [[2026-05-19_API依存撤廃_Max20x完結化]] (朝のYD指摘で初版書き換え)
+- **関連**: [[morning_briefing]]、[[2026-05-19_AI学習スプリント開始]]、[[2026-05-19_API依存撤廃_Max20x完結化]]、[[claude_code_permissions]]
+
+### 13. ai-researcher (24時間 AI 研究員エージェント、セッションθ)
+- **状況**: ✅ **Max 20x 完結化 完了 (セッションθ、2026-05-19 10:22)** — 朝の YD 指摘 ([[2026-05-19_API依存撤廃_Max20x完結化]]) を受け、Anthropic SDK + ANTHROPIC_API_KEY 依存を撤廃し `claude -p` (Claude Code ヘッドレス) に書き換え。実走 (collect --max-articles 2) で end-to-end 動作確認済、Vault `raw/research/2026-05-19/anthropic_blog/` に2記事書き出し、JSON schema による構造化出力 (importance/categories/related_projects 全フィールド埋まり) 確認。月課金 $0、Max 20x プラン枠で完結
+- **パス**: `~/projects/ai-researcher/` (Python 3.11 + uv)
+- **スタック**: **anthropic SDK 削除済** / arxiv + feedparser + bs4 + typer + tenacity + SQLite (重複・呼び出し履歴)
+- **LLM 経路**: `claude -p --output-format json --json-schema ... --system-prompt ... --no-session-persistence --disable-slash-commands --permission-mode bypassPermissions --model claude-haiku-4-5` (stdin プロンプト)
+- **ベンチ**: 1 記事 25-35 秒、21 件 / run で約 14 分 (pace_seconds=6 込み)
+- **dry-run 実績 (2回目)**: raw 45 → dedup 43 → relevant 21 (threshold 3.0)
+- **launchd**: 3 本 (`collect` 毎時 HH:03 / `weekly` 月06:00 / `archive` 月初04:00) — 書き換えで影響なし、`launchctl list | grep ai-researcher` で確認可
+- **次のアクション** (任意):
+  - [ ] (任意) `.env` の `GITHUB_TOKEN` 設定で GitHub API rate limit 60→5000/h
+  - [ ] 翌朝 `~/ObsidianVault/raw/research/2026-05-20/` に記事が積まれてるか目視
+  - [ ] `uv run ai-researcher status` で月間 headless 呼び数 + ソース別件数を確認
+- **将来案**: papers_with_code 不安定 → scrape 化、github_trending を `weekly` window に、朝ブリーフィングとの `briefing-json` 接続をセッションβ側で有効化、embedding 類似検索 (Lecture Hub の pgvector 同居)
+- **関連**: [[ai_researcher]] (knowledge/programming/tools/、Max 20x 完結版に全面更新)、[[morning_briefing]] (連携先、`raw/research/` 共有)、[[2026-05-19_API依存撤廃_Max20x完結化]] (本書き換えの意思決定)、`learning/research_interests.yaml` (興味プロファイル)
 
 ## 🟢 就活関連
 

@@ -1,0 +1,82 @@
+# YD の研究興味プロファイル (ai-researcher が参照)
+# キーワードに重みを付けて、relevance スコア (0-10) を計算する。
+# Edit するとフィルタ閾値ぎりぎりの記事の取捨が変わる。
+#
+# scoring: タイトル/要約内に大文字小文字無視で部分一致したキーワード重みの合計。
+#          1記事あたり最大 10.0 にクリップ。
+
+high_priority:                 # 重み 3.0
+  - multimodal
+  - マルチモーダル
+  - agent
+  - agents
+  - エージェント
+  - prompt engineering
+  - prompting
+  - プロンプト
+  - code generation
+  - code llm
+  - coding assistant
+  - local llm
+  - on-device
+  - quantization
+  - llama.cpp
+  - ollama
+  - mcp
+  - tool use
+  - claude
+  - anthropic
+  - sonnet
+  - haiku
+  - opus
+  - sub-agent
+  - subagent
+
+medium_priority:               # 重み 1.5
+  - rag
+  - retrieval-augmented
+  - vector
+  - embedding
+  - video
+  - 動画
+  - whisper
+  - tts
+  - voice
+  - speech
+  - 音声
+  - alignment
+  - safety
+  - 安全
+  - 倫理
+  - constitutional
+  - evaluation
+  - benchmark
+  - reasoning
+  - chain-of-thought
+  - inference optimization
+  - fine-tuning
+  - lora
+
+low_priority:                  # 重み 0.5
+  - theory
+  - proof
+  - convergence
+  - 定理
+  - 証明
+
+exclude:                       # マッチしたら即0点 (ノイズ除去)
+  - cryptocurrency
+  - crypto trading
+  - nft
+  - meme coin
+  - blockchain ico
+
+# ボーナス: 重要なソース (公式ブログ) は +1.0
+source_boost:
+  anthropic_blog: 2.0
+  openai_blog: 1.5
+  google_research: 1.5
+  arxiv: 0.0
+  hn: 0.5
+  papers_with_code: 0.5
+  github_trending: 0.5
