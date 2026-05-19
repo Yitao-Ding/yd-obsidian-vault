@@ -171,26 +171,29 @@
 
 ---
 
-### B-4. リッチエディタ系ライブラリの最新フレームワーク互換性確認不足 (頻度: 中、最終発生: 2026-05-19)
+### B-4. リッチエディタ系ライブラリの最新フレームワーク互換性確認不足 (頻度: 中、最終発生: 2026-05-19、TipTap 移行で本日決着)
 
 **状況**: lecture-hub で **BlockNote 0.51 (ariakit) + React 19.2 + Next.js 15.5** の組み合わせで、`/p/[id]` のエディタを開いた瞬間に ProseMirror `to_dom.ts:203` から `Invalid array passed to renderSpec` が throw されてエディタが描画できない。
 
 **過去のやらかし**:
-- 2026-05-19: Phase A/2 完了後の本番デプロイ準備で発覚。3 段階の修正 (a) `defaultBlockSpecs` から `audio/image/video/file` 除外、(b) カスタム audio block を `audio` → `lectureAudio` にリネーム (default audio と衝突回避)、(c) `useCreateBlockNote` から schema を完全に外して pure BlockNote 化 — どれも解消せず。BlockNote 0.51 + React 19 + Next 15 の組み合わせ自体の bug と推定 (関連 issue: TypeCellOS/BlockNote#1347)。結果 1 日の作業が本番デプロイまで届かず blocked。
+- 2026-05-19 朝: Phase A/2 完了後の本番デプロイ準備で発覚。3 段階の修正 (a) `defaultBlockSpecs` から `audio/image/video/file` 除外、(b) カスタム audio block を `audio` → `lectureAudio` にリネーム (default audio と衝突回避)、(c) `useCreateBlockNote` から schema を完全に外して pure BlockNote 化 — どれも解消せず。BlockNote 0.51 + React 19 + Next 15 の組み合わせ自体の bug と推定 (関連 issue: TypeCellOS/BlockNote#1347)。結果 1 日の作業が本番デプロイまで届かず blocked。
+- 2026-05-19 夕 (続報、6 段階追加検証): (1) BlockNote 0.51.0 → 0.51.1 パッチ更新 / (2) 0.51 → 0.50 ダウングレード / (3) `next/dynamic` の `ssr: false` で Editor 隔離 / (4) React 19.2 → 18.3.1 ダウングレード (issue #1347 workaround そのまま) / (5) `.next` キャッシュクリア / (6) Editor.tsx を 2 行ミニマム化 (`useCreateBlockNote()` + `<BlockNoteView editor={editor}/>` のみ、schema/blocks/slash 全部排除) — **全部 NG**。最後の 2 行ミニマムでも壊れたことで「BlockNote 本体 × Next.js 15.5 (Webpack) の根本不整合」と確定。→ **TipTap v3 に全面移行**で解決 ([[2026-05-19_tiptap_migration]])。本番 `https://lecture-hub-sable.vercel.app/` で動作確認 OK。所要約 5 時間。
 
 **正しい挙動**:
 - リッチエディタ (BlockNote / TipTap / Lexical / Plate / Novel) は ProseMirror / React の内部実装に依存度が高く、React・Next の major / minor アップグレードで壊れやすい
 - 採用前に **GitHub issue で `react 19` `next 15` のキーワード検索** して open issue 数を確認する
 - 「最新フレームワーク × 最新エディタ」を選ぶ場合は、動かなくなった時に切り替えられる **代替候補を 1 つ事前に決めておく**
 - もしくは 1 メジャー前のフレームワーク or エディタで凌ぐ判断
+- **詰まったら最初に最小再現テスト**: schema / hooks / slash / カスタムブロック全部外して 2 行の最小実装で再現するか確認 → 再現するなら根本不整合確定で移行へ、再現しないなら schema を一つずつ追加して原因を絞り込む
 
 **再発防止**:
 - リッチエディタの採用 / アップグレード時のチェックリスト:
   1. GitHub Issue で `react 19` / `next 15` (採用するフレームワーク版) で検索
   2. 過去 3 ヶ月以内の open issue があれば赤信号
   3. 代替候補を最低 1 つ pin する (TipTap / Lexical / Plate / Novel)
+- **エディタが壊れたら最小再現テストを最優先**: 1 段階目に schema / blocks 全部外した 2 行コードで再現するか確認。これだけで他 5 試行 (~4時間) をショートカットできた可能性大
 - BlockNote 0.51 の同件 issue: TypeCellOS/BlockNote#1347 系
-- 関連: [[lecture_hub]] の進捗履歴
+- 関連: [[lecture_hub]] / [[2026-05-19_tiptap_migration]] の進捗履歴
 
 ---
 
@@ -402,13 +405,13 @@
 
 | カテゴリ | 件数 | 直近発生 |
 |---------|------|---------|
-| A. ツール使用 | 6 | 2026-05-19 |
-| B. 技術評価 | 3 | 2026-05-18 |
+| A. ツール使用 | 10 | 2026-05-19 |
+| B. 技術評価 | 5 | 2026-05-19 |
 | C. コミュニケーション | 4 | 2026-04-01 |
-| D. 文脈・記憶 | 3 | 2026-03-25 |
+| D. 文脈・記憶 | 5 | 2026-05-19 |
 | E. 提案・出力 | 3 | - |
 | X. メタ | 1 | - |
-| **合計** | **20** | - |
+| **合計** | **28** | - |
 
 ---
 
@@ -506,6 +509,28 @@
 
 ---
 
+### D-5. 「Max 20x 完結化」の決定を別プロジェクトで再度見落とす (頻度: 高、最終発生: 2026-05-19)
+
+**状況**: [[2026-05-19_API依存撤廃_Max20x完結化]] で「LLM 処理は API を使わず Max 20x 枠で完結させる」と決定済み。にもかかわらず、同セッション内で並行で作っていた ai-simulator は anthropic SDK + ANTHROPIC_API_KEY 前提のまま「完成」扱いで active_projects.md に書かれていた。これは [[#D-4]] (会話の根本動機を設計フェーズで見失う) と本質的に同じパターン。
+
+**過去のやらかし**:
+- 2026-05-19 (朝): ai-researcher / morning-briefing は YD の指摘 ([[2026-05-19_API依存撤廃_Max20x完結化]]) を受けて Max 20x 完結化済。だが ai-simulator (セッションη で同時期に作成) はそのまま放置。YD への進捗報告でも「ANTHROPIC_API_KEY 待ち」のステータスを平然と書いていた。
+- 2026-05-19 (夕): YD が「これ API 使わないようにして欲しい。元々は Max プラン使い切りたいで作ったから」と指摘して発覚。同じミスを 2 回したので Phase 2 自動トリガー該当。
+
+**正しい挙動**:
+- `decisions/` で確定した「全プロジェクト共通の制約」(API 禁止 / Max 20x 完結など) は、新規プロジェクトの設計時に必ずチェックリストに含める。
+- 同セッション内で複数プロジェクトを並行で作る場合、各プロジェクトに同じ制約が適用されているか相互確認する。
+- 「他のプロジェクト (ai-researcher, morning-briefing) は API 撤廃したが、このプロジェクト (ai-simulator) は?」を自問する。
+
+**再発防止**:
+- D-4 と D-5 は同じパターンなので、本質的には 1 つの教訓。次の Claude が踏まないためのチェックリスト:
+  1. プロジェクト設計に着手する前、`decisions/` の直近 3 件を必ず確認
+  2. 「Max 20x 完結」「外部 API 禁止」「コスト $0」など、横断的な制約が含まれていないか確認
+  3. 同セッション中に進行している他プロジェクトと同じ縛りを適用しているか確認
+- D-4 (会話冒頭の根本動機) + D-5 (decisions の横断的制約) = どちらも「個別プロジェクトの作り込みに集中して横断制約を忘れる」というメタミス。設計フェーズの冒頭で「今この瞬間 YD が抱えている既知の縛り」を 1 分洗い出すクセを付ける。
+
+---
+
 ### B-4. 構造化出力 envelope のキー名の取り違え (頻度: 低、最終発生: 2026-05-19)
 
 **状況**: `claude -p --output-format json --json-schema ...` の応答 envelope では、validate された JSON は **`envelope["structured_output"]`** に入る。`envelope["result"]` はモデルの自然文 wrapper で、JSON ではない。
@@ -521,3 +546,43 @@
 **再発防止**:
 - `--output-format json` のレスポンス構造は実物を 1 回見る、推測しない
 - envelope 全体を log debug 出力するオプションを残しておく
+
+---
+
+### A-10. URL を含みうる source_id を slug にそのまま埋め込む (頻度: 低、最終発生: 2026-05-19)
+
+**状況**: RSS の `<guid>` や外部 ID は URL 形式のことがある (例: `https://research.google/blog/...`)。それを slug に素通しすると `pathlib.Path` で `/` がパス区切りとして解釈され、書き込み先が深いネストの未作成ディレクトリになって `FileNotFoundError`。
+
+**過去のやらかし**:
+- 2026-05-19: ai-researcher の `Article.slug()` が `f"{self.source_id[:32]}-{base}"` で source_id を素通し。google_research の RSS guid が URL なため、ファイル名に `https:/research.google/blog/...` というパスが混入 → 親ディレクトリ未作成で全件 write 失敗。10:03 と 11:03 の collect で kept=0 が継続し、毎時の自動 collect が「relevant あるのに 1 件も書けない」空回り状態に。`write_article` 内で例外 → `insert_article` 呼ばれず → 次回 collect でも同じ記事を再処理する無限ループ。
+
+**正しい挙動**:
+- 外部から渡される ID (RSS guid / GitHub `owner/repo` / etc.) を path 要素やファイル名の一部に使う前に、必ず `slugify` でパスセーフ化
+- `Article.slug()` 内で `sid = slugify(self.source_id, max_length=24) or "id"` を入れ、表示用 slug だけ sanitize (DB の source_id 列は無変更で副作用ゼロ)
+
+**再発防止**:
+- 「外部 ID を path 要素にする時はパスセーフ化」を新コードで意識する
+- 書き込みパスに `:` `/` `?` が出る可能性のある変数を素通ししない
+- `mkdir(parents=True, exist_ok=True)` で作るのは `Path` の途中まで。ファイル名側にパス区切りが混入する設計を疑う
+
+---
+
+### A-9. 対話型 CLI を非対話 Bash で pipe 実行して 0 ターン終了 (頻度: 低、最終発生: 2026-05-19)
+
+**状況**: ai-simulator / claude / その他 REPL ライクな CLI を Claude Code の Bash ツール (非対話シェル) で起動すると、`input()` 呼び出しで stdin が EOF を返し、ユーザー入力 0 ターンで即終了する。シナリオ起動・開幕の声生成・logs ファイル作成までは進むが、実質的な動作確認にならない (tokens 0、何も検証できない)。
+
+**過去のやらかし**:
+
+- 2026-05-19: YD から渡された `uv run ai-simulator run client_pitch --budget` を Bash で実行 → `YD>` プロンプト直後に EOF → セッション ID 採番だけして即終了。空ログファイル (`logs/2026-05-19_194300_client_pitch.{jsonl,md}`) が残骸として残った。
+
+**正しい挙動**:
+
+- 対話型 CLI かどうかを README / `--help` で事前確認する (`/tick`, `/quit` 等のコマンドが出てくるなら対話型)
+- 対話型と判明したら、Claude Code が代理実行する意味がないので、YD に「自分のターミナルで叩いてください」と委譲する
+- 疎通だけ確認したい場合、`echo "broadcast text" | uv run ...` ではなく、CLI に `--auto` モード (初期 broadcast + `/tick`×N + `/quit` の自動スクリプト) を追加実装するか、HEREDOC で複数行入力を疑似的に流す
+
+**再発防止**:
+
+- bash コマンドが「REPL / 対話型 CLI」を起動するパターン (`claude`, `ai-simulator run`, `python`, `node`, `psql`, `mysql`, `redis-cli` 等) を実行する前に、stdin が tty ではないことを踏まえて挙動を予測する
+- 対話型と分かったら、即「私には代理実行できないです、YD さん本人で」と報告し、環境準備と事後の振り返りに役割を切り替える
+- 残骸ログが生成された場合、YD に削除可否を確認する (`logs/<session_id>_*`)

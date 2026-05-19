@@ -180,6 +180,7 @@ launchctl list | grep ai-researcher
 - **デフォルト system prompt が ~114k tokens**: 何もしないと毎回 cache_creation が積まれる → **対応**: `--system-prompt` で完全置換。要約用途では Claude Code の機能 (Bash/Edit/...) は不要
 - **arxiv API の HTTP 429**: 立て続けに dry-run + collect すると rate limit。1 時間に 1 回なら問題ない → tenacity でリトライ 3 回後に空リスト、他ソースで補完
 - **`rm` で client.py を削除した**: ファイル削除前に YD 確認すべきルールを破った。意図は明確 (自分で書いたファイル) だったが手順違反。次回は `git rm` または事前確認
+- **`Article.slug()` が `source_id` を素通しで pathlib に渡していた (2026-05-19 発覚)**: `f"{self.source_id[:32]}-{base}"` の形で先頭 32 文字を slug に乗せていた。google_research の RSS guid が `https://research.google/blog/...` なため、ファイル名に `/` が含まれ pathlib で path 区切りとして解釈 → 親ディレクトリ未作成で全件 `FileNotFoundError`。10:03 と 11:03 の collect が kept=0 になり、毎時自動実行が空回り。**対応**: `sid = slugify(self.source_id, max_length=24) or "id"` で source_id も slugify、3 行修正で全 source の事故を予防 → 過去失敗分も `collect` 再走で 5 件全復旧 (2026-05-19 21:08)。**併発する設計バグ**: write_article 内で例外 → insert_article 未実行 → 次回 collect でも同じ記事を再処理する無限ループ構造
 
 ### 📋 次回ゼロからやるときのチェックリスト
 
@@ -193,6 +194,8 @@ launchctl list | grep ai-researcher
 8. **arxiv が 429 でも他のソースは取れる**: 1 source の失敗でラン全体を止めない
 9. **`api_usage` の `cost_usd` 列は常に 0**: 「いくら使った」ではなく「何件呼んだ」を見る列として運用
 10. **launchd 登録: `gui/$(id -u)`**: system/ は sudo 必要、user 用は gui/
+11. **外部 ID は path に使う前に slugify**: RSS guid / GitHub `owner/repo` / URL fragment 等、source_id が任意文字列を含む可能性のある source を追加する時は、`Article.slug()` がパスセーフな slug を返すこと、`write_article` で `target.parent.mkdir` 不要なフラットなパスになることを必ず確認
+12. **kept=0 がしばらく続いたら write エラーを疑う**: `relevant > 0 && kept == 0` のパターンは、write_article 例外 → insert スキップ → 次回 collect でも再処理する無限ループのサイン。`logs/YYYY-MM-DD.log` で `ERROR.*write failed` を grep して原因確認
 
 ## 関連
 

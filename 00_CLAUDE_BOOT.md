@@ -19,29 +19,49 @@
 ### Step 2: YDのアイデンティティを把握 (1分)
 
 ```
-✓ identity/profile.md (基本情報)
-✓ identity/preferences.md (応答スタイル)
-✓ identity/values.md (価値観)
-✓ identity/skills.md (スキル・専門性)
-✓ identity/relationships.md (人物相関)
+✓ identity/ ディレクトリ全件を読む
+
+  実装: list_directory("identity/") で中身を取得
+       → read_multiple_files で並列読み込み
+
+  現在の典型ファイル (新規追加されても自動追従):
+    - profile.md (基本情報)
+    - preferences.md (応答スタイル)
+    - values.md (価値観)
+    - skills.md (スキル・専門性)
+    - relationships.md (人物相関)
 ```
 
 ### Step 3: 現在の状態を把握 (1分)
 
 ```
-✓ current_state/active_projects.md (進行中プロジェクト)
-✓ current_state/recent_decisions.md (直近の意思決定)
-✓ current_state/current_focus.md (今最も注力していること)
-✓ current_state/tools_available.md (使えるツール一覧)
-✓ current_state/open_questions.md (未解決の問題)
+✓ current_state/ ディレクトリ全件を読む
+
+  実装: list_directory("current_state/") で中身を取得
+       → read_multiple_files で並列読み込み
+
+  現在の典型ファイル (新規追加されても自動追従):
+    - active_projects.md (進行中プロジェクト)
+    - current_focus.md (今最も注力していること)
+    - recent_decisions.md (直近の意思決定)
+    - tools_available.md (使えるツール一覧)
+    - open_questions.md (未解決の問題)
+    - vault_improvement_proposals.md (構造的改善提案の蓄積)
 ```
 
 ### Step 4: ミス記録を確認 (1分) ★★★ 最重要 ★★★
 
 ```
-✓ mistakes/claude_mistakes.md (Claudeの過去のミス)
-✓ mistakes/tool_usage_mistakes.md (ツール使用ミス)
-✓ mistakes/communication_mistakes.md (コミュニケーションミス)
+✓ mistakes/ ディレクトリ全件を読む
+
+  実装: list_directory("mistakes/") で中身を取得
+       → read_multiple_files で並列読み込み
+
+  現在の典型ファイル (新規追加されても自動追従):
+    - claude_mistakes.md (Claudeの過去のミス)
+    - tool_usage_mistakes.md (ツール使用ミス)
+    - communication_mistakes.md (コミュニケーションミス)
+    - workflow_mistakes.md (ワークフローミス)
 ```
 
 **このセッションで、過去のClaudeが犯したミスを繰り返さないこと。**

@@ -12,14 +12,13 @@
 
 1. **このファイル (CLAUDE.md)** — Wikiの動作ルール
 2. **`00_CLAUDE_BOOT.md`** — 起動手順の詳細
-3. **`identity/profile.md`** — YDの基本情報
-4. **`identity/preferences.md`** — 応答スタイル
-5. **`identity/values.md`** — 価値観
-6. **`current_state/active_projects.md`** — 進行中プロジェクト
-7. **`current_state/tools_available.md`** — 使えるツール一覧
-8. **★ `mistakes/claude_mistakes.md` ★** — 過去のミス記録 (絶対必読)
+3. **`identity/` ディレクトリ全件** — `list_directory` で中身を取得 → `read_multiple_files` で並列読み込み (profile / preferences / values / skills / relationships 等、ファイルが追加されても自動追従)
+4. **`current_state/` ディレクトリ全件** — 同様の手順 (active_projects / current_focus / recent_decisions / tools_available / open_questions / vault_improvement_proposals 等)
+5. **★ `mistakes/` ディレクトリ全件 ★** — 同様の手順 (claude_mistakes / communication_mistakes / tool_usage_mistakes / workflow_mistakes、**絶対必読**)
 
-その後、ユーザーのメッセージに応じて関連 `knowledge/<領域>/` を読む。
+その後、ユーザーのメッセージに応じて関連 `knowledge/<領域>/*.md` を読む。
+
+**実装方針**: 起動時に `Desktop Commander:list_directory` で `identity/` `current_state/` `mistakes/` の中身を取得し、`Desktop Commander:read_multiple_files` で全件並列読み込みすること。ファイルが追加・削除されても自動追従するため、ファイル名を個別に書き出さない。
 
 ---
 

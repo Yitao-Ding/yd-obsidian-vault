@@ -14,11 +14,13 @@ update_frequency: 週1回以上
 ### ★ AI学習スプリント (2026-05-19 開始、最重要) ★
 
 - **状況**: ✅ 学習基盤構築完了 (セッションC、2026-05-19 03:00) — `learning/` 配下 28ファイル
+- **2026-05-19 朝の方針修正**: CCA-F は Anthropic Partner Network 加盟組織限定で個人受験不可と判明 → 代替として AWS Certified AI Practitioner (AIF-C01、個人受験可、$100) を採用。CCA-F は所属確定後に再判断。
 - **目標**: 4資格取得 + 朝ブリーフィングで継続的なインプット
   1. Anthropic Academy 全18コース (2026-05-19 → 06-02、2週間スプリント)
-  2. Claude Certified Architect Foundations (60問、5領域、2026-06中旬)
-  3. Google AI Professional Certificate (Coursera、3ヶ月Google AI Pro付き、2026-06-16 → 07-31)
+  2. **AWS Certified AI Practitioner (AIF-C01)** (65問、5領域、$100、2026-07-15) ← CCA-Fから振替
+  3. Google AI Professional Certificate (Coursera、$49/月、Google AI Pro 3ヶ月付き、2026-06-16 → 07-31)
   4. Google Cloud Generative AI Leader ($99、90分、2026-08、余裕あれば)
+  ※ Claude Certified Architect Foundations は `pending_partner_access` 状態で保留 ([[../learning/ai_certifications/claude_certified_architect/README]])
 - **次のアクション** (Week 1):
   - [ ] **Day 1 (今日 5/19)**: AI Capabilities and Limitations + AI Fluency: Framework & Foundations
   - [ ] Day 2 (5/20): Claude 101 + Introduction to Claude Cowork
@@ -58,13 +60,13 @@ update_frequency: 週1回以上
 - **関連**: `knowledge/programming/tools/vidkit.md`, `decisions/2026-05-18_FCPXML_ラウンドトリップ採用.md`, `decisions/2026-05-19_vidkit_tighten_tutorial_完成.md`
 
 ### 3. 平成たち祭 動画制作
-- **状況**: 撮影完了 (5/6)、DaVinciプロジェクト修復が必要だった
+- **状況**: 撮影完了 (5/6)
 - **次のアクション**:
-  - [ ] Hi,Me:) 「さなぎ」DaVinci ファイル修復確認
   - [ ] リサーチレポートを踏まえた構成案決定
   - [ ] 編集・カラーグレーディング
 - **リサーチ済**: `~/Downloads/hatachi_tachi_video_research_report.md`
 - **構成案**: A (シネマティック) / B (大人数群舞) / C (ドキュメンタリー) / ハイブリッド
+- **メモ**: Hi,Me:) 「蛹」DaVinci 復旧の件は 2026-05-19 にアーカイブ (memory 削除済)
 
 ## 🟢 アクティブ・優先度中
 
@@ -102,35 +104,59 @@ update_frequency: 週1回以上
 ## 🟡 完成済み・運用フェーズ
 
 ### 6. Task Hub (タスク管理アプリ)
-- **状況**: ✅ Vercelデプロイ完了、運用可能状態
+- **状況**: ✅ **git 整理 + GitHub 連携完了 (2026-05-19 21:17)** — 8 週前 Initial commit から放置されてた untracked 32 + dirty 7 を **5 commit に統合** → GitHub Private `Yitao-Ding/salamat-task-hub` push 済。`.firebase/` を .gitignore 追加、serviceAccountkey.json は監視 CC 補強で安全。**デプロイ実態は Firebase Hosting** (`salamat-task-hub.web.app`) — Vercel ではない (HANDOVER.md + firebase.json で確認、旧記述「Vercelデプロイ完了」は誤りだった)
 - **パス**: `/Users/ittou/projects/salamat-task-hub`
-- **スタック**: Next.js + Firebase + Tailwind CSS v4
+- **GitHub**: https://github.com/Yitao-Ding/salamat-task-hub (Private、main → origin/main 追跡済)
+- **本番 URL**: https://salamat-task-hub.web.app (Firebase Hosting、Spark プラン)
+- **スタック**: Next.js 16.2.1 (App Router、静的 export) + React 19.2.4 + TypeScript + Tailwind CSS v4 + Firebase (Auth/Firestore/Storage) + next-pwa
+- **コミット履歴 (2026-05-19 push)**:
+  - `f876634` chore: prepare Next.js + Firebase build configuration
+  - `6d0e341` feat: add Firebase backend configuration
+  - `7fa1b65` feat: implement core app (auth, Firestore CRUD, routes, UI)
+  - `47b6be5` feat: PWA setup (manifest, service worker, icons)
+  - `9dfcd77` docs: add handover document, spec, and admin setup script
 - **次のアクション** (将来):
   - メンバー招待フロー仕上げ
   - PWA最終調整
   - 商用化検討 (大学サークル向けフリーミアム)
-- **関連**: `knowledge/programming/tools/task_hub.md`
+  - Firestore / Storage rules を本番に `firebase deploy --only firestore:rules,storage` でデプロイ確認 (HANDOVER.md の既知注意事項)
+  - Vault に `knowledge/programming/tools/task_hub.md` 新規作成 (vidkit / lecture_hub と同様の運用マニュアル化)
+- **関連**: `knowledge/programming/tools/task_hub.md` (未作成、次セッション候補)
 
 ### 7. Lecture Hub (個人ナレッジハブ)
-- **状況**: ⚠ Phase 2 + 家でやる残作業 (env/migration/Blob) 完了 (2026-05-19)、ただし **BlockNote 0.51 + React 19 + Next.js 15.5 の renderSpec エラーで本番デプロイ blocked**
-- **URL**: `https://lecture-hub-yitao-ding-yitao-dings-projects.vercel.app/` (5/17 の MVP 版のまま。認証後の routes は migration 適用で 500 のはずだが実用前のため実害なし)
+- **状況**: ✅ **本番デプロイ完了 (2026-05-19 21:50)** — BlockNote × Next.js 15.5 の根本不整合 (6試行で確証) を確定し **TipTap v3 に全面移行**、本番動作確認 OK
+- **公開URL**: `https://lecture-hub-sable.vercel.app/` (新エイリアス、200 公開アクセス可)
+- **個別URL**: `https://lecture-g9pfx9y3z-yitao-dings-projects.vercel.app` (401 Deployment Protection)
 - **パス**: `/Users/ittou/projects/lecture-hub`
-- **スタック**: Next.js 15.5 + React 19.2 + Supabase Postgres (Auth なし) + Drizzle + BlockNote 0.51 (ariakit) + AI SDK + pgvector + Dexie
-- **2026-05-19 進捗**:
-  - ✅ Phase A/2 を local 確定 (commit `c0f42bb` + SQL 修正 `2aca0d4`、未 push)
-  - ✅ Supabase SQL Editor で 0002/0003 適用 (0002 は `name[] @> text[]` 型エラーで初回失敗 → `exists` 句で書き直して成功)
-  - ✅ `.env.local` に Anthropic / Google / CRON_SECRET (生成) + 後に Vercel Blob の `BLOB_READ_WRITE_TOKEN` 自動投入
-  - ✅ Vercel env (production/development) を整理: 旧 Supabase 系 3 つを削除、新 3 つを投入。Preview は CLI が対話必須で投入失敗 (ダッシュボード手作業ペンディング)
-  - ✅ Vercel Blob 統合済み (`vercel env pull` で全 env 同期、`DATABASE_URL` が development に無かったので追加投入後に再 pull で復元)
-  - ❌ `pnpm dev`: tasks / search / chat / admin の routes は動作、エディタ (`/p/[id]`) は renderSpec エラーで描画 NG (3度の修正 = audio rename / file系除外 / schema 外し すべて解消せず)
-  - ❌ `vercel --prod`: BlockNote ブロッカーで未実行
-- **次のアクション**:
-  - [ ] **BlockNote 互換性問題の解決** — BlockNote downgrade (0.50系) / 別エディタ (TipTap・Lexical・Plate・Novel) 移行検討 / upstream fix 待ち
-  - [ ] その後 `vercel --prod` で本番更新
-  - [ ] Vercel Preview 環境への env 投入 (ダッシュボード手作業)
-  - [ ] OPENAI_API_KEY: 今回スキップ (Whisper 用、後で Groq 対応を別タスクで)
-- **意思決定記録**: [[2026-05-18_lecture_hub_個人用転換]]
-- **関連**: `knowledge/programming/tools/lecture_hub.md`、[[claude_mistakes]] B-4 (BlockNote 互換性)
+- **スタック**: Next.js 15.5 + **React 18.3.1** + Supabase Postgres (Auth なし) + Drizzle + **TipTap v3.23** (StarterKit + code-block-lowlight + mathematics + 自作 PdfNode/AudioNode) + AI SDK + pgvector + Dexie
+- **2026-05-19 (TipTap 移行) の流れ**:
+  - 1. BlockNote 0.51.1 パッチ更新 → ❌
+  - 2. BlockNote 0.50 downgrade → ❌
+  - 3. dynamic import (ssr:false) → ❌
+  - 4. React 19.2 → 18.3.1 ダウングレード → ❌
+  - 5. `.next` cache clear → ❌
+  - 6. Editor 2行ミニマム化 (`useCreateBlockNote()` + `<BlockNoteView/>` のみ) → ❌
+  - 7. **TipTap v3 に移行**: StarterKit / code-block-lowlight / mathematics / 自作 PdfNode/AudioNode / EditorToolbar (useEditorState で active 同期) → ✅
+  - 8. `tsc --noEmit` 通過、`next build` 4.6秒通過、`vercel --prod` 成功、実機 OK
+- **TipTap 版で実装済み機能**:
+  - 基本フォーマット (B/I/S/code/H1-3/list/quote/codeBlock) — Toolbar から
+  - コードハイライト (lowlight = highlight.js github-dark)
+  - 数式 (KaTeX、`@tiptap/extension-mathematics`)
+  - PDF 埋め込み (自作 Node + iframe + Vercel Blob アップロード)
+  - 音声 + Whisper 文字起こし (自作 Node + `/api/transcribe`)
+  - AI: 要約挿入 (`/api/ai/summarize` → blockquote 挿入)
+  - AI: タスク抽出 (`/api/ai/extract-tasks` → `createTasksBulk` で DB insert)
+- **Phase 3 残作業 (別日)**:
+  - [ ] BlockNote 関連 `*.bak` 削除 + `@blocknote/*` パッケージ `pnpm remove`
+  - [ ] **Slash Menu (`/`) の TipTap 版実装** (Notion 風体験の完成)
+  - [ ] Shiki ハイライトへの乗せ替え (NodeView 差し替えで対応可)
+  - [ ] 本番で 音声 / AI 要約 / タスク抽出 / 数式 の動作確認 (まだ未確認)
+  - [ ] `plainTextFromDocument` (`src/lib/blocknote/text.ts`) を TipTap 形式対応 (全文検索 / pgvector embedding の前提)
+  - [ ] 既存 indexed ドキュメント の再生成 (`/admin/reindex`)
+  - [ ] `src/lib/offline/sync.ts` (Dexie オフライン同期) の TipTap 形式対応確認
+  - [ ] Vercel Preview 環境への env 投入 (ダッシュボード手作業、ペンディングのまま)
+- **意思決定記録**: [[2026-05-19_tiptap_migration]]、[[2026-05-18_lecture_hub_個人用転換]]
+- **関連**: `knowledge/programming/tools/lecture_hub.md`、[[claude_mistakes]] B-4 (BlockNote × Next 15.5 不整合、本日 6 試行で確証)
 
 ### 11. textbook-engine + 教科書システム (YD専用教科書)
 - **状況**: ✅ 構築完了 (セッションA、2026-05-19 03:00) — 第1号PDF完成
@@ -168,9 +194,9 @@ update_frequency: 週1回以上
 - **関連**: [[morning_briefing]]、[[2026-05-19_AI学習スプリント開始]]、[[2026-05-19_API依存撤廃_Max20x完結化]]、[[claude_code_permissions]]
 
 ### 14. ai-simulator (複数AIペルソナ並列シミュレーター、セッションη)
-- **状況**: ✅ **コード基盤・テスト完成 (2026-05-19、セッションη)** — `~/projects/ai-simulator/` Python 3.11 + uv で構築、ペルソナ5種×30variants + シナリオ4本 + asyncio並列オーケストレーター + 振り返り自動生成 + Vault連携。**ユニットテスト 19件 全通過** (オフライン保証)。**実機APIテストは未実施** (ANTHROPIC_API_KEY 未取得のため YD 側で実行待ち)
+- **状況**: ✅ **Max 20x 完結化完了 (2026-05-19 夕、D-5 ミス修正)** — anthropic SDK / ANTHROPIC_API_KEY 撤廃、`claude -p` async subprocess + Semaphore (max_concurrency=5) で並列実行制御。**ユニットテスト 19件 全通過**、`ai-simulator list` 疎通OK、**実支払い $0**
 - **パス**: `~/projects/ai-simulator/`
-- **スタック**: anthropic 0.102 / rich 15 / typer 0.25 / pyyaml / pydantic 2.13 (uv 管理)
+- **スタック**: rich / typer / pyyaml / pydantic (uv 管理)、LLM は `claude -p` ヘッドレス経由 (Max 20x枠)
 - **モデル**: Sonnet 4.6 (品質優先、`--budget` で Haiku 4.5 切替可)
 - **シナリオ**:
   - `salamat_team_chaos` (extreme, 10人質問攻め — 視察4ヶ月前の臨時ミーティング)
@@ -178,14 +204,13 @@ update_frequency: 週1回以上
   - `crisis_management` (extreme, 視察3日前トラブル7人)
   - `client_pitch` (hard, Arte Grow 現地パートナー4人商談)
 - **ペルソナ**: salamat_member (10 variants) / apple_customer (8) / arte_grow_partner (5) / filmmaker_client (5) / job_interviewer (4)
-- **コスト**: 1セッション $0.30〜$0.70 想定、`config.yaml` の `cost_cap_usd:1.0` でハード上限、`warn_threshold_usd:0.7` で警告
+- **コスト**: **実支払い $0** (Max 20x 枠完結)。`cost_cap_usd` は「枠の使用感」の目安として残してあり、Sonnet 換算で 1 セッション $0.3〜0.7 相当
 - **振り返り**: 終了時 Claude が評価ルーブリックに沿って Markdown 生成 → `~/ObsidianVault/learning/simulations/<session_id>.md` に自動保存
 - **次のアクション (YD作業)**:
-  - [ ] `cd ~/projects/ai-simulator && cp .env.example .env` → `ANTHROPIC_API_KEY` を埋める
-  - [ ] `uv run ai-simulator run client_pitch --budget` で軽い動作確認 (Haiku で $0.05程度)
-  - [ ] 本命: `uv run ai-simulator run salamat_team_chaos` (Sonnet で $0.3〜$0.7)
+  - [ ] `cd ~/projects/ai-simulator && uv run ai-simulator run client_pitch --budget` で疎通確認 (Haiku、Max 20x枠内)
+  - [ ] 本命: `uv run ai-simulator run salamat_team_chaos` (Sonnet、Max 20x枠内)
   - [ ] `logs/<session_id>.md` と Vault `learning/simulations/<session_id>.md` を確認
-- **関連**: [[ai_simulator]] (運用マニュアル、必須3セクション付き)
+- **関連**: [[ai_simulator]] (運用マニュアル、必須3セクション付き)、[[2026-05-19_API依存撤廃_Max20x完結化]]、[[claude_mistakes]] D-5
 
 ### 13. ai-researcher (24時間 AI 研究員エージェント、セッションθ)
 - **状況**: ✅ **Max 20x 完結化 完了 (セッションθ、2026-05-19 10:22)** — 朝の YD 指摘 ([[2026-05-19_API依存撤廃_Max20x完結化]]) を受け、Anthropic SDK + ANTHROPIC_API_KEY 依存を撤廃し `claude -p` (Claude Code ヘッドレス) に書き換え。実走 (collect --max-articles 2) で end-to-end 動作確認済、Vault `raw/research/2026-05-19/anthropic_blog/` に2記事書き出し、JSON schema による構造化出力 (importance/categories/related_projects 全フィールド埋まり) 確認。月課金 $0、Max 20x プラン枠で完結

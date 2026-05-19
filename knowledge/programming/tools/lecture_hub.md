@@ -21,7 +21,8 @@ YD が「講義ノート」「日々のタスク」「AI への質問」を 1 �
 ## 📍 場所
 
 - リポジトリ: `/Users/ittou/projects/lecture-hub`
-- 本番 URL: `https://lecture-hub-yitao-ding-yitao-dings-projects.vercel.app/`
+- 本番 URL (新エイリアス、2026-05-19 TipTap 移行後): `https://lecture-hub-sable.vercel.app/`
+- 旧 URL: `https://lecture-hub-yitao-ding-yitao-dings-projects.vercel.app/` (個別 URL 形式、置き換え済み)
 - GitHub: (Vercel と直結)
 
 ## 🧱 スタック
@@ -30,7 +31,7 @@ YD が「講義ノート」「日々のタスク」「AI への質問」を 1 �
 |---|---|
 | フレームワーク | Next.js 15 App Router + React 19 + TypeScript |
 | スタイル | Tailwind CSS v4 (`@theme` CSS-first) |
-| エディタ | BlockNote 0.51 (ariakit テーマ) + 自作カスタムブロック |
+| エディタ | **TipTap v3.23** (StarterKit + code-block-lowlight + mathematics) + 自作 NodeView (PDF / Audio) + EditorToolbar |
 | DB | Supabase Postgres (DATABASE_URL のみ使用) + Drizzle ORM |
 | 全文検索 | Postgres tsvector |
 | セマンティック検索 | pgvector + Google `text-embedding-004` (768 dim) |
@@ -46,13 +47,13 @@ YD が「講義ノート」「日々のタスク」「AI への質問」を 1 �
 | 場所 | できること |
 |---|---|
 | `/tasks` | タスク CRUD、優先度バッジ循環、期限フィルタ |
-| `/p/[id]` | BlockNote ノート + AI Slash メニュー (要約 / タスク抽出 / 数式 / PDF / 音声) |
+| `/p/[id]` | TipTap エディタ + Toolbar (B/I/S/code/H1-3/list/quote/codeBlock/PDF/音声/AI要約/タスク抽出) + KaTeX 数式 + lowlight ハイライト |
 | `/search?q=...` | 全文 (tsvector) + セマンティック (pgvector) 切替 |
 | `/chat` | AI チャット (Anthropic / Google)、スレッド履歴付き |
 | `/admin/reindex` | pgvector の全ページ再 index |
 | トップバー右 | 同期インジケータ + ダークモード切替 |
 
-### BlockNote カスタムブロック (`/` Slash メニュー)
+### TipTap カスタム機能 (Toolbar から、Slash menu は Phase 3 で復元予定)
 
 - **数式 (LaTeX)** — KaTeX、`⌘+Enter` で確定
 - **コードブロック** — Shiki シンタックスハイライト (TS/JS/Py/Rust/Go/SQL 他)
@@ -174,6 +175,30 @@ supabase/migrations/            0001/0002/0003
 - **Phase D3**: pgvector セマンティック検索 (Google text-embedding-004 / 768 dim) + 自動 reindex + `/admin/reindex`
 - **Phase D4**: オフライン編集 (Dexie + sync) + Topbar 同期インジケータ
 - リファクタ + CLAUDE.md 整備 + vitest 26 件
+
+### 2026-05-19 21:30 — TipTap v3 全面移行 + 本番デプロイ
+
+BlockNote 0.51 (and 0.50) × Next.js 15.5 (Webpack) で `RangeError: Invalid array passed to renderSpec`
+が `useCreateBlockNote()` + `<BlockNoteView/>` の 2 行最小実装でも発火することを 6 段階の検証で確証。
+詳細: [[2026-05-19_tiptap_migration]]、[[claude_mistakes]] B-4。
+
+- 採用: `@tiptap/react @tiptap/starter-kit @tiptap/pm @tiptap/extension-code-block-lowlight @tiptap/extension-mathematics` (すべて v3.23.4) + `lowlight v3` + `katex` (既存) + `highlight.js/styles/github-dark.css`
+- 新規ファイル: `src/components/editor/EditorToolbar.tsx` (useEditorState で active 同期) / `src/components/editor/nodes/PdfNode.tsx` / `src/components/editor/nodes/AudioNode.tsx`
+- BlockNote 関連は `*.bak` にリネームして残置 (`schema.ts.bak` `ai-slash-items.tsx.bak` `blocks/*.bak`)。`@blocknote/*` パッケージは当面 deps に残置、次回 cleanup で `pnpm remove`
+- SSR 対策の二重防御: `PageEditor.tsx` で `Editor` を `next/dynamic` の `ssr: false` 動的 import + `useEditor({ immediatelyRender: false })`
+- React 19.2.6 → **18.3.1** にダウングレード (issue #1347 workaround として、TipTap でも保持)
+- 本番デプロイ: commit `f764346 Migrate from BlockNote to TipTap v3` push 済 (4 commits まとめて) → `vercel --prod` 成功 → 新エイリアス `https://lecture-hub-sable.vercel.app/` で実機 OK
+
+#### Phase 3 残作業 (別日)
+- BlockNote 関連 `*.bak` 削除 + `@blocknote/{core,react,ariakit}` パッケージを `pnpm remove`
+- **Slash Menu (`/`) の TipTap 版実装** (`@tiptap/suggestion` + Tippy.js or 自前 UI)。今は Toolbar で代替中
+- Shiki ハイライトに乗せ替え (lowlight = highlight.js から NodeView 差し替えで対応可)
+- 本番で 音声 / AI 要約 / タスク抽出 / 数式 の動作確認 (まだ未確認、Toolbar 経由)
+- `src/lib/blocknote/text.ts` の `plainTextFromDocument` を TipTap 形式対応 (全文検索 / pgvector embedding の前提)
+- 既存 indexed ドキュメント の再生成 (`/admin/reindex`)
+- `src/lib/offline/sync.ts` (Dexie オフライン同期) の TipTap 形式対応確認
+- `blocknote-overrides.css` を整理 (TipTap で使う部分だけ残す)
+- Vercel Preview 環境への env 投入 (ダッシュボード手作業、ペンディングのまま)
 
 ## ⚠ 家でやる残作業 (家のネット環境で)
 

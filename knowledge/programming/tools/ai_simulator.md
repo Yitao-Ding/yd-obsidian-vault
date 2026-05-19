@@ -226,3 +226,57 @@ uv run --extra dev pytest tests/ -v
 - ペルソナの prompt_template に `{name}` 以外で `{...}` を使うと `str.format` で例外。値置換しない `{...}` は `{{...}}` でエスケープ。
 - 同じ variant を複数 instance で並べたいときは、現状コード上は問題ないが内部状態 (history) が独立しているか必ず単体テストで確認すること。
 - `vault_simulations_dir` を相対パスで書くと CLI 起動ディレクトリ依存になる → 絶対パス (`/Users/ittou/ObsidianVault/...`) を推奨。
+
+---
+
+## 📅 2026-05-19 夕 (運用フェーズ突入時のメモ)
+
+### 環境疎通の検証結果
+
+YD が叩く前の事前確認として、Claude Code (本セッション) で `uv run ai-simulator run client_pitch --budget` を空入力 (pipe) で 1 回起動 → **シナリオ/ペルソナ YAML ロード + 開幕の声 (Maria の英語イントロ) 生成 + session_id 採番 + logs ファイル作成までは正常動作**を確認。`claude` CLI が PATH 上、Max 20x ログイン済み、`uv` 環境も健全。
+
+実プレイは YD 自身が別ターミナルで叩く前提 (理由は下記)。
+
+### ⚠ 対話型 CLI は pipe で実行できない (重要)
+
+`ai-simulator run` は `YD>` プロンプトに stdin から入力させる対話型。Claude Code の Bash ツール (非対話シェル) で実行すると stdin が EOF になり、**入力 0 ターン → 即終了**して何も検証できない (tokens 0, $0.0000)。
+
+- Claude Code が代理実行する意味がない (YD のコミュニケーション訓練が本来の目的)
+- 自動疎通テストが欲しいなら CLI に `--auto` モード (初期 broadcast + `/tick`×N + `/quit` の自動スクリプト) を追加実装する必要あり (未実装)
+
+### 💰 コスト警告の正体 (今回 YD が遭遇)
+
+セッション中に出る「コスト警告」は **実支払いではなく Max 20x 枠の使用感を測る換算値**:
+
+- `warn_threshold_usd: 0.7` を超えると警告だけ表示
+- `cost_cap_usd: 1.0` を超えるとハードキャップで強制終了
+- 換算は cost.py で Anthropic 公開価格 (Sonnet 4.6: input $3 / output $15 per 1M tokens) で計算
+- **実支払いは $0** (`claude -p` ヘッドレス経由で Max 20x 枠完結)
+
+#### 警告の閾値を上げたい時
+
+```yaml
+# config.yaml
+session:
+  cost_cap_usd: 5.0          # ハードキャップ
+  warn_threshold_usd: 3.5    # 警告
+```
+
+換算で $5.0 = Sonnet で 5〜10 セッション分の感覚。実支払いは依然 $0。
+
+### YD の操作チートシート
+
+```
+text              全員に broadcast
+@<名前> text       個別宛
+/tick             AI 同士に喋らせて反応見る
+/cost             累計コスト確認
+/help             コマンド一覧
+/quit             終了 + 自動振り返り生成
+```
+
+### 関連
+
+- [[claude_mistakes]] A-9 (対話型 CLI を pipe で実行ミス)
+- [[2026-05-19_API依存撤廃_Max20x完結化]]
+- [[2026-05-19_194743_salamat_team_chaos]] — YD 初回プレイ振り返り (salamat_team_chaos 本命、約 10 分)

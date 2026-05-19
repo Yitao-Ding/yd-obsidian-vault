@@ -1,6 +1,6 @@
 ---
 type: current_state
-last_updated: 2026-05-18 (vidkit の次の機能 = tighten に更新)
+last_updated: 2026-05-19 (DaVinci「蛹」復旧件アーカイブを反映、active_projects と整合)
 ---
 
 # 今、最も注力していること
@@ -24,7 +24,7 @@ last_updated: 2026-05-18 (vidkit の次の機能 = tighten に更新)
 - **その後の候補**: speaker-filter / marker-batch / beat-snap (蛹用) / roles-bulk / tutorial モード
 
 ### 平成たち祭 動画完成
-- **次の作業**: DaVinciプロジェクト修復確認 → 構成決定 → 編集
+- **次の作業**: 構成決定 → 編集 (Hi,Me:)「蛹」DaVinci 復旧の件は 2026-05-19 にアーカイブ済、詳細は [[active_projects]] #3 参照)
 - **モチベーション**: 6月末ダイジェスト本編完成目標
 
 ## 💭 思考中のテーマ

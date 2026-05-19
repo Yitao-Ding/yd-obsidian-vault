@@ -146,6 +146,7 @@ level: ゼロ前提                  # 対象レベル
 - [[obsidian_vault]] — Vault 全体の運用マニュアル
 - [[claude_code]] — Claude Code 全般
 - [[2026-05-19_AI学習スプリント開始]] — このシステム誕生の経緯
+- [[2026-05-19_教科書システム第2号企画]] — 第2号教材の企画決定
 - [[active_projects]] — 教科書システムの現状ステータス
 - 公式: https://doc.courtbouillon.org/weasyprint/stable/ — WeasyPrint ドキュメント
 - 公式: https://mermaid.js.org/ — Mermaid 図 文法

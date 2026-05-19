@@ -2,16 +2,24 @@
 type: cert_log
 cert_name: Claude Certified Architect — Foundations (CCA-F)
 provider: Anthropic Partner Network
-status: not_started
-target_date: 2026-06-15
+status: pending_partner_access
+target_date: TBD (進路確定後の所属組織状況による)
 last_updated: 2026-05-19
-priority: highest
-tags: [certification, anthropic, architect, cca-f]
+priority: medium
+tags: [certification, anthropic, architect, cca-f, pending]
 ---
 
 # Claude Certified Architect — Foundations (CCA-F)
 
-> Anthropic Partner Network 経由で受験する公式認定。Anthropic Academy 完走後の本命試験。
+> ⚠ **2026-05-19 ステータス変更**: Anthropic Partner Network 加盟組織のメンバー限定で受験可能と判明。
+> YD は個人 (進路決定済み + 大学生) なので現状受験不可。AI学習スプリント本体からは外し、代替として
+> [[../aws_ai_practitioner/README|AWS Certified AI Practitioner (AIF-C01)]] を採用した
+> ([[../../../decisions/2026-05-19_AI学習スプリント開始]] 参照)。
+>
+> 所属企業確定後に「その企業が Partner Network 加盟しているか」をチェックし、加盟していれば再活性化する。
+> 加盟していなかった場合は、自分で個人事業主登録 → Partner Network 申請という選択肢も残る。
+
+> Anthropic Partner Network 経由で受験する公式認定。Anthropic Academy 完走後の本命試験 (だった)。
 >
 > 公式: https://claudecertifiedarchitect.net/ (案内ハブ)
 > Anthropic公式: https://cloud.google.com/learn/certification — (Anthropic Partner Network ポータルから登録)
