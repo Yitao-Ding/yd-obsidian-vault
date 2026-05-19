@@ -71,25 +71,29 @@ update_frequency: 週1回以上
 ## 🟢 アクティブ・優先度中
 
 ### 4. Salamat WBSサイト
-- **状況**: ✅ **Phase 1 一気実装完了 (2026-05-19)** — Hero 全面リデザイン (ZoomParallax×MeshGradient 300vh) + 全カード Gallery4 統一 + Cobe 地球儀 + LocationTag (Cebu/Tokyo現地時刻) + Glowing Shadow 装飾 + List⇄Orbital ビューモード切替。tsc/build/dev HTTP200 + YD 目視確認 OK。Vercel デプロイは Phase 2 で実施。
-- **公開URL (v2版、未更新)**: https://salamat-website-v2.vercel.app (まだ Phase 1 はローカルのみ)
-- **次のアクション (Phase 2)**:
-  - [ ] Phase 1 を Vercel に再デプロイ
-  - [ ] #07 Magnetic+Fey ボタンを主要 CTA に適用
-  - [ ] #01 Three.js パーティクル背景を Hero/Action 以外のセクションに
-  - [ ] モバイル fallback の本格実装 (シェーダー→2D、ZoomParallax 簡略、地球儀静止画)
-  - [ ] 旧コード cleanup (`country-hero`/`country-cards-band`/`dot-map` CSS、`PhilippinesMap`/`JapanMap`)
-  - [ ] 写真ファイル名 cleanup (`ph-*` が日本、`jp-*` がフィリピンの実態と逆になっている)
+- **状況**: ✅ **Phase 1 + Phase 2 演出強化 完了 + Vercel 本番デプロイ済 (2026-05-19 夜)** — Phase 1 (Hero ZoomParallax×MeshGradient / Gallery4 / Cobe / LocationTag / Glowing Shadow / List⇄Orbital) + Phase 2 (Magnetic+Fey ボタン + Three.js パーティクル背景 + 旧コード/写真ファイル名 cleanup) を 2 commit (`46e6839` / `20ae3ee`) + 2 回 Vercel 本番デプロイで反映。YD ブラウザ目視 OK。
+- **公開URL**: https://salamat-website-v2.vercel.app (HTTP 200、Phase 1+2 反映済)
+- **Phase 2 で完了したもの**:
+  - [x] Phase 1 を Vercel に再デプロイ (今日 14:00 頃 dpl_G4DhSUZ6uHL41h3753vzAwdk76nB)
+  - [x] #07 Magnetic+Fey ボタンを主要 CTA に適用 (Hero × 2 + Vision Value、CtaButton 経由 + Tweaks で切替可、DEFAULT を magnetic-fey に)
+  - [x] #01 Three.js パーティクル背景 — Vision/Report/Story/News に per-section マウント (density 900-1400、NormalBlending、寒色5色、size 0.07-0.09、opacity 0.5-0.65、prefers-reduced-motion 尊重、mobile 1/3 密度)
+  - [x] 旧コード cleanup — country-hero / country-cards-band / country-scroller / country-card 関連 CSS 削除、.dot-map 関連も全削除
+  - [x] 写真ファイル名 cleanup — `ph-feeding/lumbani/selma.jpg`(中身は日本) → `jp-1/2/3.jpg`、`jp-abk/kurodaira/terakoya.jpg`(中身はフィリピン) → `ph-1/2/3.jpg`、コード側の逆転マッピングを素直な形に戻し
+  - [x] Phase 2 Vercel 再デプロイ (今日 22:00 頃 dpl_3cZb35DTmMDYeZyLDA4zXdzwDJCh)
+- **次のアクション (Phase 3 持ち越し)**:
+  - [ ] **GitHub Private repo 作成 + push** (今日 remote 未設定で push スキップ、別タスクで `gh repo create` → `git remote add origin` → `git push -u`)
+  - [ ] モバイル fallback の本格実装 (シェーダー→2D、ZoomParallax 簡略、地球儀静止画、ParticleBg 密度更に削減)
   - [ ] circular ストーリーレイアウトの Gallery 化判断
   - [ ] 下層ページ実装 (About / Activities / Reports / News / Members / Support / Transparency)
   - [ ] お問い合わせフォーム + CMS連携 (microCMS/Notion/Sanity)
   - [ ] 独自ドメイン取得 → Vercel に紐付け
+  - [ ] (要すれば) パーティクル密度/opacity の微調整、blending mode の AdditiveBlending 検討
 - **チーム**: YD (実装) + Riko (内容) + Haruka (構成) + Rena (デザイン)
 - **スタック**: Next.js 16 + React 19 + Tailwind v4 + three + cobe + @paper-design/shaders-react + framer-motion + embla-carousel-react + Sora/Zen Maru/Noto Sans JP
 - **パス**: `~/Downloads/07_開発・アプリ制作/salamat-website-v2`
 - **Vercel scope**: yitao-dings-projects、プロジェクト名 `salamat-website-v2`
 - **現行サイト**: `salamat-toyo.web.app` (Firebase、置き換え対象)
-- **関連**: `knowledge/salamat/wbs_team.md`, [[2026-05-19_Salamat_WBS_Phase1実装]], [[vercel]], `~/Downloads/07_開発・アプリ制作/salamat-website-v2/design-brief.md`
+- **関連**: `knowledge/salamat/wbs_team.md`, [[2026-05-19_Salamat_WBS_Phase1実装]], [[2026-05-19_Salamat_WBS_Phase2_演出強化]], [[vercel]], `~/Downloads/07_開発・アプリ制作/salamat-website-v2/design-brief.md`
 
 ### 5. Arte Grow (社会起業)
 - **状況**: Type B モデル確定、9月フィリピン視察計画中
