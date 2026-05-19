@@ -167,6 +167,26 @@ update_frequency: 週1回以上
 - **方針転換**: [[2026-05-19_API依存撤廃_Max20x完結化]] (朝のYD指摘で初版書き換え)
 - **関連**: [[morning_briefing]]、[[2026-05-19_AI学習スプリント開始]]、[[2026-05-19_API依存撤廃_Max20x完結化]]、[[claude_code_permissions]]
 
+### 14. ai-simulator (複数AIペルソナ並列シミュレーター、セッションη)
+- **状況**: ✅ **コード基盤・テスト完成 (2026-05-19、セッションη)** — `~/projects/ai-simulator/` Python 3.11 + uv で構築、ペルソナ5種×30variants + シナリオ4本 + asyncio並列オーケストレーター + 振り返り自動生成 + Vault連携。**ユニットテスト 19件 全通過** (オフライン保証)。**実機APIテストは未実施** (ANTHROPIC_API_KEY 未取得のため YD 側で実行待ち)
+- **パス**: `~/projects/ai-simulator/`
+- **スタック**: anthropic 0.102 / rich 15 / typer 0.25 / pyyaml / pydantic 2.13 (uv 管理)
+- **モデル**: Sonnet 4.6 (品質優先、`--budget` で Haiku 4.5 切替可)
+- **シナリオ**:
+  - `salamat_team_chaos` (extreme, 10人質問攻め — 視察4ヶ月前の臨時ミーティング)
+  - `apple_sales_rush` (hard, 混雑時5人同時接客 — 怒り客/即決客/シニア/迷い客)
+  - `crisis_management` (extreme, 視察3日前トラブル7人)
+  - `client_pitch` (hard, Arte Grow 現地パートナー4人商談)
+- **ペルソナ**: salamat_member (10 variants) / apple_customer (8) / arte_grow_partner (5) / filmmaker_client (5) / job_interviewer (4)
+- **コスト**: 1セッション $0.30〜$0.70 想定、`config.yaml` の `cost_cap_usd:1.0` でハード上限、`warn_threshold_usd:0.7` で警告
+- **振り返り**: 終了時 Claude が評価ルーブリックに沿って Markdown 生成 → `~/ObsidianVault/learning/simulations/<session_id>.md` に自動保存
+- **次のアクション (YD作業)**:
+  - [ ] `cd ~/projects/ai-simulator && cp .env.example .env` → `ANTHROPIC_API_KEY` を埋める
+  - [ ] `uv run ai-simulator run client_pitch --budget` で軽い動作確認 (Haiku で $0.05程度)
+  - [ ] 本命: `uv run ai-simulator run salamat_team_chaos` (Sonnet で $0.3〜$0.7)
+  - [ ] `logs/<session_id>.md` と Vault `learning/simulations/<session_id>.md` を確認
+- **関連**: [[ai_simulator]] (運用マニュアル、必須3セクション付き)
+
 ### 13. ai-researcher (24時間 AI 研究員エージェント、セッションθ)
 - **状況**: ✅ **Max 20x 完結化 完了 (セッションθ、2026-05-19 10:22)** — 朝の YD 指摘 ([[2026-05-19_API依存撤廃_Max20x完結化]]) を受け、Anthropic SDK + ANTHROPIC_API_KEY 依存を撤廃し `claude -p` (Claude Code ヘッドレス) に書き換え。実走 (collect --max-articles 2) で end-to-end 動作確認済、Vault `raw/research/2026-05-19/anthropic_blog/` に2記事書き出し、JSON schema による構造化出力 (importance/categories/related_projects 全フィールド埋まり) 確認。月課金 $0、Max 20x プラン枠で完結
 - **パス**: `~/projects/ai-researcher/` (Python 3.11 + uv)

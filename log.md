@@ -288,3 +288,51 @@
 - **vault_improvement_proposals.md に構造的提案 6件保留** (YD レビュー待ち): index.md 例外化 / mistakes ジャンル別リンク / ε C 検出ロジック改善 (Markdown リンク対応) / セッションθ 監視対象追加候補 / knowledge/programming/tools/ サブディレクトリ分割 / AI学習スプリント.md ラベル整理
 - **残宿題**: WBSサイトが 84 tick (~7時間) 連続 commit ゼロ — `Initial commit from Create Next App` のまま、未コミット13件、要対応
 [2026-05-19 10:55 前後] Claude Code (監視セッション) が log.md 最終まとめ + Vault 全 dirty を集約 commit + GitHub push でセッション終了。
+
+## セッションη — ai-simulator (複数AIペルソナ並列シミュレーター) 構築
+
+[2026-05-19 03:13 前後] YD 指示でセッションηを起動: 「Salamat代表として10人のメンバーから同時質問された状況をAI 10体で再現、回答スキルを鍛える」シミュレーション環境を `~/projects/ai-simulator/` に新規構築。自走モード (エラー3回まで自力対処、設計判断は自分で決める、Push/Deploy/sudo/rm のみYD確認)。
+
+[2026-05-19 03:13〜03:25] Claude Code (セッションη) が **ai-simulator コード基盤を構築完了**:
+- Python 3.11 + uv で `~/projects/ai-simulator/` 新規 (vidkit / morning-briefing と同規約)
+- 依存: anthropic 0.102 / rich 15 / typer 0.25 / pyyaml / pydantic 2.13 / python-dotenv
+- ディレクトリ構造: `personas/` (5 YAML) + `scenarios/` (4 YAML) + `src/ai_simulator/{engine,interface}/` + `tests/` + `config.yaml` + `pyproject.toml`
+- **ペルソナ 5 種 × 30 variants**:
+  - `salamat_member.yaml`: enthusiast / anxious / passive / challenger / neutral_chief / doubter / international / senior_alumni / accountant / secretary (10)
+  - `apple_customer.yaml`: tech_savvy / senior_first_smartphone / indecisive / price_negotiator / angry_returning / student_first_buy / business_owner / gift_buyer (8)
+  - `arte_grow_partner.yaml`: artisan / ngo_coordinator / government_window / young_co_designer / skeptical_elder (5)
+  - `filmmaker_client.yaml`: artist_vision_driven / corporate_brand / nervous_individual / ngo_documentary / difficult_director (5)
+  - `job_interviewer.yaml`: pressure / warm_explorer / technical / jica_style (4)
+- **シナリオ 4 本**:
+  - `salamat_team_chaos` (extreme, 10人同時) — 視察4ヶ月前の臨時Discordミーティング、各メンバーが視察計画/予算/治安/KPI/モチベ低下/役割/会計/議事録など同時投下
+  - `apple_sales_rush` (hard, 5人同時) — 土曜午後の表参道店で技術系/シニア/値引交渉/怒り客/迷い客が一斉に話しかける
+  - `crisis_management` (extreme, 7人同時) — 視察3日前に現地校休校+メンバー親反対+予算オーバー+延期論+Yitao Film 案件+現地ネットワーク提案+進行整理提案が同時発生
+  - `client_pitch` (hard, 4人 sequential) — Arte Grow セブ進出の初回オンライン商談、Maria/Mang Jose/Lola Beth/Kayla を相手に Type B モデル提案
+- **オーケストレーター**: `engine/orchestrator.py` で asyncio.gather による並列 API 呼び出し、各ペルソナごとに独立 history、prompt cache (cache_control: ephemeral) でシステムプロンプトをキャッシュ
+- **コストトラッカー**: `engine/cost.py` で Sonnet 4.6 / Haiku 4.5 の公開価格表を保持、リアルタイム USD 換算、`cost_cap_usd:1.0` でハード上限 + `warn_threshold_usd:0.7` で警告
+- **振り返りレポート**: `engine/reflection.py` で会話全体 + 評価ルーブリックを Claude に渡して Markdown レポート自動生成、スコア (各観点 0-5点 / 合計 25点) + 良かった応答3例 + 改善点3例 + 学ぶべきパターン
+- **Vault連携**: `save_reflection_to_vault()` で `~/ObsidianVault/learning/simulations/<session_id>.md` に自動保存 (frontmatter + 振り返り + トークン消費量)
+- **CLI**: typer + rich で `uv run ai-simulator {list,run <scenario>}`、対話中は broadcast / `@名前 個別宛` / `/tick` (AI自発発話) / `/who` / `/cost` / `/quit` をサポート
+
+[2026-05-19 03:25〜03:30] **APIキー不在で実機テスト断念 → ユニットテスト保証に切替**:
+- `~/projects/ai-researcher/.env` に `ANTHROPIC_API_KEY=` 行はあるが値が空、Keychain にも未保存、シェル環境変数にも未設定
+- AskUserQuestion で YD に確認 → 「今回はユニットテストまでで止める」を選択
+- 19 件のユニットテストを `tests/` に新規作成、全てオフラインで通る:
+  - `test_loaders.py` (8件): ペルソナ・シナリオの YAML ロード、prompt template の変数置換、unknown variant の例外、シナリオ participant が実在 variant を指すか
+  - `test_orchestrator_build.py` (6件): `build_participants` の10人正しい初期化、色割り当て、history seed (場面 user + opening assistant)、`find()` の名前解決 (@prefix対応)、`record_user` の log 追記
+  - `test_cost.py` (5件): Sonnet/Haiku 公開価格との一致、cache_read の安さ、累積、`50発話シナリオが $1 以下` の予算回帰防止
+- `uv run --extra dev pytest tests/` で 19 passed in 0.36s
+
+[2026-05-19 03:30] **Vault 反映完了**:
+- `knowledge/programming/tools/ai_simulator.md` 新規作成 (必須3セクション含む: ✅うまく行ったこと / ❌詰まったこと / 📋次回チェックリスト)
+- `current_state/active_projects.md` に **14. ai-simulator** を追加 (YD仕様書の「11」は仕様書作成時点の認識、現状 11=textbook-engine / 12=morning-briefing / 13=ai-researcher のため 14 を採用)
+- この log.md 追記
+
+[2026-05-19 03:30] 設計判断 (自走モード遵守):
+- ペルソナ = 1ファイル × 複数 variants の構造 (10人シナリオで10ファイルに散らさない、1ファイルで対比可視化)
+- src layout (`src/ai_simulator/`) で morning-briefing / vidkit と規約統一
+- 振り返り = 会話全体 + ルーブリックを 1回の Claude 呼び出し (max_tokens=2200, temperature=0.4)
+- broadcast / mention のハイブリッド対応で「履歴末尾が user なら user_text にマージ」して role 連続エラー回避
+- opening がプレースホルダ (`(後で発言予定)`) の participant は `{"role":"assistant","content":"(まだ発言を控えて、状況を見ています)"}` を seed として挿入し API の user/assistant 交互制約を満たす
+
+[2026-05-19 03:30] **残作業 (YD側)**: `.env` に `ANTHROPIC_API_KEY` を設定 → `uv run ai-simulator run client_pitch --budget` で軽い動作確認 (Haiku で $0.05程度) → 本命 `uv run ai-simulator run salamat_team_chaos` (Sonnet で $0.3〜$0.7)。Vault `learning/simulations/<session_id>.md` に振り返りが自動保存される。
