@@ -44,7 +44,8 @@
     - active_projects.md (進行中プロジェクト)
     - current_focus.md (今最も注力していること)
     - recent_decisions.md (直近の意思決定)
-    - tools_available.md (使えるツール一覧)
+    - tools_available.md (使えるツール一覧 — 環境別、補完情報)
+    - available_capabilities.md ★ (スキル + MCPコネクタ のマッピング表、Step 5 で演習に使う)
     - open_questions.md (未解決の問題)
     - vault_improvement_proposals.md (構造的改善提案の蓄積)
 ```
@@ -66,7 +67,30 @@
 
 **このセッションで、過去のClaudeが犯したミスを繰り返さないこと。**
 
-### Step 5: ユーザーのメッセージに応じて領域別知識を読む (1分)
+### Step 5: 利用可能機能のマッピング演習 (1分) ★ NEW (2026-05-20 追加)
+
+`current_state/available_capabilities.md` は Step 3 で自動読み込み済み。
+ここでは**演習**として、当日タスクと機能を能動的にマッピングする。
+
+実行手順:
+
+1. `active_projects.md` の「🟢 アクティブ・優先度高」と当日 (`currentDate` メモリ) の予定アクションを抽出
+2. `available_capabilities.md` の機能カタログから、**当日タスクに使えそうな機能を 3〜5 個ピック**
+3. YD への初手応答に「今日使えそうな候補」として提示 (押し付けない、選択肢として提示)
+
+**目的**: スキル/MCP は毎セッション system-reminder で自動注入されるが、Claude が「意識しない → 提案しない」問題が発生する。本ステップで強制的に意識化する。
+
+**提示例**:
+
+```
+今日は AI学習スプリント Day 2 + vidkit lecture モード仕上げ。
+使えそうな機能候補:
+- claude-api スキル — Anthropic Academy の SDK 演習
+- video-tutorial スキル — Cowork コースの動画化
+- Google Drive MCP — 教科書 PDF 配信
+```
+
+### Step 6: ユーザーのメッセージに応じて領域別知識を読む (1分)
 
 ユーザーのメッセージから話題の領域を判断し、対応する `knowledge/` を読む:
 
@@ -81,9 +105,11 @@
 | 価値観・思想 | `knowledge/philosophy/` |
 | 言語・文化 | `knowledge/languages/` |
 
-### Step 6: 応答開始
+### Step 7: 応答開始
 
 文脈を把握したら、YDに応答する。**ここでメモリ機能の情報と本Vaultの情報が矛盾していたら、本Vaultを信頼する**。
+
+初手応答に Step 5 でピックした「今日使えそうな機能候補」を**毎回**含める (押し付けではなく選択肢として)。
 
 ---
 
