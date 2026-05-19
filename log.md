@@ -458,3 +458,21 @@
 [2026-05-20 00:30] Lecture Hub Notion 風デザイン Phase 1 完了。primary色 #5C46E5 (Purple) → **#2383E2 (Notion Blue)**、ボタン Notion 風コンパクト (h-8 / rounded-[4px] / 影なし / hover 同期)、Sidebar 幅 260→240 + コンパクトナビ + ⌘K ヒント + flat header、Topbar h-16→h-11 + backdrop-blur、PageEditor max-w-[760px] + px-12 pt-24 + 40px H1 タイトル + 削除ボタン subtle 化、TasksClient Notion database 風 (Card 撤去・inline form・segmented tab・h-9 hover row・hover で削除ボタン出現)。tsc + next build (4秒) 通過、commit `8929e5f Notion-style design refresh (phase 1)` push 済 (f764346..8929e5f)、vercel --prod 成功 (dpl_A5bmfKSwyiagEYcVsg2kt8AUHpUQ)、`https://lecture-hub-sable.vercel.app/` で本番反映。Vault: decisions/2026-05-20_lecture_hub_notion_design_phase1.md 新規 (必須3セクション付き、次回 Notion 風デザインを当てる時のチェックリスト含む)。Phase 3 残: /search /chat /admin の Notion 風刷新 / BubbleMenu+SlashMenu で EditorToolbar 置き換え / ページ絵文字アイコン / Sidebar 検索ボタン化 / BlockNote *.bak 削除 / 本番動作確認 (音声 / AI / 数式)。
 [2026-05-20 03:05] ai-researcher collect: raw=70 dedup=30 relevant=0 kept=0
 [2026-05-20 03:14] 機能マッピング自動化 (B案) を実装。`current_state/available_capabilities.md` 新規 (スキル40+ / MCPコネクタ11 / トリガー語彙 / プロジェクト別機能候補)、`00_CLAUDE_BOOT.md` に Step 5「機能マッピング演習」挿入 (旧 5→6, 6→7)、`~/.claude/CLAUDE.md` の必須読み込みに #8 として追加 + 機能マッピング演習セクション追記、`~/projects/morning-briefing/` の synthesizer / template / css に capabilities セクション統合 (BriefingDocument.capabilities フィールド + Vault context 読み込み + 06 セクション「今日使えそうな機能」+ teal カード + tts_script 反映)、`decisions/2026-05-20_機能マッピング自動化.md` 新規 (必須3セクション付き)。次回新セッション以降、「おはよう」だけで Vault読み込み + スキル/MCPマッピング演習が自動実行される。
+[2026-05-20 03:18] [parallel-claude/monitor] iter=1 running=5 done=0 fail=0 discovered=0
+[2026-05-20 03:21] [parallel-claude/02] textbook第2号 執筆+PDF完了
+[2026-05-20 03:21] [parallel-claude/01] Vault整合性チェック完了: 孤立1/リンク漏れ10/矛盾3/古い情報0 (計14件、副次47ファイルに last_updated 欠落)
+[2026-05-20 03:21] [parallel-claude/05] AI学習Day2自習ノート完了
+[2026-05-20 03:21] [parallel-claude/04] Arte Growフィリピン視察リサーチ完了
+[2026-05-20 03:22] [parallel-claude/03] Salamat 下層ページドラフト完了
+[2026-05-20 03:23] [parallel-claude/monitor] iter=2 running=12 done=5 fail=0 discovered=12
+
+[2026-05-20 03:30] Claude Code が Lecture Hub Phase 3 BlockNote クリーンアップを完了 (4 commits, push なし):
+  - commit 1: .bak ファイル 5件 + blocknote-overrides.css (未参照) 削除 (-742 lines)
+  - commit 2: @blocknote/ariakit/@blocknote/core/@blocknote/react (0.50.0) を pnpm remove、-98 packages
+  - commit 3: plainTextFromDocument を TipTap {type:"doc",content:[...]} 形式に書き換え、vitest 5件全通過
+  - commit 4: src/lib/blocknote/ → src/lib/editor/ (git mv)、embed-action.ts import パス更新、CLAUDE.md 更新
+  - pnpm exec tsc --noEmit ゼロエラー、pnpm build 12 ページ全生成 OK。push は YD 判断待ち。
+  - decisions/2026-05-20_lecture_hub_blocknote_cleanup.md 新規作成
+[2026-05-20 03:28] [parallel-claude/monitor] iter=3 running=18 done=5 fail=3 discovered=21
+[2026-05-20] Phase 1 Vault メンテバッチ完了 (Claude Code): current_focus.md 最新化 (AI学習スプリント最優先化) / knowledge/programming/tools/ → projects/ 7 件 git mv / CLAUDE.md に index.md 例外追記 / decisions/2026-05-19_教科書システム第2号企画.md 必須3セクション追加 / vault_improvement_proposals.md 全 pending を resolved/wontfix に更新。計 5 commit。
+[2026-05-20] Phase 2 Task Hub 運用マニュアル確認・整備完了 (Claude Code): knowledge/programming/projects/task_hub.md 既作成済みを確認、frontmatter 修正 (subarea: tools→projects) + セットアップ手順セクション新設。
