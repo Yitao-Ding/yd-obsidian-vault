@@ -1,6 +1,6 @@
 ---
 type: current_state
-last_updated: 2026-05-19 (AI学習スプリント開始 + 朝ブリーフィング基盤完成 + 教科書システム第1号完成、就活終了)
+last_updated: 2026-05-20 (機能マッピング自動化 + morning-briefing cron 登録 + GitHub Private push)
 update_frequency: 週1回以上
 ---
 
@@ -186,11 +186,12 @@ update_frequency: 週1回以上
 - **配信形式**: 縦長A4雑誌風PDF + 日本語TTS mp3 → Google Drive `Morning Briefing/2026-MM/` 自動アップ
 - **配信時刻**: 毎朝 07:30 JST (`./install_cron.sh` で登録、未登録)
 - **内容構成**: 今日のハイライト → 業界ニュース3本 (AI/撮影/開発) → ポッドキャストサマリ3本 → 推薦書 → 推薦コース → 締めの一言
-- **次のアクション** (YD作業、APIキー不要に簡素化):
+- **次のアクション** (YD作業、Drive 認証のみ残):
   - [ ] Google Cloud Console で OAuth クライアント発行 → `credentials/client_secret.json` 配置
   - [ ] `cd ~/projects/morning-briefing && uv run python -m src.uploader.drive --auth` でブラウザ認証 (初回のみ)
   - [ ] `./run.sh` で手動フルテスト (Drive アップロード確認)
-  - [ ] `./install_cron.sh` で 07:30 JST cron 登録
+  - [x] `./install_cron.sh` で 07:30 JST cron 登録 (2026-05-20 03:18 完了)
+  - 詳細: [[handover_morning]]
 - **設計判断**: LLM = `claude -p` (Max 20x 枠完結)、TTS = `say -v Kyoko` (macOS 標準、無料)、PDF = WeasyPrint、Drive = OAuth2 scope=drive.file (個人Drive 安全)、cron = crontab
 - **コスト**: **完全無料** (Drive APIは無料枠、LLM/TTSは Max 20x 内)
 - **計測値**: 全体 61.9 秒 (claude -p 整形 38秒、収集22秒、PDF/TTS 各1秒)
