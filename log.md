@@ -336,3 +336,10 @@
 - opening がプレースホルダ (`(後で発言予定)`) の participant は `{"role":"assistant","content":"(まだ発言を控えて、状況を見ています)"}` を seed として挿入し API の user/assistant 交互制約を満たす
 
 [2026-05-19 03:30] **残作業 (YD側)**: `.env` に `ANTHROPIC_API_KEY` を設定 → `uv run ai-simulator run client_pitch --budget` で軽い動作確認 (Haiku で $0.05程度) → 本命 `uv run ai-simulator run salamat_team_chaos` (Sonnet で $0.3〜$0.7)。Vault `learning/simulations/<session_id>.md` に振り返りが自動保存される。
+[2026-05-19 18:40] ai-researcher collect: raw=73 dedup=70 relevant=37 kept=32
+
+[2026-05-19 17:01] Claude Code (セッションB) が **morning-briefing の残作業を自走完了** (YDの「全部やっちゃっていい」承認下):
+- cron 登録: `30 7 * * * /Users/ittou/projects/morning-briefing/run.sh >> logs/cron.log 2>&1` を crontab にインストール。明日 (2026-05-20) 07:30 JST から自動実行開始
+- git 初期化 + Initial commit: `7e77832 Initial commit: morning-briefing pipeline (Max 20x完結版)` (31ファイル、ローカルのみ、push なし)。`.gitignore` で `.env` / `credentials/*.json` / `output/*` / `logs/*` 除外確認済み
+- 残るは YD のブラウザ作業のみ (5分): Google Cloud Console で Drive API 有効化 → OAuth クライアントID (Desktop) 発行 → `credentials/client_secret.json` 配置 → `uv run python -m src.uploader.drive --auth` でブラウザ認証
+- OAuth 未設定のまま明日朝を迎えても、PDF + MP3 は `output/` に生成され、Drive アップロードだけが失敗してエラーログが残る程度の安全側設計
