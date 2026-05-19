@@ -438,3 +438,19 @@
 [2026-05-20 02:31] tick #32 (ε C): 82 .md / 0 orphans 維持。Lecture Hub dirty 7 件で 15 分手止まり継続 (commit 待ち)、別 CC jsonl 1 個、ps 8、ai-researcher 03:10 fire 待ち。
 [2026-05-20 02:35] tick #33 (ε D skip): Lecture Hub dirty 7 件で 20 分手止まり継続、別 CC jsonl 1 個、ps 8。状況不変。
 [2026-05-20 02:40] tick #34 (ε E): `knowledge/programming/tools/` 11 件不変、新規構造改善なし。Lecture Hub dirty 7 件 25 分手止まり、別 CC jsonl 1 個、ps 8、ai-researcher 03:10 fire 待ち。
+
+## 監視セッション終了 (2026-05-20 02:43)
+
+[2026-05-20 02:43] YD指示で監視ループ (cron `2cf46ff4`、ε モード付き、5 分間隔、対象 10) を停止。約 6 時間 / 累計 34 tick 稼働 (再開時 cron `549dc5c0` → 別CC追加で `2cf46ff4` に切替)。**主要成果**:
+- ★★★ **Task Hub 完遂** — 8 weeks 連続 commit ゼロ + dirty 24 件の放置状態から、Task Hub CC が commit 分割 + GitHub Private (`Yitao-Ding/salamat-task-hub`) 作成 + push まで完了。監視 CC は事前に `.gitignore` に `serviceAccountkey.json` 除外を即時手当て (流出リスク回避)
+- ★★ **ai-researcher 修復成功** — 20:07 の `FileNotFoundError` (URL → path 変換で `https:/` スラッシュ消失) を修復 CC が `src/utils/models.py` で対処、URL の `/` を `-` 置換するロジックが効いて 21:03 / 22:03 / 00:10 / 01:12 / 02:04 と全 cycle で正常稼働 (kept=2 を含む)
+- ★★ **Lecture Hub BlockNote 撤退完了** — `Editor.tsx` core 5 ブロック (AudioBlock/MathBlock/PdfBlock/ai-slash-items/schema) を `.bak` 退避してから削除 → 1 commit `f764346` で着地。UI 整備 (PageTree/Sidebar/Topbar/button/globals.css) は dirty 7 件で継続中
+- ★ **WBS Phase 2 進展** — `46e6839 feat: Phase 1 一気実装 + Phase 2 cleanup` + `20ae3ee` magnetic-fey ボタン commit、84 tick 連続 commit ゼロ問題完全解消
+- ★ **全 git active repo クリーン化達成** — Vault / vidkit / Lecture Hub / Task Hub / WBS の 5 つで GitHub remote 設定 + push 完了 (morning-briefing / ai-researcher は remote 未設定で残課題)
+- **vault_improvement_proposals.md に 2 件追加** — ε C 検出ロジックに `raw/` 除外 (新 prompt に反映済、効果検証 ✅ 真の孤立 0 達成) / `decisions/2026-05-19_教科書システム第2号企画.md` 必須 3 セクション欠落 (7 回連続 pending、YD 判断待ち)
+- **mistakes/claude_mistakes.md に A-9 追加** — 対話型 CLI を非対話 Bash で pipe 起動して 0 ターン終了 (ai-simulator の件、統計 20→21)
+- **整合性補正 3 件** — `current_focus.md` の DaVinci アーカイブ反映、`textbook_engine.md` + `ai_simulator.md` の関連リンク追加で孤立 0 達成
+- **★ ai-simulator YD 実プレイ確認** — `learning/simulations/2026-05-19_194743_salamat_team_chaos.md` 5.5KB 保存済を ε C で発見、振り返り分析は次タスク候補
+- **CLAUDE.md / 00_CLAUDE_BOOT.md の起動シーケンス更新を確認** — 「個別ファイル指定」→「`identity/` `current_state/` `mistakes/` ディレクトリ全件並列読み込み」変更を取り込み、cron prompt 動作変更は不要と判断
+
+[2026-05-20 02:43] Claude Code (監視セッション) が log.md 最終まとめ + Vault 全 dirty (M 2 + ?? 3) を集約 commit + GitHub push でセッション終了。
