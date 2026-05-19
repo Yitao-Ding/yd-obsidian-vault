@@ -1,7 +1,7 @@
 ---
 type: knowledge
 area: programming
-subarea: tools
+subarea: projects
 last_updated: 2026-05-20
 status: active
 project: Task Hub
@@ -124,6 +124,36 @@ export default function ProjectDetailPage() {
 ```
 
 Firebase Hosting 側 (`firebase.json`) の rewrite で `/projects/<real-id>` を `/projects/_p_/index.html` にマップし、クライアント側 `useParams()` が実 URL から `<real-id>` を取得。
+
+## セットアップ手順 (ゼロから再構築するとき)
+
+```bash
+# 1. リポジトリ clone
+git clone https://github.com/Yitao-Ding/salamat-task-hub.git
+cd salamat-task-hub
+
+# 2. 依存インストール
+npm install
+
+# 3. 環境変数ファイルを作成
+cp .env.local.example .env.local   # なければ下記テンプレを貼る
+# → Firebase Console > プロジェクト設定 > アプリ > "ウェブ API キー" から各値を取得
+
+# 4. Firebase CLI ログイン & プロジェクト選択
+firebase login
+firebase use salamat-task-hub
+
+# 5. Firestore / Storage ルールをデプロイ (本番 rules 未反映の場合)
+firebase deploy --only firestore:rules,storage
+
+# 6. 開発サーバー起動
+npm run dev      # http://localhost:3000
+
+# 7. 初回 Admin 設定 (Firebase Console → Auth で UID を確認後)
+node scripts/set-admin.mjs <UID> <path/to/serviceAccountKey.json>
+```
+
+⚠ `.env.local` は `.gitignore` 対象。Firebase Console でキーを確認して手動作成すること。
 
 ## デプロイ手順
 
