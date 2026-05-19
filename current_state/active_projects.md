@@ -121,11 +121,11 @@ update_frequency: 週1回以上
   - `9dfcd77` docs: add handover document, spec, and admin setup script
 - **次のアクション** (将来):
   - メンバー招待フロー仕上げ
-  - PWA最終調整
+  - PWA 最終調整
   - 商用化検討 (大学サークル向けフリーミアム)
   - Firestore / Storage rules を本番に `firebase deploy --only firestore:rules,storage` でデプロイ確認 (HANDOVER.md の既知注意事項)
-  - Vault に `knowledge/programming/tools/task_hub.md` 新規作成 (vidkit / lecture_hub と同様の運用マニュアル化)
-- **関連**: `knowledge/programming/tools/task_hub.md` (未作成、次セッション候補)
+  - next-pwa v5 系 → v6 / Serwist 系への移行検討 (Next.js 16+ との互換性)
+- **関連**: [[task_hub]] (運用マニュアル、2026-05-20 作成)、[[2026-05-19_TaskHub_git整理_GitHub連携]] (git 整理の意思決定)
 
 ### 7. Lecture Hub (個人ナレッジハブ)
 - **状況**: ✅ **本番デプロイ完了 (2026-05-19 21:50)** — BlockNote × Next.js 15.5 の根本不整合 (6試行で確証) を確定し **TipTap v3 に全面移行**、本番動作確認 OK
@@ -217,7 +217,7 @@ update_frequency: 週1回以上
 - **関連**: [[ai_simulator]] (運用マニュアル、必須3セクション付き)、[[2026-05-19_API依存撤廃_Max20x完結化]]、[[claude_mistakes]] D-5
 
 ### 13. ai-researcher (24時間 AI 研究員エージェント、セッションθ)
-- **状況**: ✅ **Max 20x 完結化 完了 (セッションθ、2026-05-19 10:22)** — 朝の YD 指摘 ([[2026-05-19_API依存撤廃_Max20x完結化]]) を受け、Anthropic SDK + ANTHROPIC_API_KEY 依存を撤廃し `claude -p` (Claude Code ヘッドレス) に書き換え。実走 (collect --max-articles 2) で end-to-end 動作確認済、Vault `raw/research/2026-05-19/anthropic_blog/` に2記事書き出し、JSON schema による構造化出力 (importance/categories/related_projects 全フィールド埋まり) 確認。月課金 $0、Max 20x プラン枠で完結
+- **状況**: ✅ **Max 20x 完結化 完了 (セッションθ、2026-05-19 10:22) → slug パス区切りバグ修正 (2026-05-19 21:10)** — 朝の YD 指摘 ([[2026-05-19_API依存撤廃_Max20x完結化]]) を受け、Anthropic SDK + ANTHROPIC_API_KEY 依存を撤廃し `claude -p` (Claude Code ヘッドレス) に書き換え。月課金 $0、Max 20x プラン枠で完結。**夜の slug バグ**: google_research の RSS guid が URL 形式 → `Article.slug()` が `source_id` を素通し → pathlib で `/` が path 区切り扱いになり 10:03/11:03 の collect が kept=0 で空回り → `src/utils/models.py:29-33` を 3 行修正 (`sid = slugify(self.source_id, max_length=24)`) で全 source の事故を予防 → `collect` 再走で過去失敗分 5 件全復旧 ([[claude_mistakes]] A-10 + [[ai_researcher]] 必須3セクション更新済)
 - **パス**: `~/projects/ai-researcher/` (Python 3.11 + uv)
 - **スタック**: **anthropic SDK 削除済** / arxiv + feedparser + bs4 + typer + tenacity + SQLite (重複・呼び出し履歴)
 - **LLM 経路**: `claude -p --output-format json --json-schema ... --system-prompt ... --no-session-persistence --disable-slash-commands --permission-mode bypassPermissions --model claude-haiku-4-5` (stdin プロンプト)
