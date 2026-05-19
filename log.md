@@ -343,3 +343,5 @@
 - git 初期化 + Initial commit: `7e77832 Initial commit: morning-briefing pipeline (Max 20x完結版)` (31ファイル、ローカルのみ、push なし)。`.gitignore` で `.env` / `credentials/*.json` / `output/*` / `logs/*` 除外確認済み
 - 残るは YD のブラウザ作業のみ (5分): Google Cloud Console で Drive API 有効化 → OAuth クライアントID (Desktop) 発行 → `credentials/client_secret.json` 配置 → `uv run python -m src.uploader.drive --auth` でブラウザ認証
 - OAuth 未設定のまま明日朝を迎えても、PDF + MP3 は `output/` に生成され、Drive アップロードだけが失敗してエラーログが残る程度の安全側設計
+
+[2026-05-19 後半] Claude Code モデル設定を `opus[1m]` (Opus 4.7 + 1M context) に変更。`~/.claude/settings.json` の `"model"` を更新。1M context は Max プランなら追加料金なし、`[1m]` サフィックスは alias/full name どちらにも付与可。knowledge/programming/tools/claude_code.md に「🧠 モデル設定」セクション追加。

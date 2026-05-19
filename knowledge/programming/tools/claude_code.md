@@ -2,8 +2,8 @@
 type: knowledge
 domain: programming/tools
 created: 2026-05-18
-last_updated: 2026-05-18
-tags: [claude-code, ai-tools, workflow, permissions, prompt-design]
+last_updated: 2026-05-19
+tags: [claude-code, ai-tools, workflow, permissions, prompt-design, model-config]
 priority: high
 ---
 
@@ -119,6 +119,41 @@ Anthropic 公式の対話型 CLI / IDE エージェント。
 2. **既存ファイルの上書き判断は文脈勝負** — `~/ObsidianVault` が「ディレクトリ枠だけ存在」していた時、上書き確認を出すかどうかは中身ゼロを確認してスキップ判定した。中身があれば確認すべき
 3. **エイリアスは Claude Code の Bash からは効かない** — `vsync` は `.zshrc` を読んだインタラクティブシェルで効くもの。Claude Code 側で「vsync 実行して」と言われたら alias の中身 (`cd ~/ObsidianVault && git add . && git commit -m "..." && git push`) を直接打つ必要がある
 4. **Obsidian 自身が `.obsidian/` 配下を書き換える** — `core-plugins.json` などは Obsidian 起動時に自動更新される。git で追跡しても恒常的に diff が出るので、人間が手で固定したい設定は最小限に絞るのが現実的
+
+## 🧠 モデル設定 (model / context window)
+
+Claude Code でどの Claude モデルを使うかは4つの方法で指定できる。優先度順に:
+
+1. **セッション中**: `/model <alias|name>` で即時切替 (`/model` 単独で picker)
+2. **起動時**: `claude --model <alias|name>` (そのセッションだけ)
+3. **環境変数**: `export ANTHROPIC_MODEL=<alias|name>` (そのシェル以下)
+4. **settings.json**: `"model": "<alias|name>"` (永続、最も汎用)
+
+### モデルエイリアス
+
+| エイリアス | 中身 |
+|----------|------|
+| `opus` | 最新 Opus (現状 4.7) |
+| `sonnet` | 最新 Sonnet (現状 4.6) |
+| `haiku` | 最新 Haiku |
+| `opusplan` | Plan モードで Opus、実装で Sonnet に自動切替 |
+| `opus[1m]` | Opus に 1M token context window |
+| `sonnet[1m]` | Sonnet に 1M token context window |
+
+### 1M context window の有効化
+
+- **書き方**: alias または full model name に `[1m]` を付ける
+  - 例: `/model opus[1m]` / `/model claude-opus-4-7[1m]`
+- **要件**: Claude Code v2.1.111 以上
+- **料金**: Max/Team/Enterprise なら追加料金なし(サブスク込み)。Pro はクレジット消費。Anthropic API は従量
+- **品質低下に注意**: "lost-in-the-middle" 現象があるので `/context` で監視し、60% 超えで `/compact` 推奨
+- **無効化**: `CLAUDE_CODE_DISABLE_1M_CONTEXT=1` で picker から消える
+
+YD のデフォルトは `~/.claude/settings.json` で `"model": "opus[1m]"` に固定 (2026-05-19 設定)。プロジェクト側 `.claude/settings.json` で別モデルが指定されている場合はそちらが優先される。
+
+### effort level (Opus 4.7)
+
+Opus 4.7 は `low / medium / high / xhigh / max` の5段階。YD は `xhigh` (デフォルト) で運用中。`/effort` で変更、`max` はそのセッション限り。
 
 ## 🔄 セッション終わりの習慣 (Phase 1 運用)
 
