@@ -177,14 +177,16 @@ update_frequency: 週1回以上
 - **関連**: [[textbook_engine]]、[[2026-05-19_AI学習スプリント開始]]
 
 ### 12. morning-briefing (朝ブリーフィング自動配信、Max 20x 完結版)
-- **状況**: ✅ 全パイプライン完成 (セッションB、2026-05-19 10:16) — `claude -p` + `say -v Kyoko` でフル動作確認済 (61.9秒、エラー0、PDF 247KB + MP3 3.68MB 生成)
-- **パス**: `~/projects/morning-briefing/` (Python 3.11 + uv、ローカルのみ)
+- **状況**: ✅ **capabilities セクション統合 + GitHub Private + cron 登録完了 (2026-05-20 03:20)** — Vault context (`active_projects.md` + `available_capabilities.md`) を `claude -p` プロンプトに同梱し、当日タスクとスキル/MCP のマッピング候補を 3〜5 件提示する 06 セクションを追加。dry-run で synthesize 完了 (5件 capability 生成: claude-api / vercel:ai-sdk / Google Drive / fcp-autocut / Notion)。初回 (2026-05-19 10:16) は `claude -p` + `say -v Kyoko` でフル動作確認済 (61.9秒、エラー0、PDF 247KB + MP3 3.68MB 生成)
+- **GitHub**: `https://github.com/Yitao-Ding/morning-briefing` (Private、2026-05-20 push 済)
+- **cron**: `30 7 * * * run.sh` 登録済 (2026-05-20 03:18)、次回実行 = 翌朝 07:30 JST。初回は Drive 認証未完了で upload のみ失敗予定、ローカル PDF/MP3 は生成される。詳細: [[handover_morning]]
+- **パス**: `~/projects/morning-briefing/` (Python 3.11 + uv)
 - **スタック**: feedparser + weasyprint + jinja2 + google-api-python-client (OAuth2) + crontab
   - **LLM**: `claude -p` ヘッドレス呼び出し → Max 20x 枠内、**API課金なし**
   - **TTS**: macOS 標準 `say -v Kyoko` + ffmpeg → **API課金なし**
   - **anthropic / openai パッケージは依存から削除済**
 - **配信形式**: 縦長A4雑誌風PDF + 日本語TTS mp3 → Google Drive `Morning Briefing/2026-MM/` 自動アップ
-- **配信時刻**: 毎朝 07:30 JST (`./install_cron.sh` で登録、未登録)
+- **配信時刻**: 毎朝 07:30 JST (`./install_cron.sh` で登録、2026-05-20 03:18 登録済)
 - **内容構成**: 今日のハイライト → 業界ニュース3本 (AI/撮影/開発) → ポッドキャストサマリ3本 → 推薦書 → 推薦コース → 締めの一言
 - **次のアクション** (YD作業、Drive 認証のみ残):
   - [ ] Google Cloud Console で OAuth クライアント発行 → `credentials/client_secret.json` 配置
