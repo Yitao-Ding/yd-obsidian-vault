@@ -210,9 +210,9 @@ decisions と knowledge はお願い、mistakes は今回はいい
 | セッション | Vault 書き込み範囲 |
 |----------|------------------|
 | Vault構築 CC | `decisions/Obsidian_Vault*` / `knowledge/programming/tools/obsidian_vault.md` |
-| vidkit autocut CC | `knowledge/programming/tools/vidkit.md` (該当箇所) |
+| vidkit autocut CC | `knowledge/programming/projects/vidkit.md` (該当箇所) |
 | WBSサイト CC | `knowledge/salamat/wbs_team.md` |
-| Lecture Hub CC | `knowledge/programming/tools/lecture_hub.md` / `decisions/lecture_hub_*` |
+| Lecture Hub CC | `knowledge/programming/projects/lecture_hub.md` / `decisions/lecture_hub_*` |
 | デスクトップ Claude | 統合・整理・抜け補完・ワークフロー記録 |
 
 ### 競合回避

@@ -57,7 +57,7 @@ update_frequency: 週1回以上
   - [x] **vidkit を git 初期化 + GitHub Private に push 完了** (2026-05-19 ~01:00) — `177a2f2 Initial commit` → `29deb68 docs: lecture セットアップ + tighten 実機検証手順を追加` (~01:05) → **`40cef7d fix: variable-fps 動画 (Zoom録画/screen capture) を autocut/tighten で扱えるように` (~02:00)**。origin = https://github.com/Yitao-Ding/vidkit.git、現在クリーン
 - **将来のFCPXMLオペレーション候補**: speaker-filter / marker-batch / beat-snap (蛹用途) / roles-bulk — `parse_fcpxml` + `write_fcpxml_from_parsed` の汎用モジュールが揃ったので追加コストは低い
 - **パス**: `/Users/ittou/projects/vidkit`
-- **関連**: `knowledge/programming/tools/vidkit.md`, `decisions/2026-05-18_FCPXML_ラウンドトリップ採用.md`, `decisions/2026-05-19_vidkit_tighten_tutorial_完成.md`
+- **関連**: `knowledge/programming/projects/vidkit.md`, `decisions/2026-05-18_FCPXML_ラウンドトリップ採用.md`, `decisions/2026-05-19_vidkit_tighten_tutorial_完成.md`
 
 ### 3. 平成たち祭 動画制作
 - **状況**: 撮影完了 (5/6)
@@ -160,7 +160,7 @@ update_frequency: 週1回以上
   - [ ] `src/lib/offline/sync.ts` (Dexie オフライン同期) の TipTap 形式対応確認
   - [ ] Vercel Preview 環境への env 投入 (ダッシュボード手作業、ペンディングのまま)
 - **意思決定記録**: [[2026-05-19_tiptap_migration]]、[[2026-05-18_lecture_hub_個人用転換]]
-- **関連**: `knowledge/programming/tools/lecture_hub.md`、[[claude_mistakes]] B-4 (BlockNote × Next 15.5 不整合、本日 6 試行で確証)
+- **関連**: `knowledge/programming/projects/lecture_hub.md`、[[claude_mistakes]] B-4 (BlockNote × Next 15.5 不整合、本日 6 試行で確証)
 
 ### 11. textbook-engine + 教科書システム (YD専用教科書)
 - **状況**: ✅ 構築完了 (セッションA、2026-05-19 03:00) — 第1号PDF完成
