@@ -1,0 +1,14 @@
+flowchart LR
+    subgraph Course["AI Capabilities and Limitations"]
+        NTP["Next Token\nPrediction\n確率で次の単語を選ぶ"]
+        K["Knowledge\n学習データの知識\n+ 限界"]
+        WM["Working Memory\nコンテキストウィンドウ\n= 今の注意範囲"]
+        S["Steerability\n命令の効き具合"]
+    end
+
+    NTP -->|"限界: もっともらしい\nが正しくない"| EX["出力品質"]
+    K -->|"限界: 古い・偏り・\nHallucination"| EX
+    WM -->|"限界: 長い文書は\nこぼれ落ちる"| EX
+    S -->|"限界: 曖昧な命令は\n勝手に補完される"| EX
+
+    EX --> DX["診断: どのプロパティ\nが問題か特定\n→ 的を絞った修正"]

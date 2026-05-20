@@ -506,3 +506,13 @@
 [2026-05-20] セッション15 (15_japan_smb): 日本版 Claude for Small Business 事業企画書を深夜リサーチ → 完成。5フェーズ調査 (米国版分析/日本SaaS APIマトリクス/競合分析/助成金スキーム/統合企画書)。重大更新: Anthropic東京オフィス開設済み (2025-10)、NEC提携済み (2026-04)、Claude Partner NetworkM (2026-03) を確認。decisions/2026-05-20_日本版_Claude_for_Small_Business構想.md に最終版を保存。
 
 [2026-05-20] Vault メンテバッチ2 (整合性チェック残件対処): Phase1/2 は前セッション完了済みと確認 (commits 342e48e〜b3b16e5)。整合性チェック検出の矛盾3件 + 孤立ページ + リンク漏れ5件を対処。具体的: (1) identity/skills.md — task_hub/lecture_hub の WikiLink修正・Firebase Hosting 記述・本番URL追記 (矛盾3) (2) vercel.md — プロジェクト表3行最新化、intro 文の「全部Vercel」誤記訂正 (矛盾2) (3) active_projects.md — Vault構築セクション(完了済)削除 + lecture_hub_notion decision WikiLink追加 (矛盾1+孤立ページ) (4) mistakes/claude_mistakes.md — ジャンル別WikiLink 3件追加 (孤立ページ解消) (5) リンク漏れ #1/#7/#8/#9/#10 修正済み。vault_improvement_proposals.md に全件 resolved 追記。
+[2026-05-20 12:04] ai-researcher collect: raw=74 dedup=34 relevant=0 kept=0
+[2026-05-20 13:34] ai-researcher collect: raw=0 dedup=0 relevant=0 kept=0
+[2026-05-20 14:39] ai-researcher collect: raw=0 dedup=0 relevant=0 kept=0
+[2026-05-20 15:08] ai-researcher collect: raw=10 dedup=10 relevant=0 kept=0
+[2026-05-20 17:14] ai-researcher collect: raw=0 dedup=0 relevant=0 kept=0
+[2026-05-20 18:15] ai-researcher collect: raw=0 dedup=0 relevant=0 kept=0
+[2026-05-20 19:11] ai-researcher collect: raw=0 dedup=0 relevant=0 kept=0
+[2026-05-20 20:17] ai-researcher collect: raw=74 dedup=54 relevant=16 kept=16
+[2026-05-20 21:04] ai-researcher collect: raw=74 dedup=38 relevant=0 kept=0
+[2026-05-20 22:06] ai-researcher collect: raw=76 dedup=40 relevant=1 kept=1

@@ -1,0 +1,14 @@
+flowchart LR
+    YD["YD\n(あなた)"] -->|"タスクを記述\n「今週の活動報告を\n まとめてNotionに」"| Plan
+
+    subgraph Cowork["Claude Cowork"]
+        Plan["Claude が\n計画を立てる"]
+        Plan -->|"承認/修正"| Execute
+        Execute["Claude が\n実行する\n(ファイル読み書き等)"]
+        Execute -->|"中間報告"| Steer
+        Steer["あなたが\nステアリング\n(方向修正)"]
+        Steer -->|"継続"| Execute
+    end
+
+    Execute -->|"完了"| Output["成果物\n(Notion 更新済み等)"]
+    YD -.->|"いつでも中断・\n方向転換可能"| Steer

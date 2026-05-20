@@ -1,0 +1,15 @@
+sequenceDiagram
+    autonumber
+    participant YD as YDのMac
+    participant V as Vercelの管制塔
+    participant B as ビルド工場
+    participant CDN as 世界中のCDN
+
+    YD->>V: vercel --prod (コードをアップロード)
+    V->>B: ビルド開始 (Next.jsをコンパイル)
+    B->>B: npm install (部品を集める)
+    B->>B: next build (HTML/CSS/JSを生成)
+    B->>CDN: 完成品を世界中の拠点に配布
+    CDN-->>V: 配布完了
+    V-->>YD: ✓ Production URL を返す
+    Note over CDN: ここから誰でもアクセス可能

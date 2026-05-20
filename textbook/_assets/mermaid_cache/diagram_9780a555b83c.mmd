@@ -1,0 +1,23 @@
+flowchart LR
+    subgraph YourMac["YDのMacBook"]
+        Code["Next.jsのコード<br/>~/projects/salamat-website-v2"]
+    end
+
+    subgraph Vercel["Vercel社のクラウド"]
+        Build["ビルド工場<br/>(1回だけ走る)"]
+        CDN[("世界中のCDN拠点<br/>東京 / シンガポール / SF / フランクフルト")]
+        Edge["Edge Functions<br/>(各拠点の小さなサーバー)"]
+    end
+
+    subgraph Users["世界中の人"]
+        U1["📱 サンパウロ"]
+        U2["💻 東京"]
+        U3["📱 リオ"]
+    end
+
+    Code -->|"vercel --prod"| Build
+    Build -->|"完成品を配布"| CDN
+    CDN -.->|"近い拠点から配信"| U1
+    CDN -.->|"近い拠点から配信"| U2
+    CDN -.->|"近い拠点から配信"| U3
+    Edge -.->|"動的な処理が必要なら"| U2

@@ -1,0 +1,20 @@
+flowchart TB
+    subgraph Desktop["Claude デスクトップアプリ"]
+        Chat["💬 Chat\n標準チャット\n最もベーシック"]
+        Cowork["🖥️ Cowork\n画面共有 + ファイル操作\n詳細は別コース"]
+        Code["💻 Code\nローカルファイル編集\nClaude Code と連携"]
+    end
+
+    subgraph Features["主要機能"]
+        Projects["📁 Projects\nスコープドコンテナ\n(会話+ファイル+指示)"]
+        Artifacts["📄 Artifacts\n編集可能な出力\n(バージョン履歴付き)"]
+        Skills["🛠 Skills\nオンデマンド呼び出し可能\n命令セット"]
+        Connectors["🔗 Connectors\nGmail/Drive/Notion\nSlack/GitHub/Jira"]
+        Research["🔍 Research Mode\nブラウジング\n+ 引用付き要約"]
+    end
+
+    Chat --> Projects
+    Chat --> Artifacts
+    Chat --> Skills
+    Chat --> Connectors
+    Chat --> Research

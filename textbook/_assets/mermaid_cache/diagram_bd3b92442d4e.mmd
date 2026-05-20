@@ -1,0 +1,17 @@
+flowchart TD
+    subgraph 4D["4D フレームワーク"]
+        D1["Delegation\n委任\n何をAIに任せるか"]
+        D2["Description\n記述\nどう伝えるか"]
+        D3["Discernment\n識別\nどう評価するか"]
+        D4["Diligence\n勤勉\nどう責任を持つか"]
+    end
+
+    Task["タスク発生"] --> D1
+    D1 -->|"任せる"| D2
+    D2 --> AI["AI 実行"]
+    AI --> D3
+    D3 -->|"修正フィードバック"| D2
+    D3 -->|"合格"| D4
+    D4 --> Output["最終アウトプット"]
+
+    D1 -->|"人間がやる"| Human["人間が直接実行"]
