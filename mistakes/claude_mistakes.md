@@ -595,3 +595,46 @@
 - bash コマンドが「REPL / 対話型 CLI」を起動するパターン (`claude`, `ai-simulator run`, `python`, `node`, `psql`, `mysql`, `redis-cli` 等) を実行する前に、stdin が tty ではないことを踏まえて挙動を予測する
 - 対話型と分かったら、即「私には代理実行できないです、YD さん本人で」と報告し、環境準備と事後の振り返りに役割を切り替える
 - 残骸ログが生成された場合、YD に削除可否を確認する (`logs/<session_id>_*`)
+
+---
+
+### A-11. `subprocess.run(text=True)` の UTF-8 strict decode がマルチバイト境界で死ぬ (頻度: 低、最終発生: 2026-05-20)
+
+**状況**: Python の `subprocess.run(..., capture_output=True, text=True)` は内部で `stdout.decode('utf-8', errors='strict')` を呼ぶ。`tail -N <file>` のような行ベース切り出しは UTF-8 文字の中途半端なバイト境界でブツ切りすることがあり (`-c` モードでなくても先頭がスキップされる場合あり)、その先頭バイトが UTF-8 として無効だと `UnicodeDecodeError: 'utf-8' codec can't decode byte 0xb3 in position 0: invalid start byte` で死ぬ。
+
+**過去のやらかし**:
+
+- 2026-05-20: parallel-claude/monitor.sh の iter=6 で `tail -3 <log_file>` の結果を `text=True` で受け取り、`UnicodeDecodeError: ... byte 0xb3 in position 0` で monitor.sh 全体が exit 1。1 cron tick 分の状態更新が抜けた。
+
+**正しい挙動**:
+
+- 外部コマンドの stdout を受け取るときは `capture_output=True` のみ (bytes) で受け取り、 `.decode('utf-8', errors='replace')` で明示デコードする。`errors='replace'` で無効バイトは `�` (REPLACEMENT CHARACTER) に置換 → 落ちない。
+- ファイル内容そのものを読むなら `Path.read_text(errors='replace')` も同様の選択。
+- `text=True` は内部で `errors='strict'` がデフォルトで危険。短時間で書く一発スクリプトでも避ける。
+
+**再発防止**:
+
+- 新しい `subprocess.run` の戻り値を text として使うときは `capture_output=True` で bytes 受け → `.decode(errors='replace')` のパターンを徹底
+- ログ tail / cat 系の処理全般で同じパターンを適用
+- 関連: [[parallel_claude]] / [[2026-05-20_parallel-claude_監視基盤構築]]
+
+---
+
+### A-12. 並列ランチャーの状態判定で「外部取り込み」と「ps検出」のロジックが片肺 (頻度: 低、最終発生: 2026-05-20)
+
+**状況**: parallel-claude/monitor.sh は2系統で他プロセスを取り込む: (a) 外部 `_pids.txt` (例: business-plan-sprint の `logs/_pids.txt`)、(b) `ps aux | grep claude` の新規検出。 (a) では log の存在と `kill -0` を見て `completed / failed / died` を区別するロジックが入っているが、(b) は `kill -0` の有無だけで完了判定ロジックがなく、PID 死亡時はすべて `died` 扱い。結果、stream-json の result event をちゃんと吐いて完了した子セッションも `died` として fail カウントに入った (iter=4 で fail=7、iter=5 で fail=13 と急増)。
+
+**過去のやらかし**:
+
+- 2026-05-20: BPS 旧8本がすべて `discovered_<pid>` として ps 検出経由で登録 → 完了で PID 死亡 → log には `result event` が残っていたが、state.json では `died` と記録された。`fail=N` の数字は機能的には致命傷ではないが、朝の YD への状態報告が「fail 25件」と誤って大袈裟になり、判断ミスを誘発しかねない。
+
+**正しい挙動**:
+
+- `ps aux` 検出経由のプロセスも、PID 死亡時に `log_file` が存在して非ゼロサイズなら、tail を読んで `result event` 系のキーワード (`"type":"result"`, `"is_error":false`) が出てたら `completed`、`API Error` / `Error:` で始まる行があれば `failed`、それ以外 (空っぽ) なら `died` と分類する。
+- 取り込み時 (新規 ps 検出時) に log_file を推定できないので、状態判定はあとで monitor の各 iteration で再評価する必要がある。
+
+**再発防止**:
+
+- 並列ランチャー設計時、「状態判定」を `(a) PID 生存`、`(b) 出力マーカー DONE/FAIL`、`(c) ログ末尾の result event 検出` の3層で実装する
+- `ps aux` 経由の取り込みでも、可能であれば `lsof -p <pid>` などで開いてる log_file をヒューリスティックに推定して紐付ける選択肢もある
+- 関連: [[parallel_claude]] / [[2026-05-20_parallel-claude_監視基盤構築]]

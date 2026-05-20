@@ -237,6 +237,49 @@ update_frequency: 週1回以上
 - **将来案**: papers_with_code 不安定 → scrape 化、github_trending を `weekly` window に、朝ブリーフィングとの `briefing-json` 接続をセッションβ側で有効化、embedding 類似検索 (Lecture Hub の pgvector 同居)
 - **関連**: [[ai_researcher]] (knowledge/programming/tools/、Max 20x 完結版に全面更新)、[[morning_briefing]] (連携先、`raw/research/` 共有)、[[2026-05-19_API依存撤廃_Max20x完結化]] (本書き換えの意思決定)、`learning/research_interests.yaml` (興味プロファイル)
 
+### 15. parallel-claude (並列 Claude Code 監視基盤)
+- **状況**: ✅ **初回運用完了 (2026-05-20 03:15→04:08、約53分)** — 5並列 parallel-claude + 12並列 business-plan-sprint を `--dangerously-skip-permissions` + OAuth (Max 20x 完結) で並走、`CronCreate(2-59/5 * * * *)` で 5分ごと監視、12 iter で全終息。**実支払い $0**。
+- **パス**: `~/projects/parallel-claude/`
+- **スタック**: `claude --print --output-format stream-json --verbose` (ヘッドレス) + nohup + `~/projects/parallel-claude/scripts/monitor.sh` + CronCreate
+- **構成**: `state/sessions.json`, `tasks/`, `logs/`, `scripts/{launch_session,launch_all,monitor,status_report}.sh`
+- **5並列 parallel-claude 成果**:
+  - ✅ Vault整合性チェック → `current_state/vault_improvement_proposals.md` 23.8KB
+  - ⚠️ textbook 第2号 (Vercel/Next.js 入門) Markdown 18.6KB だが **PDF未出力** (build.sh 失敗要因要確認)
+  - ✅ Salamat WBS 下層ページ → `src/app/{about,activities,reports}/page.tsx` (4.2-6.5KB)
+  - ✅ Arte Grow フィリピン視察リサーチ → `raw/research/2026-05-20_arte_grow_philippines_visit.md` 24.5KB
+  - ✅ AI学習 Day2 自習ノート → `learning/.../{05_claude_code_101, 04_introduction_to_claude_cowork}.md` 計346行
+- **次のアクション**:
+  - [ ] textbook 第2号 PDF 出力 (build.sh エラー原因確認 → 再実行)
+  - [ ] monitor.sh A-12 修正 (ps 検出プロセスも log_size > 0 で completed 判定)
+  - [ ] tasks/ にテンプレを足して、定常運用しやすい状態に
+- **関連**: [[parallel_claude]] (運用マニュアル、必須3セクション付き)、[[2026-05-20_parallel-claude_監視基盤構築]] (意思決定)、[[claude_mistakes]] A-11 (UTF-8 decode) / A-12 (状態判定片肺)
+
+### 16. business-plan-sprint-2026-05-19 (12並列ビジネスプラン発散→統合)
+- **状況**: ✅ **初回ラン完了 (2026-05-20 03:13→04:06、約53分)** — 15 prompts (発散×7 / 統合×3 / 雑務×2 + 後追い3) を `claude -p` で並列実行、Synthesis が `FINAL_REPORT.md` 生成。**実支払い $0** (Max 20x 完結)。
+- **パス**: `~/projects/business-plan-sprint-2026-05-19/`
+- **成果物**:
+  - `FINAL_REPORT.md` 29KB (3案ピッチ完成)
+    - 🥇 **LegalTrio** (日中英 法律文書翻訳 AI SaaS、統合スコア 60/70、粗利85%/LTV240万/年商2.9億)
+    - 🥈 日本職人 × 中国越境EC ブランド (D2C、年商3-5億)
+    - 🥉 相続専門税理士向けバーティカルSaaS (税理士法人「ともに」インターン経験が参入障壁)
+  - `candidates/` 50本
+  - `critiques/` 61本 + `_meta_review.md` 11KB
+    - 「規制空白=チャンス」誤読が 15-20 候補に共通 (最大の認知バイアス)
+    - 最も死亡確率低い候補: `06_06_philippines_japanese_education_saas` (62-64点推定)
+  - `sessions/` 各セッション中間素材
+- **死亡セッション**:
+  - 旧 02_divergent_b (90310): API socket error (リトライ可能)
+  - 旧 10_synthesis (92908): ScheduleWakeup を `--print` モードで誤用、即死亡 (設計矛盾)
+  - 新 14_hatachi_video (95895): YD への確認質問待ちで死亡 (`~/Downloads/hatachi_tachi_video_research_report.md` 不在 / 本編尺 2分 vs 3-5分)
+  - 旧 8本 + 新 5本 = 計15本死亡 (大半は完了後の自然終了、`died` ステータスは monitor.sh A-12 のため誤分類)
+- **二重起動**: 03:13:44 起動の旧12本に対し、何者かが 03:23:24 に再起動した形跡あり (`_pids.txt` 上書き)。両系統とも完走。
+- **次のアクション**:
+  - [ ] YD が `FINAL_REPORT.md` を読み、3案のどれを採るか判断 (LegalTrio が最有力)
+  - [ ] 14_hatachi_video の質問 (本編尺 / リサーチレポートのありか) に YD が回答 → 再起動
+  - [ ] Red Team の `_meta_review.md` 「規制空白=チャンス」誤読を踏まえて候補再評価
+  - [ ] `06_06_philippines_japanese_education_saas` 候補 (Red Team が最有力と判定) を読む
+- **関連**: [[parallel_claude]] (parallel-claude 側に外部 `_pids.txt` 連携の実装)、[[2026-05-20_parallel-claude_監視基盤構築]]
+
 ## 🟢 就活関連
 
 ### 8. 就活ES
