@@ -1,6 +1,6 @@
 ---
 type: current_state
-last_updated: 2026-05-20 (機能マッピング自動化 + morning-briefing cron 登録 + GitHub Private push)
+last_updated: 2026-05-20 (整合性チェック: Vault 構築セクション削除 + lecture_hub_notion WikiLink 追加)
 update_frequency: 週1回以上
 ---
 
@@ -36,12 +36,6 @@ update_frequency: 週1回以上
   - [[../decisions/2026-05-19_AI学習スプリント開始]]
   - [[../knowledge/programming/tools/textbook_engine]] — 教科書システム (セッションA で構築済み、運用へ)
 
-### 1. Obsidian Vault 構築 (今このタスク)
-- **状況**: Claude Code に渡す設計書作成中
-- **次のアクション**: Claude Codeで `~/ObsidianVault/` を構築
-- **完了基準**: 新セッションで「YDの状況を要約して」と聞いて適切に応答できる
-- **関連**: `~/Downloads/obsidian-vault-setup/`
-
 ### 2. vidkit (動画前処理CLI)
 - **状況**:
   - dance モード完成 (TIME Instagram_最終２.mp4 で実機テスト済み)
@@ -60,12 +54,20 @@ update_frequency: 週1回以上
 - **関連**: `knowledge/programming/projects/vidkit.md`, `decisions/2026-05-18_FCPXML_ラウンドトリップ採用.md`, `decisions/2026-05-19_vidkit_tighten_tutorial_完成.md`
 
 ### 3. 平成たち祭 動画制作
-- **状況**: 撮影完了 (5/6)
+- **状況**: ✅ 編集設計書完成 (2026-05-20 深夜) → **朝 DaVinci 着手可能**
+- **採用構成**: 案A (シネマティック) + 案C (ドキュメンタリー) ハイブリッド (大川優介スタイル)
+- **本編**: 2:00 / YouTube横 + Instagram縦 / 7パート構成 (COLD OPEN〜FINALE)
+- **SNS**: ショート5本 (BTS型 / ノスタルジー型 / ダンス型 / インタビュー型 / 来場者型)
 - **次のアクション**:
-  - [ ] リサーチレポートを踏まえた構成案決定
-  - [ ] 編集・カラーグレーディング
-- **リサーチ済**: `~/Downloads/hatachi_tachi_video_research_report.md`
-- **構成案**: A (シネマティック) / B (大人数群舞) / C (ドキュメンタリー) / ハイブリッド
+  - [ ] **★ 外付けSSD を接続して撮影素材を確認** (5/6 R5/FX30/GoPro クリップ)
+  - [ ] DaVinci プロジェクト初期化 (`knowledge/filmmaking/hatachi_tachi_davinci_workflow.md` の Step 1 から)
+  - [ ] BGM 選曲 (Artlist / Epidemic Sound — 本番楽曲は SNS 著作権リスクあり)
+  - [ ] LUT ダウンロード (`~/Movies/LUTs/` に Leefilm Japan 等)
+  - [ ] インタビュー音声品質確認 (外部マイク使用有無 → Short #4 の判断)
+- **設計書**: `knowledge/filmmaking/hatachi_tachi_storyboard.md` / `_assets_list.md` / `_sns_shorts.md` / `_davinci_workflow.md`
+- **意思決定**: `decisions/2026-05-20_平成たち祭_編集設計確定.md`
+- **完成目標**: 本編 6月末 / SNS ショート 本編完成後2週間以内
+- **音源 (受領済)**: `~/Downloads/99_未分類_要確認/gigafile受領物/gigafile-0813-5ba1b0454e7c5cb18caadf8fb375a748/` (Hi,Me / Jyo-Ro / emmmanumber / cocona+伶香 / 友達たち)
 - **メモ**: Hi,Me:) 「蛹」DaVinci 復旧の件は 2026-05-19 にアーカイブ (memory 削除済)
 
 ## 🟢 アクティブ・優先度中
@@ -151,15 +153,16 @@ update_frequency: 週1回以上
   - AI: 要約挿入 (`/api/ai/summarize` → blockquote 挿入)
   - AI: タスク抽出 (`/api/ai/extract-tasks` → `createTasksBulk` で DB insert)
 - **Phase 3 残作業 (別日)**:
-  - [ ] BlockNote 関連 `*.bak` 削除 + `@blocknote/*` パッケージ `pnpm remove`
+  - [x] BlockNote 関連 `*.bak` 削除 + `@blocknote/*` パッケージ `pnpm remove` (2026-05-20、commit 591368b/9e45956)
+  - [x] `plainTextFromDocument` TipTap 形式対応 + vitest 5件 (2026-05-20、commit 234f8ad、`src/lib/editor/text.ts`)
+  - [x] `src/lib/offline/sync.ts` TipTap 形式対応確認 → `document: unknown` で形式非依存、書き換え不要
+  - [x] `src/lib/blocknote/` → `src/lib/editor/` リネーム (2026-05-20、commit a158830)
   - [ ] **Slash Menu (`/`) の TipTap 版実装** (Notion 風体験の完成)
   - [ ] Shiki ハイライトへの乗せ替え (NodeView 差し替えで対応可)
   - [ ] 本番で 音声 / AI 要約 / タスク抽出 / 数式 の動作確認 (まだ未確認)
-  - [ ] `plainTextFromDocument` (`src/lib/blocknote/text.ts`) を TipTap 形式対応 (全文検索 / pgvector embedding の前提)
   - [ ] 既存 indexed ドキュメント の再生成 (`/admin/reindex`)
-  - [ ] `src/lib/offline/sync.ts` (Dexie オフライン同期) の TipTap 形式対応確認
   - [ ] Vercel Preview 環境への env 投入 (ダッシュボード手作業、ペンディングのまま)
-- **意思決定記録**: [[2026-05-19_tiptap_migration]]、[[2026-05-18_lecture_hub_個人用転換]]
+- **意思決定記録**: [[2026-05-19_tiptap_migration]]、[[2026-05-18_lecture_hub_個人用転換]]、[[2026-05-20_lecture_hub_notion_design_phase1]]
 - **関連**: `knowledge/programming/projects/lecture_hub.md`、[[claude_mistakes]] B-4 (BlockNote × Next 15.5 不整合、本日 6 試行で確証)
 
 ### 11. textbook-engine + 教科書システム (YD専用教科書)

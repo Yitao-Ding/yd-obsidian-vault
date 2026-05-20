@@ -476,3 +476,33 @@
 [2026-05-20 03:28] [parallel-claude/monitor] iter=3 running=18 done=5 fail=3 discovered=21
 [2026-05-20] Phase 1 Vault メンテバッチ完了 (Claude Code): current_focus.md 最新化 (AI学習スプリント最優先化) / knowledge/programming/tools/ → projects/ 7 件 git mv / CLAUDE.md に index.md 例外追記 / decisions/2026-05-19_教科書システム第2号企画.md 必須3セクション追加 / vault_improvement_proposals.md 全 pending を resolved/wontfix に更新。計 5 commit。
 [2026-05-20] Phase 2 Task Hub 運用マニュアル確認・整備完了 (Claude Code): knowledge/programming/projects/task_hub.md 既作成済みを確認、frontmatter 修正 (subarea: tools→projects) + セットアップ手順セクション新設。
+[2026-05-20 03:33] [parallel-claude/monitor] iter=4 running=18 done=5 fail=7 discovered=25
+
+[2026-05-20] Lecture Hub Phase 3 クリーンアップ 検証完了 (Claude Code): 前セッションの 4 commit (*.bak 削除 / @blocknote 削除 / plainTextFromDocument TipTap 対応 / lib/editor リネーム) を検証。tsc エラーゼロ / vitest 25件全通過 / pnpm build 12ページ全生成 OK。active_projects.md の Phase 3 チェックリスト 4 項目を完了マーク。push は YD 判断待ち。
+[2026-05-20] 平成たち祭 編集設計書 完成 (Claude Code / session 14_hatachi_video_plan): 撮影スクリプト v5.0 + v5_1 を解析し、案A+Cハイブリッド構成で本編2分タイムライン / 素材リスト / SNSショート5本 / DaVinci編集ワークフロー を knowledge/filmmaking/ に 4 ファイル作成。decisions/2026-05-20_平成たち祭_編集設計確定.md も記録。
+[2026-05-20 03:38] [parallel-claude/monitor] iter=5 running=12 done=5 fail=13 discovered=25
+
+[2026-05-20] Anthropic Academy Day 1-2 教科書4冊 完成 (Claude Code / session 13_ai_academy_textbook): WebSearch で4コース調査 → raw メモ4件保存 → Markdown教科書4冊生成 → PDF4冊ビルド成功 (858〜902KB)。対象: AI Capabilities and Limitations / AI Fluency Framework & Foundations / Claude 101 / Introduction to Claude Cowork。Vault: textbook/03_ai_engineering/ 保存、textbook/README.md 目次・スプリント進捗マーカー更新。PDF: ~/Downloads/AIの教科書/03_AIエンジニアリング/ 配置済み。
+[2026-05-20 深夜] 日本版 Claude for Small Business 事業企画書 完成 (Claude Code / session 15_japan_smb): Phase 1-6 を並行実行。freee/kintone/MF の MCP サーバー調査・競合分析・人材開発支援助成金スキーム確認・統合企画書作成。sessions/15_japan_smb/ に 4 ファイル、decisions/2026-05-20_日本版_Claude_for_Small_Business構想.md に統合企画書保存。YD が朝起きたら「行く/行かない」を判断できる状態。
+[2026-05-20 03:43] [parallel-claude/monitor] iter=6 running=5 done=5 fail=20 discovered=25
+[2026-05-20 03:48] [parallel-claude/monitor] iter=7 running=4 done=5 fail=21 discovered=25
+[2026-05-20 03:53] [parallel-claude/monitor] iter=8 running=3 done=5 fail=22 discovered=25
+[2026-05-20 03:58] [parallel-claude/monitor] iter=9 running=2 done=5 fail=23 discovered=25
+[2026-05-20 04:03] [parallel-claude/monitor] iter=10 running=1 done=5 fail=24 discovered=25
+[2026-05-20 04:04] ai-researcher collect: raw=72 dedup=32 relevant=0 kept=0
+[2026-05-20 04:08] [parallel-claude/monitor] iter=11 running=1 done=5 fail=24 discovered=25
+[2026-05-20 04:13] [parallel-claude/monitor] iter=12 running=0 done=5 fail=25 discovered=25
+[2026-05-20 04:13] [parallel-claude/monitor] **全完了** iter=12 running=0 done=5 fail=25. parallel-claude 5本完了 (Vault整合性 / textbook第2号MD / Salamat下層3p / Arte Growリサーチ / AI学習Day2). BPS: candidates=50, critiques=61, FINAL_REPORT.md=29KB (LegalTrio / 越境EC / 税理士SaaS の3案). 朝の確認事項: (1) textbook第2号 PDF未出力, (2) BPS 14_hatachi YD質問待ちで死亡, (3) Red Team meta-review で「規制空白=チャンス誤読」15-20本の指摘, (4) 最有力候補 06_06_philippines_japanese_education_saas (62-64点推定). CronDelete 実施し監視ループ終了.
+[2026-05-20 05:05] ai-researcher collect: raw=40 dedup=21 relevant=1 kept=1
+[2026-05-20 06:03] ai-researcher collect: raw=72 dedup=31 relevant=0 kept=0
+[2026-05-20 07:04] ai-researcher collect: raw=71 dedup=31 relevant=0 kept=0
+[2026-05-20 08:04] ai-researcher collect: raw=72 dedup=32 relevant=0 kept=0
+[2026-05-20 09:05] ai-researcher collect: raw=73 dedup=34 relevant=1 kept=1
+[2026-05-20 10:04] ai-researcher collect: raw=44 dedup=24 relevant=0 kept=0
+[2026-05-20 11:04] ai-researcher collect: raw=44 dedup=24 relevant=0 kept=0
+[2026-05-20 11:30] セッション13 (13_ai_academy_textbook): AI学習スプリント Day1-2 教科書4冊 (02_ai_capabilities_and_limitations / 03_ai_fluency_framework / 04_claude_101 / 05_intro_to_claude_cowork) を確認・PDF化。~/Downloads/AIの教科書/03_AIエンジニアリング/ に全4冊PDF出力済み
+[2026-05-20] Lecture Hub Phase 3 クリーンアップ 最終確認 (Claude Code 本セッション): 前セッション 4 commit の実装を Read/grep で精査し、tsc --noEmit ゼロエラー / pnpm build 12ページ全生成 を再確認。decisions/2026-05-20_lecture_hub_blocknote_cleanup.md (必須3セクション付き) + active_projects.md チェックリスト 4 項目 ✅ は前セッション作成済みで正確。push は YD 判断待ち (4 commits ahead of origin)。
+
+[2026-05-20] セッション15 (15_japan_smb): 日本版 Claude for Small Business 事業企画書を深夜リサーチ → 完成。5フェーズ調査 (米国版分析/日本SaaS APIマトリクス/競合分析/助成金スキーム/統合企画書)。重大更新: Anthropic東京オフィス開設済み (2025-10)、NEC提携済み (2026-04)、Claude Partner NetworkM (2026-03) を確認。decisions/2026-05-20_日本版_Claude_for_Small_Business構想.md に最終版を保存。
+
+[2026-05-20] Vault メンテバッチ2 (整合性チェック残件対処): Phase1/2 は前セッション完了済みと確認 (commits 342e48e〜b3b16e5)。整合性チェック検出の矛盾3件 + 孤立ページ + リンク漏れ5件を対処。具体的: (1) identity/skills.md — task_hub/lecture_hub の WikiLink修正・Firebase Hosting 記述・本番URL追記 (矛盾3) (2) vercel.md — プロジェクト表3行最新化、intro 文の「全部Vercel」誤記訂正 (矛盾2) (3) active_projects.md — Vault構築セクション(完了済)削除 + lecture_hub_notion decision WikiLink追加 (矛盾1+孤立ページ) (4) mistakes/claude_mistakes.md — ジャンル別WikiLink 3件追加 (孤立ページ解消) (5) リンク漏れ #1/#7/#8/#9/#10 修正済み。vault_improvement_proposals.md に全件 resolved 追記。

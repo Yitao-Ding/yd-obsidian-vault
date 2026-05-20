@@ -263,6 +263,8 @@ owner: ε Vault自己進化モード (監視セッション)
 - `current_state/active_projects.md` #7 Lecture Hub の「意思決定記録」行に `[[2026-05-20_lecture_hub_notion_design_phase1]]` を追加
 - `knowledge/programming/tools/lecture_hub.md` の関連リンク末尾にも追加
 
+**ステータス**: ✅ resolved (2026-05-20、active_projects.md #7 Lecture Hub の「意思決定記録」に WikiLink 追加済み)
+
 #### 設計上の孤立 (アクション不要、参考まで)
 
 - `templates/daily_note_template.md`, `templates/decision_template.md`, `templates/knowledge_template.md`
@@ -294,6 +296,16 @@ owner: ε Vault自己進化モード (監視セッション)
 - C. **意図確認 (#3, #5, #6)**: 未作成ノートを作るのか、リンクを消すのか、YD 判断。`gear` / `grading` は filmmaking 領域なので作る価値あり (vidkit カラーグレーディング知見の置き場)。
 - D. **方針統一 (#4)**: フォルダ参照スタイルは `[[anthropic_academy/README]]` に統一を推奨。
 
+**ステータス (部分解決、2026-05-20)**:
+- ✅ #1 `[[02_claude_code_permissions]]` → `[[claude_code_permissions]]` 修正済み
+- ✅ #7 `[[Lecture Hub]]` → `[[lecture_hub]]` + 本番URL追記 (skills.md)
+- ✅ #8 `[[morning_briefing_system]]` → `[[morning_briefing]]` 修正済み
+- ✅ #9 `[[Task Hub]]` → `[[task_hub]]` + Firebase Hosting URL追記 (skills.md)
+- ✅ #10 `[[textbook_system]]` → `[[textbook_engine]]` 修正済み
+- ⏸ #2 TODO 扱いで保留 (lecture_hub.md 内に「もし作るなら」注記で意図を保持)
+- ⏸ #3 #5 #6 未作成リンク → YD判断待ち (filmmaking gear/grading ノートは価値あり)
+- ⏸ #4 方針統一 → 次回メンテで対応
+
 #### 誤検出 (アクション不要)
 
 - `[[Wiki Link]]` (CLAUDE.md:105) — Wiki記法の説明文中の例示
@@ -316,6 +328,8 @@ Vault は 2026-05-18 に構築完了 (`decisions/2026-05-18_Obsidian_Vault構築
 **推奨アクション**:
 - このセクションを「✅ 完了 (2026-05-18)」に書き換え、または 🟡 運用フェーズ側に移動。`archive/` 行きでも可。Vault 改善は別軸 (vault_improvement_proposals に集約済) なので、active_projects の枠を 1 つ解放した方が見通しが良い。
 
+**ステータス**: ✅ resolved (2026-05-20、active_projects.md から「Obsidian Vault 構築」セクションを削除)
+
 #### 矛盾 2: `knowledge/programming/tools/vercel.md` のプロジェクト状況表が古い
 
 **該当ファイル**: `knowledge/programming/tools/vercel.md:103-107`
@@ -332,6 +346,8 @@ Vault は 2026-05-18 に構築完了 (`decisions/2026-05-18_Obsidian_Vault構築
 - vercel.md の表を最新化 (3 行とも書き換え + `last_updated:` を 2026-05-20 に)
 - Task Hub の「Vercelではない可能性、要確認」は「Firebase Hosting (Vercel 管理外)」に確定表記。それでも一覧に残すなら別表「Vercel 管理外プロジェクト」を切る。
 
+**ステータス**: ✅ resolved (2026-05-20、vercel.md のプロジェクト表 3行を最新化。intro 文も「Task Hub は Firebase Hosting」に訂正。last_updated 更新済み)
+
 #### 矛盾 3: `identity/skills.md` の Task Hub 説明が古い
 
 **該当ファイル**: `identity/skills.md:81`
@@ -340,6 +356,8 @@ Vault は 2026-05-18 に構築完了 (`decisions/2026-05-18_Obsidian_Vault構築
 
 **推奨アクション**:
 - `identity/skills.md:81` を `[[task_hub]] (Next.js + Firebase Hosting デプロイ済み、salamat-task-hub.web.app)` に修正。リンク表記 (`Task Hub` → `task_hub`) の修正と同時に実施可。
+
+**ステータス**: ✅ resolved (2026-05-20、skills.md の `[[Task Hub]]` → `[[task_hub]]` + Firebase Hosting URL 追記、`[[Lecture Hub]]` → `[[lecture_hub]]` + 本番URL 追記)
 
 ---
 

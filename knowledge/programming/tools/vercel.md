@@ -1,7 +1,7 @@
 ---
 type: knowledge
 domain: programming/tools
-last_updated: 2026-05-18
+last_updated: 2026-05-20
 status: active
 related:
   - [[claude_code]]
@@ -11,7 +11,7 @@ related:
 
 # Vercel CLI 運用知見
 
-> YDのプロジェクト (Task Hub / Lecture Hub / Salamat WBSサイト) はすべて Vercel ホスト
+> YDのプロジェクトのうち Vercel ホストは Lecture Hub / Salamat WBSサイト。Task Hub は Firebase Hosting。
 > このノートは Vercel CLI のハマりやすい挙動と、初回デプロイのフローをまとめる
 > 初回作成: 2026-05-18 (Salamat WBSサイト初回デプロイで得た知見)
 
@@ -102,9 +102,9 @@ const nextConfig: NextConfig = {
 
 | プロジェクト | スコープ | 本番URL | 状態 |
 |------------|---------|---------|------|
-| Lecture Hub | yitao-dings-projects | `lecture-hub-yitao-ding-yitao-dings-projects.vercel.app` | MVP稼働中、家で本番更新予定 |
-| Task Hub | (Firebase?) | - | Firebase Hosting (Vercelではない可能性、要確認) |
-| Salamat WBSサイト | yitao-dings-projects | `salamat-website-v2.vercel.app` | 初回デプロイ完了 (2026-05-18) |
+| Lecture Hub | yitao-dings-projects | `lecture-hub-sable.vercel.app` | TipTap v3 移行 + 本番デプロイ完了 (2026-05-19) |
+| Task Hub | - (Vercel 管理外) | `salamat-task-hub.web.app` | Firebase Hosting 確定、Vercel 管理外 |
+| Salamat WBSサイト | yitao-dings-projects | `salamat-website-v2.vercel.app` | Phase 1+2 演出強化完成、本番デプロイ済み (2026-05-19 夜) |
 
 ## 🔧 環境変数管理
 

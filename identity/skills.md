@@ -78,8 +78,8 @@ last_updated: 2026-05-18
 - Manus
 
 ### 経験プロダクト
-- [[Task Hub]] (Next.js + Firebase、Vercelデプロイ済み)
-- [[Lecture Hub]] (Next.js + Supabase、本番デプロイ済み)
+- [[task_hub]] (Next.js + Firebase Hosting デプロイ済み、salamat-task-hub.web.app)
+- [[lecture_hub]] (Next.js + Supabase、本番デプロイ済み、lecture-hub-sable.vercel.app)
 - [[vidkit]] (Python CLI、動画前処理ツール)
 - 個人ポートフォリオサイト (GitHub Pages)
 - 各種自動化ツール (`~/Documents/organize_tool/`)

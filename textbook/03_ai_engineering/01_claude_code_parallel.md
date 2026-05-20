@@ -286,7 +286,7 @@ git commit -m "セッションA: 教科書システム第1号完成"  # ここ�
 | 公式 | https://www.anthropic.com/claude-code | プロダクト紹介 |
 | 概念 | https://en.wikipedia.org/wiki/Cron | cron の歴史 (1970年代から) |
 | 概念 | https://git-scm.com/book/ja/v2 | Pro Git (日本語、無料) |
-| 教材 | [[02_claude_code_permissions]] | 権限ポリシー (今後追加) |
+| 教材 | [[claude_code_permissions]] | 権限ポリシー (今後追加) |
 | Vault | `~/ObsidianVault/decisions/2026-05-19_AI学習スプリント開始.md` | 4並列を立ち上げた経緯 |
 
 ---

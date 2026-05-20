@@ -401,6 +401,15 @@
 
 ---
 
+## 📚 ジャンル別ミス記録
+
+関連ファイル:
+- [[workflow_mistakes]] — ワークフロー・進め方のミス
+- [[tool_usage_mistakes]] — ツール使用上のミス
+- [[communication_mistakes]] — コミュニケーション上のミス
+
+---
+
 ## 📊 ミス統計 (Claudeが自動更新)
 
 | カテゴリ | 件数 | 直近発生 |
