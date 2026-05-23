@@ -1,6 +1,6 @@
 ---
 type: current_state
-last_updated: 2026-05-20
+last_updated: 2026-05-21
 priority: highest
 update_frequency: スキル/MCP追加時
 ---
@@ -25,17 +25,37 @@ update_frequency: スキル/MCP追加時
 | `fcp-autocut` | 単一動画から無音区間除去 → FCPXML 1.13 出力 | FCP, FCPX, 無音カット, ジャンプカット, talking head, vlog, lecture, podcast 編集 |
 | `fcp-tighten` | FCP内クリップの残り無音を再カット (Export XML → tighten → Import XML) | FCP tighten, クリップ内無音, ラフカット詰め直し, FCPXML ラウンドトリップ |
 
-### UI/UX 設計
+### UI/UX 設計 (2026-05-21 拡張、3 フェーズ併用運用)
+
+> 詳細運用ルール: [[index]] (knowledge/programming/skills/) — 制作: frontend-design + ui-ux-pro-max / レビュー: web-design-guidelines を**必ず3つとも参照**。片方だけで完成報告は禁止。
+
+| スキル名 | フェーズ | 用途 | トリガー語彙 |
+|---------|---------|------|------------|
+| `ui-ux-pro-max` | 制作 (素材) | 67スタイル/96パレット/57フォントペア/13スタック (React/Next/Vue/Svelte/SwiftUI/RN/Flutter/Tailwind/shadcn) のデータベース検索 | UI/UX, ダッシュボード, ランディング, glassmorphism, brutalism, bento, shadcn, color palette |
+| `frontend-design` | 制作 (方向性) | 「AI slop」回避、distinctive で production-grade な美学コミット (Inter/Roboto/Space Grotesk/紫グラデ禁止) | distinctive, bold, AI slop 回避, 美学方向性, brutally minimal, maximalist, editorial |
+| `web-design-guidelines` | レビュー | Vercel Web Interface Guidelines に WebFetch で照合 → `file:line` 形式で違反列挙 | UI レビュー, アクセシビリティチェック, デザイン監査, UX 見て, best practices |
+
+### Backend 開発 (2026-05-21 追加、単独運用)
+
+> 詳細: [[backend-patterns]]。origin: ECC = "Everything Claude Code" (`affaan-m/everything-claude-code`, Anthropic Hackathon Winner 2026/2月、60 agents + 232 skills 中の1つ)。
 
 | スキル名 | 用途 | トリガー語彙 |
 |---------|------|------------|
-| `ui-ux-pro-max` | 67スタイル/96パレット/57フォントペア/13スタック (React/Next/Vue/Svelte/SwiftUI/RN/Flutter/Tailwind/shadcn) | UI/UX, ダッシュボード, ランディング, glassmorphism, brutalism, bento, shadcn, color palette |
+| `backend-patterns` | Backend アーキテクチャパターン (API設計 / DB最適化 / N+1防止 / Caching / Auth / Rate Limit / Background Jobs / Structured Logging)。Supabase + Next.js App Router 中心。**Rate limit は絶対 in-memory 禁止** (deploy reset/multi-instance split/serverless fail open) | API設計, REST endpoint, DB クエリ最適化, N+1, キャッシュ層, JWT, RBAC, rate limit, Repository pattern |
 
 ### Claude / API
 
 | スキル名 | 用途 | トリガー語彙 |
 |---------|------|------------|
 | `claude-api` | Anthropic SDK 利用 (プロンプトキャッシュ込み)、モデル間マイグレーション (4.5→4.7) | anthropic SDK, claude-* model, prompt caching, batch API, Anthropic Academy 実装 |
+
+### Claude Code ネイティブ機能 (実験的、2026-05-21 追加)
+
+> `~/.claude/settings.json` の `env` で有効化する Claude Code 本体の実験的機能。スキルではなく**機能**で、deferred tools として注入される。詳細運用は [[claude_code_agent_teams]] を参照、棲み分けはバッチ系=[[parallel_claude]] / 議論系=エージェントチーム。
+
+| 機能 | 用途 | 有効化 | トリガー語彙 |
+|------|------|-------|------------|
+| **エージェントチーム** | リーダー + メンバー型の並列セッション (互いに直接通信可、共有タスクリスト、独立コンテキスト)。`TeamCreate` / `SendMessage` / `TeamDelete` の deferred tools が利用可能 | `CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1` (v2.1.32+)、分割ペインに tmux/iTerm2+it2 必要 | エージェントチーム, 複数視点で議論, devil's advocate, 5人で並列調査, multi-perspective, 相互検証 |
 
 ### 自動化・運用
 
@@ -50,6 +70,54 @@ update_frequency: スキル/MCP追加時
 | `init` | CLAUDE.md を新規作成 | init project, CLAUDE.md create |
 | `review` | プルリクレビュー | PR review |
 | `security-review` | 現ブランチ差分のセキュリティレビュー | security review, XSS, SQL injection, OWASP |
+
+### Anthropic 公式 Agent Skills (2026-05-21 追加、`example-skills:*` / `document-skills:*` 両 namespace で同内容)
+
+> マーケットプレイス: `anthropics/skills` (公式)
+> プラグイン: `example-skills@anthropic-agent-skills`, `document-skills@anthropic-agent-skills`
+> 両プラグインは**同一スキルセット**を別 namespace で提供。実用上は片方 (例えば `document-skills:*`) を主に使えば十分。
+
+#### ドキュメント生成・操作
+
+| スキル名 | 用途 | トリガー語彙 |
+|---------|------|------------|
+| `document-skills:pdf` | PDF読み取り/結合/分割/回転/透かし/フォーム入力/暗号化/画像抽出/OCR | PDF, .pdf, merge PDF, OCR, スキャンPDF, フォーム入力 |
+| `document-skills:docx` | Word文書作成・編集 (TOC, 見出し, ページ番号, レターヘッド, find-replace, 画像挿入, トラックチェンジ) | Word doc, .docx, レポート, メモ, レター, テンプレート |
+| `document-skills:xlsx` | Excel/CSV/TSV 読み書き、列追加、数式、書式、グラフ、データクレンジング | .xlsx, .csv, スプレッドシート, Excel, データ整形 |
+| `document-skills:pptx` | PowerPoint スライド作成・編集 (デッキ, レイアウト, スピーカーノート, コメント) | .pptx, スライド, デッキ, プレゼン |
+
+#### デザイン・ビジュアル
+
+| スキル名 | 用途 | トリガー語彙 |
+|---------|------|------------|
+| `document-skills:canvas-design` | .png/.pdf 静的アート (ポスター、デザイン) — オリジナル作品のみ (著作権配慮) | ポスター, デザイン, 静的アート |
+| `document-skills:algorithmic-art` | p5.js でジェネラティブアート (flow field, particle system, seeded random) | generative art, p5.js, flow field, パーティクル |
+| `document-skills:frontend-design` | 高品質 frontend UI (AI っぽくない distinctive デザイン) | website, landing page, dashboard, React コンポーネント, beautify UI |
+| `document-skills:web-artifacts-builder` | 複雑な claude.ai HTML artifact (React + Tailwind + shadcn/ui, state管理, routing) | multi-component artifact, claude.ai HTML, shadcn artifact |
+| `document-skills:theme-factory` | 10種プリセットテーマ (色・フォント) を slides/docs/HTML に適用 | テーマ適用, color theme, ブランドテーマ |
+| `document-skills:brand-guidelines` | Anthropic 公式ブランドカラー・タイポグラフィ適用 | Anthropic ブランド, brand color, 公式デザイン |
+| `document-skills:slack-gif-creator` | Slack 最適化 アニメーション GIF 作成 | Slack GIF, アニメーション GIF |
+
+#### 開発・運用
+
+| スキル名 | 用途 | トリガー語彙 |
+|---------|------|------------|
+| `document-skills:mcp-builder` | MCP サーバー作成ガイド (Python FastMCP / Node TS SDK) | MCPサーバー作る, FastMCP, MCP SDK |
+| `document-skills:webapp-testing` | Playwright でローカル webapp 操作・テスト (スクショ, ブラウザログ) | Playwright, webapp test, UI 動作確認 |
+| `document-skills:claude-api` | (既存 [[claude-api]] と重複、グローバル版を優先使用) | Anthropic SDK, claude-* model |
+
+#### ライティング・コミュニケーション
+
+| スキル名 | 用途 | トリガー語彙 |
+|---------|------|------------|
+| `document-skills:internal-comms` | 社内コミュニケーション (ステータスレポート, リーダーシップ更新, 3P, ニュースレター, FAQ, インシデントレポート) | ステータスレポート, 社内連絡, FAQ, インシデントレポート |
+| `document-skills:doc-coauthoring` | ドキュメント共同編集ワークフロー (proposal, spec, decision doc) | proposal書く, spec書く, decision doc, ドキュメント共同編集 |
+
+#### メタ・スキル管理
+
+| スキル名 | 用途 | トリガー語彙 |
+|---------|------|------------|
+| `document-skills:skill-creator` | スキルの新規作成、編集、最適化、eval/ベンチマーク | スキル作る, skill optimize, eval, ベンチマーク |
 
 ### Vercel プラグイン (vercel:* で始まる、Next.js / Vercel 系で活用)
 
@@ -103,6 +171,46 @@ update_frequency: スキル/MCP追加時
 
 ---
 
+## 🎭 ローカル MCP サーバー (自前 install、claude mcp 経由)
+
+> claude.ai 側で常時接続される MCP コネクタとは別系統。ローカルマシンで動く MCP サーバーを Claude Code から `mcp__<server>__<tool>` として呼び出せる。`~/.claude/settings.local.json` の `permissions.allow` に `mcp__<server>` を追加することで毎回の許可プロンプトをスキップできる。
+>
+> 2026-05-23: Shin Coding Tutorial「今すぐにこれら9つのMCPを導入してください」を参考に 4 個追加 (Serena / Context7 / chrome-devtools / GitHub gh-mcp)。Notion / Figma は claude.ai 側のクラウド版で代替済 (二重稼働回避)、Supabase / Stripe は認証情報整い次第。
+
+| サーバー | 用途 | トリガー語彙 | 詳細 |
+|---------|------|------------|------|
+| **Playwright** (`@playwright/mcp`) | ブラウザ自動操作 (Chromium / WebKit / Firefox)、DOM操作、スクリーンショット、フォーム入力、URL ナビゲーション、network intercept、JS 評価 | Playwright, ブラウザ自動化, E2Eテスト, スクレイピング, ブラウザでこのページを開いて, スクショ撮って, クリックして, フォーム入力 | [[playwright_mcp]] (knowledge/programming/tools/) |
+| **Serena** (`oraios/serena`) | LSP連携の semantic コードベース探索・編集。`uvx --from git+...` で起動、`--project-from-cwd` で起動 cwd のプロジェクトを自動認識。Python/TS/Java/Vue/HTML 等多数のLSPに対応 | Serena, セマンティック探索, コードベース探索, シンボル検索, refactor, 巨大コードベース | [[mcp_serena]] |
+| **Context7** (`@upstash/context7-mcp`) | 最新ドキュメント検索 (Next.js / Supabase / shadcn/ui / better-auth / Tailwind 等)。AI のフルめ情報問題を解決。GitHub URL から任意のリポを Add 登録可。API key なしでも使える (品質は key ありで向上) | Context7, 最新ドキュメント, use context7, ライブラリ最新仕様 | [[mcp_context7]] |
+| **chrome-devtools** (`chrome-devtools-mcp`) | Chrome DevTools 経由でブラウザ操作 + コンソール/ネットワーク/パフォーマンス計測 (LCP/TTFB)。**Node.js v22+ 必須** (動画スピーカーが v20 で詰まった) | Chrome DevTools, LCP, TTFB, performance audit, console error, network inspect | [[mcp_chrome_devtools]] |
+| **GitHub** (`shuymn/gh-mcp` 拡張 → bundled `github-mcp-server`) | gh CLI 拡張経由で GitHub API 操作 (リポ作成 / PR / Issue / Actions)。`gh auth status` の認証情報をそのまま流用、PAT 別途管理不要 | GitHub MCP, gh コマンド, リポ作成, PR操作, Issue管理 | [[mcp_github]] |
+
+### Playwright MCP を使う典型シーン
+
+- Salamat WBS / Lecture Hub / Task Hub の **本番 URL の動作確認** (HTTP コードだけでなく、レンダリング後の DOM を見る)
+- DaVinci / Vercel ダッシュボードのような **GUI 操作の自動化** (computer-use との使い分け: Web系は Playwright が早い・正確)
+- AI学習スプリント中の **ライブコーディング動画の取材** (Anthropic Academy のコースを自動巡回してスクショ + テキスト取得)
+- ai-researcher の **scrape 対象拡張** (papers_with_code 不安定問題の代替経路)
+- 平成たち祭の **応募フォームの動作確認** (Google Forms + GAS)
+
+### 新規 4 MCP の典型シーン
+
+- **Serena**: lecture-hub / salamat-website-v2 のような中規模 Next.js プロジェクトで「この関数どこから呼ばれてる?」「この型を使ってる箇所全部」のような semantic 探索。Grep より精密
+- **Context7**: Next.js 16 / Tailwind v4 / shadcn/ui のように頻繁にアップデートされるライブラリの最新仕様確認。`CLAUDE.md` のベストプラクティスルール生成にも有用
+- **chrome-devtools**: Salamat WBS / Lecture Hub のパフォーマンスチューニング (LCP 2.5秒以下クリアの維持)。Playwright が「動作確認」、chrome-devtools が「性能計測」
+- **GitHub**: ai-researcher / vidkit / morning-briefing の Private repo の Issue 起票・PR 作成を自然言語で。gh CLI を Bash で叩くのと同等の機能だが、自然言語 ⇄ ツールパラメータの変換が gh-mcp 側で行われる
+
+### 棲み分け
+
+- **Playwright MCP** ↔ **chrome-devtools MCP**: Playwright = 操作・動作テスト・スクショ、chrome-devtools = 性能・コンソール・ネットワーク計測。動画スピーカーは「パフォーマンス系は chrome-devtools 使った方がいい」
+- **Playwright MCP** ↔ **computer-use MCP**: Web 操作なら Playwright が DOM-aware で早い。computer-use はネイティブ desktop アプリ専用 (Finder / Photos / DaVinci 等)
+- **Playwright MCP** ↔ **`vercel:verification` スキル**: スキルは「ブラウザ→API→DB の通し確認」フロー、Playwright MCP は素の操作プリミティブ。スキル内部から Playwright を呼ぶ形が筋
+- **Serena** ↔ **Grep**: Grep は文字列マッチ、Serena は AST/LSP ベースで定義・参照を正確に追える。大きいリポでは Serena、小さい修正は Grep
+- **Context7** ↔ **WebSearch / WebFetch**: Context7 は「ライブラリの最新ドキュメント特化」、Web 検索は汎用。ライブラリ仕様の確認は Context7 を先に
+- **GitHub MCP (gh-mcp)** ↔ **Bash の `gh` 直叩き**: 同じ機能。自然言語で曖昧に指示したい時は MCP、明確なコマンドは Bash 直叩きが速い
+
+---
+
 ## 🗺 プロジェクト別の典型機能候補
 
 ### Salamat WBS (Next.js 16 + React 19 + Vercel)
@@ -153,6 +261,9 @@ update_frequency: スキル/MCP追加時
 ### Salamat 運営 (260名、代表業務)
 - **チーム連絡**: Gmail, Google Calendar
 - **議事録・資料**: Notion or Goodnotes
+- **公式文書 (報告書/レター)**: document-skills:docx, document-skills:pptx
+- **団体内ステータスレポート/FAQ**: document-skills:internal-comms
+- **販促バナー/ポスター**: document-skills:canvas-design (オリジナル制作)、Canva MCP (テンプレ系)
 
 ---
 
@@ -184,6 +295,12 @@ update_frequency: スキル/MCP追加時
 - 問題は「**意識する → 提案する**」の習慣化が抜けること
 - このファイルが、その習慣化の触媒
 - 月1回、新しいスキル/MCP が増えたら本ファイルを更新
+
+### 更新履歴
+- **2026-05-23** — ローカル MCP サーバーを 4 個追加 (Serena / Context7 / chrome-devtools / GitHub gh-mcp)。Shin Coding Tutorial「今すぐにこれら9つのMCPを導入してください」(2025-09-29) を参考に、user scope (`claude mcp add --scope user`) で導入。Notion / Figma は claude.ai 側のクラウド版で代替、Supabase / Stripe は認証情報整い次第。詳細 [[2026-05-23_MCP_9個導入]]
+- **2026-05-21 (夜)** — Claude Code エージェントチーム機能 (実験的、v2.1.32+) を有効化、「Claude Code ネイティブ機能」セクションを新規追加。詳細運用 [[claude_code_agent_teams]] / 意思決定 [[2026-05-21_エージェントチーム機能_有効化]]
+- **2026-05-21** — Anthropic 公式 Agent Skills 群 (`example-skills:*` / `document-skills:*`) を追加。マーケットプレイス `anthropics/skills` から `example-skills` と `document-skills` プラグインを `/plugin install` で導入
+- **2026-05-21** — 独立 skill 3件追加: `frontend-design` (Anthropic製、AI slop 回避哲学) / `web-design-guidelines` (Vercel製、UI レビュー) / `backend-patterns` (ECC = Everything Claude Code 由来、backend パターン集)。UI/UX 設計セクションを 3 skill 併用運用に拡張、Backend 開発セクションを新規追加。詳細運用ルールは [[knowledge/programming/skills/index]] に集約
 
 ---
 

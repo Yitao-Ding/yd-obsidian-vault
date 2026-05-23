@@ -74,6 +74,15 @@ claude
 - ホーム: `/Users/ittou/`
 - グローバル CLAUDE.md: `~/.claude/CLAUDE.md`
 
+### user scope ローカル MCP (2026-05-23 時点)
+- **Playwright** (`@playwright/mcp`) — ブラウザ自動化、E2E、スクショ
+- **Serena** (`oraios/serena`) — semantic コードベース探索 (LSP)
+- **Context7** (`@upstash/context7-mcp`) — 最新ライブラリドキュメント検索
+- **chrome-devtools** (`chrome-devtools-mcp`) — Chrome DevTools 経由のパフォーマンス計測 (Node v22+)
+- **GitHub** (`shuymn/gh-mcp` 拡張 → bundled github-mcp-server) — gh CLI 認証流用
+
+詳細・典型シーン・棲み分けは [[available_capabilities]] を参照。
+
 ## 🌐 Claude Web版 (一般ブラウザ)
 
 - 基本的なチャット

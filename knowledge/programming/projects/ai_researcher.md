@@ -1,7 +1,7 @@
 ---
 type: knowledge
 created: 2026-05-19
-last_updated: 2026-05-19
+last_updated: 2026-05-23
 tags: [tool, automation, research, claude-code, headless, arxiv, hackernews, github, launchd, agent, max-20x]
 ---
 

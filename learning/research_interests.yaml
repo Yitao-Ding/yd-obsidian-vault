@@ -31,6 +31,23 @@ high_priority:                 # 重み 3.0
   - opus
   - sub-agent
   - subagent
+  # --- YD興味拡充 (2026-05-23): 撮影 / Web開発 / 国際協力 ---
+  - davinci
+  - color grading
+  - カラーグレーディング
+  - cinematography
+  - シネマティック
+  - filmmaking
+  - 映像制作
+  - next.js
+  - nextjs
+  - vercel
+  - jica
+  - フィリピン
+  - philippines
+  - social business
+  - 社会起業
+  - 国際協力
 
 medium_priority:               # 重み 1.5
   - rag
@@ -56,6 +73,31 @@ medium_priority:               # 重み 1.5
   - inference optimization
   - fine-tuning
   - lora
+  # --- YD興味拡充 (2026-05-23) ---
+  - ffmpeg
+  - prores
+  - color science
+  - gimbal
+  - ジンバル
+  - react
+  - firebase
+  - supabase
+  - tailwind
+  - typescript
+  - frontend
+  - design
+  - startup
+  - 起業
+  - e-commerce
+  - 越境
+  - 翻訳
+  - translation
+  - multilingual
+  - 法学
+  - legal tech
+  - リーガルテック
+  - frontier
+  - 辺境
 
 low_priority:                  # 重み 0.5
   - theory
@@ -78,5 +120,5 @@ source_boost:
   google_research: 1.5
   arxiv: 0.0
   hn: 0.5
-  papers_with_code: 0.5
+  hf_papers: 0.5         # 旧 papers_with_code (HF Papers に移管、2026-05-23)
   github_trending: 0.5

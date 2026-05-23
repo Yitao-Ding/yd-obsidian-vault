@@ -1,6 +1,6 @@
 ---
 type: current_state
-last_updated: 2026-05-20 (整合性チェック: Vault 構築セクション削除 + lecture_hub_notion WikiLink 追加)
+last_updated: 2026-05-23 (ai-researcher: relevance緩和 + プロファイル拡充 + 死亡2ソース修復)
 update_frequency: 週1回以上
 ---
 
@@ -43,6 +43,7 @@ update_frequency: 週1回以上
   - **tighten モード完成 (2026-05-19)** — 既存FCPプロジェクトの各クリップ内の残り無音を再カット、合成テストFCPXMLで検証済 (1clip→3clips、3.6s削除、xmllint通過)
   - **tutorial モード完成 (2026-05-19)** — URL/ローカル自動判別、dance パイプライン相乗りで Claude Code が自走実装する PROMPT.md を生成
   - **--vault-path オプション完成 (2026-05-19)** — `<vault>/raw/vidkit/<mode>/` への出力に全モード対応
+  - **★ tutorial モード P1-P5 改善完成 + push 済 (2026-05-23 04:00)** — Opus 4.7 サブエージェントで4 commit (`bd1a24b` --lang auto バグ修正 [HTTP 429 回避] / `3f429a0` --source whisper オプション追加 [MLX-Whisper 再文字起こし] / `d5425e9` --prompt-type で 3 種分岐 [implementation/setup/explainer] / `db36ff9` 既存出力検出 [--force] + chapters.md 自動生成)。42 tests pass、実機テスト ("Me at the zoo" 19s) で `--source whisper --whisper-model tiny` 完走。実運用初回 ([[2026-05-23_MCP_9個導入]]) のフィードバックを反映
   - lecture モードは未完成 (pyannote HF_TOKEN 待ち)
 - **次のアクション** (優先度順):
   - [ ] **★ lecture モード仕上げ** (pyannote HF_TOKEN セットアップ → YD作業) — HuggingFace で `pyannote/speaker-diarization-community-1` のリクエスト承認 → `.env` に `HF_TOKEN` 設定
@@ -109,8 +110,9 @@ update_frequency: 週1回以上
 
 ## 🟡 完成済み・運用フェーズ
 
-### 6. Task Hub (タスク管理アプリ)
-- **状況**: ✅ **git 整理 + GitHub 連携完了 (2026-05-19 21:17)** — 8 週前 Initial commit から放置されてた untracked 32 + dirty 7 を **5 commit に統合** → GitHub Private `Yitao-Ding/salamat-task-hub` push 済。`.firebase/` を .gitignore 追加、serviceAccountkey.json は監視 CC 補強で安全。**デプロイ実態は Firebase Hosting** (`salamat-task-hub.web.app`) — Vercel ではない (HANDOVER.md + firebase.json で確認、旧記述「Vercelデプロイ完了」は誤りだった)
+### 6. Task Hub (タスク管理アプリ) — UI/UX 根本見直しフェーズ突入 (2026-05-21)
+- **状況**: 🟢 **UI/UX 根本見直しに着手 (2026-05-21 21:01)** — フロントエンドレベルから仕様を見直す方針 (YD 指示)。現状 UI 把握完了 (8 画面 + globals.css + spec + HANDOVER)、5 大課題特定 (ブランド分裂 #ff6a00 vs #2563EB / デザインシステム不在 / IA 浅い / SaaS テンプレ的 / ロゴ単文字)。**Anthropic Labs ハーネス設計を踏襲した 4 自立型エージェント** を `~/projects/salamat-task-hub/.claude/agents/` に構築完了 (planner / builder / qa-evaluator / design-evaluator★)。次は YD のビジョン (1〜4 行) → planner 起動。
+- **過去履歴**: 2026-05-19 21:17 git 整理 + GitHub 連携完了 (untracked 32 + dirty 7 → 5 commit)。**デプロイ実態は Firebase Hosting** (`salamat-task-hub.web.app`) — Vercel ではない
 - **パス**: `/Users/ittou/projects/salamat-task-hub`
 - **GitHub**: https://github.com/Yitao-Ding/salamat-task-hub (Private、main → origin/main 追跡済)
 - **本番 URL**: https://salamat-task-hub.web.app (Firebase Hosting、Spark プラン)
@@ -121,13 +123,14 @@ update_frequency: 週1回以上
   - `7fa1b65` feat: implement core app (auth, Firestore CRUD, routes, UI)
   - `47b6be5` feat: PWA setup (manifest, service worker, icons)
   - `9dfcd77` docs: add handover document, spec, and admin setup script
-- **次のアクション** (将来):
-  - メンバー招待フロー仕上げ
-  - PWA 最終調整
-  - 商用化検討 (大学サークル向けフリーミアム)
-  - Firestore / Storage rules を本番に `firebase deploy --only firestore:rules,storage` でデプロイ確認 (HANDOVER.md の既知注意事項)
-  - next-pwa v5 系 → v6 / Serwist 系への移行検討 (Next.js 16+ との互換性)
-- **関連**: [[task_hub]] (運用マニュアル、2026-05-20 作成)、[[2026-05-19_TaskHub_git整理_GitHub連携]] (git 整理の意思決定)
+- **次のアクション** (UI/UX 根本見直し、優先度順):
+  - [ ] **★ YD から 1〜4 行のビジョン取得** → `taskhub-planner` 起動 (SPEC.md + DESIGN_DIRECTION.md + sprint-XX-*.md 生成)
+  - [ ] Sprint 01 から: builder 実装 → qa + design 並列評価 → 不合格なら修正イテレーション → 合格で次スプリント
+  - [ ] **必須対応**: `globals.css` の orange グラデ (`linear-gradient(#ff6a00 → white)`) を DESIGN_DIRECTION.md のカラーに置換
+  - [ ] 既存課題 (メンバー招待フロー / PWA 最終調整 / Firestore rules 本番デプロイ確認 / next-pwa v6 移行) は再設計の中で吸収または別スプリントへ
+  - [ ] 商用化検討 (大学サークル向けフリーミアム) は再設計完了後
+- **4 エージェント構成**: taskhub-planner / taskhub-builder / taskhub-qa-evaluator / taskhub-design-evaluator (Anthropic Labs ハーネス設計準拠、Design Evaluator は frontend-design / web-design-guidelines / ui-ux-pro-max / vercel:react-best-practices の 4 スキル参照必須 + AIスロップ即不合格ルール内蔵)
+- **関連**: [[task_hub]] (運用マニュアル、2026-05-20 作成)、[[2026-05-19_TaskHub_git整理_GitHub連携]] (git 整理の意思決定)、[[2026-05-21_TaskHub_UIUX根本見直し_4エージェントハーネス構築]] (本フェーズの意思決定)
 
 ### 7. Lecture Hub (個人ナレッジハブ)
 - **状況**: ✅ **本番デプロイ完了 (2026-05-19 21:50)** — BlockNote × Next.js 15.5 の根本不整合 (6試行で確証) を確定し **TipTap v3 に全面移行**、本番動作確認 OK
@@ -223,19 +226,21 @@ update_frequency: 週1回以上
 - **関連**: [[ai_simulator]] (運用マニュアル、必須3セクション付き)、[[2026-05-19_API依存撤廃_Max20x完結化]]、[[claude_mistakes]] D-5
 
 ### 13. ai-researcher (24時間 AI 研究員エージェント、セッションθ)
-- **状況**: ✅ **Max 20x 完結化 完了 (セッションθ、2026-05-19 10:22) → slug パス区切りバグ修正 (2026-05-19 21:10)** — 朝の YD 指摘 ([[2026-05-19_API依存撤廃_Max20x完結化]]) を受け、Anthropic SDK + ANTHROPIC_API_KEY 依存を撤廃し `claude -p` (Claude Code ヘッドレス) に書き換え。月課金 $0、Max 20x プラン枠で完結。**夜の slug バグ**: google_research の RSS guid が URL 形式 → `Article.slug()` が `source_id` を素通し → pathlib で `/` が path 区切り扱いになり 10:03/11:03 の collect が kept=0 で空回り → `src/utils/models.py:29-33` を 3 行修正 (`sid = slugify(self.source_id, max_length=24)`) で全 source の事故を予防 → `collect` 再走で過去失敗分 5 件全復旧 ([[claude_mistakes]] A-10 + [[ai_researcher]] 必須3セクション更新済)
+- **状況**: ✅ **relevance 緩和 + プロファイル拡充 + 死亡2ソース修復 完了 (2026-05-23 早朝)** — 「集めてるのに Vault に残らない」(kept ほぼ0) を解消。threshold 3.0→1.5 + collect `--max-articles 8` (plist + launchd reload)、interests.yaml に撮影/Web/国際協力語 (high16 + medium24) 追加、papers_with_code→HF daily_papers 差し替え (name=hf_papers)、github_trending を topic検索→キーワード+pushed+stars に修正。**dry-run で relevant 0→46/run、7ソース全稼働**を確認。詳細: [[2026-05-23_ai-researcher_relevance緩和とソース修復]]
+- **過去の状況**: ✅ **Max 20x 完結化 完了 (セッションθ、2026-05-19 10:22) → slug パス区切りバグ修正 (2026-05-19 21:10)** — 朝の YD 指摘 ([[2026-05-19_API依存撤廃_Max20x完結化]]) を受け、Anthropic SDK + ANTHROPIC_API_KEY 依存を撤廃し `claude -p` (Claude Code ヘッドレス) に書き換え。月課金 $0、Max 20x プラン枠で完結。**夜の slug バグ**: google_research の RSS guid が URL 形式 → `Article.slug()` が `source_id` を素通し → pathlib で `/` が path 区切り扱いになり 10:03/11:03 の collect が kept=0 で空回り → `src/utils/models.py:29-33` を 3 行修正 (`sid = slugify(self.source_id, max_length=24)`) で全 source の事故を予防 → `collect` 再走で過去失敗分 5 件全復旧 ([[claude_mistakes]] A-10 + [[ai_researcher]] 必須3セクション更新済)
 - **パス**: `~/projects/ai-researcher/` (Python 3.11 + uv)
 - **スタック**: **anthropic SDK 削除済** / arxiv + feedparser + bs4 + typer + tenacity + SQLite (重複・呼び出し履歴)
 - **LLM 経路**: `claude -p --output-format json --json-schema ... --system-prompt ... --no-session-persistence --disable-slash-commands --permission-mode bypassPermissions --model claude-haiku-4-5` (stdin プロンプト)
 - **ベンチ**: 1 記事 25-35 秒、21 件 / run で約 14 分 (pace_seconds=6 込み)
 - **dry-run 実績 (2回目)**: raw 45 → dedup 43 → relevant 21 (threshold 3.0)
 - **launchd**: 3 本 (`collect` 毎時 HH:03 / `weekly` 月06:00 / `archive` 月初04:00) — 書き換えで影響なし、`launchctl list | grep ai-researcher` で確認可
-- **次のアクション** (任意):
-  - [ ] (任意) `.env` の `GITHUB_TOKEN` 設定で GitHub API rate limit 60→5000/h
-  - [ ] 翌朝 `~/ObsidianVault/raw/research/2026-05-20/` に記事が積まれてるか目視
-  - [ ] `uv run ai-researcher status` で月間 headless 呼び数 + ソース別件数を確認
-- **将来案**: papers_with_code 不安定 → scrape 化、github_trending を `weekly` window に、朝ブリーフィングとの `briefing-json` 接続をセッションβ側で有効化、embedding 類似検索 (Lecture Hub の pgvector 同居)
-- **関連**: [[ai_researcher]] (knowledge/programming/tools/、Max 20x 完結版に全面更新)、[[morning_briefing]] (連携先、`raw/research/` 共有)、[[2026-05-19_API依存撤廃_Max20x完結化]] (本書き換えの意思決定)、`learning/research_interests.yaml` (興味プロファイル)
+- **次のアクション** (残課題、別タスク):
+  - [ ] 新ジャンルのソース追加 (撮影系/Web開発系/国際協力系 RSS) — これが無いと 2026-05-23 で足した撮影/フィリピン/法律語が「ソースに記事が流れてこない」ので発火しない。**ソース選定は YD と方向性を握ってから**
+  - [ ] github_trending を `stars:50..5000` の上限でトレンド性向上 (現状は transformers 16万star 等の定番大型が上位独占、緊急性は低)
+  - [ ] (任意) `.env` の `GITHUB_TOKEN` 設定で rate limit 10/分→5000/時 (PAT 発行は YD 作業)
+  - [ ] 数日後 `uv run ai-researcher status` で kept 件数の増加 + ソース別バランスを確認
+- **将来案**: 朝ブリーフィングとの `briefing-json` 接続をセッションβ側で有効化、embedding 類似検索 (Lecture Hub の pgvector 同居)。(papers_with_code/github_trending の死亡は 2026-05-23 に修復済み)
+- **関連**: [[ai_researcher]] (knowledge/programming/projects/)、[[morning_briefing]] (連携先、`raw/research/` 共有)、[[2026-05-19_API依存撤廃_Max20x完結化]]、[[2026-05-23_ai-researcher_relevance緩和とソース修復]] (relevance緩和+ソース修復の意思決定)、`learning/research_interests.yaml` (興味プロファイル)
 
 ### 15. parallel-claude (並列 Claude Code 監視基盤)
 - **状況**: ✅ **初回運用完了 (2026-05-20 03:15→04:08、約53分)** — 5並列 parallel-claude + 12並列 business-plan-sprint を `--dangerously-skip-permissions` + OAuth (Max 20x 完結) で並走、`CronCreate(2-59/5 * * * *)` で 5分ごと監視、12 iter で全終息。**実支払い $0**。

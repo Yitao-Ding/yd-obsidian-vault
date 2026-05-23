@@ -518,3 +518,77 @@
 [2026-05-20 22:06] ai-researcher collect: raw=76 dedup=40 relevant=1 kept=1
 [2026-05-20 23:04] ai-researcher collect: raw=77 dedup=40 relevant=0 kept=0
 [2026-05-21 00:04] ai-researcher collect: raw=75 dedup=38 relevant=0 kept=0
+[2026-05-21 01:07] ai-researcher collect: raw=77 dedup=40 relevant=0 kept=0
+[2026-05-21 02:05] ai-researcher collect: raw=77 dedup=40 relevant=1 kept=1
+[2026-05-21 03:05] ai-researcher collect: raw=78 dedup=40 relevant=0 kept=0
+[2026-05-21 04:04] ai-researcher collect: raw=72 dedup=36 relevant=0 kept=0
+[2026-05-21 05:04] ai-researcher collect: raw=72 dedup=35 relevant=0 kept=0
+[2026-05-21 06:05] ai-researcher collect: raw=72 dedup=35 relevant=0 kept=0
+[2026-05-21 07:04] ai-researcher collect: raw=42 dedup=21 relevant=0 kept=0
+[2026-05-21 08:04] ai-researcher collect: raw=41 dedup=20 relevant=0 kept=0
+[2026-05-21 09:05] ai-researcher collect: raw=43 dedup=22 relevant=1 kept=1
+[2026-05-21 10:04] ai-researcher collect: raw=45 dedup=23 relevant=1 kept=1
+[2026-05-21 11:04] ai-researcher collect: raw=45 dedup=22 relevant=0 kept=0
+[2026-05-21 12:16] ai-researcher collect: raw=0 dedup=0 relevant=0 kept=0
+[2026-05-21 13:53] ai-researcher collect: raw=75 dedup=52 relevant=16 kept=16
+[2026-05-21 14:04] ai-researcher collect: raw=76 dedup=37 relevant=0 kept=0
+[2026-05-21 15:04] ai-researcher collect: raw=76 dedup=37 relevant=0 kept=0
+[2026-05-21 16:03] ai-researcher collect: raw=76 dedup=37 relevant=0 kept=0
+[2026-05-21 17:04] ai-researcher collect: raw=45 dedup=23 relevant=0 kept=0
+[2026-05-21 18:18] ai-researcher collect: raw=0 dedup=0 relevant=0 kept=0
+[2026-05-21 19:05] ai-researcher collect: raw=74 dedup=36 relevant=0 kept=0
+
+[2026-05-21 19:37] Anthropic 公式 Agent Skills 導入 (example-skills + document-skills プラグイン / anthropics/skills マーケットプレイス) → available_capabilities.md 更新
+[2026-05-21 20:04] ai-researcher collect: raw=45 dedup=23 relevant=0 kept=0
+[2026-05-21 20:05] Claude Code skill 2件運用整備: ui-ux-pro-max を SKILL.md 形式版に復旧 (git clone した CLI 配布物は ~/projects/ui-ux-pro-max-source/ に退避)、frontend-design を ~/.claude/skills/frontend-design/SKILL.md として新規追加。Vault に knowledge/programming/skills/ 領域作成 (index.md + frontend-design.md + ui-ux-pro-max.md)、UI 制作時の「いいとこ取り」併用ルールを明文化。
+[2026-05-21 20:10] Claude Code skill 追加: web-design-guidelines (Vercel製、レビュー専用、WebFetch で最新 Web Interface Guidelines を取得して file:line で違反列挙)。Vault に web-design-guidelines.md 追加、index.md を「制作2skill + レビュー1skill」の3フェーズ運用に更新。既存 plugin の web-interface-guidelines とほぼ同機能だが現状は併存運用。
+[2026-05-21 20:25] Claude Code skill 追加: backend-patterns (origin: ECC、Node.js/Express/Next.js API routes 向け backend パターン集 — API設計 / DB最適化 / N+1防止 / Caching / Error Handler / JWT+RBAC / Rate Limit / Background Jobs / Structured Logging)。Vault に backend-patterns.md 追加、index.md を Frontend (3skill 併用) / Backend (1skill 単独) の 2 ドメイン構成に再編。Rate Limit を絶対 in-memory 禁止のルール明記。
+[2026-05-21 20:40] origin: ECC の正体特定 → "Everything Claude Code" (affaan-m/everything-claude-code、Anthropic Hackathon Winner 2026/2月、60 agents + 232 skills + 75 commands)。Vault 全文 grep でゼロヒット → Web で SKILL.md の固有英文 (Rate limiting must use a shared store...) を完全一致検索で一発判明。backend-patterns.md 更新、教訓を「次回チェックリスト」に追記 (未知 origin は本文の独特フレーズで Web 完全一致検索)。
+[2026-05-21 20:50] セッション終了処理: current_state/available_capabilities.md を更新 (UI/UX 設計セクションを 3 skill 併用運用に拡張、Backend 開発セクション新規追加)。次セッション起動時のマッピング演習で今日追加した 4 skill が自動的に候補に上がるようにした。
+[2026-05-21 21:01] TaskHub UI/UX 根本見直しに着手、現状 UI 把握 (8 画面 + globals.css + spec + HANDOVER) 完了、5 大課題特定 (ブランド分裂 / デザインシステム不在 / IA 浅い / SaaS テンプレ的 / ロゴ単文字)。Anthropic Labs ハーネス設計を踏襲した 4 自立型エージェント (taskhub-planner / taskhub-builder / taskhub-qa-evaluator / taskhub-design-evaluator★) を `~/projects/salamat-task-hub/.claude/agents/` に構築。Design Evaluator は frontend-design / web-design-guidelines / ui-ux-pro-max / vercel:react-best-practices の 4 スキル参照必須 + AIスロップ即不合格ルール内蔵 → [[2026-05-21_TaskHub_UIUX根本見直し_4エージェントハーネス構築]]
+[2026-05-21 21:00] Claude Code エージェントチーム機能 (実験的、v2.1.32+) を有効化: ~/.claude/settings.json に CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1 追加 + tmux 3.6b インストール。decisions/2026-05-21_エージェントチーム機能_有効化.md + knowledge/programming/tools/claude_code_agent_teams.md 作成、available_capabilities.md に「Claude Code ネイティブ機能」セクション新規追加。Arte Grow フィリピン視察リサーチ深化 (5メンバー: econ / ethics / ops / bench / devil) を新 tmux セッションで試走予定。
+[2026-05-21 --:--] Arte Grow 競合リサーチ第2版 (bench エージェント) 作成: raw/research/agents/2026-05-21_bench.md に出力。CCAP / ANTHILL / HABI / Kaayo / Cambio&Co.(2026年2月閉業確認) / Makabayan UK / HoliCOW / People Tree清算 / Kultura / Sisam工房 / フェアトレード日本市場データを網羅。WebSearch 20件以上で一次・二次情報収集。
+[2026-05-21 21:04] ai-researcher collect: raw=74 dedup=37 relevant=0 kept=0
+[2026-05-21 22:51] ai-researcher collect: raw=0 dedup=0 relevant=0 kept=0
+[2026-05-21 23:10] ai-researcher collect: raw=0 dedup=0 relevant=0 kept=0
+[2026-05-22 00:04] ai-researcher collect: raw=42 dedup=22 relevant=0 kept=0
+[2026-05-22 01:05] ai-researcher collect: raw=41 dedup=21 relevant=0 kept=0
+[2026-05-22 02:03] ai-researcher collect: raw=70 dedup=34 relevant=0 kept=0
+[2026-05-22 03:04] ai-researcher collect: raw=70 dedup=34 relevant=0 kept=0
+[2026-05-22 04:04] ai-researcher collect: raw=71 dedup=35 relevant=0 kept=0
+[2026-05-22 05:04] ai-researcher collect: raw=71 dedup=35 relevant=0 kept=0
+[2026-05-22 06:04] ai-researcher collect: raw=68 dedup=33 relevant=0 kept=0
+[2026-05-22 07:05] ai-researcher collect: raw=41 dedup=21 relevant=1 kept=1
+[2026-05-22 08:05] ai-researcher collect: raw=40 dedup=20 relevant=0 kept=0
+[2026-05-22 09:04] ai-researcher collect: raw=40 dedup=20 relevant=0 kept=0
+[2026-05-22 10:04] ai-researcher collect: raw=41 dedup=21 relevant=0 kept=0
+[2026-05-22 11:05] ai-researcher collect: raw=71 dedup=35 relevant=0 kept=0
+[2026-05-22 12:42] ai-researcher collect: raw=0 dedup=0 relevant=0 kept=0
+[2026-05-22 13:50] ai-researcher collect: raw=0 dedup=0 relevant=0 kept=0
+[2026-05-22 15:05] ai-researcher collect: raw=0 dedup=0 relevant=0 kept=0
+[2026-05-22 16:19] ai-researcher collect: raw=0 dedup=0 relevant=0 kept=0
+[2026-05-22 17:37] ai-researcher collect: raw=0 dedup=0 relevant=0 kept=0
+[2026-05-22 18:39] ai-researcher collect: raw=0 dedup=0 relevant=0 kept=0
+[2026-05-22 19:39] ai-researcher collect: raw=0 dedup=0 relevant=0 kept=0
+[2026-05-22 20:09] ai-researcher collect: raw=0 dedup=0 relevant=0 kept=0
+[2026-05-22 21:04] ai-researcher collect: raw=44 dedup=24 relevant=0 kept=0
+[2026-05-22 22:21] ai-researcher collect: raw=75 dedup=55 relevant=21 kept=21
+[2026-05-22 23:11] ai-researcher collect: raw=35 dedup=17 relevant=0 kept=0
+[2026-05-23 00:04] ai-researcher collect: raw=46 dedup=27 relevant=0 kept=0
+[2026-05-23 01:05] ai-researcher collect: raw=46 dedup=28 relevant=1 kept=1
+[2026-05-23 02:05] ai-researcher collect: raw=76 dedup=36 relevant=0 kept=0
+[2026-05-23 03:04] ai-researcher collect: raw=76 dedup=37 relevant=1 kept=1
+[2026-05-23 03:30] Playwright MCP の存在を認知 + settings.local.json に mcp__playwright を allow 追加 + available_capabilities.md に「ローカル MCP サーバー」セクション新設 + knowledge/programming/tools/playwright_mcp.md 作成 + memory に mcp_playwright.md 保存
+
+[2026-05-23 03:50] MCP 4個 user scope 追加 (Serena/Context7/chrome-devtools/GitHub gh-mcp) → 全て ✓ Connected。動画 Shin Coding Tutorial「今すぐにこれら9つのMCPを導入してください」(39:37) を vidkit tutorial で前処理 (1m30s)。Supabase/Stripe は認証情報待ち。Notion/Figma は claude.ai 経由で代替。decisions/2026-05-23_MCP_9個導入.md / vidkit 改善は Opus 4.7 サブエージェントで並行中
+[2026-05-23 04:12] ai-researcher collect: raw=74 dedup=35 relevant=8 kept=7
+[2026-05-23 04:02] MCP 残り3個 (Supabase read-only / Stripe test / Context7 with API key) 追加 + Playwright を user scope に移行 → ローカル MCP 7個全部 ✓ Connected。vidkit P1-P5 改善 push 済 (bd1a24b/3f429a0/d5425e9/db36ff9)。memory + decisions 更新済
+[2026-05-23 04:15] Serena MCP: web_dashboard_open_on_launch を true → false に変更 (Chrome 自動起動抑止)。ダッシュボード機能自体 (web_dashboard: true) は残し、必要時に localhost:24282/dashboard/ へ手動アクセス可能。active_projects.md の vidkit セクションに P1-P5 完了を反映。セッション終了
+[2026-05-23 05:11] ai-researcher collect: raw=109 dedup=62 relevant=8 kept=8
+[2026-05-23 06:11] ai-researcher collect: raw=111 dedup=56 relevant=8 kept=8
+[2026-05-23 07:12] ai-researcher collect: raw=112 dedup=49 relevant=8 kept=7
+[2026-05-23 08:11] ai-researcher collect: raw=111 dedup=41 relevant=8 kept=8
+[2026-05-23 09:13] ai-researcher collect: raw=110 dedup=33 relevant=8 kept=7
+[2026-05-23 10:10] ai-researcher collect: raw=111 dedup=27 relevant=8 kept=8
+[2026-05-23 11:05] ai-researcher collect: raw=80 dedup=14 relevant=2 kept=2
+[2026-05-23 12:21] ai-researcher collect: raw=0 dedup=0 relevant=0 kept=0
