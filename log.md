@@ -652,3 +652,9 @@
 [2026-05-25 18:35] Salamat WBS 独自ドメイン化完了: toyo-salamat.com → Vercel salamat-website-v2 (Wix DNS + Google Workspace MX 保護 + www→Apex 308)
 [2026-05-25 19:04] ai-researcher collect: raw=73 dedup=5 relevant=0 kept=0
 [2026-05-25 20:06] ai-researcher collect: raw=73 dedup=6 relevant=1 kept=0
+[2026-05-25 20:50] vidkit tutorial で UI Collective 動画 (Claude/Codex/Figma フルガイド 1h27m) を処理 → knowledge/programming/tools/ai_design_workflow.md にナレッジ化、生素材 raw/vidkit/tutorial/ に配置。fetch.py の HTTP 429 字幕問題を修正 (1c91464)
+[2026-05-25 21:07] ai-researcher collect: raw=73 dedup=6 relevant=1 kept=1
+[2026-05-25 22:04] ai-researcher collect: raw=0 dedup=0 relevant=0 kept=0
+[2026-05-25 23:13] ai-researcher collect: raw=0 dedup=0 relevant=0 kept=0
+[2026-05-26 00:41] ai-researcher collect: raw=106 dedup=38 relevant=8 kept=4
+[2026-05-26 00:55] Project Agent Application セッション保存。6 エージェント体制完成 (planner/spec-reviewer/designer/builder/qa-evaluator/design-evaluator)、planner 3 回 PASS、spec-reviewer 3 回 PASS (Pass 17/Fail 0)、designer Sprint 07 第 1 弾完了 (Expo Snack 動作確認済、Secret Gist + files.url 参照方式)。次セッション着手ポイント: マネタイズ Q13 (推奨 D = 個人 Pro 480円 + 団体 Pro 1480円) 承認 + designer 第 2 弾 (達成演出 + アバタースタック) 承認 → Sprint 01 builder 着手。decisions/2026-05-26_ProjectAgentApp_セッション保存.md / knowledge/programming/projects/project_agent_application.md / mistakes A-14,A-15,B-5 追記済

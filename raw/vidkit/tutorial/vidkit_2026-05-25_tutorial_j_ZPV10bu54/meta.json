@@ -1,0 +1,28 @@
+{
+  "source": "https://youtu.be/j_ZPV10bu54?si=DCzYAYryZZKJi6gR",
+  "title": "Designing With AI: Claude, Codex, Figma | Full Guide",
+  "uploader": "UI Collective",
+  "duration_sec": 5263.0,
+  "resolution": "1920x1080",
+  "fps": 30.0,
+  "upload_date": "2026-05-04",
+  "mode": "tutorial",
+  "processed_at": "2026-05-25T20:37:01+09:00",
+  "transcript_source": "youtube_auto",
+  "whisper_model": null,
+  "scene_count": 146,
+  "frame_count": 146,
+  "diarization": {
+    "enabled": false,
+    "model": null,
+    "speaker_count": 0,
+    "speakers": []
+  },
+  "processing_time_sec": {
+    "fetch": 38.02,
+    "transcript": 105.99,
+    "scenes": 105.99,
+    "diarization": 0.0,
+    "total": 150.1
+  }
+}

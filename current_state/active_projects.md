@@ -73,18 +73,36 @@ update_frequency: 週1回以上
 
 ## 🟢 アクティブ・優先度中
 
-### Project Agent Application (新規・2026-05-23 着手)
-- **状況**: ハーネス設計 5 エージェント体制で着手。**Phase 0 完了** (`~/projects/project-agent-application/` に VISION.md + CLAUDE.md [5エージェントルール込] + `.claude/agents/planner.md` セットアップ済)。壁打ち未開始
-- **目的**: 大学生・若年層向け Teams ライクなプロジェクト/タスク/チーム統合管理アプリ。デザイン性 / UI 最重視 (Gen Z 系を攻める)
-- **エージェント体制**: planner → designer → builder → [qa-evaluator ‖ design-evaluator] (動画 3 エージェントに designer 分離して 5 = Task Hub の 4 + designer)
-- **背景**: 直前に Shin Coding Tutorial「Claude Code ハーネスエンジニアリング」(2026-04-04 / 25:15) を vidkit tutorial モードで処理 + 完全理解 → 同日実戦投入
-- **次のアクション**:
-  - [ ] planner エージェント起動 → Q1〜Q5 壁打ち (MVP スコープ / デザイン方向 / Web vs モバイル / チャット有無 / 階層構造)
-  - [ ] YD 回答 → SPEC.md / DESIGN_DIRECTION.md / sprint-XX.md 生成
-  - [ ] designer / builder / qa-evaluator / design-evaluator を `.claude/agents/` に追加 (Task Hub テンプレ流用)
-  - [ ] Sprint 01 から自走実装 (`--dangerously-skip-permissions` で 1〜2h 放置想定)
+### ★ Project Agent Application (大学生・若年層向け統合タスク管理アプリ、2026-05-23 着手) ★
+- **状況**: 🟢 **Phase 2 完了 (2026-05-26 セッション保存時点)** — 6 エージェント体制構築完了 (planner / spec-reviewer / designer / builder / qa-evaluator / design-evaluator)、planner 3 回 PASS、spec-reviewer 3 回 PASS (Pass 17/Fail 0)、designer Sprint 07 第 1 弾完了 (Expo Snack で動作確認済)。Sprint 01 builder 着手前
+- **目的**: 大学生・若年層 (Gen Z) 向け、Microsoft Teams ライクなプロジェクト/タスク/チーム/個人タスク統合管理アプリ。複数団体所属モデル、5 階層 (User → TM → PJ → Team → Task)、Z 世代刺し UI/UX 最重視
+- **技術スタック**: React Native + Expo SDK 53 + Expo Router + NativeWind v4 + Tamagui + Reanimated 3 + Supabase (Postgres + Auth + Storage + Edge Functions) + Expo AuthSession (Google/Apple/LINE/Magic Link 4 種認証) + Expo Notifications (APNs+FCM、**メール送信全 Phase 排除**) + EAS Build + App Store + Google Play
+- **車輪の再発明禁止原則** (★ YD 強調、最重要): Discord (サーバー/チャンネル/メンション) + Spotify (プレイリスト/「今日の」セクション) + Instagram (ストーリーズ/プロフィール) + BeReal (ゆるカジュアル) + Finch + Duolingo (キャラ常駐) のパターンを原則採用、独自パターンは理由明記必須
+- **デザイン**: Q11 採用 = Case D (Adaptive UI、集中モード Linear/Spotify ダーク + 普段モード Z 世代カラフル)、コハル (Finch 型、モード切替で 36px↔80px、暫定名、商標調査別タスク) を `src/lib/finch/config.ts` で一元管理、AI スロップ NG リスト 21 項目厳守
+- **スプリント分割 (MVP 7)**:
+  - sprint-01: 基盤 (Expo 初期化 + 認証 4 種 + Onboarding + コハル設定)
+  - sprint-02 (内容: 5 階層データモデル): User/TM/PJ/Team/Task CRUD + RLS + scope='common' トリガー DDL
+  - sprint-03 (内容: タスク詳細 + 提出): ファイル提出 + Google Drive 連携
+  - sprint-04 (内容: リマインダー + 通知): Expo Notifications + in-app バッジ
+  - sprint-05 (内容: 軽量チャット): タスク単位コメント + メンション (Discord 風)
+  - sprint-06 (内容: DB 自動登録): 学校 DB 800 校 + サークル DB (Instagram/Web URL 解析、OGP Fallback)
+  - sprint-07: キャラ (コハル) + ホームダッシュボード (Case D Adaptive UI 本実装)
+  - ※ ファイル名と内容のズレ (planner Bash 持たず mv 不可) は冒頭注記でカバー、リネームは別タスク
+- **マネタイズ (検討中、YD 承認待ち)**: フリーミアム + (推奨) **D 個人 Pro 480 円/月 + 団体 Pro 1480 円/月** (団体長セルフサーブ、両方契約可)。Q12 達成時期 = 6 ヶ月目標 (品質優先で 3 年も OK)、Q14 形態 = **個人事業主開業届** ★ 確定
+- **次のアクション** (次セッション、優先度順):
+  - [ ] **★ YD: マネタイズ Q13 (推奨 D) 承認 or 別案** → planner に SPEC.md マネタイズセクション追記指示
+  - [ ] **★ YD: designer 第 2 弾 (達成演出 + アバタースタック + Discord プレゼンス) 承認** → designer サブエージェント再起動
+  - [ ] designer Sprint 07 ホーム合格 (第 2 弾以降) → tokens.md 確定
+  - [ ] designer Sprint 01 (login + onboarding) 設計
+  - [ ] builder Sprint 01 着手 (`cd ~/projects/project-agent-application && npx create-expo-app@latest code --template tabs`、`--dangerously-skip-permissions` 想定 1〜2h)
+  - [ ] qa-evaluator + design-evaluator 並列起動 → EVAL_QA / EVAL_DESIGN
+  - [ ] Sprint 02〜07 builder 順次着手 (各 sprint 完了後)
+  - [ ] キャラ「コハル」商標調査 (別 sub-agent で sprint-07 前に実行、J-PlatPat + App Store + Google Play 名称検索)
+  - [ ] ファイル名リネーム (sprint-XX 内容に合わせて、別タスク、関連リンクは既に実体名で参照済なので互換)
 - **パス**: `~/projects/project-agent-application/`
-- **関連**: [[project_agent_application]] (運用マニュアル), [[2026-05-23_Project_Agent_Application_着手]] (意思決定), [[task_hub]] (テンプレ元)
+- **生成済 ファイル**: VISION.md / SPEC.md / DESIGN_DIRECTION.md / sprint-01〜07.md / REVIEW_REPORT.md (PASS) / `.claude/agents/*.md` (6 件) / `design/sprint-07-home/*` / `design/q11-exploration/case-a〜d/*`
+- **Snack URL** (Sprint 07 ホーム mockup 動作確認用): `design/sprint-07-home/snack-url.txt` 参照 (Secret Gist `9a9597e7370ad6babcc1e8db24488ae1` + Snack `files.url` 参照方式)
+- **関連**: [[project_agent_application]] (運用マニュアル、本セッションで作成)、[[2026-05-23_TaskHub廃止_ProjectAgentApp移行]]、[[2026-05-26_ProjectAgentApp_セッション保存]] (本セッション総括)、[[claude_mistakes]] A-14/A-15/B-5 (本日学び)
 
 ### 4. Salamat WBSサイト
 - **状況**: ✅ **Phase 1 + Phase 2 演出強化 完了 + Vercel 本番デプロイ済 (2026-05-19 夜)** — Phase 1 (Hero ZoomParallax×MeshGradient / Gallery4 / Cobe / LocationTag / Glowing Shadow / List⇄Orbital) + Phase 2 (Magnetic+Fey ボタン + Three.js パーティクル背景 + 旧コード/写真ファイル名 cleanup) を 2 commit (`46e6839` / `20ae3ee`) + 2 回 Vercel 本番デプロイで反映。YD ブラウザ目視 OK。
