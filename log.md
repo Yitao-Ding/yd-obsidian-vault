@@ -592,3 +592,63 @@
 [2026-05-23 10:10] ai-researcher collect: raw=111 dedup=27 relevant=8 kept=8
 [2026-05-23 11:05] ai-researcher collect: raw=80 dedup=14 relevant=2 kept=2
 [2026-05-23 12:21] ai-researcher collect: raw=0 dedup=0 relevant=0 kept=0
+[2026-05-23 04:50] ローカル MCP 7個 (Playwright/Serena/Context7/chrome-devtools/GitHub/Supabase/Stripe) を Vault に正式登録 + knowledge/programming/tools/mcp_local_servers.md 新規作成 + available_capabilities.md の表に Supabase/Stripe 行追加 + broken link [[mcp_*]] を [[mcp_local_servers]] に統一 + 棲み分け2行追加
+[2026-05-23 13:00] Project Agent Application 着手。Shin Coding Tutorial「Claude Code ハーネスエンジニアリング」(Wfz-gdWcItM, 25:15) を vidkit tutorial で前処理 → 同日実戦投入。~/projects/project-agent-application/ に VISION.md + CLAUDE.md (5エージェントルール込) + .claude/agents/planner.md セットアップ完了。Task Hub の planner を流用、designer 分離で 5 エージェント体制 (planner/designer/builder/qa-evaluator/design-evaluator)。Phase 0 完了、次は planner 起動して壁打ち。decisions + knowledge + active_projects 更新済
+[2026-05-23 13:04] ai-researcher collect: raw=108 dedup=15 relevant=0 kept=0
+[2026-05-23 15:11] ai-researcher collect: raw=0 dedup=0 relevant=0 kept=0
+[2026-05-23 16:46] ai-researcher collect: raw=0 dedup=0 relevant=0 kept=0
+[2026-05-23 17:35] ai-researcher collect: raw=0 dedup=0 relevant=0 kept=0
+[2026-05-23 18:39] ai-researcher collect: raw=0 dedup=0 relevant=0 kept=0
+[2026-05-23 19:50] ai-researcher collect: raw=0 dedup=0 relevant=0 kept=0
+[2026-05-23 20:46] ai-researcher collect: raw=0 dedup=0 relevant=0 kept=0
+[2026-05-23 21:40] ai-researcher collect: raw=0 dedup=0 relevant=0 kept=0
+[2026-05-23 22:27] ai-researcher collect: raw=0 dedup=0 relevant=0 kept=0
+[2026-05-23 23:26] ai-researcher collect: raw=0 dedup=0 relevant=0 kept=0
+[2026-05-23 13:36] Task Hub 廃止決定 → Project Agent Application へ移行 (decisions/2026-05-23_TaskHub廃止_ProjectAgentApp移行.md / archive/2026-05_TaskHub.md / active_projects.md #6 廃止マーカー化)。本アプリ planner で壁打ち中 (Q1〜Q11)、Q11 デザイン 4 案 designer サブエージェント並列試作 (Case A/B/C 完成、D 実行中)
+[2026-05-24 00:04] ai-researcher collect: raw=104 dedup=11 relevant=0 kept=0
+[2026-05-24 01:03] ai-researcher collect: raw=104 dedup=11 relevant=0 kept=0
+[2026-05-24 02:04] ai-researcher collect: raw=74 dedup=6 relevant=0 kept=0
+[2026-05-24 03:04] ai-researcher collect: raw=104 dedup=11 relevant=0 kept=0
+[2026-05-24 04:04] ai-researcher collect: raw=104 dedup=11 relevant=0 kept=0
+[2026-05-24 05:03] ai-researcher collect: raw=102 dedup=10 relevant=0 kept=0
+[2026-05-24 06:04] ai-researcher collect: raw=102 dedup=10 relevant=0 kept=0
+[2026-05-24 07:03] ai-researcher collect: raw=102 dedup=10 relevant=0 kept=0
+[2026-05-24 08:03] ai-researcher collect: raw=101 dedup=10 relevant=0 kept=0
+[2026-05-24 09:04] ai-researcher collect: raw=71 dedup=5 relevant=0 kept=0
+[2026-05-24 10:04] ai-researcher collect: raw=71 dedup=5 relevant=0 kept=0
+[2026-05-24 11:04] ai-researcher collect: raw=71 dedup=5 relevant=0 kept=0
+[2026-05-24 12:04] ai-researcher collect: raw=71 dedup=5 relevant=0 kept=0
+[2026-05-24 13:03] ai-researcher collect: raw=101 dedup=10 relevant=0 kept=0
+[2026-05-24 14:04] ai-researcher collect: raw=101 dedup=10 relevant=0 kept=0
+[2026-05-24 15:03] ai-researcher collect: raw=101 dedup=10 relevant=0 kept=0
+[2026-05-24 16:04] ai-researcher collect: raw=101 dedup=10 relevant=0 kept=0
+[2026-05-24 17:03] ai-researcher collect: raw=101 dedup=10 relevant=0 kept=0
+[2026-05-24 18:04] ai-researcher collect: raw=101 dedup=10 relevant=0 kept=0
+[2026-05-24 19:03] ai-researcher collect: raw=101 dedup=10 relevant=0 kept=0
+[2026-05-24 20:03] ai-researcher collect: raw=101 dedup=10 relevant=0 kept=0
+[2026-05-24 21:03] ai-researcher collect: raw=102 dedup=11 relevant=0 kept=0
+[2026-05-24 22:04] ai-researcher collect: raw=102 dedup=11 relevant=0 kept=0
+[2026-05-24 23:03] ai-researcher collect: raw=102 dedup=11 relevant=0 kept=0
+[2026-05-25 00:05] ai-researcher collect: raw=102 dedup=11 relevant=1 kept=0
+[2026-05-25 01:06] ai-researcher collect: raw=103 dedup=12 relevant=2 kept=2
+[2026-05-25 02:03] ai-researcher collect: raw=104 dedup=11 relevant=0 kept=0
+[2026-05-25 03:04] ai-researcher collect: raw=105 dedup=12 relevant=0 kept=0
+[2026-05-25 04:03] ai-researcher collect: raw=105 dedup=12 relevant=0 kept=0
+[2026-05-25 05:05] ai-researcher collect: raw=76 dedup=8 relevant=1 kept=1
+[2026-05-25 06:01] ai-researcher weekly: 2026-W21.md (top 10)
+[2026-05-25 06:03] ai-researcher collect: raw=106 dedup=12 relevant=0 kept=0
+[2026-05-25 07:03] ai-researcher collect: raw=106 dedup=12 relevant=0 kept=0
+[2026-05-25 08:05] ai-researcher collect: raw=104 dedup=11 relevant=0 kept=0
+[2026-05-25 09:04] ai-researcher collect: raw=103 dedup=10 relevant=0 kept=0
+[2026-05-25 10:03] ai-researcher collect: raw=103 dedup=10 relevant=0 kept=0
+[2026-05-25 11:07] ai-researcher collect: raw=73 dedup=11 relevant=4 kept=4
+[2026-05-25 12:07] ai-researcher collect: raw=73 dedup=11 relevant=4 kept=3
+[2026-05-25 13:11] ai-researcher collect: raw=0 dedup=0 relevant=0 kept=0
+[2026-05-25 14:05] ai-researcher collect: raw=0 dedup=0 relevant=0 kept=0
+[2026-05-25 15:12] ai-researcher collect: raw=73 dedup=16 relevant=8 kept=6
+[2026-05-25 16:07] ai-researcher collect: raw=73 dedup=10 relevant=4 kept=4
+[2026-05-25 17:07] ai-researcher collect: raw=73 dedup=6 relevant=1 kept=1
+[2026-05-25 18:12] ai-researcher collect: raw=73 dedup=6 relevant=1 kept=1
+[2026-05-25 18:35] Salamat WBS 独自ドメイン化完了: toyo-salamat.com → Vercel salamat-website-v2 (Wix DNS + Google Workspace MX 保護 + www→Apex 308)
+[2026-05-25 19:04] ai-researcher collect: raw=73 dedup=5 relevant=0 kept=0
+[2026-05-25 20:06] ai-researcher collect: raw=73 dedup=6 relevant=1 kept=0

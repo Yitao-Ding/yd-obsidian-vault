@@ -73,9 +73,22 @@ update_frequency: 週1回以上
 
 ## 🟢 アクティブ・優先度中
 
+### Project Agent Application (新規・2026-05-23 着手)
+- **状況**: ハーネス設計 5 エージェント体制で着手。**Phase 0 完了** (`~/projects/project-agent-application/` に VISION.md + CLAUDE.md [5エージェントルール込] + `.claude/agents/planner.md` セットアップ済)。壁打ち未開始
+- **目的**: 大学生・若年層向け Teams ライクなプロジェクト/タスク/チーム統合管理アプリ。デザイン性 / UI 最重視 (Gen Z 系を攻める)
+- **エージェント体制**: planner → designer → builder → [qa-evaluator ‖ design-evaluator] (動画 3 エージェントに designer 分離して 5 = Task Hub の 4 + designer)
+- **背景**: 直前に Shin Coding Tutorial「Claude Code ハーネスエンジニアリング」(2026-04-04 / 25:15) を vidkit tutorial モードで処理 + 完全理解 → 同日実戦投入
+- **次のアクション**:
+  - [ ] planner エージェント起動 → Q1〜Q5 壁打ち (MVP スコープ / デザイン方向 / Web vs モバイル / チャット有無 / 階層構造)
+  - [ ] YD 回答 → SPEC.md / DESIGN_DIRECTION.md / sprint-XX.md 生成
+  - [ ] designer / builder / qa-evaluator / design-evaluator を `.claude/agents/` に追加 (Task Hub テンプレ流用)
+  - [ ] Sprint 01 から自走実装 (`--dangerously-skip-permissions` で 1〜2h 放置想定)
+- **パス**: `~/projects/project-agent-application/`
+- **関連**: [[project_agent_application]] (運用マニュアル), [[2026-05-23_Project_Agent_Application_着手]] (意思決定), [[task_hub]] (テンプレ元)
+
 ### 4. Salamat WBSサイト
 - **状況**: ✅ **Phase 1 + Phase 2 演出強化 完了 + Vercel 本番デプロイ済 (2026-05-19 夜)** — Phase 1 (Hero ZoomParallax×MeshGradient / Gallery4 / Cobe / LocationTag / Glowing Shadow / List⇄Orbital) + Phase 2 (Magnetic+Fey ボタン + Three.js パーティクル背景 + 旧コード/写真ファイル名 cleanup) を 2 commit (`46e6839` / `20ae3ee`) + 2 回 Vercel 本番デプロイで反映。YD ブラウザ目視 OK。
-- **公開URL**: https://salamat-website-v2.vercel.app (HTTP 200、Phase 1+2 反映済)
+- **公開URL**: **https://toyo-salamat.com** (独自ドメイン、2026-05-25 切替完了) / https://salamat-website-v2.vercel.app (Vercel デフォルト URL、引き続き有効)
 - **Phase 2 で完了したもの**:
   - [x] Phase 1 を Vercel に再デプロイ (今日 14:00 頃 dpl_G4DhSUZ6uHL41h3753vzAwdk76nB)
   - [x] #07 Magnetic+Fey ボタンを主要 CTA に適用 (Hero × 2 + Vision Value、CtaButton 経由 + Tweaks で切替可、DEFAULT を magnetic-fey に)
@@ -89,7 +102,7 @@ update_frequency: 週1回以上
   - [ ] circular ストーリーレイアウトの Gallery 化判断
   - [ ] 下層ページ実装 (About / Activities / Reports / News / Members / Support / Transparency)
   - [ ] お問い合わせフォーム + CMS連携 (microCMS/Notion/Sanity)
-  - [ ] 独自ドメイン取得 → Vercel に紐付け
+  - [x] **独自ドメイン取得 → Vercel に紐付け (2026-05-25 完了)** — `toyo-salamat.com` Wix 取得済を Vercel に紐付け、Apex メイン + www→Apex 308 リダイレクト、SSL 発行済、Google Workspace MX 保護。旧 `salamat-toyo.web.app` は放置で並行稼働。詳細: [[2026-05-25_Salamat_WBS_独自ドメイン化]]
   - [ ] (要すれば) パーティクル密度/opacity の微調整、blending mode の AdditiveBlending 検討
 - **チーム**: YD (実装) + Riko (内容) + Haruka (構成) + Rena (デザイン)
 - **スタック**: Next.js 16 + React 19 + Tailwind v4 + three + cobe + @paper-design/shaders-react + framer-motion + embla-carousel-react + Sora/Zen Maru/Noto Sans JP
@@ -110,27 +123,11 @@ update_frequency: 週1回以上
 
 ## 🟡 完成済み・運用フェーズ
 
-### 6. Task Hub (タスク管理アプリ) — UI/UX 根本見直しフェーズ突入 (2026-05-21)
-- **状況**: 🟢 **UI/UX 根本見直しに着手 (2026-05-21 21:01)** — フロントエンドレベルから仕様を見直す方針 (YD 指示)。現状 UI 把握完了 (8 画面 + globals.css + spec + HANDOVER)、5 大課題特定 (ブランド分裂 #ff6a00 vs #2563EB / デザインシステム不在 / IA 浅い / SaaS テンプレ的 / ロゴ単文字)。**Anthropic Labs ハーネス設計を踏襲した 4 自立型エージェント** を `~/projects/salamat-task-hub/.claude/agents/` に構築完了 (planner / builder / qa-evaluator / design-evaluator★)。次は YD のビジョン (1〜4 行) → planner 起動。
-- **過去履歴**: 2026-05-19 21:17 git 整理 + GitHub 連携完了 (untracked 32 + dirty 7 → 5 commit)。**デプロイ実態は Firebase Hosting** (`salamat-task-hub.web.app`) — Vercel ではない
-- **パス**: `/Users/ittou/projects/salamat-task-hub`
-- **GitHub**: https://github.com/Yitao-Ding/salamat-task-hub (Private、main → origin/main 追跡済)
-- **本番 URL**: https://salamat-task-hub.web.app (Firebase Hosting、Spark プラン)
-- **スタック**: Next.js 16.2.1 (App Router、静的 export) + React 19.2.4 + TypeScript + Tailwind CSS v4 + Firebase (Auth/Firestore/Storage) + next-pwa
-- **コミット履歴 (2026-05-19 push)**:
-  - `f876634` chore: prepare Next.js + Firebase build configuration
-  - `6d0e341` feat: add Firebase backend configuration
-  - `7fa1b65` feat: implement core app (auth, Firestore CRUD, routes, UI)
-  - `47b6be5` feat: PWA setup (manifest, service worker, icons)
-  - `9dfcd77` docs: add handover document, spec, and admin setup script
-- **次のアクション** (UI/UX 根本見直し、優先度順):
-  - [ ] **★ YD から 1〜4 行のビジョン取得** → `taskhub-planner` 起動 (SPEC.md + DESIGN_DIRECTION.md + sprint-XX-*.md 生成)
-  - [ ] Sprint 01 から: builder 実装 → qa + design 並列評価 → 不合格なら修正イテレーション → 合格で次スプリント
-  - [ ] **必須対応**: `globals.css` の orange グラデ (`linear-gradient(#ff6a00 → white)`) を DESIGN_DIRECTION.md のカラーに置換
-  - [ ] 既存課題 (メンバー招待フロー / PWA 最終調整 / Firestore rules 本番デプロイ確認 / next-pwa v6 移行) は再設計の中で吸収または別スプリントへ
-  - [ ] 商用化検討 (大学サークル向けフリーミアム) は再設計完了後
-- **4 エージェント構成**: taskhub-planner / taskhub-builder / taskhub-qa-evaluator / taskhub-design-evaluator (Anthropic Labs ハーネス設計準拠、Design Evaluator は frontend-design / web-design-guidelines / ui-ux-pro-max / vercel:react-best-practices の 4 スキル参照必須 + AIスロップ即不合格ルール内蔵)
-- **関連**: [[task_hub]] (運用マニュアル、2026-05-20 作成)、[[2026-05-19_TaskHub_git整理_GitHub連携]] (git 整理の意思決定)、[[2026-05-21_TaskHub_UIUX根本見直し_4エージェントハーネス構築]] (本フェーズの意思決定)
+### 6. ~~Task Hub~~ — **2026-05-23 廃止** ⚫
+- **状況**: ⚫ **2026-05-23 廃止決定。** YD「マジで使わない」と明言、代替として **Project Agent Application** (`~/projects/project-agent-application/`) を新規開発。Salamat 内部運用も本アプリで完全置き換え予定。
+- **詳細**: [[2026-05-23_TaskHub廃止_ProjectAgentApp移行]] / [[../archive/2026-05_TaskHub]]
+- **遺産**: GitHub repo (`Yitao-Ding/salamat-task-hub`) + Firebase Hosting (`salamat-task-hub.web.app`) は当面放置 (削除しない、参考資料)
+- **引き継ぎ**: 4 自立型エージェントのハーネス設計 / Discord ロールモデル / PWA 重視 / 寒色系 → 本アプリへ思想継承
 
 ### 7. Lecture Hub (個人ナレッジハブ)
 - **状況**: ✅ **本番デプロイ完了 (2026-05-19 21:50)** — BlockNote × Next.js 15.5 の根本不整合 (6試行で確証) を確定し **TipTap v3 に全面移行**、本番動作確認 OK

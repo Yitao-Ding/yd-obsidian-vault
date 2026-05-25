@@ -179,11 +179,13 @@ update_frequency: スキル/MCP追加時
 
 | サーバー | 用途 | トリガー語彙 | 詳細 |
 |---------|------|------------|------|
-| **Playwright** (`@playwright/mcp`) | ブラウザ自動操作 (Chromium / WebKit / Firefox)、DOM操作、スクリーンショット、フォーム入力、URL ナビゲーション、network intercept、JS 評価 | Playwright, ブラウザ自動化, E2Eテスト, スクレイピング, ブラウザでこのページを開いて, スクショ撮って, クリックして, フォーム入力 | [[playwright_mcp]] (knowledge/programming/tools/) |
-| **Serena** (`oraios/serena`) | LSP連携の semantic コードベース探索・編集。`uvx --from git+...` で起動、`--project-from-cwd` で起動 cwd のプロジェクトを自動認識。Python/TS/Java/Vue/HTML 等多数のLSPに対応 | Serena, セマンティック探索, コードベース探索, シンボル検索, refactor, 巨大コードベース | [[mcp_serena]] |
-| **Context7** (`@upstash/context7-mcp`) | 最新ドキュメント検索 (Next.js / Supabase / shadcn/ui / better-auth / Tailwind 等)。AI のフルめ情報問題を解決。GitHub URL から任意のリポを Add 登録可。API key なしでも使える (品質は key ありで向上) | Context7, 最新ドキュメント, use context7, ライブラリ最新仕様 | [[mcp_context7]] |
-| **chrome-devtools** (`chrome-devtools-mcp`) | Chrome DevTools 経由でブラウザ操作 + コンソール/ネットワーク/パフォーマンス計測 (LCP/TTFB)。**Node.js v22+ 必須** (動画スピーカーが v20 で詰まった) | Chrome DevTools, LCP, TTFB, performance audit, console error, network inspect | [[mcp_chrome_devtools]] |
-| **GitHub** (`shuymn/gh-mcp` 拡張 → bundled `github-mcp-server`) | gh CLI 拡張経由で GitHub API 操作 (リポ作成 / PR / Issue / Actions)。`gh auth status` の認証情報をそのまま流用、PAT 別途管理不要 | GitHub MCP, gh コマンド, リポ作成, PR操作, Issue管理 | [[mcp_github]] |
+| **Playwright** (`@playwright/mcp`) | ブラウザ自動操作 (Chromium / WebKit / Firefox)、DOM操作、スクリーンショット、フォーム入力、URL ナビゲーション、network intercept、JS 評価 | Playwright, ブラウザ自動化, E2Eテスト, スクレイピング, ブラウザでこのページを開いて, スクショ撮って, クリックして, フォーム入力 | [[playwright_mcp]] / [[mcp_local_servers]] |
+| **Serena** (`oraios/serena`) | LSP連携の semantic コードベース探索・編集。`uvx --from git+...` で起動、`--project-from-cwd` で起動 cwd のプロジェクトを自動認識。Python/TS/Java/Vue/HTML 等多数のLSPに対応 | Serena, セマンティック探索, コードベース探索, シンボル検索, refactor, 巨大コードベース | [[mcp_local_servers]] |
+| **Context7** (`@upstash/context7-mcp`) | 最新ドキュメント検索 (Next.js / Supabase / shadcn/ui / better-auth / Tailwind 等)。AI のフルめ情報問題を解決。GitHub URL から任意のリポを Add 登録可。API key なしでも使える (品質は key ありで向上) | Context7, 最新ドキュメント, use context7, ライブラリ最新仕様 | [[mcp_local_servers]] |
+| **chrome-devtools** (`chrome-devtools-mcp`) | Chrome DevTools 経由でブラウザ操作 + コンソール/ネットワーク/パフォーマンス計測 (LCP/TTFB)。**Node.js v22+ 必須** (動画スピーカーが v20 で詰まった) | Chrome DevTools, LCP, TTFB, performance audit, console error, network inspect | [[mcp_local_servers]] |
+| **GitHub** (`shuymn/gh-mcp` 拡張 → bundled `github-mcp-server`) | gh CLI 拡張経由で GitHub API 操作 (リポ作成 / PR / Issue / Actions)。`gh auth status` の認証情報をそのまま流用、PAT 別途管理不要 | GitHub MCP, gh コマンド, リポ作成, PR操作, Issue管理 | [[mcp_local_servers]] |
+| **Supabase** (`@supabase/mcp-server-supabase`) | Supabase DB に対する read-only クエリ・スキーマ確認・pgvector 状態確認。`--read-only` + `--project-ref=lkrmziwygyyyijyabtzp` で **lecture-hub 専用**に固定。書き込みは再登録で解除 | Supabase, lecture-hub DB, SELECT, スキーマ確認, pgvector | [[mcp_local_servers]] |
+| **Stripe** (`@stripe/mcp`) | Stripe API 操作 (商品 / 決済 / Customer / Subscription)。**Test mode** + `--tools=all` で全機能。本番モードは live key 切替が必要 | Stripe, 課金, 決済, サブスク, test mode, Customer 作成 | [[mcp_local_servers]] |
 
 ### Playwright MCP を使う典型シーン
 
@@ -193,12 +195,14 @@ update_frequency: スキル/MCP追加時
 - ai-researcher の **scrape 対象拡張** (papers_with_code 不安定問題の代替経路)
 - 平成たち祭の **応募フォームの動作確認** (Google Forms + GAS)
 
-### 新規 4 MCP の典型シーン
+### 新規 6 MCP の典型シーン
 
 - **Serena**: lecture-hub / salamat-website-v2 のような中規模 Next.js プロジェクトで「この関数どこから呼ばれてる?」「この型を使ってる箇所全部」のような semantic 探索。Grep より精密
 - **Context7**: Next.js 16 / Tailwind v4 / shadcn/ui のように頻繁にアップデートされるライブラリの最新仕様確認。`CLAUDE.md` のベストプラクティスルール生成にも有用
 - **chrome-devtools**: Salamat WBS / Lecture Hub のパフォーマンスチューニング (LCP 2.5秒以下クリアの維持)。Playwright が「動作確認」、chrome-devtools が「性能計測」
 - **GitHub**: ai-researcher / vidkit / morning-briefing の Private repo の Issue 起票・PR 作成を自然言語で。gh CLI を Bash で叩くのと同等の機能だが、自然言語 ⇄ ツールパラメータの変換が gh-mcp 側で行われる
+- **Supabase**: lecture-hub の `documents` / `tags` テーブルのスキーマ確認、サンプル SELECT、pgvector の状態確認 (read-only 固定)
+- **Stripe**: 将来の課金実装 (Salamat Task Hub 商用化、Arte Grow 決済テスト) の動作確認、Customer / Subscription の test mode 操作
 
 ### 棲み分け
 
@@ -208,6 +212,8 @@ update_frequency: スキル/MCP追加時
 - **Serena** ↔ **Grep**: Grep は文字列マッチ、Serena は AST/LSP ベースで定義・参照を正確に追える。大きいリポでは Serena、小さい修正は Grep
 - **Context7** ↔ **WebSearch / WebFetch**: Context7 は「ライブラリの最新ドキュメント特化」、Web 検索は汎用。ライブラリ仕様の確認は Context7 を先に
 - **GitHub MCP (gh-mcp)** ↔ **Bash の `gh` 直叩き**: 同じ機能。自然言語で曖昧に指示したい時は MCP、明確なコマンドは Bash 直叩きが速い
+- **Supabase MCP** ↔ **`vercel:vercel-storage` スキル**: MCP は実 DB クエリ、スキルは設計知識。スキーマ設計はスキル、実 DB 確認は MCP
+- **Stripe MCP** ↔ **Stripe Dashboard 直操作**: MCP は test mode 限定のプログラマブル操作、本番設定変更はダッシュボードで YD 自身が行う
 
 ---
 

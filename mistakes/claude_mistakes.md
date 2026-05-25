@@ -414,13 +414,13 @@
 
 | カテゴリ | 件数 | 直近発生 |
 |---------|------|---------|
-| A. ツール使用 | 10 | 2026-05-19 |
+| A. ツール使用 | 15 | 2026-05-25 |
 | B. 技術評価 | 5 | 2026-05-19 |
 | C. コミュニケーション | 4 | 2026-04-01 |
 | D. 文脈・記憶 | 5 | 2026-05-19 |
 | E. 提案・出力 | 3 | - |
 | X. メタ | 1 | - |
-| **合計** | **28** | - |
+| **合計** | **33** | - |
 
 ---
 
@@ -638,3 +638,78 @@
 - 並列ランチャー設計時、「状態判定」を `(a) PID 生存`、`(b) 出力マーカー DONE/FAIL`、`(c) ログ末尾の result event 検出` の3層で実装する
 - `ps aux` 経由の取り込みでも、可能であれば `lsof -p <pid>` などで開いてる log_file をヒューリスティックに推定して紐付ける選択肢もある
 - 関連: [[parallel_claude]] / [[2026-05-20_parallel-claude_監視基盤構築]]
+
+---
+
+### A-13. Wix の www は最初から CNAME (A レコード追加で「CNAME 衝突」エラー) (頻度: 低、最終発生: 2026-05-25)
+
+**状況**: Wix で取得したドメインの DNS 編集で、`www` サブドメインに A レコードを追加しようとすると「このホスト名は CNAME dns レコードで既に使用されており、他の dns レコードでは使用できません」エラー。Wix デフォルトで `www` は `www.wixdns.net` 系の CNAME に向いており、同じホスト名で A と CNAME を共存させられない (RFC 1912 § 2.4)。
+
+**過去のやらかし**:
+
+- 2026-05-25: Salamat WBS の独自ドメイン化 (`toyo-salamat.com`) で、Vercel CLI が「`A www.toyo-salamat.com 76.76.21.21`」を推奨してきたのでそのまま YD に伝えたところ、Wix の DNS 編集で衝突エラー。一度キャンセル → CNAME セクションを編集して `cname.vercel-dns.com` に書換えるルートに切り替えて成功。CLI の推奨をそのまま流すと詰まる場面。
+
+**正しい挙動**:
+
+- Wix (および同様にデフォルトで www CNAME を持つレジストラ) では、www は**最初から CNAME `cname.vercel-dns.com` で設定する** のが王道。A レコードで設定しようとせず、既存 CNAME の値を書き換えるルート。
+- Vercel CLI の `vercel domains add` 出力は「a) A レコード推奨」と提示してくるが、これは「レジストラ側に既存設定がない」前提。レジストラごとに事情が違う。
+- 一般則: **Apex は A レコード (`76.76.21.21`)、サブドメイン (www 含む) は CNAME (`cname.vercel-dns.com`)** が Vercel 公式推奨。
+
+**再発防止**:
+
+- 新しいドメインを Vercel に紐付ける前に、`dig CNAME www.<domain> +short` で www の既存 CNAME を確認する習慣
+- レジストラの DNS 編集 UI で「A レコード追加」より先に「CNAME 編集 or 既存 CNAME 削除」のルートを提案
+- 関連: [[2026-05-25_Salamat_WBS_独自ドメイン化]]
+
+---
+
+### A-14. Vercel SSL 自動発行がスタックした時は `vercel certs issue` で手動発行 (頻度: 低、最終発生: 2026-05-25)
+
+**状況**: Vercel にドメインを追加 + DNS 設定 + `vercel domains inspect` で `Edge Network: yes` 表示まで進んでも、SSL 証明書が自動発行されないことがある。15 分待っても `vercel certs ls` が空、HTTPS は TLS handshake で `SSL_ERROR_SYSCALL`。HTTP は 200 OK で返ってるので Edge ルーティング自体は完了している。
+
+**過去のやらかし**:
+
+- 2026-05-25: `toyo-salamat.com` を salamat-website-v2 プロジェクトに紐付け、Wix DNS 設定 → 数分で伝播確認 → でも HTTPS が落ちる。`vercel certs ls` で証明書ゼロ確認。原因不明 (Vercel CLI v50 が古い [v54 が最新] のが一因かも)。`vercel certs issue toyo-salamat.com www.toyo-salamat.com --scope yitao-dings-projects` で手動発行したら 11 秒で完了、20 秒後には Edge にも反映。
+
+**正しい挙動**:
+
+- Vercel の SSL 自動発行が **10 分以上待っても完了しない**場合は `vercel certs issue <apex> <www> --scope <scope>` で手動発行をトリガー
+- 事前確認: DNS が伝播済 (`dig` で確認) + `vercel domains inspect` で Edge Network: yes + HTTP が 200 を返す、までクリアしているなら、ACME challenge は通るはずなので手動発行は安全
+- 手動発行は Let's Encrypt API を直接叩くので、自動発行の内部スケジュールに依存せず即時
+
+**再発防止**:
+
+- ドメイン追加後、5 分待って HTTPS が落ちるなら `vercel certs ls` を確認
+- `vercel certs ls` が空 = 自動発行スタック の判定で迷わず `vercel certs issue` を打つ
+- Vercel CLI が古いと SSL 自動発行系で詰まる可能性があるので、定期的に `npm i -g vercel@latest` (※ YD 環境では sudo 不要な `npx` 代替を要検討、[[env_npm_global]])
+- 関連: [[2026-05-25_Salamat_WBS_独自ドメイン化]]
+
+---
+
+### A-15. Vercel CLI に「ドメインのリダイレクト設定」コマンドがない → REST API 直叩き (頻度: 低、最終発生: 2026-05-25)
+
+**状況**: `www → Apex の 308 リダイレクト` を設定したいが、Vercel CLI には該当コマンドがない。`vercel alias` は別物 (deployment エイリアス用)、`vercel.json` の `redirects` は host ベースで書けるがビルド再デプロイが必要、ダッシュボードでクリック設定は YD の手間。
+
+**過去のやらかし**:
+
+- 2026-05-25: `toyo-salamat.com` 独自ドメイン化で「www → Apex 308」設定が必要になり、CLI コマンドを探したが該当なし。最初はダッシュボード URL を YD に渡して手動操作を依頼するつもりだったが、Vercel REST API で `PATCH /v10/projects/:idOrName/domains/:domain` に `{"redirect":"<apex>","redirectStatusCode":308}` を投げれば 1 リクエストで設定可能と判明、自動化できた。
+
+**正しい挙動**:
+
+- Vercel CLI で「ドメインのリダイレクト設定」が必要になったら、REST API 直叩きが最速
+- 認証は `~/Library/Application Support/com.vercel.cli/auth.json` の `.token` を `jq -r '.token'` で取得 (CLI ログイン状態を流用、PAT 発行不要)
+- API:
+  ```bash
+  TOKEN=$(jq -r '.token' ~/Library/Application\ Support/com.vercel.cli/auth.json)
+  curl -X PATCH "https://api.vercel.com/v10/projects/<project>/domains/<subdomain>?slug=<scope>" \
+    -H "Authorization: Bearer $TOKEN" \
+    -H "Content-Type: application/json" \
+    -d '{"redirect":"<apex>","redirectStatusCode":308}'
+  ```
+- 308 (Permanent Redirect) は 301 と違って HTTP メソッドを保持する (SEO は同等扱い)、現代ベストプラクティス
+
+**再発防止**:
+
+- Vercel CLI で見つからない機能は **Vercel REST API ドキュメント** (https://vercel.com/docs/rest-api) を先に確認する
+- 認証は auth token 流用が一番楽 (PAT 別途発行は最後の手段)
+- 関連: [[2026-05-25_Salamat_WBS_独自ドメイン化]]
