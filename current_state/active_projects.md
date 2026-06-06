@@ -1,6 +1,6 @@
 ---
 type: current_state
-last_updated: 2026-05-23 (ai-researcher: relevance緩和 + プロファイル拡充 + 死亡2ソース修復)
+last_updated: 2026-06-06 (パソコン1台の学校: ★ドメイン接続完了=pc1school.com を お名前.com で取得→Vercel接続(apex+www / NS=Vercel / SSL / HTTPS200確認)。Stripe本番化フォーム回答を全確定(商品説明文/明細書表記/改正割販法セキュリティアンケート)=CC-business/STRIPE-ACTIVATION.md。残=Stripe本番キー sk_live_ + 本名→brand.ts + Resend検証 + Stripe/Vercel 2FA。正本=CC-business/HANDOVER.md §12)
 update_frequency: 週1回以上
 ---
 
@@ -10,6 +10,21 @@ update_frequency: 週1回以上
 > 完了したものは `archive/` へ、休眠中は `archive/sleeping/` へ移動
 
 ## 🟢 アクティブ・優先度高
+
+### ★ パソコン1台の学校 (SNS情報商材システム、2026-06-03 着手) ★
+- **状況**: 🟢 **テストモードで本公開済・購入フロー全検証済(2026-06-04) / 本番化はYD入力待ち(正本=CC-business/HANDOVER.md)**。テストURL=https://cc-business.vercel.app (noindex/Protection無効/Stripeテスト鍵)。Playwrightで 購入→決済→/unlock→/learn 全6解放→レッスン本文 まで end-to-end 確認済。SNS(Instagram+Threads)で売る情報商材一式、中身の主役=Claude Code(裏方)。真の目的=YD が情報商材の稼ぎ方を実験的に見てみる。
+- **パス**: `/Users/ittou/projects/CC-business`(`web/` が Next.js 16 + Tailwind v4)。**正本引き継ぎ=`CC-business/HANDOVER.md`**
+- **構成**: LP(Claude Design 移植の編集デザイン)→ Stripe Checkout(テストモード)→ 署名JWTクッキーで購入者だけ `/learn` 閲覧。教材=6コース25章**86レッスン**(Vault実録から生成)。法務4ページ実装済。SNS素材=Instagramポスター6 + Threads原稿10 + OGP(`marketing/`)。
+- **価格(2026-06-03 変更)**: ★ワンプランのみ。お試し¥1,000は廃止。定価¥29,800 / 発売記念¥15,000・先着100名(以降は定価)。先着判定はStripe実購入数で自動(100名で定価復帰)。景表法対策で¥29,800は「以降の定価(将来価格)」表示。購入で全6コース解放(単一ティア)。価格の置き場=`web/src/lib/brand.ts` の `product`。
+- **品質の仕組み**: 3人の架空人物(主婦みどり/学生リョウ/元編集者田中)による**自走批評ループ**をコピー(4R)・デザイン(2R)で運用。
+- **★ PII方針**: 団体名・大学名・勤務先名は出さない(一般化済)。年齢/身分/吃音/「販売で全国トップ」「260名団体代表」等の基本情報は残す。
+- **デザイン**: YD が Claude Design(claude.ai/design)で生成したHTML/CSSバンドルを忠実移植(`app/editorial.css` を `.ed` スコープで隔離)。
+- **★ GTM計画確定 (2026-06-03)**: 媒体=Instagram+Threads(役割分担=Threads信頼構築/物語・オーガニック専念、IG認知+リール広告+着地)。広告=少額テスト(トラフィック目的・リール面・¥500×3日=¥1,500単位・A1正体+B1ビフォーアフター同時→探索7日→寄せ7日)。リール=ハイブリッド(faceless基本+要所で声/手元)。運用=半自動(Claude週1一括生成→Meta Business Suite予約→毎日は返信だけ)。進め方=助走7日(ノーセル)→Go-live→本格オファー2週間→100名到達/定価復帰後継続。成果物=`marketing/launch/` 8ファイル(戦略/日割りカレンダー/Threads30本/IGカルーセル/リール絵コンテ8本/広告設計/返信15テンプレ/景表法CLEAN)。詳細=[[2026-06-03_パソコン1台の学校_GTM計画確定]]、索引=`marketing/launch/README.md`。
+- **★ 販売=独自サイト継続 + セキュリティ硬化 + テスト本公開 (2026-06-04)**: note=情報商材規約NG, Tips/Brain比較の末「本名公開OK」判断で独自サイト採用(手数料3.6%・先着自動値上げネイティブ)。詳細=[[2026-06-04_CC-business_独自サイト継続_セキュリティ硬化_テスト公開]] / `marketing/PLATFORM-decision.md` / `FUNNEL-design.md`(LINEファネルは棚上げ)。セキュリティ=監査 critical0/high1(restore本人確認=R-1)、Phase A硬化(JWTアルゴ固定/unlock metadata検証/ヘッダ5種/レート制限/cookie統一)→`SECURITY/`宝箱6ファイル+IPA・IBM学習ノート。テスト本公開=cc-business.vercel.app で購入→決済→解放→本文→restore まで実機検証済。**R-1(restore本人確認)=マジックリンク化済**(Resend、`lib/email.ts`+`api/restore/verify`、`RESEND_API_KEY`投入・配信実証済、R-2列挙オラクルも一律応答で解消)。**実弾ペンテスト(JWT偽造/RSC本文窃取/XFFレート制限バイパス/Hostオープンリダイレクト/情報露出/パストラバーサル)=新規脆弱性0**(`SECURITY/PENTEST-2026-06-04.md`)。確定high/medium全解消。**残(YD作業のみ)=①特商法operator実情報(本名+メール)→brand.ts ②Stripe本番キー(sk_live_) ③Resend独自ドメイン検証+RESEND_FROM(restore実顧客配信用・現状本人yitao0907@gmail.comのみ) ④本公開(noindex env削除+本番キー→vercel --prod)**。
+- **★ 本番化着手 (2026-06-05)**: YD「順番に全部やる」で開始。確定=独自ドメイン**`pc1school.com`**(Vercel新規取得・whois空き確認済、候補pasokon1dai/pasokon1/pasokondai比較の末選択)/特商法方針=**本名表示+住所電話は「請求あれば開示」**/メール=**`support@pc1school.com`**(特商法operator+Resend RESEND_FROM共用)。Go-live 6ステップ依存順=①[YD]pc1school.com購入 ②[CC]brand.ts実値化(本名待ち・購入を待たず実行可) ③[CC]ドメイン接続+DNS+SITE_URL ④[CC/YD]Resend検証→RESEND_FROM ⑤[YD→CC]Stripe本番有効化→sk_live_(チャット禁止・env直接) ⑥[CC]NOINDEX削除→vercel --prod→再検証。**いまYD待ち=①ドメイン購入/②Stripe有効化申請/③本名**。コード変更なし(決定のみ)。詳細=[[2026-06-05_CC-business_本番化着手_ドメイン特商法決定]] / CC-business/HANDOVER.md §11。
+- **★ Go-live前 総合監査 (2026-06-03、`EVAL_prelaunch_audit_2026-06-03.md`)**: 反証検証で確定25件。コア(決済/JWT/dev-unlock本番無効/ゲート)は健全。**blocker3件**=①特商法の運営者情報ダミー(`brand.ts:17-20`)②プライバシー開示請求メールもダミー(同`brand.ts`)③死蔵ファイル(.playwright-mcp/*.yml・docs/mining-result.json)にPII残存+ルート未gitignore=次の`git add .`+pushで履歴混入リスク(※ライブweb/srcはスクラブ済)。should-fix=S-1価格ハードコード(100名到達時に表示¥15,000/決済¥29,800乖離リスク、初日sold=0で一致)/S-2 site-copy.ts旧仕様dead削除/S-3 layout.tsxの廃止価格meta=**修正済**/S-4 lintエラー。
+- **次のアクション (YD作業)**: ①SNSアカウント開設(IG/Threads同名)→プロフ文を`00-strategy.md`§4からコピペ ②Phase A 助走投稿開始(`01-calendar.md`、まだ売らない) ③Go-live準備(Stripe本番キー+`AUTH_SECRET`+`NEXT_PUBLIC_SITE_URL`+`ENABLE_DEV_UNLOCK`空+`brand.ts`特商法実情報[blocker①②]+Vercelデプロイ)。残: PII死蔵ファイル掃除(B-3、rm伴う=要GO)、100名到達時の価格出し分け(S-1)。手順=`CC-business/README.md` / `marketing/launch/README.md`。
+- **関連**: [[2026-06-03_パソコン1台の学校_情報商材システム構築]]、[[claude_design]]、`CC-business/README.md`
 
 ### ★ AI学習スプリント (2026-05-19 開始、最重要) ★
 
@@ -35,6 +50,17 @@ update_frequency: 週1回以上
   - [[../learning/ai_certifications/anthropic_academy/README]] (18コース全体マップ)
   - [[../decisions/2026-05-19_AI学習スプリント開始]]
   - [[../knowledge/programming/tools/textbook_engine]] — 教科書システム (セッションA で構築済み、運用へ)
+
+### localhost FM (コーディングBGM YouTubeチャンネル、2026-06-05 第1弾完成)
+- **状況**: 🟢 **第1弾動画 完成・公開直前**(YDアップロード待ち)。@productivityonyt 系「コーディングが捗るBGM」チャンネル。名前=localhost FM。
+- **パス**: `/Users/ittou/projects/youtube bgm`(正本=`HANDOVER.md`、公開メタ=`PUBLISH.md`)
+- **第1弾**: `localhost-fm-mix-01.mp4`(1920×1080 / 53.39分 / 13曲ミックス)。音源=Suno(Pro・WAV)、-14 LUFS正規化、6秒クロスフェード、右下に点滅 `localhost█` 焼込。背景=深夜デスク(var2-lockin)。検証=統合-14.0 LUFS / TP-1.4dBFS / クリップ無し。
+- **制作方式**: 1曲ループでなく短い曲13本を連結。並び順は **BPM/エネルギー/明るさの実データ**で決定したエナジーアーク(静→123bpmフロー→143.6bpmピーク[ハイプ最高潮]→Terminal Drift着地)。`-2`版は全ペア非隣接。
+- **★ プロンプト量産ライブラリ確立 (2026-06-06)**: 同曲問題(1プロンプト=似た曲しか出ない)の解として、別BPM/キー/楽器の Style を **57本**在庫化。`suno-prompts.md`(A〜E、E章=amapiano)+`suno-prompt-library.md`(F〜K 50本=afro-latin/dnb/citypop/uk-garage/afro拡張/melodic-club)+差し替えパーツ表。Burna Boy "Don't Let Me Drown"(映画F1/amapiano)起点。Suno知見=StyleInfluence(ジャンルの枠)/Weirdness(2曲を違える)/タグ法で展開/extended mixで3〜4分/2曲は片方Trash。詳細=[[localhost_fm]]。
+- **パイプライン(`scripts/`)**: analyze-tracks.py→normalize-order.py→make-mix.sh→gen-chapters.py→render-final.sh(再生成コマンドは PUBLISH.md 末尾)。
+- **ブランド素材(`assets/`)**: icon-final(暗闇ネオン)/ banner-lockups(4ロックアップ横並び)/ thumb-desk-ship(サムネ)/ brand-kit.html。
+- **次のアクション(YD)**: YouTubeアップロード(カテゴリ=音楽・著作権チェック必須・自曲はContent ID登録しない)→ 公開後URLで02本目構成 or 9:16 Shorts抜粋。
+- **関連**: [[../decisions/2026-06-05_localhost-FM始動]]、[[../knowledge/programming/tools/localhost_fm]]、`youtube bgm/HANDOVER.md`
 
 ### 2. vidkit (動画前処理CLI)
 - **状況**:
@@ -73,40 +99,119 @@ update_frequency: 週1回以上
 
 ## 🟢 アクティブ・優先度中
 
-### ★ Project Agent Application (大学生・若年層向け統合タスク管理アプリ、2026-05-23 着手) ★
-- **状況**: 🟢 **Phase 2 完了 (2026-05-26 セッション保存時点)** — 6 エージェント体制構築完了 (planner / spec-reviewer / designer / builder / qa-evaluator / design-evaluator)、planner 3 回 PASS、spec-reviewer 3 回 PASS (Pass 17/Fail 0)、designer Sprint 07 第 1 弾完了 (Expo Snack で動作確認済)。Sprint 01 builder 着手前
-- **目的**: 大学生・若年層 (Gen Z) 向け、Microsoft Teams ライクなプロジェクト/タスク/チーム/個人タスク統合管理アプリ。複数団体所属モデル、5 階層 (User → TM → PJ → Team → Task)、Z 世代刺し UI/UX 最重視
-- **技術スタック**: React Native + Expo SDK 53 + Expo Router + NativeWind v4 + Tamagui + Reanimated 3 + Supabase (Postgres + Auth + Storage + Edge Functions) + Expo AuthSession (Google/Apple/LINE/Magic Link 4 種認証) + Expo Notifications (APNs+FCM、**メール送信全 Phase 排除**) + EAS Build + App Store + Google Play
-- **車輪の再発明禁止原則** (★ YD 強調、最重要): Discord (サーバー/チャンネル/メンション) + Spotify (プレイリスト/「今日の」セクション) + Instagram (ストーリーズ/プロフィール) + BeReal (ゆるカジュアル) + Finch + Duolingo (キャラ常駐) のパターンを原則採用、独自パターンは理由明記必須
-- **デザイン**: Q11 採用 = Case D (Adaptive UI、集中モード Linear/Spotify ダーク + 普段モード Z 世代カラフル)、コハル (Finch 型、モード切替で 36px↔80px、暫定名、商標調査別タスク) を `src/lib/finch/config.ts` で一元管理、AI スロップ NG リスト 21 項目厳守
-- **スプリント分割 (MVP 7)**:
-  - sprint-01: 基盤 (Expo 初期化 + 認証 4 種 + Onboarding + コハル設定)
-  - sprint-02 (内容: 5 階層データモデル): User/TM/PJ/Team/Task CRUD + RLS + scope='common' トリガー DDL
-  - sprint-03 (内容: タスク詳細 + 提出): ファイル提出 + Google Drive 連携
-  - sprint-04 (内容: リマインダー + 通知): Expo Notifications + in-app バッジ
-  - sprint-05 (内容: 軽量チャット): タスク単位コメント + メンション (Discord 風)
-  - sprint-06 (内容: DB 自動登録): 学校 DB 800 校 + サークル DB (Instagram/Web URL 解析、OGP Fallback)
-  - sprint-07: キャラ (コハル) + ホームダッシュボード (Case D Adaptive UI 本実装)
-  - ※ ファイル名と内容のズレ (planner Bash 持たず mv 不可) は冒頭注記でカバー、リネームは別タスク
-- **マネタイズ (検討中、YD 承認待ち)**: フリーミアム + (推奨) **D 個人 Pro 480 円/月 + 団体 Pro 1480 円/月** (団体長セルフサーブ、両方契約可)。Q12 達成時期 = 6 ヶ月目標 (品質優先で 3 年も OK)、Q14 形態 = **個人事業主開業届** ★ 確定
-- **次のアクション** (次セッション、優先度順):
-  - [ ] **★ YD: マネタイズ Q13 (推奨 D) 承認 or 別案** → planner に SPEC.md マネタイズセクション追記指示
-  - [ ] **★ YD: designer 第 2 弾 (達成演出 + アバタースタック + Discord プレゼンス) 承認** → designer サブエージェント再起動
-  - [ ] designer Sprint 07 ホーム合格 (第 2 弾以降) → tokens.md 確定
-  - [ ] designer Sprint 01 (login + onboarding) 設計
-  - [ ] builder Sprint 01 着手 (`cd ~/projects/project-agent-application && npx create-expo-app@latest code --template tabs`、`--dangerously-skip-permissions` 想定 1〜2h)
-  - [ ] qa-evaluator + design-evaluator 並列起動 → EVAL_QA / EVAL_DESIGN
-  - [ ] Sprint 02〜07 builder 順次着手 (各 sprint 完了後)
-  - [ ] キャラ「コハル」商標調査 (別 sub-agent で sprint-07 前に実行、J-PlatPat + App Store + Google Play 名称検索)
-  - [ ] ファイル名リネーム (sprint-XX 内容に合わせて、別タスク、関連リンクは既に実体名で参照済なので互換)
+### ★ easy-share (社内 撮影素材 共有・プレビューツール、2026-05-31 着手) ★
+- **★ 公開URL(稼働中・正式運用)**: **https://easyshare-fx.vercel.app**(Vercel 本番、Deployment Protection 無効=認証なし公開、YD 認可済「セキュリティ不要・公開OK」)。本物の FX30 実素材(4プロジェクト: 2026-05-30/05-31/sample/写真、flat+4ルックWebGL切替、写真/動画分離)がライブ表示。
+- **★ ストレージ = Cloudflare R2(2026-06-02 移行完了・本番稼働)**。バケット `easy-share-media`、公開ベース `https://pub-6cfa3ffdc3ec456790e058cce335c70d.r2.dev`。Vercel 本番 env `NEXT_PUBLIC_ASSET_BASE` が R2 を指す。10GB無料/egress永久無料/3TB$45月。認証は `~/.config/rclone/rclone.conf [r2]` と gitignore config のみ(Vault非保存)。CORSキャッシュ罠は `VideoView` の poster属性削除で解決済(再付与厳禁)。
+- **★ Finder 風 閲覧UIに全面刷新 (2026-06-02)**: 旧1枚スクロールギャラリーを置換。4表示モード(アイコン/リスト/カラム/ギャラリー)+ツールバー切替(⌘1-4)、サイドバー(スマートグループ すべて/最近/動画/写真 + プロジェクト別)、ソート/フィルタ/横断検索/サイズ、Quick Look(フォーカストラップ)、URL共有(?view=&g=&p=&asset=)、localStorage永続化、レスポンシブ(モバイル=ドロワー/カラム非表示/タップで開く)、a11y強化。`web/src/components/browser/` 新設+`GalleryApp.tsx`書換。設計workflow→実装→レビューworkflow(41提起→反証18確定→反映)。
+- **★ 写真原本のアップロード&サイトDL (2026-06-02)**: `process.sh` の `UPLOAD_ORIGINALS` を 0/photos/all 化(既定 photos=写真原本のみR2、Content-Disposition:attachment付与)。サイトの「元データをDL」は写真のみ表示(動画原本は未対応=404防止)。既存本番写真 **77枚(2.15GB)を R2 にバックフィル済**(公開URLで 200+attachment 確認)。動画原本も要れば config を all + Webの !isVideo ゲート解除で対応。
+- **★ git 初コミット (2026-06-02)**: easy-share を独自リポジトリ化(親 `~/projects` 直下に未追跡だった)。2コミット(初コミット=Finder UI+取り込み一式 / 写真原本DL)。**push はまだ**(YD許可待ち)。secrets(config.sh/.env*/rclone)・LUT(*.cube)・大容量メディア(`sample/`=RAW1GB, `public/sample/derivatives/`=250MB)は .gitignore 除外。
+- **★ B案(クライアントサイドLUT)**: 動画は flat 1本だけエンコード、4ルックは**ブラウザ WebGL2 で .cube LUT をリアルタイム適用**(`VideoView.tsx`)。LUT は R2 `luts/<id>.cube`、`process.sh` のR2経路でlut自動アップ。
+- **★ 「Google Drive 風」全自動・常駐運用 稼働**: **`~/EasyShareDrop/`** に放り込む → `watch.sh`(**launchd `com.easyshare.watch` 常駐**)→ `autosort.sh`(撮影日で自動振り分け、重複は `_duplicates/` 温存)→ `process.sh`(UPLOAD=1/STORAGE=r2)で色変換+R2自動アップ→公開URL反映。サブフォルダ名=プロジェクト名。
+- **状況**: 🟢 **本番稼働中・全機能 実機検証済 (2026-06-02)**。R2移行 + Finder UI刷新 + 写真原本DL まで完了、Playwright で本番URL含めフル動作確認(コンソールエラー0、tsc/lint/build green)。**正本=`~/projects/easy-share/HANDOVER.md`**。
+- **用途**: ダンス×クリエイティブチーム 4 名(全員 Mac+iPhone)が、FX30 S-Log3 動画 + ARW RAW を**その日のうちに色を揃えて軽くプレビュー・共有**。素材は**プロジェクト単位**で振り分け(①/②…)。商用配布ではない社内ツール。
+- **確定スタック**: 取り込み = Mac ネイティブ(sips + ffmpeg hevc_videotoolbox + rclone + fswatch) / ストレージ = Cloudflare R2(egress0) / 認証 = Cloudflare Access(4 メール) / 閲覧 = Next.js 16 PWA on Vercel(Spotify 風ダーク)
+- **色の核心(検証済 partial)**: 写真は ColorSync で堅牢一致 / 動画は 709 タグ必須(未タグ=Safari が BT.601 誤解の最悪パターン)/ **S-Log3 は必ず Rec.709 LUT を焼く**(タグ不能)/ True Tone・自動輝度・Night Shift は全員オフ運用 / 最終色判断は NLE で(ツールはレビューまで)
+- **graded =「ルック切替式」**(YD 提供 FX3 4 ルック Film Tone/Camp Moody/Blue Snow/Pure Night)。`ingest/luts/*.cube` を各ルックとして自動列挙、ビュアーで flat ⇄ 各ルックをトグル切替。proxy はルック分生成(flat+4=5本/クリップ、videotoolbox で軽い)。.cube 出し入れで増減
+- **本番認証は単一オリジン必須**(別ホスト Access はサブリソース 302 で素材が壊れる)→ 本番デプロイは all-Cloudflare(OpenNext)推奨に修正(Phase 1 の Vercel から)。手順は `SETUP.md`
+- **実機で潰したバグ**: hevc_videotoolbox の色タグ未書き込み → `setparams` 焼き込み / Tailwind v4 `@theme inline` で色未生成 → 非 inline + 再起動(計算済みスタイル検証で発見)
+- **残課題(優先度順)**:
+  - [ ] B案の色を本物素材で YD が端末確認(iPhone/Mac 実機。良ければB継続)
+  - [ ] git push 可否判断(初コミット済・未push)。push するならリモート先決め(GitHub private 等)
+  - [ ] r2.dev → カスタムドメイン(本格運用時。egress無料のまま)
+  - [ ] R2の古い `look-*.mp4`(旧A案焼き残骸)/ Vercel Blob(1GB満杯)の掃除
+  - [ ] 動画原本もDLしたくなったら config `UPLOAD_ORIGINALS=all` + Web の `!isVideo` ゲート解除
+  - [ ] easyshare-fx は手動エイリアス運用(`vercel --prod` 後に `vercel alias set <deploy> easyshare-fx.vercel.app`)。本番ドメイン化で自動化も可
+- **パス**: `~/projects/easy-share/`(HANDOVER.md=正本 / DESIGN.md / ingest/ / web/src/components/browser/)
+- **関連**: [[2026-05-31_easy-share設計確定]]、[[2026-06-02_easy-share_FinderUI刷新と写真原本DL]]、リサーチ workflow `wafcglinq`
+
+### ★ Project Agent Application (Z 世代向け青春タスクアプリ、2026-05-23 着手) ★
+- **状況 (2026-06-06 最新)**: 🟢🟢🟢 **シミュレータ実機で MOCK モード起動成功 + 全画面ツアー着手**(2026-06-06 CC4)。pod 全 update 整合 → `expo run:ios` で native 再ビルド → ホーム(CD「青春の余白」)正常表示。全画面ツアーは **cliclick タップ並走方式を確立**(deep link は dev-client で不可)、主要 8 画面収集 + 一次所見(設定プロフィール「読み込み中」疑い / AssistiveTouch 大ギア全画面被り / 設定・振り返り右上キャラアイコン要確認)。**YD「YD 手動巡回 + 僕が並走」方式に合意 → 次セッションでツアー継続 → 狙い撃ち修正**。起動/ツアー手順 memory = [[sim-launch-and-tour-method]]。正本 = HANDOVER.md 冒頭 2026-06-06 CC4。
+  - (以下 2026-06-04/05) 🟢🟢 **実モード(本番DB)を mock スタブ状態から「複数人フルフロー」まで全配線完了 + 本番E2E実証**。1セッション15コミット: ① データ層7ファイル実配線(機能監査🔴8解消)+ 画面guard17件(🟠17)② DB migration 015–021 を実DB `lkrmziwygyyyijyabtzp` に適用(get_member_profiles RPC=users self-only越境の唯一点・PII非返却 / handle_new_user / create_tm・project・team / task_assignees.status整合 / avatars バケット)③ 作成系UI新規(PJ/Team/メンバー管理)④ Edge関数12個 deploy + Gemini鍵設定 + 招待join slugバグ修正。**★ 本番DBで E2E: バックエンド31/0 + アバター9/0 PASS(残留0で掃除済)** = 登録→TM/PJ/Team作成→招待join→タスク→提出→AI診断→振り返り→アバター写真 が全部繋がり実証済。MOCK友達デモ(FORCE_MOCK・TestFlight)は終始無傷。**残= YD実機UIツアー / design磨き込み / Google・LINE点灯(コンソール待ち)。コード的ブロッカーはほぼ打ち止め。** ★ **正本は `~/projects/project-agent-application/HANDOVER.md` の冒頭(2026-06-04 CC3続き)**。
+  - (以下 2026-05-26 時点の履歴) 🟢 Phase 2 大方針再定義版 第 7 回 Spec Review Pass 確定 (2026-05-26) — planner ⇄ spec-reviewer 自立ループ 7 ラウンドで「致命 0 / 中 0 / 軽 1 (Section G 重複の Phase 2 持ち越し)」のクリーン仕様書完成。designer Sprint 01 + 07 第 1-2 弾 + 08-10 全件完了 (18+ ファイル、約 734KB)。builder Sprint 01 修正版完了 (33 ファイル、tsc/lint/expo export web/直書き grep 全部 Pass、Expo SDK 56 採用 + Tamagui 不採用)。qa/design-evaluator BG 走り中 (自立ループ初運用)
+- **★ 大方針再定義 (2026-05-26、パートナー雑談議事録より) ★**: 「Teams ライクなタスク管理アプリ」→ **「チームで頑張る過程を青春にして、頑張りを可視化する Z 世代向けハイブリッドアプリ」**。タスク管理は手段、目的は青春創出 + 頑張りの可視化 + 100% やりきれるチーム体験
+- **5 キラー機能 (MVP 必須)**:
+  1. **お宝箱 (仮称、Sprint 08)** — タイムカプセル、ミーティング中通知 → 写真撮影 → PJ 完了まで非公開 → リーダー完了で 1 本のムービー自動生成。YD「これだけで勝ち」発言
+  2. **振り返りダイジェスト (Sprint 09)** — PJ/月/半年/年 の 4 粒度自動生成、Spotify Wrapped 風。素材はお宝箱から
+  3. **ポートフォリオ共有 (Sprint 10)** — プロフィール (達成 PJ 数 + 総合ポイント) を共有可能リンク化、インスタ自己紹介で「意識高い」感醸成
+  4. **AI Recognition (Sprint 10)** — Gemini API で「縁の下の力持ち」風の褒める一言診断 (Apple Recognition 文化インスパイア)
+  5. **寄せ書きコーナー (Sprint 05 統合)** — PJ 完了でタスク管理ページが寄せ書きに変化
+- **+ タスクお掃除コンセプト (Sprint 07 統合)**: キャラ足元のゴミがタスク完了で減る視覚演出
+- **ペルソナ 5 人体制**: カナさん / ハルキくん (現 SPEC 維持) + **ノアミ** (病みやすい努力家、精神サポート + 寄り添い) + **タイチ** (能力高い、自分も周りも厳しい、効率化) + **ガブちゃん** (自己肯定感低い、経歴で自信、スキル蓄積)
+- **技術スタック (確定、変更不可)**: React Native + **Expo SDK 56** (planner 設計時 53+ 想定 → Sprint 01 builder で 56.0.4 採用、`code/IMPLEMENTATION_NOTES.md` 1.1) + Expo Router + **NativeWind v4 + Tailwind v3 単体構成** (Tamagui は SDK 56 + React 19 + Tailwind v3 衝突懸念で Sprint 01 不採用、Sprint 07 で再検討、`IMPLEMENTATION_NOTES.md` 1.2) + Reanimated 3/4 + Supabase (Postgres + Auth + Storage + Edge Functions) + Expo AuthSession (Google/Apple/LINE/Magic Link) + Expo Notifications (APNs+FCM) + **Gemini API (Free 1500 RPD → 有料 Gemini 2.5 Flash $0.075/M tokens)** + EAS Build + App Store + Google Play
+  - ★ **Anthropic API は採用しない** (商用配布で Max 20x 個人プラン不可、API key は Supabase Edge Function で隠蔽)
+  - ★ **招待制は採用しない** (誰でも DL 可能、議事録のレア感言及は誤読)
+  - ★ **メール送信全 Phase 排除** (Magic Link 認証メールのみ Supabase Auth 標準として OK)
+- **車輪の再発明禁止原則** (★ YD 強調): Discord/Spotify/Instagram/BeReal/Finch/Duolingo + 新規 BeReal/Setlog (お宝箱) + Spotify Wrapped (振り返り) + LinkedIn (ポートフォリオ) + Apple Recognition (AI 診断) のベンチマーク参照
+- **マーケティング戦略**: インスタストーリー導線 (PJ 開始 / 完了画面 9:16) + 意識高い大学生にニッチ刺し (自然な口コミ) + 先行体験 = Salamat 内 PJ + ハタチタチ + 長期 100 億バイアウト目標
+- **スプリント分割 (MVP 10)**:
+  - sprint-01: 基盤 (Expo + 認証 4 種 + Onboarding **5 ステップ** + キャラ名カスタマイズ基盤 = `DEFAULT_CHARACTER_NAME = 'ハル'` + `useFinchName()` フック先行配置)
+  - sprint-02: 5 階層モデル (User/TM/PJ/Team/Task + RLS + scope トリガー)
+  - sprint-03: タスク詳細 + 提出 (ファイル/Drive/写真)
+  - sprint-04: リマインダー + 通知 (Expo Notifications + in-app バッジ)
+  - sprint-05: **軽量チャット + 寄せ書き** (タスクコメント + メンション + 寄せ書きコーナー)
+  - sprint-06: DB 自動登録 (学校 800 校 + サークル OGP)
+  - sprint-07: **キャラ + ホーム + お掃除コンセプト** (デフォルト名「ハル」+ Adaptive UI + ゴミ減る演出 + 設定画面キャラ名変更 + キャラ `proud` 表情 SVG 追加)
+  - ★ **sprint-08: お宝箱 (仮称)** (タイムカプセル管理 + 写真投稿 + 完了まで非公開)
+  - ★ **sprint-09: 振り返りダイジェスト** (PJ/月/半年/年 4 粒度、素材は 08 から、mp4 60 秒)
+  - ★ **sprint-10: ポートフォリオ + AI Recognition + 仕上げ** (共有リンク + Gemini 診断 + ストア配布)
+  - ※ ファイル名は実体名 (sprint-XX-旧名.md) のまま、冒頭注記で「新分割」明記
+- **マネタイズ (Phase 2 持ち越し)**: 推奨 D = 個人 Pro 480 円/月 + 団体 Pro 1480 円/月 (両方契約可)。新方針では「初期赤字 OK、Gemini Free 枠で MVP コスト 0」、MVP 完成後に判断。形態 = 個人事業主開業届 ★ 確定
+- **★ 2026-05-26 朝〜昼の最終状況 (フルスプリント完了 + Vault 全件監査済)**:
+  - ✅ designer Sprint 01 + 07 第 1-2 弾 + 08-10 完了 (18+ ファイル、約 734KB、Snack 互換)
+  - ✅ builder Sprint 01 初版完了 (Expo SDK 56、Web preview 動作確認可)
+  - ✅ builder Sprint 01 **修正版完了** (33 ファイル、tsc/lint/expo export web 24 ルート/直書き grep 全部 Pass、キャラ名カスタマイズ反映)
+  - ✅ 自立ループ planner ⇄ spec-reviewer **第 7 回 Pass 確定** (致命 0/中 0/軽 1 = Section G 重複 Phase 2 持ち越し可)
+  - ✅ キャラ名カスタマイズ仕様反映 (DEFAULT_CHARACTER_NAME 「ハル」+ useFinchName フック + Onboarding step 5 + 設定画面 Sprint 07)
+  - ✅ 商標調査 ([[2026-05-26_kohaku_trademark_research]] 「コハル」NG = ポケモン + Dr.Stone/犬夜叉 + Ethereum 三重衝突) + Z 世代 5 アプリリサーチ ([[2026-05-26_z_gen_app_research]] 応用候補 10 個 + NG 4 件) 完了
+  - ✅ Web 対応バグ修正 (secureStorage ラッパー、AuthContext + useUiMode)
+  - ✅ **★ Vault 全件監査完了 (2026-05-26、メイン Claude ⇄ サブエージェント 二重チェックループ Pass)** — 差分分析 `/tmp/project_agent_app_audit_diff.md`、Round 1 報告 `/tmp/audit_round1_report.md` (致命 0/中 7/軽 5、すべて運用マニュアル + active_projects + claude_mistakes に反映済)
+  - ✅ **Sprint 01 完全 Pass (2026-05-26 11:35、log.md 参照)** — 自立ループ初運用 loop 2 で達成、qa-evaluator **Pass 38/0** + design-evaluator v2 **Pass 9/0** (AI スロップ匂い度 0)。次セッションで Sprint 02 (5 階層モデル) 着手可能
+  - ★ **YD 指示 (最重要)**: builder/designer ⇄ evaluator 自立ループ運用ルール確立 + 「キリのいいところで終了」モード明文化 ([[2026-05-26_セッション引継ぎ_自立ループ強化指示]])
+- **次のアクション (新セッション以降、優先度順)**:
+  - [ ] **★ 新セッション再開**: `~/projects/project-agent-application/HANDOVER.md` を Read (Sprint 01 Pass 確定済、Sprint 02 着手可能)
+  - [ ] **★ designer Sprint 02 起動** (5 階層モデル UI、Discord サーバーサイドバー風 + チャンネルリスト風) → design-evaluator 自立ループ
+  - [ ] designer Sprint 02-06 起動 (機能ロジック中心) → design-evaluator 自立ループ
+  - [ ] builder Sprint 02-10 順次着手 → qa + design-evaluator 自立ループ (Pass まで)
+  - [ ] お宝箱の正式名確定 (planner 推奨「タイムカプセル」、MVP 後 OK)
+  - [ ] アプリ名 + お掃除コンセプト名確定 (MVP 後 OK)
+  - [ ] マネタイズ Q13 確定 (MVP 完成後判断)
+  - [ ] DESIGN_DIRECTION.md Section G→H リネーム (Phase 2 軽微、`DESIGN_DIRECTION.md:685`)
+  - [ ] ファイル名リネーム (sprint-XX 内容に合わせて、関連リンク既に実体名で参照済なので互換)
+  - [ ] **Sprint 02 着手前 YD 作業 (8 項目)**: Supabase プロジェクト作成 / Apple Developer 登録 ($99/年) / Google OAuth クライアント ID / LINE channel 発行 / Supabase Auth Provider 登録 / Supabase DDL apply (`supabase/migrations/2026-05-26_001_initial.sql`) / アプリアイコン (Sprint 07 着手前) / EAS Build アカウント (Sprint 10)
 - **パス**: `~/projects/project-agent-application/`
-- **生成済 ファイル**: VISION.md / SPEC.md / DESIGN_DIRECTION.md / sprint-01〜07.md / REVIEW_REPORT.md (PASS) / `.claude/agents/*.md` (6 件) / `design/sprint-07-home/*` / `design/q11-exploration/case-a〜d/*`
-- **Snack URL** (Sprint 07 ホーム mockup 動作確認用): `design/sprint-07-home/snack-url.txt` 参照 (Secret Gist `9a9597e7370ad6babcc1e8db24488ae1` + Snack `files.url` 参照方式)
-- **関連**: [[project_agent_application]] (運用マニュアル、本セッションで作成)、[[2026-05-23_TaskHub廃止_ProjectAgentApp移行]]、[[2026-05-26_ProjectAgentApp_セッション保存]] (本セッション総括)、[[claude_mistakes]] A-14/A-15/B-5 (本日学び)
+- **生成済ファイル**:
+  - `.claude/sprints/`: SPEC.md (41.7KB) / DESIGN_DIRECTION.md (40.3KB) / sprint-01〜10.md (175KB) / REVIEW_REPORT.md (29.8KB、★ **第 7 回 Pass 確定**)
+  - `.claude/agents/`: planner / spec-reviewer / designer / builder / qa-evaluator / design-evaluator (6 件、各 8〜11KB)
+  - `design/sprint-01-基盤/`: mockup-login.tsx + mockup-onboarding.tsx + tokens.md + components.md + flow.md + snack-url.txt
+  - `design/sprint-07-home/`: mockup-home.tsx (第 1 弾) + mockup-home-v2.tsx (第 2 弾) + tokens.md + components.md + flow.md + snack-url.txt
+  - `design/sprint-08-お宝箱/`: mockup-treasure-trigger.tsx + mockup-treasure-capture.tsx + mockup-treasure-vault.tsx + tokens.md + components.md + flow.md
+  - `design/sprint-09-振り返り/`: mockup-digest-list.tsx + mockup-digest-pj.tsx + mockup-digest-yearly.tsx + tokens.md + components.md + flow.md
+  - `design/sprint-10-ポートフォリオ/`: mockup-portfolio.tsx + mockup-portfolio-public.tsx + mockup-recognition.tsx + tokens.md + components.md + flow.md
+  - `design/q11-exploration/case-a〜d/`: Q11 試作 4 案 (Case D 採用済)
+  - `VISION.md` (27.5KB): 末尾「2026-05-26 大方針再定義」セクション追記済
+  - **`HANDOVER.md` (14.8KB)**: 次セッション引継ぎ用、走り中 BG Agent ID + 未完了タスク一覧 + 最短手順
+  - **`code/`**: Sprint 01 builder 修正版実装 (33 ファイル、Expo SDK 56)
+  - **`code/IMPLEMENTATION_NOTES.md` (27.9KB)**: SDK 56 採用 + Tamagui 不採用 + NativeWind v4 + Tailwind v3 + ESLint immutability off + Apple ボタン #000 例外 + Sprint 02 申し送り + YD 作業申し送り (8 項目) + dev サーバー起動方法
+  - **`code/AGENTS.md` + `code/CLAUDE.md`**: Expo SDK 56 公式ドキュメント参照 (https://docs.expo.dev/versions/v56.0.0/)
+- **Snack URL** (Sprint 07 ホーム第 1 弾、`design/sprint-07-home/snack-url.txt` 参照): Secret Gist + files.url 参照方式、Gist ID `9a9597e7370ad6babcc1e8db24488ae1`
+- **議事録**: `~/ObsidianVault/raw/meetings/2026-05-26_新アプリ議事録_yd_partner_{生ログ,gemini整理}.md`
+- **関連**: 
+  - [[project_agent_application]] (運用マニュアル、2026-05-26 全件監査反映済 = SDK 56 / Tamagui 不採用 / NG 31 / 第 7 回 Pass / Sprint 01-10 完了状況 / IMPLEMENTATION_NOTES 要約 / YD 作業 8 項目 / Z 世代リサーチ反映状況 等)
+  - [[2026-05-23_Project_Agent_Application_着手]] (Phase 0、5 エージェント体制構想)
+  - [[2026-05-23_TaskHub廃止_ProjectAgentApp移行]] (旧方針起点)
+  - [[2026-05-26_ProjectAgentApp_セッション保存]] (旧方針 Phase 2 完了スナップショット)
+  - [[2026-05-26_新アプリ大方針再定義]] ★ 本セッション最重要意思決定 (議事録ベース)
+  - [[2026-05-26_セッション引継ぎ_自立ループ強化指示]] ★ 自立ループ + 終了モード明文化
+  - [[2026-05-26_kohaku_trademark_research]] (商標調査結果、「コハル」NG → 「ハル」推奨)
+  - [[2026-05-26_z_gen_app_research]] (Z 世代刺し 5 アプリリサーチ、応用候補 10 個 + NG 4 件)
+  - [[claude_mistakes]] A-14/A-15/B-5 (Edit 誤検知 / gh gist ブロック / planner Bash 不持) + D-6 (評価ステップ省略) + E-4 (ポートフォリオ vs 年末振り返り) + D-7 (Anthropic Max 20x 商用提案) + D-8 (招待制誤読)
+  - **議事録**: `~/ObsidianVault/raw/meetings/2026-05-26_新アプリ議事録_yd_partner_{生ログ,gemini整理}.md`
 
 ### 4. Salamat WBSサイト
 - **状況**: ✅ **Phase 1 + Phase 2 演出強化 完了 + Vercel 本番デプロイ済 (2026-05-19 夜)** — Phase 1 (Hero ZoomParallax×MeshGradient / Gallery4 / Cobe / LocationTag / Glowing Shadow / List⇄Orbital) + Phase 2 (Magnetic+Fey ボタン + Three.js パーティクル背景 + 旧コード/写真ファイル名 cleanup) を 2 commit (`46e6839` / `20ae3ee`) + 2 回 Vercel 本番デプロイで反映。YD ブラウザ目視 OK。
 - **公開URL**: **https://toyo-salamat.com** (独自ドメイン、2026-05-25 切替完了) / https://salamat-website-v2.vercel.app (Vercel デフォルト URL、引き続き有効)
+- **2026-06-01 検証・一括修正 (ブランチ `feat/audit-fixes` commit `47ff6d2`、main 未マージ)**: 本番ビルド実機検証 + 7次元並列解析(確定59件)。致命=モバイルナビ欠落→ハンバーガー新設。Tweaks/オービタルを本番非表示(dev限定ゲート)。WebGL6個を画面外停止/reduced-motion をJSにも/カード文字コントラスト/未使用CSS約170行削除/metadataBase=toyo-salamat.com+個別OG+robots/sitemap。本番build・TS・ESLint・コンソール全クリーン。⚠ dev サーバは Turbopack panic(node_modules の npm/pnpm 混在 + 不正な pnpm-workspace.yaml)で不安定=本番は正常。コンテンツ事実不整合(Selma説明矛盾等)・ダミーリンクは未変更で `AUDIT-FINDINGS.md` に列挙(YD対応待ち)。詳細: [[2026-06-01_Salamat_サイト検証修正]]
+- ⚠ **本ノートの実態ズレ**: 下層ページ(About/Activities/Reports)は実装済 (リポジトリに存在)。作業パスは実際には `~/projects/salamat-website-v2` (git管理) を使用。
 - **Phase 2 で完了したもの**:
   - [x] Phase 1 を Vercel に再デプロイ (今日 14:00 頃 dpl_G4DhSUZ6uHL41h3753vzAwdk76nB)
   - [x] #07 Magnetic+Fey ボタンを主要 CTA に適用 (Hero × 2 + Vision Value、CtaButton 経由 + Tweaks で切替可、DEFAULT を magnetic-fey に)
