@@ -8,6 +8,8 @@ update_frequency: 週1回以上
 
 > このファイルはYDの「今アクティブに動いてるもの」のスナップショット
 > 完了したものは `archive/` へ、休眠中は `archive/sleeping/` へ移動
+>
+> ⚠️ **2026-06-14 全件棚卸し済**: 実体ベース(git log/mtime/HANDOVER)の全プロジェクト棚卸しを `~/projects/AUTONOMOUS_SESSION_2026-06-14.md` に作成。本ファイルの各ステータスは5月下旬〜6月上旬時点なので、続ける/殺すの判断はそちらの「即決マトリックス」を参照。要点: ①大半は "YD待ち"(認証/本名/素材) ②CC-businessが最も本番ローンチ間近 ③ai-researcher/morning-briefing は "動くが成果が届かない" 状態。
 
 ## 🟢 アクティブ・優先度高
 
@@ -107,7 +109,8 @@ update_frequency: 週1回以上
 - **★ git 初コミット (2026-06-02)**: easy-share を独自リポジトリ化(親 `~/projects` 直下に未追跡だった)。2コミット(初コミット=Finder UI+取り込み一式 / 写真原本DL)。**push はまだ**(YD許可待ち)。secrets(config.sh/.env*/rclone)・LUT(*.cube)・大容量メディア(`sample/`=RAW1GB, `public/sample/derivatives/`=250MB)は .gitignore 除外。
 - **★ B案(クライアントサイドLUT)**: 動画は flat 1本だけエンコード、4ルックは**ブラウザ WebGL2 で .cube LUT をリアルタイム適用**(`VideoView.tsx`)。LUT は R2 `luts/<id>.cube`、`process.sh` のR2経路でlut自動アップ。
 - **★ 「Google Drive 風」全自動・常駐運用 稼働**: **`~/EasyShareDrop/`** に放り込む → `watch.sh`(**launchd `com.easyshare.watch` 常駐**)→ `autosort.sh`(撮影日で自動振り分け、重複は `_duplicates/` 温存)→ `process.sh`(UPLOAD=1/STORAGE=r2)で色変換+R2自動アップ→公開URL反映。サブフォルダ名=プロジェクト名。
-- **状況**: 🟢 **本番稼働中・全機能 実機検証済 (2026-06-02)**。R2移行 + Finder UI刷新 + 写真原本DL まで完了、Playwright で本番URL含めフル動作確認(コンソールエラー0、tsc/lint/build green)。**正本=`~/projects/easy-share/HANDOVER.md`**。
+- **★ iOS DL 灰色四角バグ解決 (2026-06-17)**: 写真原本(.ARW)を iPhone でDL→アルバム保存すると灰色の四角形になっていた。**原因はファイル形式でなく配信ヘッダ** — 原本の `Content-Disposition` に filename が無く iOS Safari が拡張子を落としていた(手動バックフィルの付け忘れ。ファイル自体は SHA-256 一致・QuickLook 描画可で完璧)。**全77枚の CD に filename 付け直し済**(`ingest/fix-original-headers.sh`、本体再送なしサーバサイドコピー、`--metadata-set`)。`process.sh` は元々正常。**要 YD 実機確認**(DL→アルバム→灰色にならないか)。詳細 [[rclone_r2_metadata]] / [[claude_mistakes]] B-6。
+- **状況**: 🟢 **本番稼働中・全機能 実機検証済 (2026-06-02)**。R2移行 + Finder UI刷新 + 写真原本DL まで完了、Playwright で本番URL含めフル動作確認(コンソールエラー0、tsc/lint/build green)。**正本=`~/projects/easy-share/HANDOVER.md`**。2026-06-17 に iOS DL 灰色四角バグを修復(↑、実機確認待ち)。
 - **用途**: ダンス×クリエイティブチーム 4 名(全員 Mac+iPhone)が、FX30 S-Log3 動画 + ARW RAW を**その日のうちに色を揃えて軽くプレビュー・共有**。素材は**プロジェクト単位**で振り分け(①/②…)。商用配布ではない社内ツール。
 - **確定スタック**: 取り込み = Mac ネイティブ(sips + ffmpeg hevc_videotoolbox + rclone + fswatch) / ストレージ = Cloudflare R2(egress0) / 認証 = Cloudflare Access(4 メール) / 閲覧 = Next.js 16 PWA on Vercel(Spotify 風ダーク)
 - **色の核心(検証済 partial)**: 写真は ColorSync で堅牢一致 / 動画は 709 タグ必須(未タグ=Safari が BT.601 誤解の最悪パターン)/ **S-Log3 は必ず Rec.709 LUT を焼く**(タグ不能)/ True Tone・自動輝度・Night Shift は全員オフ運用 / 最終色判断は NLE で(ツールはレビューまで)

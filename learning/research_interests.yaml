@@ -2,15 +2,74 @@
 # キーワードに重みを付けて、relevance スコア (0-10) を計算する。
 # Edit するとフィルタ閾値ぎりぎりの記事の取捨が変わる。
 #
-# scoring: タイトル/要約内に大文字小文字無視で部分一致したキーワード重みの合計。
-#          1記事あたり最大 10.0 にクリップ。
+# scoring (2026-06-14 改訂 — src/filter/relevance.py と対応):
+#   - 同一バケット内の追加ヒットは逓減 (1本の長い abstract で 10.0 飽和を防ぐ)
+#   - タイトル一致は abstract のみ一致より +0.5/バケット 加点
+#   - curated ソース (hn / 公式ブログ) は topical シグナルが1つでもあれば +1.0 ベース
+#     → タイトルだけの HN / ブログ記事を閾値 1.5 に乗せる (観測A の修正)
+#   - firehose (arxiv / hf_papers / github_trending) はベースなし = 自力で稼ぐ
+#   - project_signals に当たると 4.0 = 「YDのプロジェクトに刺さるか」を最優先軸に
+#   1記事あたり最大 10.0 にクリップ。
+
+# === project_signals: 重み 4.0 (最優先軸) =========================
+# 「世間の人気」ではなく「YDの実プロジェクトに直接刺さるか」で並べ替えるための核。
+# CC-business / Salamat / vidkit / 映像制作 / Vault運用 / AIエンジニアリング 由来語。
+project_signals:               # 重み 4.0
+  # --- Claude Code / 自立ループ / Max運用 (= CC-business, 並列Agent) ---
+  - claude code
+  - claude-code
+  - headless
+  - sub-agent
+  - subagent
+  - multi-agent
+  - agent harness
+  - harness
+  - agentic workflow
+  - coding agent
+  - background agent
+  - context window
+  - slash command
+  # --- vidkit / 映像制作 パイプライン ---
+  - fcpxml
+  - final cut
+  - silence detection
+  - jump cut
+  - 無音カット
+  - video editing
+  - 動画編集
+  - transcription
+  - 文字起こし
+  - subtitle
+  - 字幕
+  # --- Vault / 個人ナレッジ運用 (lecture_hub, morning-briefing) ---
+  - obsidian
+  - personal knowledge
+  - second brain
+  - pgvector
+  - knowledge base
+  - note-taking
+  # --- Salamat / Arte Grow / 国際協力 (社会起業 + 越境) ---
+  - social business
+  - 社会起業
+  - 国際協力
+  - jica
+  - philippines
+  - フィリピン
+  - nonprofit
+  - volunteer
+  # --- AIエンジニアリング実装 (= 当たり率高いツール語) ---
+  - mcp
+  - model context protocol
+  - rag pipeline
+  - structured output
+  - tool use
+  - function calling
+  - eval harness
 
 high_priority:                 # 重み 3.0
-  - multimodal
-  - マルチモーダル
-  - agent
-  - agents
-  - エージェント
+  # NOTE: 単独の "agent / multimodal / reasoning" は robotics / world-model 論文が
+  # 必ず含む弱シグナル。これらは medium に降格し (観測B: 学術ノイズが高得点化する問題)、
+  # 実シグナル (mcp / tool use / code generation / project_signals) で稼がせる。
   - prompt engineering
   - prompting
   - プロンプト
@@ -22,6 +81,7 @@ high_priority:                 # 重み 3.0
   - quantization
   - llama.cpp
   - ollama
+  - vllm
   - mcp
   - tool use
   - claude
@@ -31,6 +91,17 @@ high_priority:                 # 重み 3.0
   - opus
   - sub-agent
   - subagent
+  # --- 実運用で頻出する語の補強 (2026-06-14): タイトルだけのソースを拾うため ---
+  - codex
+  - copilot
+  - cursor
+  - comfyui
+  - stable diffusion
+  - inference engine
+  - serving
+  - speculative decoding
+  - context engineering
+  - llm agent
   # --- YD興味拡充 (2026-05-23): 撮影 / Web開発 / 国際協力 ---
   - davinci
   - color grading
@@ -50,6 +121,13 @@ high_priority:                 # 重み 3.0
   - 国際協力
 
 medium_priority:               # 重み 1.5
+  # 弱シグナル (high から降格 2026-06-14): 単独では robotics/world-model も拾う。
+  - multimodal
+  - マルチモーダル
+  - agent
+  - agents
+  - エージェント
+  - reasoning
   - rag
   - retrieval-augmented
   - vector
@@ -68,7 +146,6 @@ medium_priority:               # 重み 1.5
   - constitutional
   - evaluation
   - benchmark
-  - reasoning
   - chain-of-thought
   - inference optimization
   - fine-tuning
@@ -113,12 +190,23 @@ exclude:                       # マッチしたら即0点 (ノイズ除去)
   - meme coin
   - blockchain ico
 
-# ボーナス: 重要なソース (公式ブログ) は +1.0
+# ソース重み付け (2026-06-14 再調整):
+#   実際の「当たり率」は HN + Anthropic/OpenAI 公式ブログに集中。学術 (arxiv/hf) は
+#   project_signals or 実キーワードに当たった高スコアのみ通したい → ベース低め。
 source_boost:
-  anthropic_blog: 2.0
-  openai_blog: 1.5
-  google_research: 1.5
-  arxiv: 0.0
-  hn: 0.5
-  hf_papers: 0.5         # 旧 papers_with_code (HF Papers に移管、2026-05-23)
-  github_trending: 0.5
+  anthropic_blog: 2.5
+  openai_blog: 2.0
+  google_research: 1.0
+  hn: 1.0                 # 0.5 → 1.0: HN の当たり率が最も高い (curated baseline と別途)
+  hf_papers: 0.0         # 旧 papers_with_code。学術ノイズ抑制のためベース0 (自力で稼ぐ)
+  arxiv: 0.0             # 学術は keyword/project ヒット必須
+  github_trending: 0.0   # repo 名だけで通さない。話題語に当たった時のみ
+
+# curated ソース: 上流で AI 関連フィルタ済み。topical シグナルが1つでもあれば
+# +1.0 ベースを足して、タイトルだけの記事でも閾値1.5に乗せる。
+# arxiv / hf_papers / github_trending は意図的に除外 (firehose)。
+curated_sources:
+  - hn
+  - anthropic_blog
+  - openai_blog
+  - google_research

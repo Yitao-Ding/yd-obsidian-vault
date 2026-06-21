@@ -15,6 +15,8 @@ sensitivity: medium
 - `es_archive/` - ES アーカイブ (企業別)
 - `interview_prep.md` - 面接対策
 - `strengths_3pillars.md` - 強み3本柱
+- `cfn_resume.md` - CFN等の就活ES確定素材集 (新卒就活用)
+- `apple_specialist_resume.md` - **Apple Specialist 転職レジュメ確定版 (2026-06-19)** ※社内転職用、新卒就活とは別物
 
 ## 🎯 YDの就活方針
 
