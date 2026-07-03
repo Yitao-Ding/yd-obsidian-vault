@@ -1,0 +1,39 @@
+---
+type: research
+source: hn
+source_id: '48646165'
+url: https://github.com/NotASithLord/peerd
+published_at: '2026-06-23T15:05:00+00:00'
+collected_at: '2026-06-24T19:04:22.303749+00:00'
+score: 10.0
+importance: 4
+categories:
+- agents
+- infra
+- tooling
+related_projects: []
+implementation_difficulty: high
+authors: []
+title: 'Show HN: peerd – AI agent harness that runs entirely in your browser'
+---
+
+# Show HN: peerd – AI agent harness that runs entirely in your browser
+
+> https://github.com/NotASithLord/peerd
+
+## 要約 (日本語5行)
+
+peerd はブラウザ拡張機能として動作する AI エージェント実行基盤です。タブと worker、WASM Linux VM を活用した隔離サンドボックスで、複数のワークロード（JS計算、ビジュアルノートブック、クライアントアプリ）を実行できます。クラウドや外部プロセスの依存を排除し、ブラウザ自体を 30 年間の敵対的コンテンツ対策で鍛えられた最強のサンドボックスとして再利用する設計思想です。v0.x の実験的段階ですが、WebRTC による p2p ネットワークと署名付きアプリ共有、将来的には分散ウェブアプリ対応も計画されています。クラウドミドルマンを排除した P2P エージェント実行モデルとして、ローカルファースト志向の技術者層に向けた最有力な次世代基盤候補です。
+
+## メタ
+- 重要度: 4/5
+- スコア: 10.00/10
+- 実装難易度: high
+- カテゴリ: agents, infra, tooling
+
+## 原文 (Abstract)
+
+Hey HN. <a href="http:&#x2F;&#x2F;peerd.ai" rel="nofollow">http:&#x2F;&#x2F;peerd.ai</a> is an AI agent harness that lives entirely in your browser as a web extension. You don’t have to install a separate “AI browser”. You don’t have to bolt on or run some external process or manage a clunky mcp integration. It’s just a fully contained web extension, written in no build vanilla JS with minimal non-browser dependencies, using your own provider keys, and Apache 2.<p>This isn’t just a fun hack. While it has largely been a solo side project, I genuinely believe the browser and the web could be the most natural platform for AI agents to operate safely, autonomously, and most importantly without A2A middlemen (more on that in a sec). To demonstrate that point peerd doesn’t just drive browser automation. It spins up isolated sandboxes using tabs and worker instances to support various real workload types. Those include headless JS computational work, visual JS notebooks, personal client side apps, and real Linux VMs on top of wasm with full http networking.<p>The industry discourse over the last several months has been dominated by “which substrate is the best for ai agent sandboxes” with many competing answers focused on different models and use cases. Cloudflare is one of the most prominent examples, positioning its v8 isolate based workers as the best in class solution thanks to faster than container startup times and strong isolation guarantees.   The v8 isolate is of course the product of chromium, which runs on billions of browsers around the world for free. The browser as a whole is perhaps the most battle tested sandbox system in the entire software industry. It’s been built on 3 decades of learning from hostile content, hostile code, and hostile users. Native and cloud agents are necessarily rebuilding all or most of this posture from scratch. peerd doesn’t. It leverages everything the browser has to offer and pushes it to its functional limits, while inheriting its security baseline and isolation from the host system.<p>Robust sandboxing isn’t the only thing the browser offers and peerd uses. It comes with extremely powerful and underrated primitives, from webCrypto, webRTC, webAuthn, webGPU, and ~soon WebNN. Direct web access, with your real live sessions, and api calls with fetch present an alternative model to MCP integrations. The agent can write and spawn web apps right there in a tab, no hosted service necessary. Then there’s the A2A piece: peerd already has a rudimentary p2p (peerd-to-peerd?) network in place using webRTC. Today you can connect with peers on the network, add them as contacts, and share signed apps you’ve created. I’m working on extending these apps to be able to leverage the same p2p network to support decentralized web apps (dwapps), as well as facilitate true p2p A2A with no platform or middlemen.<p>Given this is an early part time project, this is an extremely experimental build and in a v0.x preview state. I’ve taken care to attempt to address the lethal trifecta: the main agent loops&#x2F;sessions never ingest untrusted DOM code or possess low level navigation tools. It delegates those tasks to dedicated web runners with no wider tooling or secrets access that return summarized results. Both the DOM and the summarized results are bracketed as untrusted, meaning two stacked prompt injection escapes are needed. All egress goes through a central module that has a customizable deny list, and only models calls to designated allowed endpoints are possible. See more in the docs, site, and the code itself. Ultimately, use at your own risk.<p>Today anthropic, open router, local ollama, and even an experimental WebGPU instance of Gemma are supported.<p>Honest limitations: Chrome store and AMO are still pending until it can get more eyeballs and live usage. Just loading unpacked from GitHub is the easiest way to go, and as a bonus makes it easy to audit thanks to no build. Linux on wasm depends on the Chee
+
+
+*Generated by ai-researcher at 2026-06-24T19:04:22.304585+00:00*

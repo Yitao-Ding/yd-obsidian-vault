@@ -1,0 +1,41 @@
+---
+type: research
+source: hn
+source_id: '48762862'
+url: https://manufact.com
+published_at: '2026-07-02T15:11:20+00:00'
+collected_at: '2026-07-02T16:05:03.072595+00:00'
+score: 10.0
+importance: 4
+categories:
+- agents
+- infra
+- tooling
+related_projects: []
+implementation_difficulty: low
+authors: []
+title: 'Launch HN: Manufact (YC S25) – MCP Cloud'
+---
+
+# Launch HN: Manufact (YC S25) – MCP Cloud
+
+> https://manufact.com
+
+## 要約 (日本語5行)
+
+Manufact は MCP サーバーとアプリの production deploy・test・monitoring を一元化するクラウドプラットフォームです。Vercel が Next.js をホストするように、MCP クラウドとして開発者体験と AI エージェント統合を優先設計しています。MCP は interactive UI をサポートでき、Amplitude では MCP に UI を追加した後、retention が 2 倍に増加しています。2025 年秋に ChatGPT Apps SDK、2026 年初に MCP Apps が公式化され、Claude・ChatGPT・Cursor がマーケットプレイスを展開しています。MCP server の production deployment と store submission を簡素化し、新興 MCP エコシステムの鍵となるインフラです。
+
+## メタ
+- 重要度: 4/5
+- スコア: 10.00/10
+- 実装難易度: low
+- カテゴリ: agents, infra, tooling
+
+## 原文 (Abstract)
+
+Hi HN, we are Pietro and Luigi, cofounders of Manufact (<a href="https:&#x2F;&#x2F;manufact.com">https:&#x2F;&#x2F;manufact.com</a>), a cloud for MCP apps and servers. We used to be called mcp-use, and still build open source SDKs for MCP under that name: <a href="https:&#x2F;&#x2F;github.com&#x2F;mcp-use&#x2F;mcp-use" rel="nofollow">https:&#x2F;&#x2F;github.com&#x2F;mcp-use&#x2F;mcp-use</a>. We did a Show HN about that last year: <a href="https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=44747229">https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=44747229</a>.<p>Today we want to tell you about our cloud product, Manufact, which is to mcp-use as Vercel is to Next.js. Manufact is an MCP vertical cloud designed for dev teams putting MCP Apps and servers in production.You can ship, iterate on, test and monitor your MCPs, and get them ready for the store submissions. All with the best developer and agent experience in mind.<p>Here is a demo video of the product: <a href="https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=R2rbr5OT9LI" rel="nofollow">https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=R2rbr5OT9LI</a>.<p>We have been working on MCP since April 2025. Our first focus was making it easy to build agents that could use any MCP server, and a lot of people started using our SDKs. Then the harness revolution kicked off: Claude Code, Claude Cowork, ChatGPT, Codex, OpenCode started shipping agent harnesses that made most standalone agent frameworks redundant. That pushed us to the other side of the connection, the servers. If agents were going to consolidate into a few harnesses, then first-class integration with the rest of a company&#x27;s systems (i.e. MCP) would become the thing that mattered, so we started building up our server SDKs.<p>Then in succession:<p>1. Oct 2025. ChatGPT Apps SDK. OpenAI brings app UIs to ChatGPT, built on top of MCP and the work of mcp-ui.
+2. Late 2025. The stores open. ChatGPT starts accepting app submissions, Claude grows its connector directory with selected partners.
+3. Jan 2026. MCP Apps becomes official. SEP-1865 merges as the first MCP extension (io.modelcontextprotocol&#x2F;ui): one UI standard any host can render.<p>Today, all the major clients fully support MCP and are opening marketplaces of reviewed MCPs that can be one click installed. All major tech companies have an MCP server, and many of those are reporting that already 15+% of their usage comes from their MCP, and we start to have a good way to distribute them just now.<p>MCP can return fully interactive UIs. So companies can (1) display data in more meaningful ways to their users (e.g. analytics, ecommerce) and (2) display their branding in some of the most used products on the planet (ChatGPT, Claude etc). Numbers: an engineer at Amplitude reported that their MCP saw a 2x increase in retention after adding UI to their MCP.<p>Clients (Claude, ChatGPT, Cursor) are starting to dynamically present MCP servers&#x2F;apps to users, based on their intent. Products will be organically discovered on the chats!<p>We feel that MCP is reaching its maturity moment. Now that MCPs are starting to be easy to install and discover, there is going to be a huge incentive for users to use them and for companies to create them:<p>1 - Most work is already done from AI chats, this is not going to stop, MCP gives you a way to interact with products without manually using their dashboards.<p>2 - MCP allows you to bring the context together in one place: you can read an email, create a ticket while plugged into the source code of your product, or your knowledge base. Aggregation of products that was not possible before, will happen in the chat, orchestrated by increasingly intelligent models.<p>If AI apps (Codex, Claude Desktop) are the new browsers, as PG said in a recent tweet <a href="https:&#x2F;&#x2F;x.com&#x2F;paulg&#x2F;status&#x2F;2069080429236191504" rel="nofollow">https:&#x2F;&#x2F;x.com&#x2F;paulg&#x2F;status&#x2F;2069080429236191504</a>, then MCPs
+
+
+*Generated by ai-researcher at 2026-07-02T16:05:03.073458+00:00*
