@@ -1514,3 +1514,15 @@
 [2026-07-03 16:09] ai-researcher collect: raw=105 dedup=36 relevant=8 kept=8
 - 2026-07-03: Lite OP v2 BGM完全確定。Artlist切貼→ステム再構成→Suno手術の3系統をYD却下の末、ElevenLabs秒数指定生成「Neon Colosseum」(116s無加工)を採択。決定録=decisions/2026-07-03_LiteOP_BGM_AI生成路線確定.md。次セッション=Netflix監督ペルソナでAE 4Kスケルトン。
 [2026-07-03 17:09] ai-researcher collect: raw=106 dedup=29 relevant=8 kept=8
+[2026-07-03 18:08] ai-researcher collect: raw=106 dedup=21 relevant=7 kept=7
+[2026-07-03 19:04] ai-researcher collect: raw=107 dedup=15 relevant=1 kept=0
+[2026-07-03 20:04] ai-researcher collect: raw=106 dedup=15 relevant=2 kept=0
+[2026-07-03 21:04] ai-researcher collect: raw=105 dedup=14 relevant=2 kept=2
+[2026-07-03 21:59] lecture-hub Fable5全面改修: 監査WF完了(確定79件)+基盤コミット2件、HANDOVER.md作成しセッション引き継ぎ準備完了
+[2026-07-03 21:59] CC-business 教材v2全面改訂始動(Fable5): 86レッスン監査+Vault発掘7領域+新カリキュラム10コース148レッスン設計。セッション上限で新CCへ引き継ぎ(正本=CC-business/v2/HANDOVER-v2.md)
+[2026-07-03 22:04] ai-researcher collect: raw=106 dedup=13 relevant=0 kept=0
+[2026-07-03 23:04] ai-researcher collect: raw=106 dedup=13 relevant=1 kept=1
+- 2026-07-03: LiteOP v2「THE EYE」D2+R2完了(4Kスケルトン+ルック初版、TC LOCK f2886確定、実写プレート化)→ YD FB「文字小・白飛び・カードダサい・ロールコール再設計・フラッシュ有害・検収甘い」→ R3指示書をHANDOVER_v2_THE_EYE.mdに整備して新CCへ引き継ぎ
+[2026-07-04 00:05] ai-researcher collect: raw=106 dedup=14 relevant=1 kept=1
+[2026-07-04 01:05] ai-researcher collect: raw=105 dedup=13 relevant=1 kept=1
+[2026-07-04 02:04] ai-researcher collect: raw=105 dedup=13 relevant=0 kept=0

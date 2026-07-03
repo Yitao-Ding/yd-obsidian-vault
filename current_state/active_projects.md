@@ -14,6 +14,7 @@ update_frequency: 週1回以上
 ## 🟢 アクティブ・優先度高
 
 ### ★ パソコン1台の学校 (SNS情報商材システム、2026-06-03 着手) ★
+- **★ 教材v2全面改訂 始動 (2026-07-03、Fable 5)**: YD「Opus製の中身がぼんやり、価格に見合わない」→ 全86レッスン監査(worthScore3〜4/10・PII破損文9箇所)+Vault発掘7領域(vidkit/AE自動制御/localhost FM/Notion案件管理/easy-share/舞台裏/スイープ)→ **新カリキュラム全10コース(C0〜C9)・約148レッスン確定**。体制=監査/計画/司令はFable5・実装のみSonnet5。ブリーフ2/10コース完成時点でセッション上限到達→引き継ぎ。**正本=`CC-business/v2/HANDOVER-v2.md`**(残り=ブリーフ8コース→Sonnet執筆×Fable検収→サイト統合)。⚠️ v2完成前のGo-live非推奨(現行本文にPII破損文が残存)。
 - **状況**: 🟢 **テストモードで本公開済・購入フロー全検証済(2026-06-04) / 本番化はYD入力待ち(正本=CC-business/HANDOVER.md)**。テストURL=https://cc-business.vercel.app (noindex/Protection無効/Stripeテスト鍵)。Playwrightで 購入→決済→/unlock→/learn 全6解放→レッスン本文 まで end-to-end 確認済。SNS(Instagram+Threads)で売る情報商材一式、中身の主役=Claude Code(裏方)。真の目的=YD が情報商材の稼ぎ方を実験的に見てみる。
 - **パス**: `/Users/ittou/projects/CC-business`(`web/` が Next.js 16 + Tailwind v4)。**正本引き継ぎ=`CC-business/HANDOVER.md`**
 - **構成**: LP(Claude Design 移植の編集デザイン)→ Stripe Checkout(テストモード)→ 署名JWTクッキーで購入者だけ `/learn` 閲覧。教材=6コース25章**86レッスン**(Vault実録から生成)。法務4ページ実装済。SNS素材=Instagramポスター6 + Threads原稿10 + OGP(`marketing/`)。
@@ -276,7 +277,13 @@ update_frequency: 週1回以上
 - **引き継ぎ**: 4 自立型エージェントのハーネス設計 / Discord ロールモデル / PWA 重視 / 寒色系 → 本アプリへ思想継承
 
 ### 7. Lecture Hub (個人ナレッジハブ)
-- **状況**: ✅ **本番デプロイ完了 (2026-05-19 21:50)** — BlockNote × Next.js 15.5 の根本不整合 (6試行で確証) を確定し **TipTap v3 に全面移行**、本番動作確認 OK
+- **状況**: 🟢 **Fable 5 全面改修 進行中 (2026-07-03 着手)** — ★ 新セッションはまず `~/projects/lecture-hub/HANDOVER.md` を Read
+- **★ 2026-07-03 Fable 5 全面改修 (YD 指示「根本から見直して全部修正」)**:
+  - ultracode 監査ワークフロー (71 agents) 完了 → **確定 79 件** (仮説 19 + レンズ発見 60、敵対的検証済み・棄却 0)。結果=`lecture-hub/handover/*.json`
+  - 主要 P0: ①Cron テンプレが旧 BlockNote 形式で日記/講義ページが空表示 (編集すると本文恒久消失) ②prose クラスが typography プラグイン不在で無効=エディタ本文ほぼ無スタイル ③新規チャットで毎メッセージ新スレッド乱造 ④タスク楽観更新が偽 UUID で操作が DB に効かない ⑤tsv が生 JSON 索引 ⑥デバウンス保存がページ遷移で消失 ⑦タスク期限が本番 UTC で 9 時間ズレ
+  - **完了**: 依存整理 (TaskList/Placeholder/react-markdown 追加、shiki 等 7 件削除) + globals.css 全面拡張 (.rich-text 自前タイポ / hljs 変数化 / color-scheme / 不足トークン) — commit 6910401, 5159f21
+  - **残り**: HANDOVER.md の実装プラン B〜N (エディタ/オフライン同期堅牢化/検索 migration 0004/Cron テンプレ TipTap 化/チャット 2 層化/タスク/AppShell モバイル対応/API 硬化/docs)。完了後に YD 作業 = migration 0004 手動適用 + /admin/reindex + 実機確認
+- **公開URL**: `https://lecture-hub-sable.vercel.app/` (新エイリアス、200 公開アクセス可)
 - **公開URL**: `https://lecture-hub-sable.vercel.app/` (新エイリアス、200 公開アクセス可)
 - **個別URL**: `https://lecture-g9pfx9y3z-yitao-dings-projects.vercel.app` (401 Deployment Protection)
 - **パス**: `/Users/ittou/projects/lecture-hub`
