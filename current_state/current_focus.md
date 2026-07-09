@@ -1,6 +1,6 @@
 ---
 type: current_state
-last_updated: 2026-05-20 (AI学習スプリント最優先化、vidkit/Salamat WBS/Lecture Hub 完成済に更新)
+last_updated: 2026-07-08 (就活・AI学習スプリントは終了フェーズ→OOO Studioブランド基盤構築とCC-business/Lecture Hub本番化が主軸に更新)
 ---
 
 # 今、最も注力していること
@@ -10,11 +10,27 @@ last_updated: 2026-05-20 (AI学習スプリント最優先化、vidkit/Salamat W
 
 ## 🎯 最優先 (今日・今週)
 
-### ★ AI学習スプリント (2026-05-19 開始、最重要) ★
-- **理由**: 就活終了後の新フェーズ。4資格取得 + 朝ブリーフィングで継続インプット体制を構築
-- **状態**: 学習基盤 28ファイル完成済、Day 2 (Claude 101 + Cowork コース) を今日実施予定
-- **今週のマイルストーン**: Anthropic Academy Week 1 (Day 1-7) を完走する
-- **詳細**: [[active_projects]] #AI学習スプリント
+### ★ OOO Studio ブランド基盤構築 (2026-07-08 着手) ★
+- **理由**: Notion刷新→Google Workspace必須と判明を機に、法人化・メンバー増(Hi,Me:)含む)を見据えたブランド基盤を新設
+- **状態**: ドメイン`ooo-studio.jp`取得済・Google Workspace作成済・DNS所有権証明の設定完了、伝播待ち(最大72時間)
+- **次回すぐやること**: DNS伝播確認→Workspace管理画面で所有権証明の「確認」→Gmail開通
+- **詳細**: [[active_projects]] #OOO-Studio、[[recent_decisions]] 2026-07-08
+
+## 🌱 並行進行中の大型案件
+
+### パソコン1台の学校(CC-business)
+- **状態**: 教材v2完成、本番化はYD入力待ち(Stripe本番キー・本名→brand.ts・Resend検証等)
+
+### Lecture Hub
+- **状態**: Fable5全面改修+セキュリティ硬化完了、残はYD作業のみ(migration適用・reindex・Deployment Protection ON)
+
+### JAMBOREE Lite OP動画
+- **状態**: ✅✅✅ R13完成・YD「本プロジェクト終了」宣言済(2026-07-06)、archiveへ移動検討可
+
+## 🗄 一段落したフェーズ (参考)
+
+### AI学習スプリント / 就活
+- 2026-05〜06に一段落。詳細は[[active_projects]]の該当セクション参照(現状把握が必要な場合のみ)
 
 ## 🌱 並行進行 (今週〜今月)
 

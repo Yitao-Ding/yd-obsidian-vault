@@ -1526,3 +1526,103 @@
 [2026-07-04 00:05] ai-researcher collect: raw=106 dedup=14 relevant=1 kept=1
 [2026-07-04 01:05] ai-researcher collect: raw=105 dedup=13 relevant=1 kept=1
 [2026-07-04 02:04] ai-researcher collect: raw=105 dedup=13 relevant=0 kept=0
+[2026-07-04 03:05] ai-researcher collect: raw=106 dedup=15 relevant=2 kept=2
+[2026-07-04 04:05] ai-researcher collect: raw=106 dedup=14 relevant=1 kept=1
+[2026-07-04 05:04] ai-researcher collect: raw=107 dedup=15 relevant=0 kept=0
+[2026-07-04 06:04] ai-researcher collect: raw=106 dedup=15 relevant=1 kept=1
+[2026-07-04 07:07] ai-researcher collect: raw=105 dedup=14 relevant=0 kept=0
+[2026-07-04 08:03] ai-researcher collect: raw=104 dedup=13 relevant=0 kept=0
+[2026-07-04 09:04] ai-researcher collect: raw=105 dedup=15 relevant=1 kept=1
+[2026-07-04 10:05] ai-researcher collect: raw=106 dedup=16 relevant=2 kept=2
+[2026-07-04 11:04] ai-researcher collect: raw=106 dedup=14 relevant=0 kept=0
+[2026-07-04 12:04] ai-researcher collect: raw=77 dedup=12 relevant=0 kept=0
+[2026-07-04 13:04] ai-researcher collect: raw=107 dedup=15 relevant=0 kept=0
+[2026-07-04 14:04] ai-researcher collect: raw=105 dedup=13 relevant=0 kept=0
+[2026-07-04 15:05] ai-researcher collect: raw=107 dedup=15 relevant=2 kept=2
+[2026-07-04 16:04] ai-researcher collect: raw=107 dedup=13 relevant=0 kept=0
+[2026-07-04 17:03] ai-researcher collect: raw=107 dedup=13 relevant=0 kept=0
+[2026-07-04 17:30] LiteOP v2: R3〜R6完了(文字2倍/ロゴ壁→二重リング虹彩/実写51本再選別/字幕暖白化/カウントダウン1拍化/審査員バストアップ+「憧」/JUDGESカード/光点持ち越し)。v2_R6_プレビュー6本がYDレビュー待ち。監督=Fable5全数検分+定量QA、実装=Sonnet5×8便
+[2026-07-04 18:04] ai-researcher collect: raw=107 dedup=13 relevant=0 kept=0
+[2026-07-04 19:03] ai-researcher collect: raw=107 dedup=13 relevant=0 kept=0
+[2026-07-04 20:04] ai-researcher collect: raw=107 dedup=13 relevant=0 kept=0
+[2026-07-04 21:04] ai-researcher collect: raw=107 dedup=13 relevant=0 kept=0
+[2026-07-04 22:04] ai-researcher collect: raw=107 dedup=14 relevant=0 kept=0
+[2026-07-04 22:15] LiteOP v2: R7〜R9完了(R7=YD FB対応: 321削除・ANSWERED二層・審査員顔位置/露出補正・MC適正化 / R8=去年式下部字幕+JAMBOREE ENTERTAINMENT回収 / R9=VO全編ストーリー化18ライン・ElevenLabs Jack Marlowe・審査員紹介は沈黙)。v2_R9_全編+仮VOミックスをYDレビュー→R10 FB6項目受領(字幕半減/B3ディスプレイ統一/ARE YOU READY再設計/S4間隔+声/審査員ハイライト全員/SFX)。正本=HANDOVER_v2_THE_EYE.md §1。次セッションでR10着手。
+[2026-07-04 23:03] ai-researcher collect: raw=107 dedup=14 relevant=0 kept=0
+[2026-07-05 00:04] ai-researcher collect: raw=107 dedup=15 relevant=0 kept=0
+[2026-07-05 00:35] ★LiteOP v2「THE EYE / 開眼」完成・提出用書き出し完了。R10〜R12でYD FBを反復対応(字幕半減・B3をANSWERED式統一・ARE YOU READY再設計・審査員全員ハイライトp99≤240・審査員SFX9発 / AYRゴースト根治・ITS NAME IS 3s前倒し・S4「Jamboree」のみ化・VO音量1.5倍 / ラストJP字幕削除で英語のみ・EN題字ど真ん中・ITS NAME—削除)。最終処理=MC紹介L7ナレ削除+QAラベル除去のクリーンレンダー。提出物=`書き出し/LiteOP_v2_THE_EYE_提出用.mp4`(4K/H.264/AAC320k/faststart/116s)。YD「完成・完璧」宣言。¥70,000・5000人会場のOP案件。体制=Fable5監督(全フレーム直接検分)+Sonnet5実装便。詳細=[[2026-07-05_LiteOP_v2完成]]
+[2026-07-05 01:04] ai-researcher collect: raw=107 dedup=15 relevant=0 kept=0
+[2026-07-05 02:04] ai-researcher collect: raw=107 dedup=15 relevant=0 kept=0
+[2026-07-05 03:03] ai-researcher collect: raw=106 dedup=14 relevant=0 kept=0
+[2026-07-05 04:04] ai-researcher collect: raw=106 dedup=14 relevant=0 kept=0
+[2026-07-05 05:04] ai-researcher collect: raw=104 dedup=13 relevant=0 kept=0
+[2026-07-05 06:04] ai-researcher collect: raw=105 dedup=13 relevant=0 kept=0
+[2026-07-05 07:03] ai-researcher collect: raw=105 dedup=13 relevant=0 kept=0
+[2026-07-05 08:04] ai-researcher collect: raw=103 dedup=13 relevant=1 kept=1
+[2026-07-05 09:04] ai-researcher collect: raw=102 dedup=12 relevant=0 kept=0
+[2026-07-05 10:03] ai-researcher collect: raw=102 dedup=12 relevant=0 kept=0
+[2026-07-05 11:04] ai-researcher collect: raw=103 dedup=13 relevant=0 kept=0
+[2026-07-05 12:04] ai-researcher collect: raw=103 dedup=13 relevant=0 kept=0
+[2026-07-05 13:04] ai-researcher collect: raw=102 dedup=12 relevant=0 kept=0
+[2026-07-05 13:21] lecture-hub Fable5全面改修 実装完了: プランB〜N全実装+レビュー13件修正、7コミット(未push)。残=YDのmigration 0004適用+/admin/reindex+実機確認
+[2026-07-05 14:03] ai-researcher collect: raw=102 dedup=12 relevant=0 kept=0
+[2026-07-05 15:03] ai-researcher collect: raw=102 dedup=12 relevant=0 kept=0
+[2026-07-05 16:03] ai-researcher collect: raw=102 dedup=12 relevant=0 kept=0
+[2026-07-05 17:04] ai-researcher collect: raw=103 dedup=13 relevant=1 kept=0
+[2026-07-05 18:04] ai-researcher collect: 3 consecutive claude -p failures, kept 0
+[2026-07-05 19:05] ai-researcher collect: raw=105 dedup=15 relevant=3 kept=3
+[2026-07-05 19:18] CC-business 教材v2全面改訂 完了: 10コース40章149レッスン37.1万字(旧比4.7倍)、図解32・コピペブロック384。Fable監査/設計/検収×Sonnet実装の約300エージェント工程、build+Playwright検証済。残=YD判断(テストURLデプロイ/localhost FM実名化/外注額表記/APIキーローテ)。正本=CC-business/HANDOVER.md §13
+[2026-07-05 20:04] ai-researcher collect: raw=105 dedup=12 relevant=0 kept=0
+[2026-07-05 21:04] ai-researcher collect: raw=104 dedup=12 relevant=0 kept=0
+[2026-07-05 22:05] ai-researcher collect: raw=104 dedup=13 relevant=1 kept=1
+[2026-07-05 23:03] ai-researcher collect: raw=103 dedup=11 relevant=0 kept=0
+[2026-07-05 23:56] LiteOP v2 R13完了(クライアントFB=審査員紹介順をSHIKI→憧→TOMOKA→MANA→HAL→KIDO→HISAYO→MAAへ変更)。JUDGES配列=スロット時刻固定・審査員属性が移動する方式で入替→音声完全無変更(SFXはスロット時刻基準/VOは紹介中沈黙)。カードは旧並び維持(CARD_ORDER分離、YD裁定)。L/R出血は偶奇反転で欠け辺制約(憧=左/HISAYO=右)維持。QA監査0件+監督25フレーム直接検分合格。提出物=`書き出し/LiteOP_v2_THE_EYE_提出用_R13.mp4`(4K/AAC320k/faststart/116s)。YD「これにて本プロジェクト終了」宣言→アーカイブ検討へ。⚠️YDのAME自主書き出し(~/Downloads)は音声BGMのみ=VO/SFX欠落を発見・報告。正本引き継ぎ=HANDOVER§0a-12。
+[2026-07-06 00:03] ai-researcher collect: raw=103 dedup=11 relevant=0 kept=0
+[2026-07-06 00:27] lecture-hub セキュリティ監査+硬化完了: 認証ゼロ=公開デプロイで全API無認証到達が最大リスク。境界ゲート(GATE_PASSWORD/middleware)+PdfNode格納型XSS修正+AIコスト上限+SSRF/upload硬化+CSP/HSTS。1コミット(74df2ac、未push)。要=Vercel Deployment Protection ON
+[2026-07-06 00:46] CC-business v2 セキュリティ再監査(Fable5 4レンズ)+テストURLデプロイ完了: 確定脆弱性R-5(返金後アクセス残存medium)のみ→Sonnet修正済(isRefundedOrDisputed)。他18項目安全確認・反証2。購入E2E全通過(Stripeテスト決済→C7新レッスン閲覧→ログアウト再ゲート)。残=R-6(返金前cookie失効)Go-live前判断。正本=CC-business/HANDOVER.md §13
+[2026-07-06 01:04] ai-researcher collect: raw=103 dedup=11 relevant=0 kept=0
+[2026-07-06 02:03] ai-researcher collect: raw=103 dedup=11 relevant=0 kept=0
+[2026-07-06 03:04] ai-researcher collect: raw=104 dedup=12 relevant=1 kept=1
+[2026-07-06 04:04] ai-researcher collect: raw=104 dedup=11 relevant=0 kept=0
+[2026-07-06 05:04] ai-researcher collect: raw=105 dedup=13 relevant=0 kept=0
+[2026-07-06 06:00] ai-researcher weekly: 2026-W27.md (top 10)
+[2026-07-06 06:03] ai-researcher collect: raw=105 dedup=13 relevant=0 kept=0
+[2026-07-06 07:04] ai-researcher collect: raw=102 dedup=12 relevant=0 kept=0
+[2026-07-06 08:04] ai-researcher collect: raw=102 dedup=12 relevant=0 kept=0
+[2026-07-06 09:03] ai-researcher collect: raw=102 dedup=12 relevant=0 kept=0
+[2026-07-06 10:03] ai-researcher collect: raw=104 dedup=13 relevant=0 kept=0
+[2026-07-06 11:05] ai-researcher collect: raw=105 dedup=14 relevant=1 kept=1
+[2026-07-06 12:05] ai-researcher collect: raw=105 dedup=14 relevant=1 kept=1
+[2026-07-06 13:05] ai-researcher collect: raw=0 dedup=0 relevant=0 kept=0
+[2026-07-06 14:06] ai-researcher collect: raw=105 dedup=17 relevant=4 kept=4
+[2026-07-06 15:03] ai-researcher collect: raw=105 dedup=13 relevant=0 kept=0
+[2026-07-06 16:03] ai-researcher collect: raw=105 dedup=13 relevant=0 kept=0
+[2026-07-06 17:04] ai-researcher collect: raw=105 dedup=13 relevant=0 kept=0
+[2026-07-06 18:06] ai-researcher collect: raw=105 dedup=16 relevant=3 kept=3
+[2026-07-06 20:29] ai-researcher collect: raw=0 dedup=0 relevant=0 kept=0
+[2026-07-06 21:07] ai-researcher collect: raw=0 dedup=0 relevant=0 kept=0
+[2026-07-06 22:31] ai-researcher collect: raw=0 dedup=0 relevant=0 kept=0
+[2026-07-06 23:25] ai-researcher collect: raw=0 dedup=0 relevant=0 kept=0
+[2026-07-07 00:33] ai-researcher collect: raw=104 dedup=14 relevant=2 kept=2
+[2026-07-07 01:04] ai-researcher collect: raw=104 dedup=15 relevant=1 kept=1
+[2026-07-07 02:04] ai-researcher collect: raw=103 dedup=14 relevant=0 kept=0
+[2026-07-07 03:03] ai-researcher collect: raw=103 dedup=15 relevant=0 kept=0
+[2026-07-07 04:05] ai-researcher collect: raw=106 dedup=18 relevant=1 kept=1
+[2026-07-07 05:04] ai-researcher collect: raw=105 dedup=17 relevant=1 kept=1
+[2026-07-07 06:04] ai-researcher collect: raw=105 dedup=16 relevant=1 kept=1
+[2026-07-07 07:04] ai-researcher collect: raw=103 dedup=14 relevant=0 kept=0
+[2026-07-07 08:03] ai-researcher collect: raw=104 dedup=15 relevant=0 kept=0
+[2026-07-07 09:05] ai-researcher collect: raw=107 dedup=18 relevant=2 kept=2
+[2026-07-07 10:09] ai-researcher collect: raw=107 dedup=43 relevant=8 kept=8
+[2026-07-07 11:05] ai-researcher collect: raw=77 dedup=14 relevant=1 kept=1
+[2026-07-07 12:09] ai-researcher collect: raw=77 dedup=19 relevant=5 kept=5
+[2026-07-07 15:06] ai-researcher collect: raw=0 dedup=0 relevant=0 kept=0
+[2026-07-07 16:19] ai-researcher collect: raw=0 dedup=0 relevant=0 kept=0
+[2026-07-07 17:10] ai-researcher collect: raw=108 dedup=51 relevant=8 kept=8
+[2026-07-07 18:13] ai-researcher collect: raw=35 dedup=5 relevant=0 kept=0
+[2026-07-07 19:08] ai-researcher collect: raw=108 dedup=45 relevant=8 kept=8
+[2026-07-07 20:08] ai-researcher collect: raw=107 dedup=36 relevant=8 kept=7
+[2026-07-07 21:09] ai-researcher collect: raw=107 dedup=31 relevant=8 kept=8
+[2026-07-07 21:20] ホーム全体整理完了: 整理済み→ALL WORKsリネーム+新6フォルダ (素材/学校/プライベート/団体/スクショ/アーカイブ)、582移動・削除ゼロ・可逆TSV。Fable計画/Sonnet5×3実装。decisions/2026-07-07_ホーム全体整理_新フォルダ構造.md
+[2026-07-08 20:50] OOO Studio ブランド基盤構築開始: ドメイン ooo-studio.jp 取得(お名前.com)、Google Workspace Business Standard アカウント作成(yitao-ding@ooo-studio.jp)、DNS所有権証明TXTレコード登録+ネームサーバー変更申請完了(伝播待ち・最大72h)。ブランド方針=親OOO Studio(法人・Workspace器)+子Yitao Film継続、Hi,Me:)は将来同傘下想定。decisions/2026-07-08_OOO-Studio_ブランド基盤構築.md
+[2026-07-09 19:27] Notion新アカウント(yitao-ding@ooo-studio.jp)へYitao Film案件管理ダッシュボード再構築完了: 8クライアント/10案件/84タスク、ホーム刷新(board/カレンダー/アーカイブ分離)、名称訂正(ダンスでチャリティー/平成たち祭)。decisions/2026-07-09_Notion新アカウント移行_ダッシュボード再構築.md

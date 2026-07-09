@@ -1,12 +1,31 @@
 ---
 type: current_state
-last_updated: 2026-07-01
+last_updated: 2026-07-08
 update_frequency: 意思決定のたび
 ---
 
 # 最近の重要な意思決定
 
 > 「なぜこう決めたか」を残すことで、未来のClaudeと未来のYDが同じ議論を蒸し返さないようにする
+
+## 2026-07-08
+
+### Yitao Film の法人化を見据えた共有ブランド「ooo-studio」を新設、Google Workspace + 独自ドメイン基盤を構築開始
+- **背景**: Notion をビジネスプランで刷新するにあたり Google Calendar/Drive 連携を試みたところ、Notion AI Connector(読み取り専用のAI検索機能)が Google Workspace アカウント必須と判明。これを機に、法人化・メンバー増(ダンスチーム Hi,Me:) の他2名と将来共有したい意向あり)を見据えたブランド基盤を整備することに決定。
+- **選択肢 (ブランド名の方向性)**:
+  - A. 個人名継承 (Yitao Film / 韜由来の名前) — シンプルだが法人化・複数人共有に不向き (個人商店感が残る)
+  - B. 中立の意味込み造語 (KINE / HIME 等) — ダンス×映像の両方を含意できるが、事業領域が広がった時に意味が縛りになる
+  - C. 完全にプレーンな無意味造語 (Nuvo/Oki/Lumo等) — 意味を持たないため将来どんな事業にも転用できる
+- **決定**: **C (プレーン造語)** を採用、量産候補から「OOO」(オー3文字、記号として無限大・レンズ・複数人を暗示できる) を選定。ドメインは `ooo-studio.jp` (`.com`は`ooo-studio.com`が第三者取得済み・`ooostudio.com`はプレミアム転売¥439,912で価格不相応のため断念)
+- **構成方針**: 親ブランド = OOO Studio (法人・Workspace・ドメインの器) / 子レーベル = Yitao Film 継続 (個人の作家性・@yitao_film の資産を維持)。Hi,Me:) は将来的にダンス活動のレーベルとして同じ傘下に置ける設計
+- **Google Workspace プラン選定**: Business Standard を採用 (Starter の 30GB ではなく 2TB プール、Gemini 全アプリ活用、Meet録画、共有ドライブのフル管理機能が理由)。まず YD 1人分のみ契約 → メンバー確定後に追加する方針
+- **その後 (実施内容、同日)**:
+  - お名前.com で `ooo-studio.jp` を取得済み (期限 2027/07/31)、Whois情報公開代行チェック推奨
+  - Google Workspace アカウントは作成済み (管理者: yitao-ding@ooo-studio.jp)
+  - ドメイン所有権証明のため、お名前.com の DNS 設定で TXT レコード (`google-site-verification=...`) を追加 + ネームサーバーを `01〜04.dnsv.jp` に変更申請、手続き完了
+  - ⏳ **反映待ち (最大72時間)**。反映後、Google Workspace 側の「確認」ボタンを押せば所有権証明が完了 → 続けて Gmail 開通設定 (10分) が必要
+  - 途中、中古プレミアムドメイン `ooostudio.com` (¥439,912) を誤ってカートに入れかけたが、購入前に削除して回避
+- **関連**: `identity/profile.md` (本名「丁一韜」の正式表記を追記済み)
 
 ## 2026-05-18
 

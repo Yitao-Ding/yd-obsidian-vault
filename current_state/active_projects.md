@@ -13,8 +13,21 @@ update_frequency: 週1回以上
 
 ## 🟢 アクティブ・優先度高
 
+### ★ OOO Studio ブランド基盤構築 (Google Workspace + 独自ドメイン、2026-07-08 着手) ★
+- **状況**: 🟢 **ドメイン取得・Workspace作成・DNS設定 完了、伝播待ち(最大72時間)**
+- **背景**: Notion刷新 → Google連携にはWorkspace必須と判明 → 法人化・Hi,Me:)含むメンバー増を見据えたブランド基盤を新設する方針に発展
+- **ブランド構成**: 親=OOO Studio(法人・Workspace・ドメインの器、意味を持たせないプレーン造語) / 子=Yitao Film継続(@yitao_film資産維持) / Hi,Me:)は将来ダンスレーベルとして同傘下に置ける設計
+- **確定事項**: ドメイン`ooo-studio.jp`(お名前.com取得済、期限2027/07/31) / Google Workspace Business Standard(2TB・Gemini全アプリ・Meet録画重視、まずYD1人分のみ契約) / 管理者アカウント`yitao-ding@ooo-studio.jp`
+- **次のアクション**:
+  - [ ] **DNS伝播確認**(数時間〜最大72時間後)→ Google Workspace管理画面で「確認」ボタンを押し所有権証明を完了させる
+  - [ ] 所有権証明後、Gmail開通設定(10分)
+  - [ ] Whois情報公開代行の設定状況を確認(本名保護、取得時に有効化推奨だった)
+  - [ ] お名前.comに残る不要な未申請ドメイン(`ooostudio.com`のプレミアム提案)を放置でOK、購入はしていない
+  - [ ] Hi,Me:)の他2名との共有・持ち分・意思決定権の合意(法人化前に詰める必要あり、未着手)
+- **関連**: [[2026-07-08_OOO-Studio_ブランド基盤構築]]、`identity/profile.md`(本名「丁一韜」表記追記済み)
+
 ### ★ パソコン1台の学校 (SNS情報商材システム、2026-06-03 着手) ★
-- **★ 教材v2全面改訂 始動 (2026-07-03、Fable 5)**: YD「Opus製の中身がぼんやり、価格に見合わない」→ 全86レッスン監査(worthScore3〜4/10・PII破損文9箇所)+Vault発掘7領域(vidkit/AE自動制御/localhost FM/Notion案件管理/easy-share/舞台裏/スイープ)→ **新カリキュラム全10コース(C0〜C9)・約148レッスン確定**。体制=監査/計画/司令はFable5・実装のみSonnet5。ブリーフ2/10コース完成時点でセッション上限到達→引き継ぎ。**正本=`CC-business/v2/HANDOVER-v2.md`**(残り=ブリーフ8コース→Sonnet執筆×Fable検収→サイト統合)。⚠️ v2完成前のGo-live非推奨(現行本文にPII破損文が残存)。
+- **★ 教材v2全面改訂 ✅完了 (2026-07-03→07-05、Fable5設計/Sonnet5実装)**: 全86レッスン監査(worth3〜4/10・PII破損9箇所)+Vault発掘7領域 → **全10コース(C0〜C9)・40章・149レッスン・37.1万字**(旧6コース86本7.9万字の4.7倍)に全面改訂。新設=C0準備の学校(インストール/費用全開示)・C7クリエイティブ(vidkit/AE案件/AI音楽/共有サイト)・C8タスク案件管理(Notion84タスク実録)・C9舞台裏(この商品自体の制作記録)。図解32・コピペブロック384。検収=Fable全数、機械スイープ(PII/リンク/異常文字0)、build緑、Playwright実機確認済。本文正本=`content-src/lessons/`(md→bodies.ts生成)。**残=YD判断: ①テストURLへのv2デプロイ ②localhost FM実名化可否 ③外注額の絶対額表記可否 ④~/.claude.jsonのAPIキー平文→ローテーション推奨**。詳細=CC-business/HANDOVER.md §13。
 - **状況**: 🟢 **テストモードで本公開済・購入フロー全検証済(2026-06-04) / 本番化はYD入力待ち(正本=CC-business/HANDOVER.md)**。テストURL=https://cc-business.vercel.app (noindex/Protection無効/Stripeテスト鍵)。Playwrightで 購入→決済→/unlock→/learn 全6解放→レッスン本文 まで end-to-end 確認済。SNS(Instagram+Threads)で売る情報商材一式、中身の主役=Claude Code(裏方)。真の目的=YD が情報商材の稼ぎ方を実験的に見てみる。
 - **パス**: `/Users/ittou/projects/CC-business`(`web/` が Next.js 16 + Tailwind v4)。**正本引き継ぎ=`CC-business/HANDOVER.md`**
 - **構成**: LP(Claude Design 移植の編集デザイン)→ Stripe Checkout(テストモード)→ 署名JWTクッキーで購入者だけ `/learn` 閲覧。教材=6コース25章**86レッスン**(Vault実録から生成)。法務4ページ実装済。SNS素材=Instagramポスター6 + Threads原稿10 + OGP(`marketing/`)。
@@ -100,19 +113,22 @@ update_frequency: 週1回以上
 - **音源 (受領済)**: `~/Downloads/99_未分類_要確認/gigafile受領物/gigafile-0813-5ba1b0454e7c5cb18caadf8fb375a748/` (Hi,Me / Jyo-Ro / emmmanumber / cocona+伶香 / 友達たち)
 - **メモ**: Hi,Me:) 「蛹」DaVinci 復旧の件は 2026-05-19 にアーカイブ (memory 削除済)
 
-### ★ Yitao Film｜案件管理ダッシュボード (Notion、2026-06-24 実案件全件投入完了) ★
-- **状況**: 🟢 **chat構築のNotion DBに実案件を全件投入完了 (2026-06-24)**。クライアント7・案件10・タスク84件を作成、ホームに「新規案件テンプレ」トグル追記。3DB(👤クライアント / 🎬案件 / ✅タスク)は relation + 進捗率/タスク数ロールアップで連動。エラー0で完走、案件1/案件3を実機fetchで検証済。
-- **ホーム**: https://app.notion.com/p/388cf01b1dc581eb8418d4b6ea8c08ab
-- **投入内容**:
-  - 動画5: ①ダンサレチャリティーWS(千葉)編集[納6/26] ②長野インタビュー編集[納期未定] ③**ハイミ「蛹」**MV[納6/29] ④平成立祭メイキング&ダイジェスト[納7/12] ⑤大型イベントOP[納7/1・¥70,000・最優先]
-  - 写真5: ⑥SANA[納6/25] ⑦aキリア写真/⑦bキリア動画[撮影6/29] ⑧ナナ ⑨のあみ
-- **★ 要確認(YD回答待ち、6点)**: ①案件2納品日 ②案件5の撮影要否+主催クライアント名 ③案件7写真/動画を別案件で作成(統合希望なら言う)+納品日 ④写真5人目氏名 ⑤写真勢クライアント区分(暫定アーティスト) ⑥キリア打ち合わせ内容(記入欄だけ作成済)
-- **運用**: 新規案件は Claude に「種別・案件名・クライアント・納品日・撮影有無」を伝えれば本文テンプレ+標準タスクごと自動作成。サンプルデータ(YF-1〜3)はYD手動削除予定で未削除(案件IDは YF-4 以降)。本案件群は Yitao Film(Arte Grow / やることDB は対象外)。
-- **関連**: [[2026-06-24_Yitao_Film案件Notion投入]]、`knowledge/filmmaking/yitao-film-notion-handoff.md`
+### ★ Yitao Film｜案件管理ダッシュボード (Notion、2026-07-09 新アカウント再構築完了) ★
+- **状況**: 🟢 **Notion新アカウント (yitao-ding@ooo-studio.jp、workspace「DingYitaoさんのスペース」) に全面再構築完了 (2026-07-09)**。クライアント8・案件10・タスク84件、エラー0・実機fetch検証済。ホームは見やすさ優先で刷新: 進行中案件board / 直近タスクlist / 納品カレンダー / アーカイブ分離、3DBベタ置き廃止。旧アカウント (toyo.jp) 側の残骸ページはYDが手動削除予定。
+- **ホーム**: https://app.notion.com/p/398d8d9d19c281c59d71d986e0a6b63a
+- **投入内容** (6/24時点データ + 進捗反映):
+  - 動画5: ①ダンスでチャリティーWS(千葉)編集[納6/26] ②長野インタビュー編集[納期未定] ③**ハイミ「蛹」**MV[納6/29] ④平成たち祭メイキング&ダイジェスト[納7/12] ⑤JAMBOREE STUDIO BATTLE Lite OP『THE EYE / 開眼』[📦納品済7/5・¥70,000]
+  - 写真5: ⑥SANA[納6/25] ⑦aキリア写真/⑦bキリア動画[撮影6/29] ⑧ナナ[🎬制作中・セレクト済209枚・クライアント選定待ち] ⑨のあみ
+- **★ 要確認(YD回答待ち、5点・ホーム冒頭トグルにも掲載)**: ①案件2納品日 ②案件7写真/動画の統合可否+納品日 ③写真5人目氏名 ④写真勢クライアント区分(暫定アーティスト) ⑤キリア打ち合わせ内容(記入欄だけ作成済)
+- **運用**: 新規案件は Claude に「種別・案件名・クライアント・納品日・撮影有無」を伝えれば本文テンプレ+標準タスクごと自動作成。案件IDは YF-1〜10 (サンプルデータなし、クリーン)。本案件群は Yitao Film(Arte Grow / やることDB は対象外)。名称の正式表記: **ダンスでチャリティー**(ダンちゃり)・**平成たち祭**。
+- **関連**: [[2026-07-09_Notion新アカウント移行_ダッシュボード再構築]]、[[2026-06-24_Yitao_Film案件Notion投入]]、`knowledge/filmmaking/yitao-film-notion-handoff.md` (正本、ID更新済)
 
-### ★ JAMBOREE STUDIO BATTLE Lite OP動画 (大型イベントOP、¥70,000・最優先) ★
-- **★ v2「THE EYE」BGM完全確定 (2026-07-03)**: 🎵 **`music/LiteOP_BGM_FINAL.wav`(ElevenLabs Music v2生成「Neon Colosseum」116.000秒・無加工)をYD採択**。経緯=Artlist切貼v0→ステム再構成F→Suno手術v3と3系統却下の末、「秒数構造入り作曲発注書で1曲丸ごと生成・一切切らない」が正解(詳細=[[2026-07-03_LiteOP_BGM_AI生成路線確定]]、レシピ=`BGM_Neon系候補/recipe.txt`)。素材18+SFX4検品済み・審査員8名+MC切り抜きv2完了(`素材_審査員_切り出し_v2/`)。**次セッション=「Netflixの最高の監督」ペルソナでAE 4Kスケルトン(D2)から。全TCは`music/LiteOP_BGM_FINAL_structure.md`の実打点(ドロップ36.0/転換59.8/開眼95.87)に吸着**。正本=`HANDOVER_v2_THE_EYE.md`。
-- v2初期経緯: 8並列ディスカバリー→5案→4レンズ審査で「THE EYE」優勝(YD FB反映済: 多色カラフル/顔ナチュラル/英語VO/エンドカード情報なし/4K)。スタジオ42/11都県・KEN表記確定済み。Higgsfield課金見送り。
+### ★ JAMBOREE STUDIO BATTLE Lite OP動画 (大型イベントOP、¥70,000) ★ ✅✅完成・R13提出済み・YD終了宣言
+- **★★ 状況 (2026-07-06): ✅✅✅ R13完成・YD「本プロジェクト終了」宣言・終了処理完了 ★★**。**最新提出物=`書き出し/LiteOP_v2.mp4`**(YDリネーム後、4K/AAC320k/faststart/116s、審査員紹介順=SHIKI→憧→TOMOKA→MANA→HAL→KIDO→HISAYO→MAA)。R12版=`書き出し/LiteOP.mp4`(旧順・比較用)。R13=クライアントFBで紹介順のみ変更(JUDGES配列=スロット時刻固定・属性が移動→音声完全無変更/カードは旧並び維持/L/R偶奇反転)。QA0件+監督25フレーム検分合格。**終了処理**: 書き出しスリム化(4.0G→976M、中間41件ゴミ箱)+Vault/HANDOVER同期。⚠️「旧提出物消失」は誤認=YDリネーム(byte一致確認)。⚠️YDのAME自主書き出し(~/Downloads/THE_EYE_master/)は音声BGMのみ=VO/SFX欠落。詳細=HANDOVER§0a-12。**→ 次セッションでVault archiveセクションへ移動可**。
+- **反復ログ**: R10(字幕半減/B3をANSWERED式統一/ARE YOU READY再設計/S4声低く再生成/審査員全員p99≤240/SFX9発)→R11(AYRゴースト根治・ITS NAME IS 3s前倒し・S4「Jamboree」のみ化・VO1.4倍)→R12(VO1.5倍・ラストJP字幕削除で英語のみ・EN題字ど真ん中・ITS NAME—削除)→提出(L7削除・QAラベル除去)。体制=Fable5監督(全フレーム直接検分)+Sonnet5実装便1本。**正本引き継ぎ=`HANDOVER_v2_THE_EYE.md`(§0a-11=提出版、§3=罠13項)**。ミックス正本=`mix_final.sh`。
+- **★ v2 BGM確定 (2026-07-03)**: 🎵 `music/LiteOP_BGM_FINAL.wav`(ElevenLabs「Neon Colosseum」116.000s無加工)YD採択。TC正=`music/final_tc_lock.json`(開眼スラム=f2886/96.200s)。詳細=[[2026-07-03_LiteOP_BGM_AI生成路線確定]]。
+- v2初期経緯: 8並列ディスカバリー→5案→4レンズ審査で「THE EYE」優勝。スタジオ42/11都県。審査員1人目の表記は**「憧」**(2026-07-04 YD変更、旧KEN)。
+- **残TODO**: **R10(FB6項目、HANDOVER§1)** / D3残(CAMERA_SHAKE移植・まばたき磨き) / D5本ミックス(VOダッキング+SFX)→D6書き出し(QAラベル除去+720p版) / 素材課題2件YD待ち(p7_stars高解像度ロゴ・p10_movement完全版ロゴ)。
 - **状況 (2026-07-02 夜)**: 🟢 **v8 = ロゴ抜き直し+全編品質スイープ+YD実機FB反映 完了**。①ロゴをpdftocairo正攻法で透過抜き直し(colorkeyの欠け根治) ②全編スイープ: 200フレーム→9視点並列レビュー52指摘→Sonnet実測検証→13件修正・4件実証棄却 ③YD iPhone実機FB反映: MC/審査員の顔の白飛び解消・チームロゴチップ1.5倍可読化・B8/B9/B10のFX増量・**B11再構築(巨大だるま降臨→震え縮小→地響きドーン→開眼で瞳が入る)**。体制=Fable5設計/Sonnet5実装・検証。**最新成果物=`書き出し/全体爆上げ_0-90s_v8_YDFB反映.mp4`(720p版YD送付済み・レビュー待ち)**。
 - **★ 引き継ぎ書(唯一の真実)**: `/Users/ittou/整理済み/Lite_イベントOP_2024-2026/HANDOVER_映像制作.md` — AE自動制御のハマり所全部+FXライブラリAPI+実装結果と差分(§7b)+B2マップ/ロゴ仕様(§7d)+**スマホリモート操作手順(§10)**。新セッションはこれを読めば続行可。
 - **リモート操作**: 新セッションは `start_remote_session.sh`(tmux "liteop")で起動→スマホSSH(Termius)から attach。YD側未完: リモートログインON / Tailscale導入 / Macスリープ無効(§10のチェックリスト)。
@@ -277,7 +293,9 @@ update_frequency: 週1回以上
 - **引き継ぎ**: 4 自立型エージェントのハーネス設計 / Discord ロールモデル / PWA 重視 / 寒色系 → 本アプリへ思想継承
 
 ### 7. Lecture Hub (個人ナレッジハブ)
-- **状況**: 🟢 **Fable 5 全面改修 進行中 (2026-07-03 着手)** — ★ 新セッションはまず `~/projects/lecture-hub/HANDOVER.md` を Read
+- **状況**: ✅ **Fable 5 全面改修 実装完了 (2026-07-05)** — 残り = YD 作業のみ: ①migration 0004 を SQL Editor で適用 ②/admin/reindex 1 回実行 ③実機確認 ④push 許可
+- **★ セキュリティ監査+硬化 (2026-07-06、commit 74df2ac)**: 多角監査(生存35件)。**最大リスク=認証ゼロ設計のため公開デプロイで全API/Server Actionが無認証到達可能**(過去 lecture-hub-sable は Deployment Protection 無し実測)。対応=①境界ゲート(GATE_PASSWORD env時のみ有効な合言葉middleware、owner_id不使用で認証復活に非該当)②PdfNode/AudioNodeの格納型XSS(javascript: URL)修正③AIコスト上限(maxOutputTokens+入力長)④transcribe SSRF/upload硬化⑤CSP/HSTS/X-Frame-Options⑥cron ?secret=廃止+定数時間比較。**YD要対応=本番で Vercel Deployment Protection を ON**(ゲートは多層/代替)。
+- **改修サマリ (2026-07-05 完了、commits 6910401〜6c90321 の 7 本、ローカル未 push)**: 監査 79 件 + レビュー 13 件を全修正。P0 = Cron テンプレ TipTap 化 / エディタ CSS 自前実装 (.rich-text) / チャットのスレッド乱造・履歴不表示 / タスク偽 UUID・期限 UTC 9時間ズレ / 検索の生 JSON 索引→plain_text 化 (0004) / デバウンス保存消失→即時ローカル保存 / 親削除の子孤児化→再帰 soft-delete + undo トースト / ページ遷移で内容混線 (key 欠落) / モバイル drawer 追加。詳細 = lecture-hub/HANDOVER.md 冒頭
 - **★ 2026-07-03 Fable 5 全面改修 (YD 指示「根本から見直して全部修正」)**:
   - ultracode 監査ワークフロー (71 agents) 完了 → **確定 79 件** (仮説 19 + レンズ発見 60、敵対的検証済み・棄却 0)。結果=`lecture-hub/handover/*.json`
   - 主要 P0: ①Cron テンプレが旧 BlockNote 形式で日記/講義ページが空表示 (編集すると本文恒久消失) ②prose クラスが typography プラグイン不在で無効=エディタ本文ほぼ無スタイル ③新規チャットで毎メッセージ新スレッド乱造 ④タスク楽観更新が偽 UUID で操作が DB に効かない ⑤tsv が生 JSON 索引 ⑥デバウンス保存がページ遷移で消失 ⑦タスク期限が本番 UTC で 9 時間ズレ
