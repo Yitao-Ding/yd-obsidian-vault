@@ -502,13 +502,15 @@
 
 | カテゴリ | 件数 | 直近発生 |
 |---------|------|---------|
-| A. ツール使用 | 17 | 2026-06-03 |
-| B. 技術評価 | 5 | 2026-05-19 |
+| A. ツール使用 | 23 | 2026-06-06 |
+| B. 技術評価 | 9 | 2026-07-11 |
 | C. コミュニケーション | 4 | 2026-04-01 |
 | D. 文脈・記憶 | 9 | 2026-06-02 |
-| E. 提案・出力 | 4 | 2026-05-26 |
+| E. 提案・出力 | 6 | 2026-05-26 |
 | X. メタ | 1 | - |
-| **合計** | **40** | - |
+| **合計** | **52** | - |
+
+> 件数は 2026-07-11 に見出し実数 (`grep -c "^### <cat>-"`) で棚卸しして補正 (従来の手動カウントに追記漏れがあった)。
 
 ---
 
@@ -1052,3 +1054,20 @@
 
 **再発防止**:
 - 字幕・テロップ追加のSPECには「対象時間帯のテキストレイヤー一覧(名前・Y座標・in/out)」を機械抽出して添付する。
+
+---
+
+### B-7. Apple Development 証明書の CN 括弧内をチーム ID と誤認 (頻度: 低、最終発生: 2026-07-11) #hallucination
+
+**状況**: Xcode プロジェクト生成に DEVELOPMENT_TEAM が必要で、`security find-identity -v -p codesigning` の出力 `"Apple Development: yitao0907@gmail.com (L55GP6S566)"` の括弧内をチーム ID として project.yml に設定した。
+
+**過去のやらかし**:
+- 2026-07-11: LightRig で YD が Xcode の ▶ を押すと `No Account for Team "L55GP6S566"` で失敗。括弧内は個人識別子で、本当のチーム ID は証明書の **OU フィールド** (FC2V887B8C) だった。さらに直後、Apple の Program License Agreement 更新未同意でも provisioning が全滅する件を踏み、同意後は Xcode Settings > Accounts でアカウントを一度削除→再サインインしないとセッションが更新されない場合があることも判明 (今回はこれで開通)。
+
+**正しい挙動**:
+- チーム ID は `security find-certificate -c "Apple Development" -p | openssl x509 -noout -subject` の **OU=** から取る (CN の括弧内は使わない)
+- DEVELOPMENT_TEAM を設定したら、ユーザーに渡す前に `xcodebuild -destination 'generic/platform=iOS' -allowProvisioningUpdates build` で署名込みビルドを 1 回 CLI 検証する
+
+**再発防止**:
+- 「PLA Update available」エラー = 本人が developer.apple.com で規約同意 → 反映されない時は Xcode Accounts でサインインし直し、の 2 段構え
+- 署名・プロビジョニング系は推測値を埋めず、必ず実物 (証明書 OU / プロファイル plist) から取る

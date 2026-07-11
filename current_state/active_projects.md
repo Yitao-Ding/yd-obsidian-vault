@@ -139,6 +139,20 @@ update_frequency: 週1回以上
 
 ## 🟢 アクティブ・優先度中
 
+### ★ PCデータ整理 規格v3 (Notion連携、2026-07-11 Phase A完了) ★
+- **状況**: 🟢 **規格v3確定 + Phase A完了・検収済み** (Fable計画/Sonnet実装)。規格= 3クリック到達 / 1案件1フォルダ完結(アプリDB例外) / 先頭記号禁止 / ALL WORKs集約 / フォルダ名合体で階層抑制 / ~/素材は例外。記号接頭辞6件撤去、あやか_2026-05・つんた_2026-07収容、Premiere→/Applications。**正本= `~/ALL WORKs/MAP.md`** (Notion YF-1〜10対応表入り)、ジャーナル= `~/MediaCatalog/reorg_phaseA_2026-07-11.tsv`
+- 4フォルダ (俺のリール128G/ドローンアーカイブ/ばば会社/_予備_HiMe) はYDが**Extreme pro**へ手動移動済み → マウント時に実在検証+リネーム+MAP_両ドライブ再生成
+- **次**: ① Phase C = 平成たち祭 (YF-4) 納品7/12完了後に450G規格化+SANA移設+FCPライブラリ同居+Pictures振り分け ② 対話仕分け167G (YDと一緒に) ③ ゴミ候補削除GO ④ Notion MCPは `mcp__claude_ai_Notion__*` で接続済み (案件DB= collection://c8b35e29-...)
+- **関連**: [[2026-07-11_データ整理規格v3_PhaseA完了]]
+
+### ★ LightRig (スタジオ照明セッティング記録アプリ、2026-07-11 v1完成) ★
+- **状況**: ✅ **v1完成・YD実機導入開始済** (iPhoneへのXcode Run成功)。スタジオで組んだ照明 (機材/位置/出力%/色温度K/ジェルsRGB/モディファイア) を3Dで記録し、撮影写真と紐付けて見返す個人アプリ。iPhone/iPad/Mac 対応、iCloud (CloudKit) 自動同期。
+- **パス**: `~/AI projects/Lighting` (正本=`HANDOVER.md`、設計=`DESIGN.md`)。git ローカルのみ (リモート未設定・push未)
+- **スタック**: SwiftUI + SceneKit + SwiftData/CloudKit + XcodeGen。機材カタログ49機種 (Profoto/Godox/Aputure/Amaran/Nanlite/Generic、`fixtures.json` に1行追加で増やせる)。チームID=FC2V887B8C (証明書OU由来、[[claude_mistakes]] B-7)
+- **品質**: iOS/macOS ビルド green・テスト25件 pass・macOS実機+iPhone/iPadシミュレータの3面で視覚検分済 (露出/形状/照射方向はFable検分→Sonnet修正ループ6ラウンド)
+- **残TODO (YD)**: ① iPad/Mac にも Xcode Run で導入 ② **2台間で写真付きセッティングの iCloud 同期を実機確認** (externalStorage→CKAsset 同期は Apple 公式に明記なし、唯一の未実証点。NGなら同期方式を組み替える) ③ 年1回 Xcode から再 Run (証明書 約1年)
+- **関連**: [[lightrig]] (knowledge/programming/tools/)
+
 ### ★ easy-share (社内 撮影素材 共有・プレビューツール、2026-05-31 着手) ★
 - **★ 公開URL(稼働中・正式運用)**: **https://easyshare-fx.vercel.app**(Vercel 本番、Deployment Protection 無効=認証なし公開、YD 認可済「セキュリティ不要・公開OK」)。本物の FX30 実素材(4プロジェクト: 2026-05-30/05-31/sample/写真、flat+4ルックWebGL切替、写真/動画分離)がライブ表示。
 - **★ ストレージ = Cloudflare R2(2026-06-02 移行完了・本番稼働)**。バケット `easy-share-media`、公開ベース `https://pub-6cfa3ffdc3ec456790e058cce335c70d.r2.dev`。Vercel 本番 env `NEXT_PUBLIC_ASSET_BASE` が R2 を指す。10GB無料/egress永久無料/3TB$45月。認証は `~/.config/rclone/rclone.conf [r2]` と gitignore config のみ(Vault非保存)。CORSキャッシュ罠は `VideoView` の poster属性削除で解決済(再付与厳禁)。

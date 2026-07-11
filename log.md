@@ -1639,3 +1639,9 @@
 [2026-07-11 09:15] ai-researcher collect: raw=111 dedup=34 relevant=8 kept=8
 [2026-07-11 10:09] ai-researcher collect: raw=112 dedup=28 relevant=8 kept=8
 [2026-07-11 02:00] AI projects フォルダ大整理: 旧~/projects移転で壊れたlaunchd4本+スキル3本を修復、6プロジェクトを_archiveへ移動、morning-briefing停止 (ai-researcherに一本化)、3リポジトリをGitHub privateへバックアップpush、salamat-website-v2全面改修が進行中
+[2026-07-11 11:07] ai-researcher collect: raw=112 dedup=21 relevant=4 kept=4
+[2026-07-11 12:05] ai-researcher collect: raw=111 dedup=16 relevant=0 kept=0
+[2026-07-11 12:20] LightRig (照明セッティング記録アプリ) v1完成: Fable設計/Sonnet並列実装+Opus統合Workflow、iOS+macOSビルドgreen・テスト25件pass・3面検分、YD iPhone実機導入成功 (~/AI projects/Lighting)
+[2026-07-11 13:06] ai-researcher collect: raw=112 dedup=17 relevant=0 kept=0
+[2026-07-11 14:03] ai-researcher collect: raw=111 dedup=16 relevant=0 kept=0
+[2026-07-11 13:40] データ整理規格v3確定+Phase A完了: 棚卸しWorkflow10領域→記号接頭辞全撤去・あやか/つんた収容・MAP.md再生成(Notion YF対応表)・4フォルダ=Extreme pro判明。Phase Cは平成たち祭納品(7/12)後
