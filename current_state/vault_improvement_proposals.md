@@ -378,3 +378,60 @@ cutoff 2026-05-06 より前の `last_updated` を持つファイルは **0 件**
 - 既存ファイルへの遡及挿入は git 履歴の last commit date を流用すれば機械的に可能 (例: `git log -1 --format=%cs <file>` の結果を frontmatter に注入)
 - これをやらないと、次回のチェックで「古い情報」検出の母数が常に半分以下になる
 
+---
+
+## 2026-07-09 Fable5記事(X長文)から抽出した自己改善提案
+
+> 出典: X の長文記事「『Claude Fable 5』無料期間で構築する自己改善型AIエージェントシステム」(@claudecode84, 2026-07-02) を YD 依頼で仕分け。
+> 記事は「Fable 5 = エージェントフレームワーク」と誤記した有料ガイドの宣伝 (実際は Claude のモデル `claude-fable-5`) だが、中で描かれるパターン自体は業界定番。既に Vault が実装済みのもの (STATE.md/HANDOVER, 3層メモリ, コスト管理, A〜E+X のエラー分類) を除き、本当に足りない/強化余地のある5件を抽出。
+> **重要な縛り**: 記事のコードは全て API 課金前提。採用は [[2026-05-19_API依存撤廃_Max20x完結化]] に従い「Claude Code セッション内完結」に翻訳する。
+
+### [🟢 効く] ① Drift チェックの機構化 (記事 DriftMonitor → D-4/D-5 撲滅)
+
+**検出した状況**:
+[[claude_mistakes]] D-4 (根本動機を設計フェーズで見失う) + D-5 (decisions 横断制約の見落とし) が頻度:高で2回再発。対策が「再読するクセ」という精神論のみで受動的。記事の DriftMonitor は「当初 goal vs 直近出力の整合スコアを定期算出 → 逸脱で再プラン」で、これの機構版に相当。
+
+**推奨アクション**:
+- (a) 軽量版: グローバル `~/.claude/CLAUDE.md` に「設計フェーズ突入前チェック (根本動機 + 横断制約 + 整合確認)」を必須化。
+- (b) 機構版: parallel-claude の長時間 builder で evaluator に goal整合スコアを各チェックポイントで吐かせ、0.7未満でエスカレーション。別モデル必須。
+
+**ステータス**:
+- (a) ✅ resolved (2026-07-09、グローバル CLAUDE.md に「🎯 設計・実装フェーズ突入前の必須チェック」節を追加)
+- (b) ⏸ pending (次の長時間スプリントで試す)
+
+### [🟢 効く] ② 成功パターンの資産化ルート (記事 Skills自動蓄積 → mistakes の"陽"版)
+
+**検出した状況**:
+失敗は執拗に資産化 (mistakes 40件・頻度タグ・統計・ε モード) しているが、成功側は decisions/knowledge に散発記録するだけで「同じ型を3回成功 → 再利用資産に昇格」ルートが無い。skills は marketplace から手動 add のみ。資産化が片肺。
+
+**推奨アクション**:
+- `mistakes/claude_mistakes.md` の対になる `knowledge/programming/patterns/reusable.md` (or `successes.md`) を新設。
+- 月次メンテで log.md/decisions を眺め「3回以上やった型」を拾い、①Vault テンプレ化 ②knowledge snippet 化 ③Claude Code skill 化 (`skill-creator` 導入済) のどれかに昇格。ε モードの成功版。
+- API 自動生成はしない (Max20x完結の縛り)。月次メンテに1項目足す運用。
+
+**ステータス**: ✅ resolved (2026-07-09、[[reusable]] (`knowledge/programming/patterns/reusable.md`) を新設。Vault CLAUDE.md の書き込みルール表 + 月次メンテ + claude_mistakes.md 冒頭から相互リンク済)
+
+### [🟢 軽微] ③ Verifier のモデル独立を明文化
+
+**検出した状況**: builder→evaluator は既に別エージェントだが「別モデルにする」規律が未明文化。記事: 同一モデル=同一バイアスで独立検証にならない。
+
+**推奨アクション**: 自立ループ運用ルール ([[2026-05-26_セッション引継ぎ_自立ループ強化指示]]) に「builder と evaluator/verifier は別モデル」を1行追記。
+
+**ステータス**: ✅ resolved (2026-07-09、決定ファイルに「5. builder/evaluator のモデル独立」を追記)
+
+### [🟢 軽微] ④ エスカレーション条件を1枚に集約
+
+**検出した状況**: Push/Deploy/sudo/rm 確認・終了モードの新規Agent禁止・A-16/A-17 の破壊前 verify・品質低下/コスト超過 が CLAUDE.md と mistakes に散在。記事は human_escalation_triggers として1リスト化。
+
+**推奨アクション**: グローバル CLAUDE.md か `mistakes/claude_mistakes.md` 冒頭に「人間へエスカレーションする条件」の統合リストを新設。
+
+**ステータス**: ✅ resolved (2026-07-09、グローバル `~/.claude/CLAUDE.md` に「🚨 人間 (YD) へエスカレーションする条件」節を新設)
+
+### [🟢 軽微] ⑤ ミスに failure-mode タグ併記
+
+**検出した状況**: 現行の A〜E+X は「Claude の行動ドメイン軸」。記事の failure-mode 軸 (drift/hallucination/tool/cost/format) を横串タグで併記すると「drift系は通算何件」を串刺しで見れる。
+
+**推奨アクション**: `claude_mistakes.md` の各エントリ見出しに `#drift` `#tool` 等の横串タグを併記 (例: D-4/D-5 = `#drift`)。ミス統計表に failure-mode 別の集計行を追加。
+
+**ステータス**: 🔶 partial (2026-07-09、failure-mode タグ規約を新設 + D-4/D-5 を `#drift` タグ付け。既存40件の backfill と統計行追加は月次メンテで継続)
+

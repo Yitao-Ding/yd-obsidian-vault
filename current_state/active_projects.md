@@ -116,6 +116,7 @@ update_frequency: 週1回以上
 ### ★ Yitao Film｜案件管理ダッシュボード (Notion、2026-07-09 新アカウント再構築完了) ★
 - **状況**: 🟢 **Notion新アカウント (yitao-ding@ooo-studio.jp、workspace「DingYitaoさんのスペース」) に全面再構築完了 (2026-07-09)**。クライアント8・案件10・タスク84件、エラー0・実機fetch検証済。ホームは見やすさ優先で刷新: 進行中案件board / 直近タスクlist / 納品カレンダー / アーカイブ分離、3DBベタ置き廃止。旧アカウント (toyo.jp) 側の残骸ページはYDが手動削除予定。
 - **ホーム**: https://app.notion.com/p/398d8d9d19c281c59d71d986e0a6b63a
+- **★ 2026-07-11 試作ダッシュボード3案 構築完了 (YD選定待ち)**: 「見づらい」解消のため 🧪試作3案 (https://app.notion.com/p/399d8d9d19c2814c8fefdc0987e2d52a) に A=コックピット (KPI+締切ファースト) / B=パイプライン (ステータスboard主役) / C=ミニマル (進行中カードのみ表示) を同一実データのリンクドビューで構築 (既存DB・ホーム無変更、Workflow: builder=Opus/verifier=Sonnet)。各案に詳細ページデモ (YF-4題材) 付き。Claude推奨=A+C(詳細ページ)ハイブリッド。空行YF-11/12はDB外へ退避済み。**残: ①YDが案を選ぶ→正規ホームへ移植 ②ステータス鮮度の実態確認 (YF-1/3/6 が納品日超過のままレビュー表示)**。知見= knowledge/programming/tools/notion_mcp_dashboard.md
 - **投入内容** (6/24時点データ + 進捗反映):
   - 動画5: ①ダンスでチャリティーWS(千葉)編集[納6/26] ②長野インタビュー編集[納期未定] ③**ハイミ「蛹」**MV[納6/29] ④平成たち祭メイキング&ダイジェスト[納7/12] ⑤JAMBOREE STUDIO BATTLE Lite OP『THE EYE / 開眼』[📦納品済7/5・¥70,000]
   - 写真5: ⑥SANA[納6/25] ⑦aキリア写真/⑦bキリア動画[撮影6/29] ⑧ナナ[🎬制作中・セレクト済209枚・クライアント選定待ち] ⑨のあみ
@@ -287,6 +288,7 @@ update_frequency: 週1回以上
 ## 🟡 完成済み・運用フェーズ
 
 ### 6. ~~Task Hub~~ — **2026-05-23 廃止** ⚫
+- **2026-07-11 ローカル実体を `~/AI projects/_archive/salamat-task-hub` へ移動** (GitHub/Firebase遺産は方針通り温存)。taskhubエージェント定義4本は project-agent-application/.claude/agents/ へ退避コピー済み
 - **状況**: ⚫ **2026-05-23 廃止決定。** YD「マジで使わない」と明言、代替として **Project Agent Application** (`~/projects/project-agent-application/`) を新規開発。Salamat 内部運用も本アプリで完全置き換え予定。
 - **詳細**: [[2026-05-23_TaskHub廃止_ProjectAgentApp移行]] / [[../archive/2026-05_TaskHub]]
 - **遺産**: GitHub repo (`Yitao-Ding/salamat-task-hub`) + Firebase Hosting (`salamat-task-hub.web.app`) は当面放置 (削除しない、参考資料)
@@ -351,6 +353,7 @@ update_frequency: 週1回以上
 - **関連**: [[textbook_engine]]、[[2026-05-19_AI学習スプリント開始]]
 
 ### 12. morning-briefing (朝ブリーフィング自動配信、Max 20x 完結版)
+- **⚫ 2026-07-11 停止・アーカイブ**: 要約44/44失敗・Drive0/45で一度も届かず、ai-researcher週次ダイジェストに一本化。実体は `~/AI projects/_archive/morning-briefing`。cron行はYDが `crontab -r` で削除予定
 - **状況**: ✅ **capabilities セクション統合 + GitHub Private + cron 登録完了 (2026-05-20 03:20)** — Vault context (`active_projects.md` + `available_capabilities.md`) を `claude -p` プロンプトに同梱し、当日タスクとスキル/MCP のマッピング候補を 3〜5 件提示する 06 セクションを追加。dry-run で synthesize 完了 (5件 capability 生成: claude-api / vercel:ai-sdk / Google Drive / fcp-autocut / Notion)。初回 (2026-05-19 10:16) は `claude -p` + `say -v Kyoko` でフル動作確認済 (61.9秒、エラー0、PDF 247KB + MP3 3.68MB 生成)
 - **GitHub**: `https://github.com/Yitao-Ding/morning-briefing` (Private、2026-05-20 push 済)
 - **cron**: `30 7 * * * run.sh` 登録済 (2026-05-20 03:18)、次回実行 = 翌朝 07:30 JST。初回は Drive 認証未完了で upload のみ失敗予定、ローカル PDF/MP3 は生成される。詳細: [[handover_morning]]
@@ -375,6 +378,7 @@ update_frequency: 週1回以上
 - **関連**: [[morning_briefing]]、[[2026-05-19_AI学習スプリント開始]]、[[2026-05-19_API依存撤廃_Max20x完結化]]、[[claude_code_permissions]]
 
 ### 14. ai-simulator (複数AIペルソナ並列シミュレーター、セッションη)
+- **⚫ 2026-07-11 アーカイブ済み** (`~/AI projects/_archive/ai-simulator`、移動前にgitスナップショット済み)
 - **状況**: ✅ **Max 20x 完結化完了 (2026-05-19 夕、D-5 ミス修正)** — anthropic SDK / ANTHROPIC_API_KEY 撤廃、`claude -p` async subprocess + Semaphore (max_concurrency=5) で並列実行制御。**ユニットテスト 19件 全通過**、`ai-simulator list` 疎通OK、**実支払い $0**
 - **パス**: `~/projects/ai-simulator/`
 - **スタック**: rich / typer / pyyaml / pydantic (uv 管理)、LLM は `claude -p` ヘッドレス経由 (Max 20x枠)
@@ -394,6 +398,7 @@ update_frequency: 週1回以上
 - **関連**: [[ai_simulator]] (運用マニュアル、必須3セクション付き)、[[2026-05-19_API依存撤廃_Max20x完結化]]、[[claude_mistakes]] D-5
 
 ### 13. ai-researcher (24時間 AI 研究員エージェント、セッションθ)
+- **🟢 2026-07-11 復旧**: launchd 3本を新パス (`~/AI projects/ai-researcher`) で再登録、6/14の未コミット193行をコミットし GitHub private (Yitao-Ding/ai-researcher) へpush
 - **状況**: ✅ **relevance 緩和 + プロファイル拡充 + 死亡2ソース修復 完了 (2026-05-23 早朝)** — 「集めてるのに Vault に残らない」(kept ほぼ0) を解消。threshold 3.0→1.5 + collect `--max-articles 8` (plist + launchd reload)、interests.yaml に撮影/Web/国際協力語 (high16 + medium24) 追加、papers_with_code→HF daily_papers 差し替え (name=hf_papers)、github_trending を topic検索→キーワード+pushed+stars に修正。**dry-run で relevant 0→46/run、7ソース全稼働**を確認。詳細: [[2026-05-23_ai-researcher_relevance緩和とソース修復]]
 - **過去の状況**: ✅ **Max 20x 完結化 完了 (セッションθ、2026-05-19 10:22) → slug パス区切りバグ修正 (2026-05-19 21:10)** — 朝の YD 指摘 ([[2026-05-19_API依存撤廃_Max20x完結化]]) を受け、Anthropic SDK + ANTHROPIC_API_KEY 依存を撤廃し `claude -p` (Claude Code ヘッドレス) に書き換え。月課金 $0、Max 20x プラン枠で完結。**夜の slug バグ**: google_research の RSS guid が URL 形式 → `Article.slug()` が `source_id` を素通し → pathlib で `/` が path 区切り扱いになり 10:03/11:03 の collect が kept=0 で空回り → `src/utils/models.py:29-33` を 3 行修正 (`sid = slugify(self.source_id, max_length=24)`) で全 source の事故を予防 → `collect` 再走で過去失敗分 5 件全復旧 ([[claude_mistakes]] A-10 + [[ai_researcher]] 必須3セクション更新済)
 - **パス**: `~/projects/ai-researcher/` (Python 3.11 + uv)
@@ -428,6 +433,7 @@ update_frequency: 週1回以上
 - **関連**: [[parallel_claude]] (運用マニュアル、必須3セクション付き)、[[2026-05-20_parallel-claude_監視基盤構築]] (意思決定)、[[claude_mistakes]] A-11 (UTF-8 decode) / A-12 (状態判定片肺)
 
 ### 16. business-plan-sprint-2026-05-19 (12並列ビジネスプラン発散→統合)
+- **⚫ 2026-07-11 アーカイブ済み** (`~/AI projects/_archive/business-plan-sprint-2026-05-19`)。FINAL_REPORT 3案 (LegalTrio/職人EC/相続SaaS) の意思決定は未完のまま — 本エントリの要約が正本
 - **状況**: ✅ **初回ラン完了 (2026-05-20 03:13→04:06、約53分)** — 15 prompts (発散×7 / 統合×3 / 雑務×2 + 後追い3) を `claude -p` で並列実行、Synthesis が `FINAL_REPORT.md` 生成。**実支払い $0** (Max 20x 完結)。
 - **パス**: `~/projects/business-plan-sprint-2026-05-19/`
 - **成果物**:

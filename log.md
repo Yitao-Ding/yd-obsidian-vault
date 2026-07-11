@@ -1626,3 +1626,16 @@
 [2026-07-07 21:20] ホーム全体整理完了: 整理済み→ALL WORKsリネーム+新6フォルダ (素材/学校/プライベート/団体/スクショ/アーカイブ)、582移動・削除ゼロ・可逆TSV。Fable計画/Sonnet5×3実装。decisions/2026-07-07_ホーム全体整理_新フォルダ構造.md
 [2026-07-08 20:50] OOO Studio ブランド基盤構築開始: ドメイン ooo-studio.jp 取得(お名前.com)、Google Workspace Business Standard アカウント作成(yitao-ding@ooo-studio.jp)、DNS所有権証明TXTレコード登録+ネームサーバー変更申請完了(伝播待ち・最大72h)。ブランド方針=親OOO Studio(法人・Workspace器)+子Yitao Film継続、Hi,Me:)は将来同傘下想定。decisions/2026-07-08_OOO-Studio_ブランド基盤構築.md
 [2026-07-09 19:27] Notion新アカウント(yitao-ding@ooo-studio.jp)へYitao Film案件管理ダッシュボード再構築完了: 8クライアント/10案件/84タスク、ホーム刷新(board/カレンダー/アーカイブ分離)、名称訂正(ダンスでチャリティー/平成たち祭)。decisions/2026-07-09_Notion新アカウント移行_ダッシュボード再構築.md
+[2026-07-09 19:44] Fable5記事(X長文@claudecode84)をYD依頼で仕分け→自己改善パターン5件をvault_improvement_proposals.mdに追加。①(a)設計フェーズ突入前Driftチェックをグローバル~/.claude/CLAUDE.mdに実装(D-4/D-5撲滅、記事DriftMonitorのMax20x完結翻訳)。②〜⑤はpendingで選別待ち
+[2026-07-09 20:05] Fable5改善②〜⑤実装(YD「ガンガン」): ②成功パターン登録簿 knowledge/programming/patterns/reusable.md 新設(mistakesの陽版)+Vault CLAUDE.md書込ルール&月次メンテに統合、③決定2026-05-26にbuilder/evaluator別モデル明記、④グローバルCLAUDE.mdにエスカレーション統合リスト新設、⑤claude_mistakesにfailure-mode横串タグ規約+D-4/D-5に#drift。proposals ②③④=resolved・⑤=partial(backfillは月次)
+[2026-07-11 01:41] Yitao Film 案件管理: 試作ダッシュボード3案 (A=コックピット/B=パイプライン/C=ミニマル+各詳細ページデモ) をNotionに構築、YD選定待ち。Workflow 7エージェント (builder=Opus×3/verifier=Sonnet×3/fixer=Opus)、既存DB無変更・リンクドビューのみ。空行YF-11/12をDB外へ退避。知見→ knowledge/programming/tools/notion_mcp_dashboard.md
+[2026-07-11 02:04] ai-researcher collect: 3 consecutive claude -p failures, kept 0
+[2026-07-11 03:03] ai-researcher collect: 3 consecutive claude -p failures, kept 0
+[2026-07-11 04:11] ai-researcher collect: raw=106 dedup=64 relevant=8 kept=8
+[2026-07-11 05:10] ai-researcher collect: raw=108 dedup=59 relevant=8 kept=8
+[2026-07-11 06:15] ai-researcher collect: raw=108 dedup=52 relevant=8 kept=8
+[2026-07-11 07:11] ai-researcher collect: raw=112 dedup=48 relevant=8 kept=8
+[2026-07-11 08:09] ai-researcher collect: raw=112 dedup=43 relevant=8 kept=8
+[2026-07-11 09:15] ai-researcher collect: raw=111 dedup=34 relevant=8 kept=8
+[2026-07-11 10:09] ai-researcher collect: raw=112 dedup=28 relevant=8 kept=8
+[2026-07-11 02:00] AI projects フォルダ大整理: 旧~/projects移転で壊れたlaunchd4本+スキル3本を修復、6プロジェクトを_archiveへ移動、morning-briefing停止 (ai-researcherに一本化)、3リポジトリをGitHub privateへバックアップpush、salamat-website-v2全面改修が進行中

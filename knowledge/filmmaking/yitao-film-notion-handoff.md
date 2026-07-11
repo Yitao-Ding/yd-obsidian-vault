@@ -44,6 +44,7 @@
 - 工程の丸数字 (①〜⑬) は Unicode エスケープ手打ちだと1つズレやすい。**リテラル文字を直接書く**こと。
 - ホームページの title 文字列に絵文字を入れない (icon と二重表示になる)。絵文字は icon 側のみ。
 - UNIQUE_ID の PREFIX が workspace 内で使用済みだと 409。別 prefix にフォールバックする。
+- **2026-07-11 追記**: トグルは `<details>` 生タグより heading-toggle 構文 (`## 見出し {toggle="true"}`) が安定。`<table>` は複数行タブインデント必須 (1行詰めは生タグ化して表示が壊れる)。チェックボックスの view フィルタは `FILTER "完了" = "__NO__"` が通る。ビューは columns/トグル内に置けない (create-view は常にページ末尾追記、insert_content と交互に呼んで順序制御)。ページ削除ツールは無い → ゴミ行は move-pages で DB 外へ退避。詳細 → `knowledge/programming/tools/notion_mcp_dashboard.md`
 
 ---
 

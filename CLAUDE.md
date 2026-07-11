@@ -90,6 +90,7 @@ knowledge/ や decisions/ にファイルを作成・更新する際は、
 | 新しい知識・ノウハウ | `knowledge/<領域>/<名称>.md` | Wiki形式 |
 | 進行中プロジェクトの変化 | `current_state/active_projects.md` を更新 | - |
 | **Claude 自身のミス** | **`mistakes/claude_mistakes.md` に追記** | 状況・誤り・正解・防止策 |
+| **再利用可能な成功パターン** (3回以上成功) | **`knowledge/programming/patterns/reusable.md` に追記** | 状況・なぜ効いた・再利用テンプレ・昇格先 |
 | 新しい raw データ | `raw/<カテゴリ>/<日付>_<名称>.md` | そのまま |
 | 完了したプロジェクト | `archive/` に移動 | - |
 
@@ -144,6 +145,7 @@ knowledge/ や decisions/ にファイルを作成・更新する際は、
 - **リンク漏れ検出** — 関連性が高いのにリンクされていないページ
 - **archive 移動** — 完了プロジェクトのアーカイブ化
 - **current_state 更新** — 現状とのズレを修正
+- **成功パターンの昇格** — `log.md`/`decisions/` から「3回以上やった型」を拾い [[reusable]] (`knowledge/programming/patterns/`) へ登録 (テンプレ/knowledge/skill 化)。mistakes の「陽」の対。詳細 [[vault_improvement_proposals]] 2026-07-09 ②
 
 ---
 
