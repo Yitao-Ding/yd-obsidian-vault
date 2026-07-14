@@ -1698,3 +1698,4 @@
 [2026-07-14 16:08] ai-researcher collect: raw=110 dedup=52 relevant=8 kept=8
 [2026-07-14 17:09] ai-researcher collect: raw=110 dedup=46 relevant=8 kept=8
 [2026-07-14 17:53] CC-business 0→100全面リバンプ+文体改稿 完了 (監査143件→8WP実装+E2E緑、教材149本+LP改稿「正直」71→17。commits 5d2b1cb→c361c33、詳細=decisions/2026-07-13_CC-business_全面リバンプと文体改稿完了.md)
+[2026-07-14 17:55] Yitao Film 案件管理: YD採択のB案を正規ホームへ移植完了+全10案件ページに「このPJのタスク」ビュー設置 (行追加=タスク作成・リレーション自動)。ホーム=パイプラインboard/タスク締切カレンダー/PJ横断タスク(締切順+工程別)/お金/クライアント/アーカイブ。MCPのrelation値フィルタ非対応が判明→Chrome自動操作で10ページ分のフィルタをUI設定 (件数全件一致検証済)。知見追記→ notion_mcp_dashboard.md
