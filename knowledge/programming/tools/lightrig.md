@@ -2,7 +2,7 @@
 type: knowledge
 area: programming/tools
 created: 2026-07-11
-last_updated: 2026-07-11
+last_updated: 2026-07-14 (v1.1 反映)
 ---
 
 # LightRig — スタジオ照明セッティング記録アプリ
@@ -21,7 +21,8 @@ last_updated: 2026-07-11
 ## 使い方・運用
 
 - 導入: `open "~/AI projects/Lighting/LightRig.xcodeproj"` → scheme (LightRig-iOS / LightRig-macOS) + 端末選択 → ▶。証明書は約1年有効、年1回▶し直し
-- 操作: 1本指ドラッグ=カメラ回転 / ライトをドラッグ=床平面移動 / タップ=選択→インスペクタ / 2本指=注視点移動 / ピンチ=ズーム
+- 操作 (v1.1): ライト/レフ板は**そのままドラッグで移動** (選択不要) / 1タップ=選択 / **2タップ=インスペクタ** / 空ドラッグ=半球ドームカメラ (横=周回・縦=上下、床が下限、注視点は被写体固定) / ピンチ=ズーム / 右下ボタンで視点プリセット (正面/45°/俯瞰/リセット)
+- レフ板: +メニュー→レフ板を追加 (白/黒/カスタム色、幅・高さ 0.3〜3.0m)。背景紙は既定で壁全幅、部屋はプリセット (小5×4/標準8×6/大12×9)
 - プレビュー光量は見た目チューニング値 (`ColorMath.previewLumens`: LED W×8 / ストロボ Ws×6)。**保存データは生値** (%・K・hex) なので描画を変えても記録は不変
 - 3D は SceneKit (WWDC25 deprecated だが Xcode 26 で完全動作)。将来 RealityKit 移行は `Scene/` 2ファイル置換で済む設計
 
@@ -38,6 +39,8 @@ last_updated: 2026-07-11
 - **チームIDの誤推測**: 証明書 CN の括弧内 (L55GP6S566) は個人識別子。正 = OU フィールド (FC2V887B8C)。詳細 [[claude_mistakes]] B-7
 - **Apple PLA 更新の未同意**で provisioning 全滅 (「PLA Update available」)。本人が developer.apple.com で同意 → 反映されない時は Xcode Accounts でアカウント削除→再サインイン
 - **simctl 無応答はランタイムDL中だった**: 「CoreSimulator ハング」に見えたが実は iOS 26.5 ランタイムを自動DL中 (数十分)。壊れたと決めつけず Install ログを待つ
+- **NSClickGestureRecognizer に `require(toFail:)` は無い** (UIKit 専用 API)。macOS のシングル/ダブルクリック共存は「単クリック=選択が先に走り、ダブル成立時にインスペクタを追加で開く」設計で抑制不要にするのが正解 (v1.1 統合で修正)
+- v1.1 の教訓: **実機を触った本人の操作FBが最速の仕様書**。「選択→メニュー出っぱなしでドラッグ」の不便さはスクショ検分では見えなかった。操作系は初回から「直接操作 (ドラッグ即移動) + 詳細は明示アクション (2タップ)」に寄せるべき
 - SceneKit の光量: 実 lm/W をそのまま入れると白飛び (LED 110→8 に減衰)。SCNVector3 は iOS=Float / macOS=CGFloat で成分型が違う
 
 ## 📋 次回同じことをするときのチェックリスト

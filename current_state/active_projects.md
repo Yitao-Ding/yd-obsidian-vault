@@ -1,6 +1,6 @@
 ---
 type: current_state
-last_updated: 2026-06-06 (パソコン1台の学校: ★ドメイン接続完了=pc1school.com を お名前.com で取得→Vercel接続(apex+www / NS=Vercel / SSL / HTTPS200確認)。Stripe本番化フォーム回答を全確定(商品説明文/明細書表記/改正割販法セキュリティアンケート)=CC-business/STRIPE-ACTIVATION.md。残=Stripe本番キー sk_live_ + 本名→brand.ts + Resend検証 + Stripe/Vercel 2FA。正本=CC-business/HANDOVER.md §12)
+last_updated: 2026-07-14 (パソコン1台の学校: ★0→100全面リバンプ+文体改稿 完了=監査143件→8WP実装+E2E緑+教材149本文体改稿。正本=CC-business/HANDOVER.md §14。残=YD作業のみ: 本名/Stripe本番キー+店舗名/RESEND_FROM/再デプロイ可否。旧: ドメイン接続済=§12)
 update_frequency: 週1回以上
 ---
 
@@ -27,6 +27,7 @@ update_frequency: 週1回以上
 - **関連**: [[2026-07-08_OOO-Studio_ブランド基盤構築]]、`identity/profile.md`(本名「丁一韜」表記追記済み)
 
 ### ★ パソコン1台の学校 (SNS情報商材システム、2026-06-03 着手) ★
+- **★ 0→100全面リバンプ+文体改稿 ✅完了 (2026-07-11→07-13、Fable司令塔/Opus実装/Sonnetゲート)**: YD指示「フロント/バック/UI/UXを根本から全部見直して全部修正」+「文章のAIっぽさを排除」→ ①全方位監査143件(反証検証付き・誤検知0) ②8WP実装(特商法プレースホルダ根治/価格単一情報源化=¥15,000リテラル全廃/コードコピー766箇所/モバイル可読性/進捗・続きから/JS無しLP可視/全AAコントラスト/git管理化) ③E2E全通過・リグレッション0 ④教材149本+LPの文体全面改稿(「正直」71→17・オープナー149本全ユニーク・リンク353/フェンス384/図32無傷を機械証明)。commits `5d2b1cb`→`c361c33`(ローカルのみ、push未)。文体正本=`CC-business/REVAMP-2026-07-11/VOICE-RULEBOOK.md`(今後の新規コピーにも適用)。**残=YD作業: 本名→brand.ts / Stripe本番キー+店舗名 / RESEND_FROM / 残席実数表示の判断 / テストURL再デプロイ可否**。詳細=[[2026-07-13_CC-business_全面リバンプと文体改稿完了]] / HANDOVER.md §14
 - **★ 教材v2全面改訂 ✅完了 (2026-07-03→07-05、Fable5設計/Sonnet5実装)**: 全86レッスン監査(worth3〜4/10・PII破損9箇所)+Vault発掘7領域 → **全10コース(C0〜C9)・40章・149レッスン・37.1万字**(旧6コース86本7.9万字の4.7倍)に全面改訂。新設=C0準備の学校(インストール/費用全開示)・C7クリエイティブ(vidkit/AE案件/AI音楽/共有サイト)・C8タスク案件管理(Notion84タスク実録)・C9舞台裏(この商品自体の制作記録)。図解32・コピペブロック384。検収=Fable全数、機械スイープ(PII/リンク/異常文字0)、build緑、Playwright実機確認済。本文正本=`content-src/lessons/`(md→bodies.ts生成)。**残=YD判断: ①テストURLへのv2デプロイ ②localhost FM実名化可否 ③外注額の絶対額表記可否 ④~/.claude.jsonのAPIキー平文→ローテーション推奨**。詳細=CC-business/HANDOVER.md §13。
 - **状況**: 🟢 **テストモードで本公開済・購入フロー全検証済(2026-06-04) / 本番化はYD入力待ち(正本=CC-business/HANDOVER.md)**。テストURL=https://cc-business.vercel.app (noindex/Protection無効/Stripeテスト鍵)。Playwrightで 購入→決済→/unlock→/learn 全6解放→レッスン本文 まで end-to-end 確認済。SNS(Instagram+Threads)で売る情報商材一式、中身の主役=Claude Code(裏方)。真の目的=YD が情報商材の稼ぎ方を実験的に見てみる。
 - **パス**: `/Users/ittou/projects/CC-business`(`web/` が Next.js 16 + Tailwind v4)。**正本引き継ぎ=`CC-business/HANDOVER.md`**
@@ -145,42 +146,42 @@ update_frequency: 週1回以上
 - **次**: ① Phase C = 平成たち祭 (YF-4) 納品7/12完了後に450G規格化+SANA移設+FCPライブラリ同居+Pictures振り分け ② 対話仕分け167G (YDと一緒に) ③ ゴミ候補削除GO ④ Notion MCPは `mcp__claude_ai_Notion__*` で接続済み (案件DB= collection://c8b35e29-...)
 - **関連**: [[2026-07-11_データ整理規格v3_PhaseA完了]]
 
-### ★ LightRig (スタジオ照明セッティング記録アプリ、2026-07-11 v1完成) ★
-- **状況**: ✅ **v1完成・YD実機導入開始済** (iPhoneへのXcode Run成功)。スタジオで組んだ照明 (機材/位置/出力%/色温度K/ジェルsRGB/モディファイア) を3Dで記録し、撮影写真と紐付けて見返す個人アプリ。iPhone/iPad/Mac 対応、iCloud (CloudKit) 自動同期。
-- **パス**: `~/AI projects/Lighting` (正本=`HANDOVER.md`、設計=`DESIGN.md`)。git ローカルのみ (リモート未設定・push未)
+### ★ LightRig (スタジオ照明セッティング記録アプリ、2026-07-11 v1→同日v1.1) ★
+- **状況**: ✅ **v1.1完成・YD iPhone実機で使用中** (実機フィードバック7点を同日反映済)。スタジオで組んだ照明 (機材/位置/出力%/色温度K/ジェルsRGB/モディファイア) を3Dで記録し、撮影写真と紐付けて見返す個人アプリ。iPhone/iPad/Mac 対応、iCloud (CloudKit) 自動同期。
+- **★ v1.1 (2026-07-11 実機FB対応)**: 1タップ=選択 / **2タップ=インスペクタ** / ドラッグは選択不要で直接移動。首振り自由化 (aimAtSubject 既定OFF、壁当て可)。**レフ板** (StudioProp: 白/黒/カスタム色・サイズ自由・ドラッグ可)。インスペクタ刷新 (セクション+大型値表示+全体ダーク)。背景紙を壁全幅化。部屋プリセット (小/標準/大)。視点プリセットボタン (正面/45°/俯瞰/リセット)。**カメラ半球ドーム化** (注視点=被写体固定・床が下限・2本指パン廃止、YD発案)。スキーマ変更は追加のみで既存データ/CloudKit互換。
+- **パス**: `~/AI projects/Lighting` (正本=`HANDOVER.md` §0a、設計=`DESIGN.md` §8=v1.1契約)。git ローカルのみ (リモート未設定・push未)
 - **スタック**: SwiftUI + SceneKit + SwiftData/CloudKit + XcodeGen。機材カタログ49機種 (Profoto/Godox/Aputure/Amaran/Nanlite/Generic、`fixtures.json` に1行追加で増やせる)。チームID=FC2V887B8C (証明書OU由来、[[claude_mistakes]] B-7)
-- **品質**: iOS/macOS ビルド green・テスト25件 pass・macOS実機+iPhone/iPadシミュレータの3面で視覚検分済 (露出/形状/照射方向はFable検分→Sonnet修正ループ6ラウンド)
-- **残TODO (YD)**: ① iPad/Mac にも Xcode Run で導入 ② **2台間で写真付きセッティングの iCloud 同期を実機確認** (externalStorage→CKAsset 同期は Apple 公式に明記なし、唯一の未実証点。NGなら同期方式を組み替える) ③ 年1回 Xcode から再 Run (証明書 約1年)
+- **品質**: iOS/macOS ビルド green・テスト25件 pass。v1.1 も iPhone 17 Pro シミュレータ実描画で Fable 検分済 (レフ板/壁全幅/ダークUI/視点ボタン/新インスペクタ)
+- **残TODO (YD)**: ① 実機に ▶ で v1.1 反映 (iPhone/iPad/Mac 各1回) ② **2台間で写真付きセッティングの iCloud 同期を実機確認** (externalStorage→CKAsset 同期は Apple 公式に明記なし、唯一の未実証点。NGなら同期方式を組み替える) ③ 操作感 (ドラッグ感度・プリセット角度) の微調整FBあれば随時 ④ 年1回 Xcode から再 Run (証明書 約1年)
 - **関連**: [[lightrig]] (knowledge/programming/tools/)
 
 ### ★ easy-share (社内 撮影素材 共有・プレビューツール、2026-05-31 着手) ★
-- **★ 公開URL(稼働中・正式運用)**: **https://easyshare-fx.vercel.app**(Vercel 本番、Deployment Protection 無効=認証なし公開、YD 認可済「セキュリティ不要・公開OK」)。本物の FX30 実素材(4プロジェクト: 2026-05-30/05-31/sample/写真、flat+4ルックWebGL切替、写真/動画分離)がライブ表示。
-- **★ ストレージ = Cloudflare R2(2026-06-02 移行完了・本番稼働)**。バケット `easy-share-media`、公開ベース `https://pub-6cfa3ffdc3ec456790e058cce335c70d.r2.dev`。Vercel 本番 env `NEXT_PUBLIC_ASSET_BASE` が R2 を指す。10GB無料/egress永久無料/3TB$45月。認証は `~/.config/rclone/rclone.conf [r2]` と gitignore config のみ(Vault非保存)。CORSキャッシュ罠は `VideoView` の poster属性削除で解決済(再付与厳禁)。
-- **★ Finder 風 閲覧UIに全面刷新 (2026-06-02)**: 旧1枚スクロールギャラリーを置換。4表示モード(アイコン/リスト/カラム/ギャラリー)+ツールバー切替(⌘1-4)、サイドバー(スマートグループ すべて/最近/動画/写真 + プロジェクト別)、ソート/フィルタ/横断検索/サイズ、Quick Look(フォーカストラップ)、URL共有(?view=&g=&p=&asset=)、localStorage永続化、レスポンシブ(モバイル=ドロワー/カラム非表示/タップで開く)、a11y強化。`web/src/components/browser/` 新設+`GalleryApp.tsx`書換。設計workflow→実装→レビューworkflow(41提起→反証18確定→反映)。
-- **★ 写真原本のアップロード&サイトDL (2026-06-02)**: `process.sh` の `UPLOAD_ORIGINALS` を 0/photos/all 化(既定 photos=写真原本のみR2、Content-Disposition:attachment付与)。サイトの「元データをDL」は写真のみ表示(動画原本は未対応=404防止)。既存本番写真 **77枚(2.15GB)を R2 にバックフィル済**(公開URLで 200+attachment 確認)。動画原本も要れば config を all + Webの !isVideo ゲート解除で対応。
-- **★ git 初コミット (2026-06-02)**: easy-share を独自リポジトリ化(親 `~/projects` 直下に未追跡だった)。2コミット(初コミット=Finder UI+取り込み一式 / 写真原本DL)。**push はまだ**(YD許可待ち)。secrets(config.sh/.env*/rclone)・LUT(*.cube)・大容量メディア(`sample/`=RAW1GB, `public/sample/derivatives/`=250MB)は .gitignore 除外。
-- **★ B案(クライアントサイドLUT)**: 動画は flat 1本だけエンコード、4ルックは**ブラウザ WebGL2 で .cube LUT をリアルタイム適用**(`VideoView.tsx`)。LUT は R2 `luts/<id>.cube`、`process.sh` のR2経路でlut自動アップ。
-- **★ 「Google Drive 風」全自動・常駐運用 稼働**: **`~/EasyShareDrop/`** に放り込む → `watch.sh`(**launchd `com.easyshare.watch` 常駐**)→ `autosort.sh`(撮影日で自動振り分け、重複は `_duplicates/` 温存)→ `process.sh`(UPLOAD=1/STORAGE=r2)で色変換+R2自動アップ→公開URL反映。サブフォルダ名=プロジェクト名。
-- **★ iOS DL 灰色四角バグ解決 (2026-06-17)**: 写真原本(.ARW)を iPhone でDL→アルバム保存すると灰色の四角形になっていた。**原因はファイル形式でなく配信ヘッダ** — 原本の `Content-Disposition` に filename が無く iOS Safari が拡張子を落としていた(手動バックフィルの付け忘れ。ファイル自体は SHA-256 一致・QuickLook 描画可で完璧)。**全77枚の CD に filename 付け直し済**(`ingest/fix-original-headers.sh`、本体再送なしサーバサイドコピー、`--metadata-set`)。`process.sh` は元々正常。**要 YD 実機確認**(DL→アルバム→灰色にならないか)。詳細 [[rclone_r2_metadata]] / [[claude_mistakes]] B-6。
-- **状況**: 🟢 **本番稼働中・全機能 実機検証済 (2026-06-02)**。R2移行 + Finder UI刷新 + 写真原本DL まで完了、Playwright で本番URL含めフル動作確認(コンソールエラー0、tsc/lint/build green)。**正本=`~/projects/easy-share/HANDOVER.md`**。2026-06-17 に iOS DL 灰色四角バグを修復(↑、実機確認待ち)。
+- **★ 2026-07-11 Fable司令塔で0→100全面見直し完了**: YD指示で Fable=司令塔(計画/監視/検分)・実装は Opus/Sonnetサブエージェント委譲の体制。7視点全域監査→統合バックログ**64件**(P0=2/P1=10/P2=29/P3=23、反証検証で棄却0)→Wave1-4で修正実装(main へ8コミット、各Waveで敵対的レビュー)→**本番は Wave3 まで反映済み**(Wave4リファクタは未デプロイ)。あわせて launchd watcher 復旧(プロジェクトディレクトリ移動でplistパスがずれ7,547回クラッシュループ→取り込み1ヶ月停止していたのを修正)、R2孤児ファイル1.18GiB掃除(総量2.70GiB化)、Vercel env(NEXT_PUBLIC_ASSET_BASE)をPreview/Developmentにも追加。詳細・全記録は正本 `HANDOVER.md` と `docs/overhaul-2026-07-11/`。
+- **★ 公開URL(稼働中・正式運用)**: **https://easyshare-fx.vercel.app**(Vercel 本番、Deployment Protection 無効=認証なし公開、YD 認可済「セキュリティ不要・公開OK」)。本物の FX30 実素材(写真77枚、flat+4ルックWebGL切替、写真/動画分離、mid派生完備)がライブ表示。
+- **★ ストレージ = Cloudflare R2(本番稼働)**。バケット `easy-share-media`、公開ベース `https://pub-6cfa3ffdc3ec456790e058cce335c70d.r2.dev`。Vercel env `NEXT_PUBLIC_ASSET_BASE` が R2 を指す(本番+Preview+Development)。10GB無料/egress永久無料/3TB$45月、現在総量2.70GiB。認証は `~/.config/rclone/rclone.conf [r2]` と gitignore config のみ(Vault非保存)。CORSキャッシュ罠は `VideoView` の poster属性(直接付与しない、`<img>`オーバーレイ方式)で解決済。
+- **★ B案(クライアントサイドLUT)**: 動画は flat 1本だけエンコード、4ルックは**ブラウザ WebGL2 で .cube LUT をリアルタイム適用**(`VideoView.tsx`、WebGL資源解放+LUTキャッシュ対応済)。LUT は R2 `luts/<id>.cube`、`process.sh` のR2経路でlut自動アップ。
+- **★ 「Google Drive 風」全自動・常駐運用 稼働**: **`~/EasyShareDrop/`** に放り込む → `watch.sh`(**launchd `com.easyshare.watch` 常駐**、ログは `~/Library/Logs/easyshare.watch.log`)→ `autosort.sh`(撮影日で自動振り分け、重複は `_duplicates/` 温存)→ `process.sh`(UPLOAD=1/STORAGE=r2、mid派生生成、失敗時manifest非更新で堅牢化済み)で色変換+R2自動アップ→公開URL反映。サブフォルダ名=プロジェクト名。
+- **状況**: 🟢 **本番稼働中(Wave3相当)**。iOS DL 灰色四角バグ(2026-06-17)修復済み。**正本=`~/AI projects/easy-share/HANDOVER.md`**。
 - **用途**: ダンス×クリエイティブチーム 4 名(全員 Mac+iPhone)が、FX30 S-Log3 動画 + ARW RAW を**その日のうちに色を揃えて軽くプレビュー・共有**。素材は**プロジェクト単位**で振り分け(①/②…)。商用配布ではない社内ツール。
-- **確定スタック**: 取り込み = Mac ネイティブ(sips + ffmpeg hevc_videotoolbox + rclone + fswatch) / ストレージ = Cloudflare R2(egress0) / 認証 = Cloudflare Access(4 メール) / 閲覧 = Next.js 16 PWA on Vercel(Spotify 風ダーク)
+- **確定スタック**: 取り込み = Mac ネイティブ(sips + ffmpeg hevc_videotoolbox + rclone + fswatch) / ストレージ = Cloudflare R2(egress0) / 認証なし(YD認可) / 閲覧 = Next.js 16 PWA on Vercel(Spotify 風ダーク + Finder風レイアウト、アクセントはコバルトブルー)
 - **色の核心(検証済 partial)**: 写真は ColorSync で堅牢一致 / 動画は 709 タグ必須(未タグ=Safari が BT.601 誤解の最悪パターン)/ **S-Log3 は必ず Rec.709 LUT を焼く**(タグ不能)/ True Tone・自動輝度・Night Shift は全員オフ運用 / 最終色判断は NLE で(ツールはレビューまで)
 - **graded =「ルック切替式」**(YD 提供 FX3 4 ルック Film Tone/Camp Moody/Blue Snow/Pure Night)。`ingest/luts/*.cube` を各ルックとして自動列挙、ビュアーで flat ⇄ 各ルックをトグル切替。proxy はルック分生成(flat+4=5本/クリップ、videotoolbox で軽い)。.cube 出し入れで増減
-- **本番認証は単一オリジン必須**(別ホスト Access はサブリソース 302 で素材が壊れる)→ 本番デプロイは all-Cloudflare(OpenNext)推奨に修正(Phase 1 の Vercel から)。手順は `SETUP.md`
-- **実機で潰したバグ**: hevc_videotoolbox の色タグ未書き込み → `setparams` 焼き込み / Tailwind v4 `@theme inline` で色未生成 → 非 inline + 再起動(計算済みスタイル検証で発見)
-- **残課題(優先度順)**:
-  - [ ] B案の色を本物素材で YD が端末確認(iPhone/Mac 実機。良ければB継続)
-  - [ ] git push 可否判断(初コミット済・未push)。push するならリモート先決め(GitHub private 等)
-  - [ ] r2.dev → カスタムドメイン(本格運用時。egress無料のまま)
-  - [ ] R2の古い `look-*.mp4`(旧A案焼き残骸)/ Vercel Blob(1GB満杯)の掃除
-  - [ ] 動画原本もDLしたくなったら config `UPLOAD_ORIGINALS=all` + Web の `!isVideo` ゲート解除
-  - [ ] easyshare-fx は手動エイリアス運用(`vercel --prod` 後に `vercel alias set <deploy> easyshare-fx.vercel.app`)。本番ドメイン化で自動化も可
-- **パス**: `~/projects/easy-share/`(HANDOVER.md=正本 / DESIGN.md / ingest/ / web/src/components/browser/)
+- **実機で潰したバグ**: hevc_videotoolbox の色タグ未書き込み → `setparams` 焼き込み / Tailwind v4 `@theme inline` で色未生成 → 非 inline + 再起動 / Tailwind v4 トークン名衝突(`--color-base`が`.text-base`を潰す)→`canvas`に改名
+- **残タスク(次セッション、優先度順、詳細はHANDOVER.md)**:
+  - [ ] 最終 0→100 再監査(7/11はセッション上限で未実施)
+  - [ ] Wave4 のデプロイ(プレビュー→YD確認→本番+alias)
+  - [ ] ルートdocs(README/SETUP/DESIGN)の実態同期
+  - [ ] git履歴 squash → push 可否確認(旧コミットにR2アカウントID残存)
+  - [ ] F3: 動画原本バックアップ(Time Machine/外付けSSD)の手順明文化
+  - [ ] F6: easyshare-fx を Vercel Project Domain化(手動alias運用を解消)
+  - [ ] Vercel Blob ストア本体の削除(データはR2移行済み)
+  - [ ] 非ブロッキング残(stem衝突/StatusBar端数表示/横断グループ重複表示/グリッドsrcset/mid再試行なし 等)
+- **パス**: `~/AI projects/easy-share/`(HANDOVER.md=正本 / DESIGN.md / ingest/ / web/src/components/browser/ / docs/overhaul-2026-07-11/=2026-07-11監査・Wave記録)
 - **関連**: [[2026-05-31_easy-share設計確定]]、[[2026-06-02_easy-share_FinderUI刷新と写真原本DL]]、リサーチ workflow `wafcglinq`
 
 ### ★ Project Agent Application (Z 世代向け青春タスクアプリ、2026-05-23 着手) ★
-- **状況 (2026-06-06 最新)**: 🟢🟢🟢 **シミュレータ実機で MOCK モード起動成功 + 全画面ツアー着手**(2026-06-06 CC4)。pod 全 update 整合 → `expo run:ios` で native 再ビルド → ホーム(CD「青春の余白」)正常表示。全画面ツアーは **cliclick タップ並走方式を確立**(deep link は dev-client で不可)、主要 8 画面収集 + 一次所見(設定プロフィール「読み込み中」疑い / AssistiveTouch 大ギア全画面被り / 設定・振り返り右上キャラアイコン要確認)。**YD「YD 手動巡回 + 僕が並走」方式に合意 → 次セッションでツアー継続 → 狙い撃ち修正**。起動/ツアー手順 memory = [[sim-launch-and-tour-method]]。正本 = HANDOVER.md 冒頭 2026-06-06 CC4。
+- **★★ 状況 (2026-07-13 最新、Fable 司令塔で 0→100 全面改修 完了) ★★**: 🟢🟢🟢🟢 YD「フロント/バック/UI/UX が気に入らない、全部見直して」→ Fable=監査/計画/検収 + 実装 Opus・Sonnet の分業で全面改修。**監査 10次元→105所見** → **3 Wave 実装・全便 Fable 実体検収 (tsc/jest/eslint 再現+P0/P1直読+MOCK保全)**。ブランチ `overhaul/2026-07`(未push・main未マージ)に 4 コミット (13335b7 W1 / 4e4dd3d W2 / 1fc0bd5 W3 / 238254f docs)、99ファイル +15427/-8022。**★ P0×3 の MOCK デモ破壊 (コメント/タスク完了/PJ完了クライマックスが戻る) を根治** + HANDOVER 最優先「設定プロフィール読み込み中固定」根治 + バックエンド認可穴封鎖 + 画面の状態機械整合 + デザイン磨き込み。**YD 判断待ち4点**: ①バックエンド実DB適用GO(migration022+Edge7本deploy、GOでFable代行・未適用でも無変更) ②お宝箱の新演出画面(新機能) ③審査/安全系(アカウント削除・UGC通報・Push・Sentry) ④MOCK cold-restart永続化。**正本 = `~/AI projects/project-agent-application/OVERHAUL_2026-07.md` + HANDOVER.md 冒頭 2026-07-13**。走行中BG便なし。YD側=実機確認+push可否。詳細 [[2026-07-13_PAA全面改修]]。
+- **状況 (2026-06-06、改修前)**: 🟢🟢🟢 **シミュレータ実機で MOCK モード起動成功 + 全画面ツアー着手**(2026-06-06 CC4)。pod 全 update 整合 → `expo run:ios` で native 再ビルド → ホーム(CD「青春の余白」)正常表示。全画面ツアーは **cliclick タップ並走方式を確立**(deep link は dev-client で不可)、主要 8 画面収集 + 一次所見(設定プロフィール「読み込み中」疑い / AssistiveTouch 大ギア全画面被り / 設定・振り返り右上キャラアイコン要確認)。**YD「YD 手動巡回 + 僕が並走」方式に合意 → 次セッションでツアー継続 → 狙い撃ち修正**。起動/ツアー手順 memory = [[sim-launch-and-tour-method]]。正本 = HANDOVER.md 冒頭 2026-06-06 CC4。
   - (以下 2026-06-04/05) 🟢🟢 **実モード(本番DB)を mock スタブ状態から「複数人フルフロー」まで全配線完了 + 本番E2E実証**。1セッション15コミット: ① データ層7ファイル実配線(機能監査🔴8解消)+ 画面guard17件(🟠17)② DB migration 015–021 を実DB `lkrmziwygyyyijyabtzp` に適用(get_member_profiles RPC=users self-only越境の唯一点・PII非返却 / handle_new_user / create_tm・project・team / task_assignees.status整合 / avatars バケット)③ 作成系UI新規(PJ/Team/メンバー管理)④ Edge関数12個 deploy + Gemini鍵設定 + 招待join slugバグ修正。**★ 本番DBで E2E: バックエンド31/0 + アバター9/0 PASS(残留0で掃除済)** = 登録→TM/PJ/Team作成→招待join→タスク→提出→AI診断→振り返り→アバター写真 が全部繋がり実証済。MOCK友達デモ(FORCE_MOCK・TestFlight)は終始無傷。**残= YD実機UIツアー / design磨き込み / Google・LINE点灯(コンソール待ち)。コード的ブロッカーはほぼ打ち止め。** ★ **正本は `~/projects/project-agent-application/HANDOVER.md` の冒頭(2026-06-04 CC3続き)**。
   - (以下 2026-05-26 時点の履歴) 🟢 Phase 2 大方針再定義版 第 7 回 Spec Review Pass 確定 (2026-05-26) — planner ⇄ spec-reviewer 自立ループ 7 ラウンドで「致命 0 / 中 0 / 軽 1 (Section G 重複の Phase 2 持ち越し)」のクリーン仕様書完成。designer Sprint 01 + 07 第 1-2 弾 + 08-10 全件完了 (18+ ファイル、約 734KB)。builder Sprint 01 修正版完了 (33 ファイル、tsc/lint/expo export web/直書き grep 全部 Pass、Expo SDK 56 採用 + Tamagui 不採用)。qa/design-evaluator BG 走り中 (自立ループ初運用)
 - **★ 大方針再定義 (2026-05-26、パートナー雑談議事録より) ★**: 「Teams ライクなタスク管理アプリ」→ **「チームで頑張る過程を青春にして、頑張りを可視化する Z 世代向けハイブリッドアプリ」**。タスク管理は手段、目的は青春創出 + 頑張りの可視化 + 100% やりきれるチーム体験

@@ -32,6 +32,8 @@ tags: [notion, mcp, dashboard, linked-view, workflow]
 - **`<database url="既存DBのURL">` を content に書くと実DBが移動する (破壊)**。リンクドビューは `notion-create-view` か `<database data-source-url="collection://...">` のみ。`<page url="既存URL">` も同様に移動になる
 - `FREEZE COLUMNS` は fetch の view JSON に出ないため API では検証不可 → UI 目視のみ
 - Notion MCP には**ページ削除 (ゴミ箱) ツールがない**。DB のゴミ行は `notion-move-pages` で DB 外へ退避 → UI で削除、が現実解
+- **★ view DSL は relation の値フィルタ非対応 (2026-07-13 確定)**: `FILTER "案件" CONTAINS/=/IN <値>` は タイトル・32桁ID・ダッシュUUID・URL 全形式で **silently drop** され `advancedFilter.filters:[]` になる (エラーは出ない)。checkbox `= "__NO__"` や relation `IS EMPTY / IS NOT EMPTY` は通る = パーサは生きていて relation 値マッチだけ未実装。**「このPJのタスク」型のページ内スコープビューは API では完結できず、フィルタだけ Notion UI で手動設定 (ビュー右上 フィルター→案件→次を含む→ページ選択、約10秒) が必要**。3エージェント×13形式以上で実証
+- **`notion-query-data-sources` の mode=view はページ埋め込みのリンクドビューに対して常に `[]` を返す** (DB 本体のネイティブビューは正常)。埋め込みビューの行数検証は SQL (GROUP BY) で DS を直接集計して代替する
 
 ## 📋 次回同じことをするときのチェックリスト
 

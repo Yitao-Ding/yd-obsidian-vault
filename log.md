@@ -1645,3 +1645,56 @@
 [2026-07-11 13:06] ai-researcher collect: raw=112 dedup=17 relevant=0 kept=0
 [2026-07-11 14:03] ai-researcher collect: raw=111 dedup=16 relevant=0 kept=0
 [2026-07-11 13:40] データ整理規格v3確定+Phase A完了: 棚卸しWorkflow10領域→記号接頭辞全撤去・あやか/つんた収容・MAP.md再生成(Notion YF対応表)・4フォルダ=Extreme pro判明。Phase Cは平成たち祭納品(7/12)後
+[2026-07-11 16:06] ai-researcher collect: raw=0 dedup=0 relevant=0 kept=0
+[2026-07-11 13:20] 訂正: lecture-hub は終了済みPJだったと判明(YD指摘)。全面改修一式をアーカイブ化 — git branch overhaul/2026-07 を tag archive/overhaul-2026-07 に退避し削除、Vault decisions+knowledge を archive/ へ移動。push/deploy/DB変更は一切なし(実害ゼロ)。
+[2026-07-11 17:03] ai-researcher collect: raw=111 dedup=16 relevant=0 kept=0
+[2026-07-11 18:04] ai-researcher collect: raw=111 dedup=16 relevant=0 kept=0
+[2026-07-11 19:04] ai-researcher collect: raw=111 dedup=16 relevant=0 kept=0
+[2026-07-11 20:04] ai-researcher collect: raw=112 dedup=17 relevant=0 kept=0
+[2026-07-12 01:42] ai-researcher collect: raw=109 dedup=14 relevant=0 kept=0
+[2026-07-12 06:14] ai-researcher collect: raw=108 dedup=17 relevant=0 kept=0
+[2026-07-12 08:56] ai-researcher collect: raw=108 dedup=20 relevant=1 kept=1
+[2026-07-12 09:59] ai-researcher collect: raw=107 dedup=19 relevant=0 kept=0
+[2026-07-12 14:12] ai-researcher collect: raw=108 dedup=20 relevant=0 kept=0
+[2026-07-12 18:00] ai-researcher collect: raw=105 dedup=17 relevant=1 kept=0
+[2026-07-13 00:14] ai-researcher collect: raw=62 dedup=13 relevant=2 kept=2
+[2026-07-13 01:03] ai-researcher collect: raw=105 dedup=15 relevant=0 kept=0
+[2026-07-13 02:03] ai-researcher collect: raw=105 dedup=15 relevant=0 kept=0
+[2026-07-13 03:03] ai-researcher collect: raw=105 dedup=15 relevant=0 kept=0
+[2026-07-13 08:00] ai-researcher collect: raw=25 dedup=3 relevant=0 kept=0
+[2026-07-13 08:39] ai-researcher collect: raw=20 dedup=1 relevant=0 kept=0
+[2026-07-13 09:06] ai-researcher collect: raw=55 dedup=6 relevant=0 kept=0
+[2026-07-13 10:27] ai-researcher collect: raw=0 dedup=0 relevant=0 kept=0
+[2026-07-13 11:09] ai-researcher collect: raw=106 dedup=21 relevant=6 kept=6
+[2026-07-13 12:08] ai-researcher collect: raw=106 dedup=19 relevant=5 kept=5
+[2026-07-13 14:32] ai-researcher collect: raw=107 dedup=43 relevant=8 kept=6
+[2026-07-13 15:10] ai-researcher collect: raw=108 dedup=38 relevant=8 kept=8
+[2026-07-13 16:11] ai-researcher collect: raw=106 dedup=30 relevant=8 kept=8
+[2026-07-13 02:15] Project Agent Application 全面改修 完了(Fable司令塔+Opus/Sonnet実装、セッション保存): 監査10次元105所見→3Wave実装・全便Fable実体検収。branch overhaul/2026-07 に4コミット(99ファイル+15427/-8022、tsc0/jest34/eslint0)。P0×3のMOCKデモ破壊根治+設定読込中固定根治+バックエンド認可穴封鎖+画面状態機械整合+デザイン磨き込み。未push。YD判断待ち4点(実DB適用GO/お宝箱新演出/審査安全系/MOCK永続化)。正本=OVERHAUL_2026-07.md。
+[2026-07-13] easy-share 0→100全面見直しを保存 (作業7/11: Fable司令塔+Opus実装、監査64件→Wave1-4修正、本番反映、R2 1.18GiB掃除、watcher復旧)
+[2026-07-13 17:06] ai-researcher collect: raw=107 dedup=23 relevant=3 kept=3
+[2026-07-13 18:47] ai-researcher collect: raw=108 dedup=22 relevant=3 kept=3
+[2026-07-13 19:32] ai-researcher collect: raw=63 dedup=14 relevant=0 kept=0
+[2026-07-13 20:20] ai-researcher collect: raw=45 dedup=6 relevant=0 kept=0
+[2026-07-13 21:28] ai-researcher collect: raw=106 dedup=18 relevant=0 kept=0
+[2026-07-13 22:04] ai-researcher collect: raw=107 dedup=19 relevant=1 kept=1
+[2026-07-13 23:03] ai-researcher collect: raw=106 dedup=17 relevant=0 kept=0
+[2026-07-14 00:03] ai-researcher collect: raw=106 dedup=17 relevant=0 kept=0
+[2026-07-14 01:04] ai-researcher collect: raw=106 dedup=17 relevant=0 kept=0
+[2026-07-14 02:04] ai-researcher collect: raw=106 dedup=17 relevant=1 kept=1
+[2026-07-14 03:04] ai-researcher collect: raw=106 dedup=16 relevant=0 kept=0
+[2026-07-14 04:04] ai-researcher collect: raw=103 dedup=15 relevant=0 kept=0
+[2026-07-14 05:03] ai-researcher collect: raw=104 dedup=16 relevant=0 kept=0
+[2026-07-14 06:04] ai-researcher collect: raw=105 dedup=17 relevant=1 kept=1
+[2026-07-14 07:04] ai-researcher collect: raw=106 dedup=17 relevant=1 kept=1
+[2026-07-14 08:04] ai-researcher collect: raw=105 dedup=16 relevant=0 kept=0
+[2026-07-14 09:05] ai-researcher collect: raw=107 dedup=18 relevant=2 kept=2
+[2026-07-14 11:14] ai-researcher collect: raw=0 dedup=0 relevant=0 kept=0
+[2026-07-14 12:15] ai-researcher collect: raw=0 dedup=0 relevant=0 kept=0
+[2026-07-14 13:16] ai-researcher collect: raw=0 dedup=0 relevant=0 kept=0
+[2026-07-14 14:17] ai-researcher collect: raw=0 dedup=0 relevant=0 kept=0
+[2026-07-14 15:03] ai-researcher collect: raw=0 dedup=0 relevant=0 kept=0
+[2026-07-14 15:57] LightRig v1.1 を Vault 反映 (実装は 7/11): 実機FB7点対応 — 2タップ=インスペクタ/ドラッグ直接移動/首振り自由化/レフ板(StudioProp)/インスペクタ刷新+ダーク/背景壁全幅/部屋プリセット/半球ドームカメラ。ビルド両OS green・テスト25件pass
+[2026-07-14 16:08] ai-researcher collect: raw=110 dedup=52 relevant=8 kept=8
+[2026-07-14 17:09] ai-researcher collect: raw=110 dedup=46 relevant=8 kept=8
+[2026-07-14 17:53] CC-business 0→100全面リバンプ+文体改稿 完了 (監査143件→8WP実装+E2E緑、教材149本+LP改稿「正直」71→17。commits 5d2b1cb→c361c33、詳細=decisions/2026-07-13_CC-business_全面リバンプと文体改稿完了.md)
