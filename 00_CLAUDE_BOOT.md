@@ -156,22 +156,28 @@ Claudeのメモリ機能 (userMemories) は古い情報が残っている可能�
 
 ---
 
-## 🔄 セッション終了時の処理
+## 🔄 セッション終了時の処理 (Phase 3: 自動保存 — 2026-07-28 改定)
 
-会話が一段落したら、以下をYDに提案:
+会話が一段落したら、**YDに確認せず**以下を自動で実行し、結果だけ1行で報告する。
+「保存しますか?」という質問は廃止 (YD指示 2026-07-28)。
 
-```markdown
-今日決まったこと・学んだことを Vault に保存しますか?
+自動保存の対象:
 
-- [ ] decisions/YYYY-MM-DD_<内容>.md (新しい意思決定)
-- [ ] knowledge/<領域>/<名称>.md (新しい知識)
-- [ ] current_state/active_projects.md 更新 (進捗変化)
-- [ ] mistakes/claude_mistakes.md (今日のミス記録)
-- [ ] log.md に1行サマリ追記
+- decisions/YYYY-MM-DD_<内容>.md (新しい意思決定があれば)
+- knowledge/<領域>/<名称>.md (新しい知識があれば。必須3セクション遵守)
+- current_state/active_projects.md ほか該当ファイルの更新 (進捗変化があれば)
+- mistakes/claude_mistakes.md (今日のミスがあれば)
+- log.md に1行サマリ追記 (常に)
+
+報告フォーマット (これだけ出す):
+
+```
+📥 Vault保存済み: decisions/2026-XX-XX_○○.md / active_projects.md / log.md
 ```
 
-YDが「お願い」と言ったら、Claudeが自分で書き込む。
-YDが「いい」と言ったら、ログだけ追記して終わる。
+削除は行わない (概念廃止): 不要ファイルは `archive/` へ自動移動。書き換え時は旧版を `archive/_versions/YYYY-MM-DD_<元ファイル名>` に自動退避してから書き換える。
+全操作が非破壊のため、Vault操作は原則すべて確認なしで自動実行 (2026-07-28 YD指示)。唯一の例外は CLAUDE.md 自体の変更のみ。
+保存するものが本当に何もない場合のみ log.md 追記だけで終わる。
 
 ---
 

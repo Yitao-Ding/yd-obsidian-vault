@@ -1703,3 +1703,498 @@
 [2026-07-14 18:40] ダンちゃり長野ドキュメンタリーDaVinci版 完成: 前編「91匹の家」5:02 + 後編「蛇口を閉める人たち」5:06 (4K・全字幕方式・Fable司令塔+Opus/Sonnet実装+Workflow検証11便)。成果物=2025-07-06_Nagano/render/ + davinci/
 [2026-07-14 20:43] ai-researcher collect: raw=0 dedup=0 relevant=0 kept=0
 [2026-07-14 22:16] ai-researcher collect: raw=74 dedup=27 relevant=8 kept=8
+[2026-07-14 23:09] ai-researcher collect: raw=104 dedup=25 relevant=7 kept=7
+[2026-07-15 00:05] ai-researcher collect: raw=106 dedup=21 relevant=2 kept=2
+[2026-07-15 01:05] ai-researcher collect: raw=111 dedup=24 relevant=3 kept=3
+[2026-07-15 08:19] ai-researcher collect: raw=111 dedup=23 relevant=3 kept=3
+[2026-07-15 09:08] ai-researcher collect: raw=110 dedup=22 relevant=4 kept=4
+[2026-07-15 10:10] ai-researcher collect: raw=109 dedup=42 relevant=8 kept=8
+[2026-07-15 11:04] ai-researcher collect: raw=79 dedup=13 relevant=1 kept=1
+[2026-07-15 12:09] ai-researcher collect: raw=109 dedup=41 relevant=8 kept=8
+[2026-07-15 13:08] ai-researcher collect: raw=109 dedup=33 relevant=8 kept=8
+[2026-07-15 14:05] ai-researcher collect: raw=109 dedup=25 relevant=3 kept=3
+[2026-07-15 15:03] ai-researcher collect: raw=109 dedup=22 relevant=0 kept=0
+[2026-07-15 16:03] ai-researcher collect: raw=109 dedup=22 relevant=0 kept=0
+[2026-07-15 17:04] ai-researcher collect: raw=110 dedup=23 relevant=1 kept=1
+[2026-07-15 18:03] ai-researcher collect: raw=108 dedup=21 relevant=0 kept=0
+[2026-07-15 19:03] ai-researcher collect: raw=109 dedup=22 relevant=0 kept=0
+[2026-07-15 20:03] ai-researcher collect: raw=109 dedup=22 relevant=0 kept=0
+[2026-07-15 21:05] ai-researcher collect: raw=108 dedup=23 relevant=2 kept=2
+[2026-07-15 22:05] ai-researcher collect: raw=107 dedup=21 relevant=1 kept=1
+[2026-07-15 23:04] ai-researcher collect: raw=103 dedup=19 relevant=1 kept=1
+[2026-07-15 23:45] 長野ドキュメンタリー v3: YD指示で1本化+Bロール大増量 → 本編「91匹の家」9:40 4K完成 (honpen_4K_v1.mp4 3.95GB)。音声独立のhonpen_editも同梱
+[2026-07-16 00:07] ai-researcher collect: raw=104 dedup=21 relevant=3 kept=3
+[2026-07-16 01:04] ai-researcher collect: raw=104 dedup=20 relevant=1 kept=1
+[2026-07-16 02:04] ai-researcher collect: raw=103 dedup=19 relevant=1 kept=1
+[2026-07-16 03:05] ai-researcher collect: raw=104 dedup=21 relevant=2 kept=2
+[2026-07-16 04:04] ai-researcher collect: raw=107 dedup=23 relevant=1 kept=1
+[2026-07-16 05:04] ai-researcher collect: raw=106 dedup=21 relevant=0 kept=0
+[2026-07-16 06:04] ai-researcher collect: raw=105 dedup=20 relevant=0 kept=0
+[2026-07-16 07:04] ai-researcher collect: raw=106 dedup=21 relevant=1 kept=1
+[2026-07-16 08:05] ai-researcher collect: raw=109 dedup=24 relevant=3 kept=3
+[2026-07-16 09:04] ai-researcher collect: raw=107 dedup=20 relevant=0 kept=0
+[2026-07-16 10:10] ai-researcher collect: raw=108 dedup=44 relevant=8 kept=8
+[2026-07-16 11:10] ai-researcher collect: raw=108 dedup=37 relevant=8 kept=8
+[2026-07-16 12:09] ai-researcher collect: raw=109 dedup=38 relevant=8 kept=8
+[2026-07-16 13:11] ai-researcher collect: raw=104 dedup=33 relevant=8 kept=8
+[2026-07-16 15:17] ai-researcher collect: raw=0 dedup=0 relevant=0 kept=0
+[2026-07-16 16:09] ai-researcher collect: raw=107 dedup=29 relevant=8 kept=8
+[2026-07-16 16:35] ダンちゃり「一匹でも」編集: 夜間自走ビルドで本編完成 (preview 7:42/-15.0LUFS/字幕63キュー焼込、独立監査12系統、検収=編集_1本版/REPORT_一匹でも_納品検収.md)。TA6注釈テロップのみ走行中。新CCへ引き継ぎ → 動画/2025-07-06_Nagano/HANDOVER.md
+[2026-07-16 17:06] ai-researcher collect: raw=92 dedup=19 relevant=2 kept=2
+[2026-07-16 18:05] ai-researcher collect: raw=0 dedup=0 relevant=0 kept=0
+[2026-07-16 19:06] ai-researcher collect: raw=106 dedup=21 relevant=3 kept=3
+[2026-07-16 20:42] ai-researcher collect: raw=107 dedup=21 relevant=3 kept=3
+[2026-07-16 21:40] ai-researcher collect: raw=107 dedup=18 relevant=0 kept=0
+[2026-07-16 22:40] ai-researcher collect: raw=106 dedup=20 relevant=0 kept=0
+[2026-07-16 23:03] ai-researcher collect: raw=106 dedup=20 relevant=0 kept=0
+[2026-07-17 00:03] ai-researcher collect: raw=106 dedup=20 relevant=1 kept=1
+[2026-07-17 01:04] ai-researcher collect: raw=107 dedup=21 relevant=1 kept=1
+[2026-07-17 02:05] ai-researcher collect: raw=103 dedup=19 relevant=2 kept=2
+[2026-07-17 03:04] ai-researcher collect: raw=104 dedup=20 relevant=0 kept=0
+[2026-07-17 04:04] ai-researcher collect: raw=104 dedup=21 relevant=1 kept=1
+[2026-07-17 05:05] ai-researcher collect: raw=105 dedup=21 relevant=1 kept=1
+[2026-07-17 06:04] ai-researcher collect: raw=106 dedup=21 relevant=1 kept=1
+[2026-07-17 07:06] ai-researcher collect: raw=108 dedup=23 relevant=3 kept=3
+[2026-07-17 08:03] ai-researcher collect: raw=108 dedup=20 relevant=0 kept=0
+[2026-07-17 09:04] ai-researcher collect: raw=108 dedup=20 relevant=0 kept=0
+[2026-07-17 10:04] ai-researcher collect: raw=108 dedup=20 relevant=0 kept=0
+[2026-07-17 11:05] ai-researcher collect: raw=78 dedup=13 relevant=1 kept=1
+[2026-07-17 12:09] ai-researcher collect: raw=108 dedup=28 relevant=7 kept=7
+[2026-07-17 13:10] ai-researcher collect: raw=107 dedup=43 relevant=8 kept=8
+[2026-07-17 14:09] ai-researcher collect: raw=107 dedup=38 relevant=8 kept=8
+[2026-07-17 15:09] ai-researcher collect: raw=107 dedup=31 relevant=8 kept=8
+[2026-07-17 16:07] ai-researcher collect: raw=107 dedup=25 relevant=4 kept=4
+[2026-07-17 17:05] ai-researcher collect: raw=107 dedup=22 relevant=1 kept=1
+[2026-07-17 18:04] ai-researcher collect: raw=107 dedup=21 relevant=0 kept=0
+[2026-07-17 19:05] ai-researcher collect: raw=108 dedup=24 relevant=1 kept=1
+[2026-07-17 20:03] ai-researcher collect: raw=108 dedup=23 relevant=0 kept=0
+[2026-07-17 21:04] ai-researcher collect: raw=109 dedup=24 relevant=0 kept=0
+[2026-07-17 22:05] ai-researcher collect: raw=109 dedup=25 relevant=1 kept=1
+[2026-07-17 23:05] ai-researcher collect: raw=109 dedup=25 relevant=1 kept=1
+[2026-07-18 00:04] ai-researcher collect: raw=108 dedup=24 relevant=0 kept=0
+[2026-07-18 01:05] ai-researcher collect: raw=109 dedup=26 relevant=1 kept=1
+[2026-07-18 02:06] ai-researcher collect: raw=110 dedup=28 relevant=3 kept=3
+[2026-07-18 03:05] ai-researcher collect: raw=111 dedup=27 relevant=1 kept=1
+[2026-07-18 04:04] ai-researcher collect: raw=109 dedup=24 relevant=0 kept=0
+[2026-07-18 05:04] ai-researcher collect: raw=108 dedup=24 relevant=0 kept=0
+[2026-07-18 06:04] ai-researcher collect: raw=108 dedup=24 relevant=0 kept=0
+[2026-07-18 07:04] ai-researcher collect: raw=109 dedup=25 relevant=0 kept=0
+[2026-07-18 08:04] ai-researcher collect: raw=108 dedup=24 relevant=0 kept=0
+[2026-07-18 09:04] ai-researcher collect: raw=106 dedup=24 relevant=0 kept=0
+[2026-07-18 10:04] ai-researcher collect: raw=106 dedup=25 relevant=1 kept=1
+[2026-07-18 11:04] ai-researcher collect: raw=105 dedup=24 relevant=1 kept=1
+[2026-07-18 12:04] ai-researcher collect: raw=105 dedup=23 relevant=0 kept=0
+[2026-07-18 13:04] ai-researcher collect: raw=105 dedup=23 relevant=0 kept=0
+[2026-07-18 14:03] ai-researcher collect: raw=105 dedup=23 relevant=0 kept=0
+[2026-07-18 15:05] ai-researcher collect: raw=105 dedup=23 relevant=0 kept=0
+[2026-07-18 16:05] ai-researcher collect: raw=75 dedup=14 relevant=0 kept=0
+[2026-07-18 17:04] ai-researcher collect: raw=105 dedup=23 relevant=0 kept=0
+[2026-07-18 18:04] ai-researcher collect: raw=105 dedup=23 relevant=0 kept=0
+[2026-07-18 19:04] ai-researcher collect: raw=105 dedup=23 relevant=0 kept=0
+[2026-07-18 20:04] ai-researcher collect: raw=103 dedup=21 relevant=0 kept=0
+[2026-07-18 21:17] ai-researcher collect: raw=105 dedup=23 relevant=0 kept=0
+[2026-07-18 22:04] ai-researcher collect: raw=105 dedup=23 relevant=0 kept=0
+[2026-07-18 23:05] ai-researcher collect: raw=77 dedup=16 relevant=0 kept=0
+[2026-07-19 00:04] ai-researcher collect: raw=106 dedup=24 relevant=0 kept=0
+[2026-07-19 01:04] ai-researcher collect: raw=105 dedup=23 relevant=0 kept=0
+[2026-07-19 02:05] ai-researcher collect: raw=104 dedup=22 relevant=1 kept=1
+[2026-07-19 03:04] ai-researcher collect: raw=104 dedup=21 relevant=0 kept=0
+[2026-07-19 04:03] ai-researcher collect: raw=104 dedup=21 relevant=0 kept=0
+[2026-07-19 05:04] ai-researcher collect: raw=104 dedup=21 relevant=0 kept=0
+[2026-07-19 06:04] ai-researcher collect: raw=104 dedup=21 relevant=0 kept=0
+[2026-07-19 07:04] ai-researcher collect: raw=105 dedup=22 relevant=1 kept=1
+[2026-07-19 08:03] ai-researcher collect: raw=105 dedup=21 relevant=0 kept=0
+[2026-07-19 09:03] ai-researcher collect: raw=106 dedup=22 relevant=0 kept=0
+[2026-07-19 10:05] ai-researcher collect: raw=106 dedup=22 relevant=0 kept=0
+[2026-07-19 11:05] ai-researcher collect: raw=106 dedup=22 relevant=0 kept=0
+[2026-07-19 12:04] ai-researcher collect: raw=106 dedup=22 relevant=0 kept=0
+[2026-07-19 13:03] ai-researcher collect: raw=107 dedup=23 relevant=0 kept=0
+[2026-07-19 14:04] ai-researcher collect: raw=108 dedup=24 relevant=1 kept=1
+[2026-07-19 15:04] ai-researcher collect: raw=107 dedup=23 relevant=0 kept=0
+[2026-07-19 16:04] ai-researcher collect: raw=107 dedup=23 relevant=0 kept=0
+[2026-07-19 17:04] ai-researcher collect: raw=109 dedup=25 relevant=1 kept=1
+[2026-07-19 18:03] ai-researcher collect: raw=109 dedup=24 relevant=0 kept=0
+[2026-07-19 19:03] ai-researcher collect: raw=108 dedup=23 relevant=0 kept=0
+[2026-07-19 20:05] ai-researcher collect: raw=107 dedup=23 relevant=2 kept=2
+[2026-07-19 21:04] ai-researcher collect: raw=108 dedup=22 relevant=1 kept=1
+[2026-07-19 22:04] ai-researcher collect: raw=107 dedup=21 relevant=0 kept=0
+[2026-07-19 23:03] ai-researcher collect: raw=107 dedup=21 relevant=0 kept=0
+[2026-07-20 00:04] ai-researcher collect: raw=106 dedup=21 relevant=0 kept=0
+[2026-07-20 01:04] ai-researcher collect: raw=109 dedup=23 relevant=1 kept=1
+[2026-07-20 02:04] ai-researcher collect: raw=108 dedup=21 relevant=0 kept=0
+[2026-07-20 03:04] ai-researcher collect: raw=108 dedup=21 relevant=0 kept=0
+[2026-07-20 04:04] ai-researcher collect: raw=108 dedup=22 relevant=0 kept=0
+[2026-07-20 05:04] ai-researcher collect: raw=106 dedup=20 relevant=0 kept=0
+[2026-07-20 06:01] ai-researcher weekly: 2026-W29.md (top 10)
+[2026-07-20 06:05] ai-researcher collect: raw=104 dedup=19 relevant=0 kept=0
+[2026-07-20 07:04] ai-researcher collect: raw=104 dedup=19 relevant=0 kept=0
+[2026-07-20 08:05] ai-researcher collect: raw=105 dedup=20 relevant=0 kept=0
+[2026-07-20 09:04] ai-researcher collect: raw=105 dedup=20 relevant=0 kept=0
+[2026-07-20 10:04] ai-researcher collect: raw=76 dedup=12 relevant=0 kept=0
+[2026-07-20 11:05] ai-researcher collect: raw=107 dedup=22 relevant=2 kept=2
+[2026-07-20 12:07] ai-researcher collect: raw=106 dedup=25 relevant=5 kept=5
+[2026-07-20 13:08] ai-researcher collect: raw=106 dedup=44 relevant=8 kept=8
+[2026-07-20 14:04] ai-researcher collect: raw=0 dedup=0 relevant=0 kept=0
+[2026-07-20 16:48] ai-researcher collect: raw=105 dedup=38 relevant=8 kept=7
+[2026-07-20 19:12] ai-researcher collect: raw=106 dedup=33 relevant=8 kept=7
+[2026-07-20 20:09] ai-researcher collect: raw=108 dedup=30 relevant=8 kept=7
+[2026-07-20 21:09] ai-researcher collect: raw=108 dedup=24 relevant=7 kept=7
+[2026-07-20 22:04] ai-researcher collect: raw=108 dedup=18 relevant=1 kept=1
+[2026-07-20 23:05] ai-researcher collect: raw=106 dedup=15 relevant=1 kept=1
+[2026-07-21 00:03] ai-researcher collect: raw=104 dedup=14 relevant=0 kept=0
+[2026-07-21 01:05] ai-researcher collect: raw=105 dedup=16 relevant=1 kept=1
+[2026-07-21 02:06] ai-researcher collect: raw=106 dedup=20 relevant=4 kept=4
+[2026-07-21 03:04] ai-researcher collect: raw=107 dedup=17 relevant=0 kept=0
+[2026-07-21 04:04] ai-researcher collect: raw=107 dedup=17 relevant=0 kept=0
+[2026-07-21 05:05] ai-researcher collect: raw=106 dedup=17 relevant=2 kept=2
+[2026-07-21 06:05] ai-researcher collect: raw=107 dedup=17 relevant=2 kept=2
+[2026-07-21 07:04] ai-researcher collect: raw=108 dedup=17 relevant=1 kept=1
+[2026-07-21 08:03] ai-researcher collect: raw=108 dedup=16 relevant=0 kept=0
+[2026-07-21 09:04] ai-researcher collect: raw=108 dedup=16 relevant=0 kept=0
+[2026-07-21 10:05] ai-researcher collect: raw=107 dedup=15 relevant=0 kept=0
+[2026-07-21 11:05] ai-researcher collect: raw=108 dedup=19 relevant=2 kept=2
+[2026-07-21 12:10] ai-researcher collect: raw=107 dedup=46 relevant=8 kept=8
+[2026-07-21 13:10] ai-researcher collect: raw=107 dedup=42 relevant=8 kept=7
+[2026-07-21 14:09] ai-researcher collect: raw=108 dedup=37 relevant=8 kept=8
+[2026-07-21 15:10] ai-researcher collect: raw=108 dedup=31 relevant=8 kept=8
+[2026-07-21 16:07] ai-researcher collect: raw=108 dedup=24 relevant=4 kept=4
+[2026-07-21 17:05] ai-researcher collect: raw=108 dedup=22 relevant=2 kept=2
+[2026-07-21 18:05] ai-researcher collect: raw=108 dedup=22 relevant=3 kept=3
+[2026-07-21 19:04] ai-researcher collect: raw=107 dedup=21 relevant=1 kept=1
+[2026-07-21 20:04] ai-researcher collect: raw=107 dedup=20 relevant=0 kept=0
+[2026-07-21 21:05] ai-researcher collect: raw=107 dedup=22 relevant=2 kept=2
+[2026-07-21 22:04] ai-researcher collect: raw=107 dedup=22 relevant=1 kept=1
+[2026-07-21 23:05] ai-researcher collect: raw=107 dedup=23 relevant=2 kept=2
+[2026-07-22 00:04] ai-researcher collect: raw=106 dedup=20 relevant=0 kept=0
+[2026-07-22 01:06] ai-researcher collect: raw=108 dedup=23 relevant=2 kept=1
+[2026-07-22 02:06] ai-researcher collect: raw=107 dedup=24 relevant=3 kept=3
+[2026-07-22 03:05] ai-researcher collect: raw=106 dedup=21 relevant=1 kept=1
+[2026-07-22 04:05] ai-researcher collect: raw=105 dedup=21 relevant=1 kept=1
+[2026-07-22 05:04] ai-researcher collect: raw=107 dedup=24 relevant=1 kept=1
+[2026-07-22 06:06] ai-researcher collect: raw=109 dedup=25 relevant=3 kept=3
+[2026-07-22 07:04] ai-researcher collect: raw=110 dedup=23 relevant=1 kept=1
+[2026-07-22 08:04] ai-researcher collect: raw=110 dedup=23 relevant=1 kept=1
+[2026-07-22 09:03] ai-researcher collect: raw=110 dedup=22 relevant=0 kept=0
+[2026-07-22 10:04] ai-researcher collect: raw=112 dedup=23 relevant=0 kept=0
+[2026-07-22 11:05] ai-researcher collect: raw=81 dedup=16 relevant=2 kept=2
+[2026-07-22 12:08] ai-researcher collect: raw=111 dedup=47 relevant=8 kept=8
+[2026-07-22 13:12] ai-researcher collect: raw=0 dedup=0 relevant=0 kept=0
+[2026-07-22 15:02] ai-researcher collect: raw=0 dedup=0 relevant=0 kept=0
+[2026-07-22 16:02] ai-researcher collect: raw=0 dedup=0 relevant=0 kept=0
+[2026-07-22 16:21] ai-researcher collect: raw=0 dedup=0 relevant=0 kept=0
+[2026-07-22 17:11] ai-researcher collect: raw=110 dedup=47 relevant=8 kept=8
+[2026-07-22 18:24] ai-researcher collect: raw=110 dedup=41 relevant=8 kept=6
+[2026-07-22 19:11] ai-researcher collect: raw=110 dedup=35 relevant=8 kept=8
+[2026-07-22 21:03] ai-researcher collect: raw=0 dedup=0 relevant=0 kept=0
+[2026-07-22 22:54] ai-researcher collect: raw=0 dedup=0 relevant=0 kept=0
+[2026-07-22 23:47] ai-researcher collect: raw=0 dedup=0 relevant=0 kept=0
+[2026-07-23 16:46] ai-researcher collect: raw=0 dedup=0 relevant=0 kept=0
+[2026-07-23 17:25] ai-researcher collect: raw=0 dedup=0 relevant=0 kept=0
+[2026-07-23 18:16] ai-researcher collect: raw=0 dedup=0 relevant=0 kept=0
+[2026-07-23 19:20] ai-researcher collect: raw=105 dedup=58 relevant=8 kept=8
+[2026-07-23 21:46] ai-researcher collect: raw=0 dedup=0 relevant=0 kept=0
+[2026-07-23 23:48] ai-researcher collect: raw=0 dedup=0 relevant=0 kept=0
+[2026-07-24 00:29] ai-researcher collect: raw=109 dedup=55 relevant=8 kept=8
+[2026-07-24 01:09] ai-researcher collect: raw=106 dedup=48 relevant=8 kept=7
+[2026-07-24 02:09] ai-researcher collect: raw=105 dedup=40 relevant=8 kept=8
+[2026-07-24 03:08] ai-researcher collect: raw=107 dedup=35 relevant=8 kept=8
+[2026-07-24 04:10] ai-researcher collect: raw=108 dedup=31 relevant=8 kept=8
+[2026-07-24 05:06] ai-researcher collect: raw=108 dedup=24 relevant=2 kept=2
+[2026-07-24 06:04] ai-researcher collect: raw=110 dedup=24 relevant=1 kept=1
+[2026-07-24 07:04] ai-researcher collect: raw=111 dedup=24 relevant=0 kept=0
+[2026-07-24 08:04] ai-researcher collect: raw=112 dedup=25 relevant=0 kept=0
+[2026-07-24 09:03] ai-researcher collect: raw=111 dedup=24 relevant=0 kept=0
+[2026-07-24 10:04] ai-researcher collect: raw=110 dedup=23 relevant=0 kept=0
+[2026-07-24 11:06] ai-researcher collect: raw=80 dedup=16 relevant=2 kept=2
+[2026-07-24 12:07] ai-researcher collect: raw=110 dedup=29 relevant=4 kept=4
+[2026-07-24 13:11] ai-researcher collect: raw=110 dedup=47 relevant=8 kept=7
+[2026-07-24 14:08] ai-researcher collect: raw=109 dedup=41 relevant=8 kept=8
+[2026-07-24 15:09] ai-researcher collect: raw=109 dedup=34 relevant=8 kept=8
+[2026-07-24 16:07] ai-researcher collect: raw=110 dedup=30 relevant=4 kept=4
+[2026-07-24 17:03] ai-researcher collect: raw=110 dedup=26 relevant=0 kept=0
+[2026-07-24 18:04] ai-researcher collect: raw=109 dedup=25 relevant=0 kept=0
+[2026-07-24 19:05] ai-researcher collect: raw=100 dedup=26 relevant=2 kept=2
+[2026-07-24 20:05] ai-researcher collect: raw=110 dedup=25 relevant=1 kept=1
+[2026-07-24 21:05] ai-researcher collect: raw=109 dedup=25 relevant=2 kept=2
+[2026-07-24 22:06] ai-researcher collect: raw=107 dedup=23 relevant=1 kept=1
+[2026-07-24 23:04] ai-researcher collect: raw=108 dedup=23 relevant=0 kept=0
+[2026-07-25 00:04] ai-researcher collect: raw=108 dedup=24 relevant=0 kept=0
+[2026-07-25 01:05] ai-researcher collect: raw=109 dedup=25 relevant=2 kept=2
+[2026-07-25 02:04] ai-researcher collect: raw=106 dedup=22 relevant=1 kept=1
+[2026-07-25 03:05] ai-researcher collect: raw=108 dedup=22 relevant=2 kept=2
+[2026-07-25 04:03] ai-researcher collect: raw=107 dedup=21 relevant=0 kept=0
+[2026-07-25 05:03] ai-researcher collect: raw=107 dedup=21 relevant=0 kept=0
+[2026-07-25 06:03] ai-researcher collect: raw=109 dedup=23 relevant=0 kept=0
+[2026-07-25 07:03] ai-researcher collect: raw=107 dedup=22 relevant=0 kept=0
+[2026-07-25 08:05] ai-researcher collect: raw=107 dedup=23 relevant=2 kept=2
+[2026-07-25 09:03] ai-researcher collect: raw=108 dedup=21 relevant=0 kept=0
+[2026-07-25 10:04] ai-researcher collect: raw=108 dedup=21 relevant=0 kept=0
+[2026-07-25 11:04] ai-researcher collect: raw=77 dedup=11 relevant=0 kept=0
+[2026-07-25 12:03] ai-researcher collect: raw=107 dedup=21 relevant=0 kept=0
+[2026-07-25 13:03] ai-researcher collect: raw=107 dedup=21 relevant=0 kept=0
+[2026-07-25 14:03] ai-researcher collect: raw=107 dedup=21 relevant=0 kept=0
+[2026-07-25 15:04] ai-researcher collect: raw=107 dedup=21 relevant=0 kept=0
+[2026-07-25 16:03] ai-researcher collect: raw=107 dedup=21 relevant=0 kept=0
+[2026-07-25 17:03] ai-researcher collect: raw=106 dedup=20 relevant=0 kept=0
+[2026-07-25 18:03] ai-researcher collect: raw=106 dedup=20 relevant=0 kept=0
+[2026-07-25 19:03] ai-researcher collect: raw=106 dedup=20 relevant=0 kept=0
+[2026-07-25 20:03] ai-researcher collect: raw=106 dedup=20 relevant=0 kept=0
+[2026-07-25 21:03] ai-researcher collect: raw=106 dedup=20 relevant=0 kept=0
+[2026-07-25 22:03] ai-researcher collect: raw=106 dedup=20 relevant=0 kept=0
+[2026-07-25 23:05] ai-researcher collect: raw=106 dedup=20 relevant=0 kept=0
+[2026-07-26 00:03] ai-researcher collect: raw=105 dedup=20 relevant=0 kept=0
+[2026-07-26 01:03] ai-researcher collect: raw=106 dedup=20 relevant=0 kept=0
+[2026-07-26 02:03] ai-researcher collect: raw=103 dedup=21 relevant=0 kept=0
+[2026-07-26 03:03] ai-researcher collect: raw=104 dedup=21 relevant=0 kept=0
+[2026-07-26 04:03] ai-researcher collect: raw=104 dedup=21 relevant=0 kept=0
+[2026-07-26 05:03] ai-researcher collect: raw=102 dedup=20 relevant=0 kept=0
+[2026-07-26 06:04] ai-researcher collect: raw=102 dedup=20 relevant=0 kept=0
+[2026-07-26 07:05] ai-researcher collect: raw=102 dedup=21 relevant=1 kept=1
+[2026-07-26 08:04] ai-researcher collect: raw=102 dedup=20 relevant=0 kept=0
+[2026-07-26 09:05] ai-researcher collect: raw=76 dedup=14 relevant=1 kept=1
+[2026-07-26 10:04] ai-researcher collect: raw=76 dedup=13 relevant=0 kept=0
+[2026-07-26 11:04] ai-researcher collect: raw=76 dedup=13 relevant=0 kept=0
+[2026-07-26 12:04] ai-researcher collect: raw=76 dedup=13 relevant=0 kept=0
+[2026-07-26 13:04] ai-researcher collect: raw=106 dedup=24 relevant=1 kept=1
+[2026-07-26 14:14] ai-researcher collect: raw=107 dedup=24 relevant=0 kept=0
+[2026-07-26 15:03] ai-researcher collect: raw=107 dedup=24 relevant=0 kept=0
+[2026-07-26 16:07] ai-researcher collect: raw=107 dedup=24 relevant=0 kept=0
+[2026-07-26 17:03] ai-researcher collect: raw=108 dedup=25 relevant=0 kept=0
+[2026-07-26 18:03] ai-researcher collect: raw=108 dedup=25 relevant=0 kept=0
+[2026-07-26 19:03] ai-researcher collect: raw=109 dedup=26 relevant=0 kept=0
+[2026-07-26 20:06] ai-researcher collect: raw=109 dedup=26 relevant=0 kept=0
+[2026-07-26 21:04] ai-researcher collect: raw=110 dedup=27 relevant=1 kept=1
+[2026-07-26 22:03] ai-researcher collect: raw=109 dedup=25 relevant=0 kept=0
+[2026-07-26 23:03] ai-researcher collect: raw=109 dedup=25 relevant=0 kept=0
+[2026-07-27 00:03] ai-researcher collect: raw=109 dedup=25 relevant=0 kept=0
+[2026-07-27 01:03] ai-researcher collect: raw=108 dedup=24 relevant=0 kept=0
+[2026-07-27 02:03] ai-researcher collect: raw=108 dedup=24 relevant=0 kept=0
+[2026-07-27 03:04] ai-researcher collect: raw=108 dedup=24 relevant=0 kept=0
+[2026-07-27 04:03] ai-researcher collect: raw=106 dedup=23 relevant=0 kept=0
+[2026-07-27 05:04] ai-researcher collect: raw=107 dedup=24 relevant=0 kept=0
+[2026-07-27 06:00] ai-researcher weekly: 2026-W30.md (top 10)
+[2026-07-27 06:04] ai-researcher collect: raw=107 dedup=24 relevant=0 kept=0
+[2026-07-27 07:04] ai-researcher collect: raw=106 dedup=23 relevant=0 kept=0
+[2026-07-27 08:03] ai-researcher collect: raw=104 dedup=23 relevant=0 kept=0
+[2026-07-27 09:03] ai-researcher collect: raw=104 dedup=23 relevant=0 kept=0
+[2026-07-27 10:28] ai-researcher collect: raw=0 dedup=0 relevant=0 kept=0
+[2026-07-27 11:19] ai-researcher collect: raw=0 dedup=0 relevant=0 kept=0
+[2026-07-27 12:11] ai-researcher collect: raw=104 dedup=29 relevant=8 kept=8
+[2026-07-27 13:04] ai-researcher collect: raw=74 dedup=11 relevant=0 kept=0
+[2026-07-27 14:08] ai-researcher collect: raw=104 dedup=42 relevant=8 kept=8
+[2026-07-27 15:08] ai-researcher collect: raw=103 dedup=34 relevant=8 kept=8
+[2026-07-27 16:04] ai-researcher collect: raw=73 dedup=11 relevant=1 kept=1
+[2026-07-27 17:04] ai-researcher collect: raw=74 dedup=12 relevant=0 kept=0
+[2026-07-27 18:09] ai-researcher collect: raw=104 dedup=29 relevant=8 kept=8
+[2026-07-27 19:04] ai-researcher collect: raw=104 dedup=22 relevant=1 kept=1
+[2026-07-27 20:03] ai-researcher collect: raw=103 dedup=21 relevant=1 kept=1
+[2026-07-27 21:03] ai-researcher collect: raw=104 dedup=21 relevant=0 kept=0
+[2026-07-27 22:04] ai-researcher collect: raw=105 dedup=22 relevant=1 kept=1
+[2026-07-27 23:04] ai-researcher collect: raw=105 dedup=21 relevant=1 kept=0
+[2026-07-28 00:05] ai-researcher collect: raw=75 dedup=13 relevant=1 kept=1
+[2026-07-28 01:00] localhost FM 深夜自走: ep-02完成(4K/エディトリアル映像/サムネ刷新=Claude Design路線) 公開直前で引き継ぎ、ep-03素材8/13、自動化スイート+スキル導入。特商法はB案note移行採用(原稿・設計済み)。詳細= youtube bgm/HANDOVER.md 冒頭
+[2026-07-28 01:04] ai-researcher collect: raw=107 dedup=23 relevant=1 kept=1
+[2026-07-28 01:55] Vault自動保存 Phase 3 移行 (YD指示)。CLAUDE.md / 00_CLAUDE_BOOT.md / ~/.claude/CLAUDE.md 改定、「保存しますか?」廃止→自動保存+事後報告に。詳細: decisions/2026-07-28_Vault自動保存Phase3移行.md
+[2026-07-28 02:05] Vault非破壊設計へ変更 (YD指示)。削除概念を廃止→archive/自動移動+_versions/退避方式。確認が要るのはCLAUDE.md自体の変更のみに。3ファイル再改定。
+[2026-07-28 02:04] ai-researcher collect: raw=108 dedup=24 relevant=1 kept=1
+[2026-07-28 02:35] localhost FM: ep-02 4K版公開 (youtu.be/bRxVwqLaOI8) + ep-03 制作〜公開まで一気通貫 (youtu.be/lMTL7f5ZuyY)。300MB動画のチャンク注入式・完全自動YouTubeアップロード確立
+[2026-07-28 03:03] ai-researcher collect: raw=108 dedup=25 relevant=0 kept=0
+[2026-07-28 03:25] パソコン1台の学校 note移行: ブロッカーB-1(合言葉ゲート)完了。/access + /api/access 新設(合言葉→既存JWT発行、ACCESS_PASSPHRASESで複数世代ローテ)、stripe.tsの「キー無しで恒久¥15,000」事故をbrand.ts phaseで封じた。E2E14項目+build緑、branch note-migration にローカルコミット(push無)。次のブロッカー=B-2 問い合わせ窓口(特商法の省略要件)。
+- 2026-07-28 03:40 [CC-handoff] youtube-api-audit 実行: GCPプロジェクト localhost-fm-uploader 作成 / YouTube Data API有効化 / OAuthクライアント作成 / yt-upload.py 実装+private投稿テストOK(削除済) / ポリシーページ作成(未デプロイ) / OAuthデモ動画収録 / 審査フォーム回答ドラフト作成。残り=デプロイ承認・デモ置き場所・フォーム送信(YD同席)
+[2026-07-28 04:03] ai-researcher collect: raw=108 dedup=25 relevant=0 kept=0
+[2026-07-28 05:03] ai-researcher collect: raw=106 dedup=23 relevant=0 kept=0
+[2026-07-28 06:04] ai-researcher collect: raw=107 dedup=24 relevant=0 kept=0
+[2026-07-28 07:06] ai-researcher collect: raw=107 dedup=25 relevant=2 kept=2
+[2026-07-28 08:03] ai-researcher collect: raw=106 dedup=22 relevant=0 kept=0
+[2026-07-28 09:05] ai-researcher collect: raw=106 dedup=22 relevant=1 kept=1
+[2026-07-28 10:04] ai-researcher collect: raw=76 dedup=13 relevant=0 kept=0
+[2026-07-28 11:06] ai-researcher collect: raw=76 dedup=15 relevant=2 kept=2
+[2026-07-28 12:08] ai-researcher collect: raw=105 dedup=28 relevant=7 kept=7
+[2026-07-28 13:07] ai-researcher collect: raw=105 dedup=47 relevant=8 kept=8
+[2026-07-28 14:08] ai-researcher collect: raw=105 dedup=41 relevant=8 kept=8
+[2026-07-28 15:09] ai-researcher collect: raw=104 dedup=33 relevant=8 kept=7
+[2026-07-28 16:10] ai-researcher collect: raw=105 dedup=30 relevant=8 kept=8
+[2026-07-28 17:06] ai-researcher collect: raw=105 dedup=23 relevant=4 kept=4
+[2026-07-28 18:04] ai-researcher collect: raw=106 dedup=21 relevant=1 kept=1
+[2026-07-28 19:03] ai-researcher collect: raw=106 dedup=21 relevant=1 kept=1
+[2026-07-28 20:03] ai-researcher collect: raw=106 dedup=20 relevant=0 kept=0
+[2026-07-28 21:07] ai-researcher collect: raw=108 dedup=23 relevant=1 kept=1
+[2026-07-28 21:59] 平成たち祭ダイジェスト CC自動粗編集完了: Resolveプロジェクト作成(4K/60fps)+202本インポート検証+音声解析セレクト+メインTL 38カット1:59+候補TL4本。報告: CC_報告_20260728.md
+[2026-07-28 22:04] ai-researcher collect: raw=105 dedup=19 relevant=0 kept=0
+[2026-07-28 23:04] ai-researcher collect: raw=106 dedup=21 relevant=2 kept=2
+[2026-07-28] 映像・音声シビアレビュー標準を制定 (Cowork/YD指示): knowledge/filmmaking/video_audio_deep_review_standard.md 新設 + ~/.claude/CLAUDE.md に自動適用ルール追記。以後セレクト/粗編系タスクは2パス目視+音声3点セットが既定。初適用=平成たち祭ダイジェスト (CC_PROMPT追補v3)
+[2026-07-29 00:05] ai-researcher collect: raw=108 dedup=21 relevant=1 kept=1
+[2026-07-29 01:07] ai-researcher collect: raw=78 dedup=14 relevant=1 kept=1
+[2026-07-29 01:15] 平成たち祭ダイジェストv2完全リビルド実行 (CC): 170本全数目視→shotlist49カット118.95s→Resolve「平成たち祭_REPLAYGROUND_take2」ビルド完了。Haruhiソロ候補=C081/C084発見・さくら木ビフォー/アフター確保。報告=CC_報告_take2_2026-07-29.md
+[2026-07-29 02:00] 平成たち祭ダイジェスト v2ストーリー構成版を追加ビルド (YD FB反映): 被り解消・ダンス28%・7章構成115.33s・02_2min_v2_story (45カット)
+[2026-07-29 02:07] ai-researcher collect: raw=105 dedup=21 relevant=1 kept=1
+[2026-07-29 03:30] 平成たち祭 v3ベストシーンDB方式完成: 144クリップ507シーンのDB構築 (S27/A182/B217/C81)→03_2min_v3_bestscenes (57カット123.83s・52クリップ使用)。色アーク/マッチカット/伏線回収を設計
+[2026-07-29 02:55] 平成たち祭メイキング: 企画〜カット編集完了。構成「時間割/言ったことが本当になっていく」34カット3:47、TL 03_MAKING をtake2にビルド (Fable監督・全カット目視・ダイジェスト重複0)。報告=CC_報告_making_2026-07-29.md
+[2026-07-29 03:04] ai-researcher collect: raw=106 dedup=22 relevant=2 kept=2
+[2026-07-29 03:12] 平成たち祭メイキング最終確定: v3_bestscenes TL発見→重複2カット修正+C010「さくら木仕様決定の瞬間」追加で34カット3:47に再ビルド完了 (検証4項目クリア・ダイジェスト5TL無傷)。一次目視37本Opus2便+Fable検品22%一致。完了
+[2026-07-29 04:03] ai-researcher collect: raw=106 dedup=20 relevant=0 kept=0
+[2026-07-29 05:04] ai-researcher collect: raw=107 dedup=22 relevant=1 kept=1
+[2026-07-29 06:03] ai-researcher collect: raw=105 dedup=19 relevant=0 kept=0
+[2026-07-29 07:04] ai-researcher collect: raw=106 dedup=21 relevant=2 kept=2
+[2026-07-29 08:04] ai-researcher collect: raw=107 dedup=20 relevant=1 kept=1
+[2026-07-29 09:04] ai-researcher collect: raw=106 dedup=19 relevant=0 kept=0
+[2026-07-29 10:04] ai-researcher collect: raw=75 dedup=11 relevant=0 kept=0
+[2026-07-29 11:04] ai-researcher collect: raw=74 dedup=10 relevant=1 kept=1
+[2026-07-29 12:09] ai-researcher collect: raw=105 dedup=48 relevant=8 kept=8
+[2026-07-29 13:10] ai-researcher collect: raw=106 dedup=43 relevant=8 kept=8
+[2026-07-29 14:09] ai-researcher collect: raw=107 dedup=36 relevant=8 kept=8
+[2026-07-29 15:09] ai-researcher collect: raw=106 dedup=28 relevant=8 kept=7
+[2026-07-29 16:09] ai-researcher collect: raw=107 dedup=22 relevant=8 kept=8
+[2026-07-29 17:05] ai-researcher collect: raw=107 dedup=15 relevant=2 kept=2
+[2026-07-29 18:05] ai-researcher collect: raw=107 dedup=16 relevant=3 kept=3
+[2026-07-29 19:04] ai-researcher collect: raw=106 dedup=16 relevant=2 kept=2
+[2026-07-29 20:03] ai-researcher collect: raw=106 dedup=14 relevant=0 kept=0
+[2026-07-29 21:06] ai-researcher collect: raw=105 dedup=16 relevant=3 kept=3
+[2026-07-29 22:04] ai-researcher collect: raw=106 dedup=14 relevant=1 kept=1
+[2026-07-29 23:04] ai-researcher collect: raw=107 dedup=15 relevant=1 kept=1
+[2026-07-30 00:05] ai-researcher collect: raw=76 dedup=10 relevant=0 kept=0
+[2026-07-30 01:03] ai-researcher collect: raw=101 dedup=13 relevant=0 kept=0
+[2026-07-30 02:06] ai-researcher collect: raw=103 dedup=16 relevant=3 kept=3
+[2026-07-30 03:06] ai-researcher collect: raw=105 dedup=18 relevant=3 kept=3
+[2026-07-30 04:04] ai-researcher collect: raw=105 dedup=15 relevant=1 kept=1
+[2026-07-30 05:07] ai-researcher collect: raw=105 dedup=18 relevant=5 kept=5
+[2026-07-30 06:04] ai-researcher collect: raw=106 dedup=14 relevant=0 kept=0
+[2026-07-30 07:06] ai-researcher collect: raw=109 dedup=18 relevant=2 kept=1
+[2026-07-30 08:05] ai-researcher collect: raw=109 dedup=19 relevant=3 kept=3
+[2026-07-30 09:03] ai-researcher collect: raw=108 dedup=16 relevant=0 kept=0
+[2026-07-30 10:07] ai-researcher collect: raw=108 dedup=16 relevant=0 kept=0
+[2026-07-30 11:05] ai-researcher collect: raw=80 dedup=15 relevant=2 kept=2
+[2026-07-30 12:09] ai-researcher collect: raw=110 dedup=44 relevant=8 kept=8
+[2026-07-30 13:09] ai-researcher collect: raw=110 dedup=39 relevant=8 kept=8
+[2026-07-30 14:10] ai-researcher collect: raw=109 dedup=33 relevant=8 kept=8
+[2026-07-30 15:10] ai-researcher collect: raw=109 dedup=26 relevant=8 kept=8
+[2026-07-30 16:06] ai-researcher collect: raw=110 dedup=21 relevant=3 kept=3
+[2026-07-30 17:03] ai-researcher collect: raw=109 dedup=17 relevant=0 kept=0
+[2026-07-30 18:41] ai-researcher collect: raw=20 dedup=1 relevant=0 kept=0
+[2026-07-30 19:03] ai-researcher collect: raw=0 dedup=0 relevant=0 kept=0
+[2026-07-30 20:03] ai-researcher collect: raw=0 dedup=0 relevant=0 kept=0
+[2026-07-30 22:17] ai-researcher collect: raw=0 dedup=0 relevant=0 kept=0
+[2026-07-30 23:19] ai-researcher collect: raw=0 dedup=0 relevant=0 kept=0
+[2026-07-31 00:20] ai-researcher collect: raw=0 dedup=0 relevant=0 kept=0
+[2026-07-31 01:03] ai-researcher collect: 3 consecutive claude -p failures, kept 0
+[2026-07-31 02:03] ai-researcher collect: 3 consecutive claude -p failures, kept 0
+[2026-07-31 03:03] ai-researcher collect: 3 consecutive claude -p failures, kept 0
+[2026-07-31 04:03] ai-researcher collect: 3 consecutive claude -p failures, kept 0
+[2026-07-31 05:03] ai-researcher collect: 3 consecutive claude -p failures, kept 0
+[2026-07-31 06:03] ai-researcher collect: 3 consecutive claude -p failures, kept 0
+[2026-07-31 07:04] ai-researcher collect: 3 consecutive claude -p failures, kept 0
+[2026-07-31 08:04] ai-researcher collect: 3 consecutive claude -p failures, kept 0
+[2026-07-31 09:05] ai-researcher collect: 3 consecutive claude -p failures, kept 0
+[2026-07-31 10:05] ai-researcher collect: 3 consecutive claude -p failures, kept 0
+[2026-07-31 11:09] ai-researcher collect: raw=110 dedup=59 relevant=8 kept=8
+[2026-07-31 12:12] ai-researcher collect: raw=110 dedup=56 relevant=8 kept=8
+[2026-07-31 13:09] ai-researcher collect: raw=110 dedup=60 relevant=8 kept=8
+[2026-07-31 14:09] ai-researcher collect: raw=113 dedup=56 relevant=8 kept=8
+[2026-07-31 15:08] ai-researcher collect: raw=112 dedup=49 relevant=8 kept=8
+[2026-07-31 16:09] ai-researcher collect: raw=111 dedup=40 relevant=8 kept=8
+[2026-07-31 17:07] ai-researcher collect: raw=111 dedup=33 relevant=8 kept=8
+[2026-07-31 18:09] ai-researcher collect: raw=111 dedup=27 relevant=8 kept=8
+[2026-07-31 19:16] ai-researcher collect: raw=112 dedup=21 relevant=3 kept=3
+[2026-07-31 21:01] ai-researcher collect: raw=113 dedup=20 relevant=1 kept=1
+[2026-07-31 21:46] ai-researcher collect: raw=112 dedup=19 relevant=0 kept=0
+[2026-07-31 22:29] ai-researcher collect: raw=112 dedup=20 relevant=0 kept=0
+[2026-07-31 23:04] ai-researcher collect: raw=112 dedup=20 relevant=0 kept=0
+[2026-08-01 00:05] ai-researcher collect: raw=113 dedup=24 relevant=2 kept=1
+[2026-08-01 01:04] ai-researcher collect: raw=113 dedup=24 relevant=2 kept=2
+[2026-08-01 02:03] ai-researcher collect: raw=107 dedup=17 relevant=0 kept=0
+[2026-08-01 03:03] ai-researcher collect: raw=108 dedup=17 relevant=0 kept=0
+[2026-08-01 04:00] ai-researcher archive: moved 123 files older than 30d
+[2026-08-01 04:04] ai-researcher collect: raw=107 dedup=18 relevant=1 kept=1
+[2026-08-01 05:03] ai-researcher collect: raw=107 dedup=17 relevant=0 kept=0
+[2026-08-01 06:03] ai-researcher collect: raw=107 dedup=17 relevant=0 kept=0
+[2026-08-01 07:03] ai-researcher collect: raw=106 dedup=16 relevant=0 kept=0
+[2026-08-01 08:03] ai-researcher collect: raw=106 dedup=16 relevant=0 kept=0
+[2026-08-01 09:04] ai-researcher collect: raw=76 dedup=14 relevant=0 kept=0
+[2026-08-01 10:04] ai-researcher collect: raw=107 dedup=16 relevant=0 kept=0
+[2026-08-01 11:04] ai-researcher collect: raw=79 dedup=16 relevant=1 kept=1
+[2026-08-01 12:13] ai-researcher collect: raw=110 dedup=18 relevant=0 kept=0
+[2026-08-01 13:03] ai-researcher collect: raw=109 dedup=18 relevant=0 kept=0
+[2026-08-01 14:03] ai-researcher collect: raw=110 dedup=19 relevant=0 kept=0
+[2026-08-01 15:03] ai-researcher collect: raw=110 dedup=19 relevant=0 kept=0
+[2026-08-01 16:07] ai-researcher collect: raw=110 dedup=18 relevant=0 kept=0
+[2026-08-01 17:03] ai-researcher collect: raw=111 dedup=19 relevant=0 kept=0
+[2026-08-01 18:52] ai-researcher collect: raw=109 dedup=18 relevant=0 kept=0
+[2026-08-01 19:05] ai-researcher collect: raw=111 dedup=20 relevant=0 kept=0
+[2026-08-01 20:04] ai-researcher collect: raw=111 dedup=20 relevant=0 kept=0
+[2026-08-01 21:03] ai-researcher collect: raw=111 dedup=19 relevant=0 kept=0
+[2026-08-01 22:12] ai-researcher collect: raw=111 dedup=19 relevant=0 kept=0
+[2026-08-01 23:08] ai-researcher collect: raw=111 dedup=19 relevant=0 kept=0
+[2026-08-02 00:09] ai-researcher collect: raw=109 dedup=18 relevant=0 kept=0
+[2026-08-02 01:03] ai-researcher collect: raw=106 dedup=15 relevant=0 kept=0
+[2026-08-02 02:03] ai-researcher collect: raw=106 dedup=15 relevant=0 kept=0
+[2026-08-02 03:04] ai-researcher collect: raw=106 dedup=15 relevant=0 kept=0
+[2026-08-02 04:32] ai-researcher collect: raw=106 dedup=15 relevant=0 kept=0
+[2026-08-02 05:10] ai-researcher collect: raw=103 dedup=14 relevant=0 kept=0
+[2026-08-02 06:11] ai-researcher collect: raw=105 dedup=14 relevant=0 kept=0
+[2026-08-02 07:05] ai-researcher collect: raw=104 dedup=14 relevant=0 kept=0
+[2026-08-02 08:56] ai-researcher collect: raw=103 dedup=14 relevant=0 kept=0
+[2026-08-02 09:47] ai-researcher collect: raw=103 dedup=15 relevant=0 kept=0
+[2026-08-02 10:15] ai-researcher collect: raw=105 dedup=15 relevant=0 kept=0
+[2026-08-02 11:15] ai-researcher collect: raw=71 dedup=11 relevant=0 kept=0
+[2026-08-02 12:31] ai-researcher collect: raw=0 dedup=0 relevant=0 kept=0
+[2026-08-02 13:04] ai-researcher collect: raw=71 dedup=11 relevant=0 kept=0
+[2026-08-02] プペル エンドロール: 起動+HANDOVER読込。Part B素材確定=Extreme pro/ぷぺるコレオ/メイキング素材 (175clip/114GB/4K60p BT.709/135分) → HANDOVER・案件仕様・active_projects 同期
+[2026-08-02 13:19] iTunes購入曲「えんとつ町のプペル」(ロザリーナ) の場所を特定しFinderで表示 (~/Music/Music/Media.localized/Music/ロザリーナ/)
+[2026-08-02 15:34] ai-researcher collect: raw=0 dedup=0 relevant=0 kept=0
+[2026-08-02 16:35] ai-researcher collect: raw=0 dedup=0 relevant=0 kept=0
+[2026-08-02 17:36] ai-researcher collect: raw=0 dedup=0 relevant=0 kept=0
+[2026-08-02 18:37] ai-researcher collect: raw=0 dedup=0 relevant=0 kept=0
+[2026-08-02 19:38] ai-researcher collect: raw=0 dedup=0 relevant=0 kept=0
+[2026-08-02 20:39] ai-researcher collect: raw=0 dedup=0 relevant=0 kept=0
+[2026-08-02 21:40] ai-researcher collect: raw=0 dedup=0 relevant=0 kept=0
+[2026-08-02 22:10] ai-researcher collect: raw=30 dedup=2 relevant=1 kept=1
+[2026-08-02 23:15] ai-researcher collect: raw=70 dedup=9 relevant=0 kept=0
+[2026-08-03 00:40] ai-researcher collect: raw=101 dedup=12 relevant=0 kept=0
+[2026-08-03 01:03] ai-researcher collect: raw=101 dedup=12 relevant=0 kept=0
+[2026-08-03 02:03] ai-researcher collect: raw=101 dedup=12 relevant=0 kept=0
+[2026-08-03 03:03] ai-researcher collect: raw=101 dedup=12 relevant=0 kept=0
+[2026-08-03 04:03] ai-researcher collect: raw=101 dedup=12 relevant=0 kept=0
+[2026-08-03 05:03] ai-researcher collect: raw=101 dedup=12 relevant=0 kept=0
+[2026-08-03 06:03] ai-researcher collect: raw=102 dedup=13 relevant=0 kept=0
+[2026-08-03 07:03] ai-researcher collect: raw=103 dedup=14 relevant=1 kept=0
+[2026-08-03 08:03] ai-researcher collect: raw=103 dedup=14 relevant=1 kept=0
+[2026-08-03 09:04] ai-researcher collect: raw=102 dedup=13 relevant=1 kept=0
+[2026-08-03 10:05] ai-researcher collect: raw=102 dedup=13 relevant=1 kept=0
+[2026-08-03 11:03] ai-researcher collect: 3 consecutive claude -p failures, kept 0
+[2026-08-03 12:04] ai-researcher collect: 3 consecutive claude -p failures, kept 0
+[2026-08-03 13:03] ai-researcher collect: 3 consecutive claude -p failures, kept 0
+[2026-08-03 14:03] ai-researcher collect: 3 consecutive claude -p failures, kept 0
+[2026-08-03 15:03] ai-researcher collect: 3 consecutive claude -p failures, kept 0
+[2026-08-03 16:03] ai-researcher collect: 3 consecutive claude -p failures, kept 0
+[2026-08-03 17:03] ai-researcher collect: 3 consecutive claude -p failures, kept 0
+[2026-08-03 18:03] ai-researcher collect: 3 consecutive claude -p failures, kept 0
+[2026-08-03 19:03] ai-researcher collect: 3 consecutive claude -p failures, kept 0
+[2026-08-03 20:03] ai-researcher collect: 3 consecutive claude -p failures, kept 0
+[2026-08-03 21:08] ai-researcher collect: raw=0 dedup=0 relevant=0 kept=0
+[2026-08-03 22:05] ai-researcher collect: 3 consecutive claude -p failures, kept 0
+[2026-08-03 23:03] ai-researcher collect: 3 consecutive claude -p failures, kept 0
+[2026-08-04 00:10] ai-researcher collect: 3 consecutive claude -p failures, kept 0
+[2026-08-04 01:03] ai-researcher collect: 3 consecutive claude -p failures, kept 0
+[2026-08-04 02:03] ai-researcher collect: 3 consecutive claude -p failures, kept 0
+[2026-08-04 03:10] ai-researcher collect: 3 consecutive claude -p failures, kept 0
+[2026-08-04 04:17] ai-researcher collect: 3 consecutive claude -p failures, kept 0
+[2026-08-04 06:28] ai-researcher collect: 3 consecutive claude -p failures, kept 0
+[2026-08-04 07:30] ai-researcher collect: 3 consecutive claude -p failures, kept 0
+[2026-08-04 08:21] ai-researcher collect: 3 consecutive claude -p failures, kept 0
+[2026-08-04 09:07] ai-researcher collect: 3 consecutive claude -p failures, kept 0
+[2026-08-04 10:05] ai-researcher collect: 3 consecutive claude -p failures, kept 0
+[2026-08-04 11:04] ai-researcher collect: 3 consecutive claude -p failures, kept 0
+[2026-08-04 12:04] ai-researcher collect: 3 consecutive claude -p failures, kept 0
+[2026-08-04 13:04] ai-researcher collect: 3 consecutive claude -p failures, kept 0
+[2026-08-04 14:03] ai-researcher collect: 3 consecutive claude -p failures, kept 0
+[2026-08-04 15:03] ai-researcher collect: 3 consecutive claude -p failures, kept 0
+[2026-08-04 16:03] ai-researcher collect: 3 consecutive claude -p failures, kept 0
+[2026-08-04 17:03] ai-researcher collect: 3 consecutive claude -p failures, kept 0
+[2026-08-04 18:03] ai-researcher collect: 3 consecutive claude -p failures, kept 0
+[2026-08-04 19:03] ai-researcher collect: 3 consecutive claude -p failures, kept 0
+[2026-08-04 20:03] ai-researcher collect: 3 consecutive claude -p failures, kept 0
+[2026-08-04 21:03] ai-researcher collect: 3 consecutive claude -p failures, kept 0
+[2026-08-04 22:04] ai-researcher collect: 3 consecutive claude -p failures, kept 0
+[2026-08-04 23:03] ai-researcher collect: 3 consecutive claude -p failures, kept 0
+[2026-08-05 00:03] ai-researcher collect: 3 consecutive claude -p failures, kept 0
+[2026-08-05 01:08] ai-researcher collect: raw=73 dedup=28 relevant=8 kept=8

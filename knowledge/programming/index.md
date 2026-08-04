@@ -60,3 +60,5 @@ last_updated: 2026-05-18
 - 新しい技術スタック試した → 実体験ベースのノート作成
 - エラー解決した → 同じエラーが起きた時用にメモ
 - Claude Code のテクニック発見 → `claude_code.md` 更新
+
+- [[knowledge/programming/workflows/youtube_gemini_prompts|youtube_gemini_prompts]] — YouTube動画をGeminiで文書化してClaudeに渡すプロンプト集(再現用/構成研究用。2026-07-27)
