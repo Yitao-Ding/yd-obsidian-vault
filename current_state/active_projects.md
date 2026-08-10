@@ -1,6 +1,6 @@
 ---
 type: current_state
-last_updated: 2026-07-14 (パソコン1台の学校: ★0→100全面リバンプ+文体改稿 完了=監査143件→8WP実装+E2E緑+教材149本文体改稿。正本=CC-business/HANDOVER.md §14。残=YD作業のみ: 本名/Stripe本番キー+店舗名/RESEND_FROM/再デプロイ可否。旧: ドメイン接続済=§12)
+last_updated: 2026-08-08b (プペルOP映像YF-13本制作完了・納品ファイル生成、詳細セクション先頭 / 同日: Arte Grow: 軸を「映像で伝える」に再定義・渡航10/1-2確定・Notion新ページ新設、詳細#5 / 旧2026-08-05注記: CC-business: noteオンリー分売の全7記事完成原稿・YD承認済 / 平成たち祭: 時系列整列TL2本追加。詳細は各セクション参照。※frontmatter 21日放置を外部監査2026-08-05指摘5で是正、旧7/14注記はCC-business本文へ)
 update_frequency: 週1回以上
 ---
 
@@ -12,6 +12,13 @@ update_frequency: 週1回以上
 > ⚠️ **2026-06-14 全件棚卸し済**: 実体ベース(git log/mtime/HANDOVER)の全プロジェクト棚卸しを `~/projects/AUTONOMOUS_SESSION_2026-06-14.md` に作成。本ファイルの各ステータスは5月下旬〜6月上旬時点なので、続ける/殺すの判断はそちらの「即決マトリックス」を参照。要点: ①大半は "YD待ち"(認証/本名/素材) ②CC-businessが最も本番ローンチ間近 ③ai-researcher/morning-briefing は "動くが成果が届かない" 状態。
 
 ## 🟢 アクティブ・優先度高
+
+### ★ プペルOP映像 YF-13 (紗幕投影35秒、クライアント: はるきさん) ✅本制作完了・YD送付待ち (2026-08-08)
+- **状況**: ✅ **納品ファイル完成** — `ALL WORKs/ぷぺる_2026-08/納品/プペルOP映像_曲フル尺_v1.mp4` (1920×1080 / 曲「image」フル尺5:19.8 / 頭35.4秒に映像→34.95秒=イントロ明けで消滅→以降黒+音のみ) + 確認用頭36秒720p。納期希望8/16に対し8日前倒し
+- **素材**: 8/8着「ぷーnumber素材」15本 = 過去公演9回分 (煙の向こう2022〜夢追い人) の画面収録 → `動画/素材_ぷー過去公演_20260808/` にタイトル別リネーム済。全数目視済 (⑧想いの11s以降IG UI映込み=使用禁止等はREADMEに記録)
+- **設計**: ラフv10承認モーション継承+実素材15点 (全0.5倍速回想スロー・⑮オーブ新設・素材別hueグロー・終盤火の粉)。パイプライン正本=`動画/本制作_20260808/README.md` (canvas決定論エンジン+puppeteer書き出し、部分再レンダー可)
+- **次のアクション**: ①[YD] LINE送付 (`書類/LINE下書き_本編納品.md`、ギガファイル推奨) ②FB次第でv2 (投影アスペクト/素抜き実寸が未回答のまま16:9で制作、ズレたら再レンダー) ③請求 (言い値+曲購入費実費)
+- **関連**: [[2026-08-08_プペルOP映像_本制作完了]]
 
 ### プペル エンドロール動画制作 (クライアント: はるきさん、2026-08-02 受領開始)
 - **状況**: 🟢 素材受領中 — 13演目/116ファイル/672MB をギガファイルから一括DL済 (`ALL WORKs/プペル_エンドロール素材/`、演目別フォルダ整理済)
@@ -59,7 +66,9 @@ update_frequency: 週1回以上
 - **★ 本番化着手 (2026-06-05)**: YD「順番に全部やる」で開始。確定=独自ドメイン**`pc1school.com`**(Vercel新規取得・whois空き確認済、候補pasokon1dai/pasokon1/pasokondai比較の末選択)/特商法方針=**本名表示+住所電話は「請求あれば開示」**/メール=**`support@pc1school.com`**(特商法operator+Resend RESEND_FROM共用)。Go-live 6ステップ依存順=①[YD]pc1school.com購入 ②[CC]brand.ts実値化(本名待ち・購入を待たず実行可) ③[CC]ドメイン接続+DNS+SITE_URL ④[CC/YD]Resend検証→RESEND_FROM ⑤[YD→CC]Stripe本番有効化→sk_live_(チャット禁止・env直接) ⑥[CC]NOINDEX削除→vercel --prod→再検証。**いまYD待ち=①ドメイン購入/②Stripe有効化申請/③本名**。コード変更なし(決定のみ)。詳細=[[2026-06-05_CC-business_本番化着手_ドメイン特商法決定]] / CC-business/HANDOVER.md §11。
 - **★ Go-live前 総合監査 (2026-06-03、`EVAL_prelaunch_audit_2026-06-03.md`)**: 反証検証で確定25件。コア(決済/JWT/dev-unlock本番無効/ゲート)は健全。**blocker3件**=①特商法の運営者情報ダミー(`brand.ts:17-20`)②プライバシー開示請求メールもダミー(同`brand.ts`)③死蔵ファイル(.playwright-mcp/*.yml・docs/mining-result.json)にPII残存+ルート未gitignore=次の`git add .`+pushで履歴混入リスク(※ライブweb/srcはスクラブ済)。should-fix=S-1価格ハードコード(100名到達時に表示¥15,000/決済¥29,800乖離リスク、初日sold=0で一致)/S-2 site-copy.ts旧仕様dead削除/S-3 layout.tsxの廃止価格meta=**修正済**/S-4 lintエラー。
 - **次のアクション (YD作業)**: ①SNSアカウント開設(IG/Threads同名)→プロフ文を`00-strategy.md`§4からコピペ ②Phase A 助走投稿開始(`01-calendar.md`、まだ売らない) ③Go-live準備(Stripe本番キー+`AUTH_SECRET`+`NEXT_PUBLIC_SITE_URL`+`ENABLE_DEV_UNLOCK`空+`brand.ts`特商法実情報[blocker①②]+Vercelデプロイ)。残: PII死蔵ファイル掃除(B-3、rm伴う=要GO)、100名到達時の価格出し分け(S-1)。手順=`CC-business/README.md` / `marketing/launch/README.md`。
-- **★ note移行へ方針転換 + 合言葉ゲート実装 (2026-07-27決定 / 2026-07-28実装)**: 特商法の本名非公開を優先し、販売をnoteへ移行(B案)。上の2026-06-04「独自サイト継続・本名公開OK」判断を**覆した**。教材本体は自サイトに残し、noteは「レジと看板」に徹する。設計=`CC-business/note-migration/migration-design.md`(方式=(c)ローテ付き共通パスワード)、残件=同`REMAINING.md`。**CC実装済(B-1)**=`/access`+`/api/access`(合言葉→既存signAccessでJWT発行、`ACCESS_PASSPHRASES`カンマ区切りで世代ローテ、SHA-256定数時間比較、8回/10分)、`brand.ts`に販売フェーズ`phase`追加で「Stripeキー無し=恒久¥15,000表示」事故を封鎖。branch `note-migration` にローカルコミットのみ(push/deployなし)。**残ブロッカー(YD作業)**=①B-2 屋号メール窓口の実在化(特商法の氏名省略要件) ②B-3 `whois pc1school.com`で本名が出ないか確認(最優先・2分) ③合言葉決定→`vercel env`投入 ④note記事公開。**残CC作業**=設計書§2のCTA差し替え・Stripe/restore導線撤去・法務4ページ改訂。
+- **★ note移行へ方針転換 + 合言葉ゲート実装 (2026-07-27決定 / 2026-07-28実装)**: 特商法の本名非公開を優先し、販売をnoteへ移行(B案)。上の2026-06-04「独自サイト継続・本名公開OK」判断を**覆した**。教材本体は自サイトに残し、noteは「レジと看板」に徹する。設計=`CC-business/note-migration/migration-design.md`(方式=(c)ローテ付き共通パスワード)、残件=同`REMAINING.md`。**CC実装済(B-1)**=`/access`+`/api/access`(合言葉→既存signAccessでJWT発行、`ACCESS_PASSPHRASES`カンマ区切りで世代ローテ、SHA-256定数時間比較、8回/10分)、`brand.ts`に販売フェーズ`phase`追加で「Stripeキー無し=恒久¥15,000表示」事故を封鎖。branch `note-migration` にローカルコミットのみ(push/deployなし)。**残ブロッカー(YD作業)**=①B-2 屋号メール窓口の実在化(特商法の氏名省略要件) ②B-3 `whois pc1school.com`で本名が出ないか確認(最優先・2分) ③合言葉決定→`vercel env`投入 ④note記事公開。**残CC作業**=設計書§2のCTA差し替え・Stripe/restore導線撤去・法務4ページ改訂。→ **2026-08-05に下記のnoteオンリー転換で上書きされ廃止**
+- **★★ noteオンリー分売へ再転換 (2026-08-05 YD決定)**: サイト完全廃止、note完結で分売。B-1合言葉ゲートは死にコード化。①リサーチ3本 (競合16本実測/売れ筋45本API精読/公式30万件分析+規約2026-05-26逐語) → `CC-business/note-publish/research/` ②統合プレイブック=`note-publish/PLAYBOOK.md` (正本) ③**商品構成確定 (YD承認済)**: C0無料+有料6本 (C1=¥1,480→1,980 / C2, C3+C8, C5+C6, C7, C4+C9=各¥2,980) +全部入りマガジン¥9,800→完結時12,800、週1順次公開 ④変換パイプライン (`scripts/build-drafts.mjs` 表→箇条書き/SVG→PNG32枚/内部リンク置換) で全10コース本文ドラフト済 ⑤C0+記事1の完成原稿=`articles/00-c0-free.md`+`01-c1.md` (YD検収待ち)。**規約上の絶対NG**: 売上・部数の公開煽り (10.1(3)) / 自演購入 (13.1(9)=没収+違約金、別アカも同一管理者判定で該当→テスト購入は実在の第三者に依頼)。**⑥全7記事の完成原稿完了 (2026-08-05深夜、YD承認済み)**: `articles/00〜06` (計35.4万字)。C9「noteはやめとけ」矛盾は c9-m1-l3 に「結論は二度ひっくり返った」追記+手数料実測値修正で解消。パイプラインは記事単位 (合体記事の章連番化・記事間リンク解決)。**残**: 図解32枚の挿入位置つき投稿手順書 / 要レビュー表30個の画像化判断 / noteアカウント開設・プロフィール文 (YD作業、2FA・プレミアム月500円推奨) / E2E購入確認は実在の第三者に依頼 (自演購入は規約13.1(9)で厳禁)。commits `2b625dc`〜`21aa414` (branch note-migration、push未)
+- **⑦脱AI臭・全面書き換え完了 (2026-08-07)**: YD指示「AIぽさ完全排除・構成も・リサーチから監視まで」→ リサーチ2本→企画書(REWRITE-PLAN)→機械層根治(変換器バグ/LMS座標廃止)→パーツ層書き分け→articles/凍結→7エージェント並列書き換え→**敵対的リーダー2系統の検収** (記事3不合格→R2で全解消、事実破綻・三人称混入・二重表記まで摘出) →全記事最終合格。ブランド=「深夜2時｜パソコン1台の学校」(ID: pc1school、夜仕様トプ画/ヘッダー、バイブコーダーペルソナ=属性を名乗らない)。詳細=[[2026-08-07_CC-business_脱AI臭全面書き換え]]。**残: YDのnoteアカウント開設のみ (原稿・画像54枚・手順書・BIO全部準備済)**。commits 〜`0a69dcd`
 - **関連**: [[2026-06-03_パソコン1台の学校_情報商材システム構築]]、[[claude_design]]、`CC-business/README.md`
 
 ### ★ AI学習スプリント (2026-05-19 開始、最重要) ★
@@ -119,6 +128,7 @@ update_frequency: 週1回以上
 - **関連**: `knowledge/programming/projects/vidkit.md`, `decisions/2026-05-18_FCPXML_ラウンドトリップ採用.md`, `decisions/2026-05-19_vidkit_tighten_tutorial_完成.md`
 
 ### 3. 平成たち祭 動画制作
+- **★ 2026-08-05 時系列整列版TL 2本追加 (YD指摘「クリップの時系列がバラバラ」対応)**: メイキング+ダイジェストv3を、章構成・カット選定・in/outはそのままに**章内のカット順だけ実撮影時刻順に整列** (ffprobe creation_time+inオフセット基準)。新TL=**04_MAKING_chrono** (34カット/227.45s) + **04_2min_v3_chrono** (57カット/123.83s)、既存4TL無傷を機械検証済み。補正3点: ①GoPro3本はカメラ時計未設定(04/03表示)のため現行位置ピン ②making OP#1のフラッシュフォワードは演出として先頭維持 ③最終カット(掛け声/さくら木満開)は末尾ピン。発見: v3「2章開場」のC108/C111は実は終演後21時台の撮影。字幕/BGM工程の正= `_cc_work2/chrono/shotlist_making_chrono.md` / `shotlist_v3_chrono.md`、時刻根拠= `chrono/chrono_report.md`。注意: 初回mtg A013/A014の2カメ時計差は未検証(1限目の順序が入れ替わった根拠)
 - **★ 2026-07-29 メイキング 企画〜カット編集完了 (Fable監督版)**: 構成=「時間割 / 言ったことが、ぜんぶ本当になっていく」(会議で企画誕生→公園で図工→当日実現→終演後の声、掛け声「ヘイ!セイ!たち!サーイ!」が縦糸)。**34カット 3:47、TL「03_MAKING」を take2 にビルド済み** (60fps・マーカー: 緑=幕頭8/紫=縦素材2/青=最終カット)。全カットFable本人が2fpsタイル目視、ダイジェストv1/v2の94カットと重複0。会話22カットはwhisper引用付き=字幕工程に直結。構成宣言=`_cc_work2/making/構成案_final.md`、shotlist=`_cc_work2/making/shotlist_making.md`、**報告=`CC_報告_making_2026-07-29.md` (YD Top3: 通し再生 / C067のブレ判断 / 縦素材2カットの処理)**。BGM・字幕・カラーは次工程
 - **★ 2026-07-29 ダイジェストv2完全リビルド (目視必須版) 完了**: 対象170本を全数目視 (Fable系統12エージェント、selects.csv 170行・重複0)→2fps精査74窓→librosaビート/whisper解析→**shotlist 49カット118.95秒**→Resolve「**平成たち祭_REPLAYGROUND_take2**」ビルド済み (4K/60fps/ビン5系統検証済/Comments全170書込/Retimeマーカー3/候補TL2本)。v1(音声のみ選定)の資材は `_archive_v1_音声のみ版_20260728/`。**Haruhiソロ=C081/C084で成立 (本人確認はYD)**・さくら木ビフォー(C101)/アフター(2731)確保・観客の涙は170本に存在せず代替採用。**YD次アクション=CC_報告_take2_2026-07-29.md のTop3** (playbackFrameRate確認/Retime50%×3/候補TL判断2件)。作業資材=`_cc_work2/`
 - **状況**: ✅ 編集設計書完成 (2026-05-20 深夜) → **朝 DaVinci 着手可能**
@@ -203,6 +213,9 @@ update_frequency: 週1回以上
 - **関連**: [[2026-05-31_easy-share設計確定]]、[[2026-06-02_easy-share_FinderUI刷新と写真原本DL]]、リサーチ workflow `wafcglinq`
 
 ### ★ Project Agent Application (Z 世代向け青春タスクアプリ、2026-05-23 着手) ★
+- **★★★ 2026-08-09〜11 白基調の実装 + YDレビュー反映 + TestFlight build 3 提出 ★★★**: ①白基調基盤実装 (`49cc2d5`: tokens反転でクリーム完全撤廃・keyCard文法・不可視化24箇所修正、alias構造で164箇所自動追従) ②YD が Claude Design 画面集1〜3をレビュー → **★横断ルール確定「青帯はメイン画面だけ、サブ画面は白メイン+普通のバー、灰色の枠組みは全ページで要不要を再検証 (LINE風)」** → 3バッチ実装 (`22e69f4` SubScreenBar+通知メタ行+フルブリード+語調 / `7dc01ef` 通知文言25文 / `c23e1a9` 4-6相当14画面監査適用)。レビュー正本= `design/redesign-2026-08-White/YD-REVIEW-2026-08-09.md`。**画面集4〜6のYDレビュー継続中** ③App Store風プロモスクショ6枚 (1290×2796) をClaude Designで生成→Drive「Project Agent マーケスクショ 2026-08」+ ~/Downloads/PAA-shots ④**TestFlightデモbuild 3 提出完了** (白基調全部入り。EASのpod install失敗=AppCheckCore新依存RecaptchaInteropをexpo-build-properties extraPodsで根治 `d0eaa19`。ios/はgitignore=リモートprebuildなのでネイティブ変更はconfig plugin経由が正)。全ゲートPass (tsc0/eslint0/jest34)。**YD判断待ち**: migration023 GO/022扱い/Edge deploy GO(+旧語調文言4本の同期)/仕様2件(オンボ4学校メリット・団体作成の学校情報)/ハル吹き出し語調/push(未push16コミット)。引き継ぎ正本= HANDOVER.md 冒頭「2026-08-09〜11」
+- **★★ 2026-08-08〜09 白基調リデザイン: 全41画面のデザイン確定 (実装はこれから) ★★**: YD「フロント/全ページをデザイン面から作り直す」+「背景を白に統一」→ claude.ai/design (**Fable 5 / Effort Max**) で全41画面ぶん生成完了。**視覚の正 = https://claude.ai/design/p/2235e024-afb8-4600-80dc-afc6fd6dca0c** (プロトタイプ遷移あり5画面+状態Tweaks / 探索3案比較 / 画面集1〜6)。**確定文法 = 1b×1c統合** (YDが3案から選択): 地は白#FFFFFF・沈み面#F5F6F8で**クリーム#FFF8DC完全撤廃**、青#025291の帯が「現在地」と「まず何をするか」を宣言、**押せるものだけが沈んだ面から1段浮いた白いキー**、橙#FF8B07は主アクションと締切のみ。ダーク例外は振り返り一覧/年次Wrapped/お宝箱撮影の3つだけ(ダイジェスト詳細は白)。**YD指示で確定した仕様**: ①タスク詳細=概要→提出→コメント→担当/チームの順、期限は締切チップ1本に統合、提出欄を主役化し「完了にする」を内包 ②ホーム見出しは「今日やること」のみ(件数は小メタへ) ③**コピーの語調=大学生・社会人向けの普通の日本語**(「小学生に対する言葉遣い」はNG、幼い語尾・絵文字・演出過剰を排除、ハルも対等トーン)。**次=実装(未着手)**: tokens.ts反転で164箇所が自動追従するが、**トークン反転と「カードの型」適用は同一コミット必須**(分割すると地もカードも白で階層崩壊)。白地で不可視化するカード=パターンB(影のみ16箇所)+C(枠線も影もなし8箇所)。正本= `design/redesign-2026-08-White/{BRIEF,MIGRATION-SURVEY,DESIGN-OUTPUT}.md`。commit `e3cd990` `e8cabec`。詳細 [[2026-08-08_PAA_白基調リデザイン確定]]
+- **★★ 2026-08-08 セキュリティ総合再監査 (Edge/DB/クライアント/設定 の4系統独立監査) ★★**: YD「バックグラウンドとセキュリティ周りを総合チェック、抜け漏れがあれば修正」→ **60+所見**。過去2回の監査で「修正済み」とされた項目も自己申告を信じず全件再検証したのが奏功。**P1**: ①SSRF ブロックリストが IPv4-mapped IPv6 (`[::ffff:10.0.0.5]`) で回避可能 (修正後バイパス27種を node で実行検証) ②`reminders-leader-nudge` が assigneeIds を実アサイニーと照合せず「被害者本人のキャラ名義」で任意ユーザーへ Push 送信可能 ③招待の二重消化レース ④PKCE 運用なのに implicit 経路が残りセッション注入可能 ⑤**Play サービスアカウント鍵が .gitignore に無く、GitHub リモート実在のため鍵作成の瞬間に公開される地雷**。**★最重要: migration 022 は適用保留** — 「呼び出し元ゼロの死にコード」という 022 の前提は 2026-07-13 時点のもので、その後 Wave 2 でホーム長押し完了に配線済み。単独適用すると実モードのタスク完了が全ユーザーで RLS 拒否 (DB監査とクライアント監査が独立に同一結論)。commit `22d684a` (43ファイル +1565/-240、tsc0/eslint0/jest34/シミュレータでMOCKデモ保全確認)。**YD判断待ち**: ①migration 023 の実DB適用GO ②022 の扱い (完了経路を submissions INSERT に付け替えるか) ③Edge deploy GO ④公開ポートフォリオの anon 全件列挙の是非。詳細 [[2026-08-08_PAA_セキュリティ総合再監査]]
 - **★★ 状況 (2026-07-13 最新、Fable 司令塔で 0→100 全面改修 完了) ★★**: 🟢🟢🟢🟢 YD「フロント/バック/UI/UX が気に入らない、全部見直して」→ Fable=監査/計画/検収 + 実装 Opus・Sonnet の分業で全面改修。**監査 10次元→105所見** → **3 Wave 実装・全便 Fable 実体検収 (tsc/jest/eslint 再現+P0/P1直読+MOCK保全)**。ブランチ `overhaul/2026-07`(未push・main未マージ)に 4 コミット (13335b7 W1 / 4e4dd3d W2 / 1fc0bd5 W3 / 238254f docs)、99ファイル +15427/-8022。**★ P0×3 の MOCK デモ破壊 (コメント/タスク完了/PJ完了クライマックスが戻る) を根治** + HANDOVER 最優先「設定プロフィール読み込み中固定」根治 + バックエンド認可穴封鎖 + 画面の状態機械整合 + デザイン磨き込み。**YD 判断待ち4点**: ①バックエンド実DB適用GO(migration022+Edge7本deploy、GOでFable代行・未適用でも無変更) ②お宝箱の新演出画面(新機能) ③審査/安全系(アカウント削除・UGC通報・Push・Sentry) ④MOCK cold-restart永続化。**正本 = `~/AI projects/project-agent-application/OVERHAUL_2026-07.md` + HANDOVER.md 冒頭 2026-07-13**。走行中BG便なし。YD側=実機確認+push可否。詳細 [[2026-07-13_PAA全面改修]]。
 - **状況 (2026-06-06、改修前)**: 🟢🟢🟢 **シミュレータ実機で MOCK モード起動成功 + 全画面ツアー着手**(2026-06-06 CC4)。pod 全 update 整合 → `expo run:ios` で native 再ビルド → ホーム(CD「青春の余白」)正常表示。全画面ツアーは **cliclick タップ並走方式を確立**(deep link は dev-client で不可)、主要 8 画面収集 + 一次所見(設定プロフィール「読み込み中」疑い / AssistiveTouch 大ギア全画面被り / 設定・振り返り右上キャラアイコン要確認)。**YD「YD 手動巡回 + 僕が並走」方式に合意 → 次セッションでツアー継続 → 狙い撃ち修正**。起動/ツアー手順 memory = [[sim-launch-and-tour-method]]。正本 = HANDOVER.md 冒頭 2026-06-06 CC4。
   - (以下 2026-06-04/05) 🟢🟢 **実モード(本番DB)を mock スタブ状態から「複数人フルフロー」まで全配線完了 + 本番E2E実証**。1セッション15コミット: ① データ層7ファイル実配線(機能監査🔴8解消)+ 画面guard17件(🟠17)② DB migration 015–021 を実DB `lkrmziwygyyyijyabtzp` に適用(get_member_profiles RPC=users self-only越境の唯一点・PII非返却 / handle_new_user / create_tm・project・team / task_assignees.status整合 / avatars バケット)③ 作成系UI新規(PJ/Team/メンバー管理)④ Edge関数12個 deploy + Gemini鍵設定 + 招待join slugバグ修正。**★ 本番DBで E2E: バックエンド31/0 + アバター9/0 PASS(残留0で掃除済)** = 登録→TM/PJ/Team作成→招待join→タスク→提出→AI診断→振り返り→アバター写真 が全部繋がり実証済。MOCK友達デモ(FORCE_MOCK・TestFlight)は終始無傷。**残= YD実機UIツアー / design磨き込み / Google・LINE点灯(コンソール待ち)。コード的ブロッカーはほぼ打ち止め。** ★ **正本は `~/projects/project-agent-application/HANDOVER.md` の冒頭(2026-06-04 CC3続き)**。
@@ -313,14 +326,17 @@ update_frequency: 週1回以上
 - **現行サイト**: `salamat-toyo.web.app` (Firebase、置き換え対象)
 - **関連**: `knowledge/salamat/wbs_team.md`, [[2026-05-19_Salamat_WBS_Phase1実装]], [[2026-05-19_Salamat_WBS_Phase2_演出強化]], [[vercel]], `~/Downloads/07_開発・アプリ制作/salamat-website-v2/design-brief.md`
 
-### 5. Arte Grow (社会起業)
-- **状況**: Type B モデル確定、9月フィリピン視察計画中
+### 5. Arte Grow (社会起業 → ★軸=映像で伝える)
+- **★ 2026-08-08 軸再定義**: 支援団体でも物販会社でもなく「普通じゃない環境に入って撮って伝える」が軸。収益構想=①メディア ②コマース ③制作受託。渡航は「視察」でなく「パイロット撮影+アクセス開拓」
+- **渡航確定: 2026-09-21〜10-03** (セブ滞在9/26〜10/3、CFA訪問10/1-2。メンバー: YD/Rina/Taichi/Hina。詳細=`knowledge/arte_grow/2026-09_渡航情報.md`)。Manuel Stumpf (CFA / Feeding & Family Center、ダンちゃり経由) に訪問打診Messenger送信済(8/8)。返信後に映像無償制作オファー
+- **管理正本 = Notion「Arte Grow｜フィリピンプロジェクト」** (新アカウント。タスク12件/論点5件/アイデア6件/現地コンタクト/参考事例のDB5つ)
 - **次のアクション**:
-  - [ ] 9月視察の具体プラン作成
-  - [ ] 視察前のリサーチ深化
-  - [ ] メンバー (Rena, Haruka含む) の役割明確化
+  - [ ] Taichiとビジョン擦り合わせ (期限8/15、最優先)
+  - [ ] 「なぜ搾取じゃないのか」の一行化 / 発信の主戦場・名義の決定
+  - [ ] ゲートキーパー候補リスト(8/22) / ANTHILL商談アポ(8/25)
 - **モデル**: Pride, Not Dependency
 - **共同創業**: Taichi (19歳)
+- **詳細**: [[2026-08-08_ArteGrow_軸再定義_渡航確定]]
 - **関連**: `knowledge/arte_grow/`
 
 ## 🟡 完成済み・運用フェーズ

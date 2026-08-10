@@ -2198,3 +2198,177 @@
 [2026-08-04 23:03] ai-researcher collect: 3 consecutive claude -p failures, kept 0
 [2026-08-05 00:03] ai-researcher collect: 3 consecutive claude -p failures, kept 0
 [2026-08-05 01:08] ai-researcher collect: raw=73 dedup=28 relevant=8 kept=8
+[2026-08-05 02:08] ai-researcher collect: raw=104 dedup=53 relevant=8 kept=8
+[2026-08-05 02:26] プペル エンドロール: B案確定、gen_town.py の窓灯りを手置きグリッド→シード乱数の自然配置 (147窓・輝度/サイズ/色バラつき+連窓クランプ) に書き換え、preview_b_partA.png 再レンダ
+[2026-08-05 03:09] ai-researcher collect: raw=105 dedup=47 relevant=8 kept=8
+[2026-08-05 04:09] ai-researcher collect: raw=106 dedup=41 relevant=8 kept=8
+[2026-08-05 05:09] ai-researcher collect: raw=105 dedup=32 relevant=8 kept=8
+[2026-08-05 06:07] ai-researcher collect: raw=106 dedup=26 relevant=7 kept=6
+[2026-08-05 07:04] ai-researcher collect: raw=107 dedup=21 relevant=1 kept=1
+[2026-08-05 08:03] ai-researcher collect: raw=107 dedup=20 relevant=0 kept=0
+[2026-08-05 09:03] ai-researcher collect: raw=108 dedup=20 relevant=0 kept=0
+[2026-08-05 10:05] ai-researcher collect: raw=107 dedup=20 relevant=2 kept=2
+[2026-08-05 02:40] CC-business: noteオンリー分売へ転換(YD決定)。リサーチ3本→PLAYBOOK統合、C0無料+有料6本+マガジン¥9,800構成をYD承認。C0+C1完成原稿まで(8c31b73)。decisions/2026-08-05_CC-business_noteオンリー分売転換.md
+[2026-08-05 11:04] ai-researcher collect: raw=77 dedup=13 relevant=0 kept=0
+[2026-08-05 12:10] ai-researcher collect: raw=79 dedup=25 relevant=8 kept=8
+[2026-08-05 13:09] ai-researcher collect: raw=109 dedup=48 relevant=8 kept=8
+[2026-08-05 14:08] ai-researcher collect: raw=108 dedup=42 relevant=8 kept=8
+[2026-08-05 15:09] ai-researcher collect: raw=109 dedup=37 relevant=8 kept=8
+[2026-08-05 16:09] ai-researcher collect: raw=108 dedup=29 relevant=8 kept=8
+[2026-08-05 17:09] ai-researcher collect: raw=109 dedup=23 relevant=7 kept=7
+[2026-08-05 17:40] プペル エンドロール: B案に横スクロール (町90s/周・星空300s/周の視差、2枚タイル+シーム壁でループ) と煙突のもくもく煙 (7パフ×6煙突、feTurbulence乱流+月光ハイライト) を実装。puppeteer-core の決定論的フレームレンダラー (_cc_work/render) 構築、0.2s/frame。preview_b_motion.mp4 (12s/24fps) 出力
+- 2026-08-05 プペル エンドロール: 煙突1本削減 (x=1255) + 町SVGに320px煙ヘッドルーム追加、上端220pxマスクで煙をフェードアウト。preview_b_motion.mp4 再出力
+[2026-08-05 18:05] ai-researcher collect: raw=107 dedup=18 relevant=3 kept=3
+[2026-08-05 19:07] ai-researcher collect: raw=40 dedup=7 relevant=0 kept=0
+[2026-08-05 20:16] ai-researcher collect: raw=77 dedup=12 relevant=1 kept=1
+[2026-08-05 21:04] ai-researcher collect: raw=107 dedup=16 relevant=1 kept=1
+- 2026-08-05 プペル: B案背景を素材単位でAE落とし込み完了。アルファ分解素材 + 煙12.012s完全ループProRes4444 + プペル_PartA_kit.aep 自動構築 (AE2026/ExtendScript)。検証フレームOK
+[2026-08-05 03:10] CC-business note販売: 全7記事の完成原稿完了(C9矛盾追記・記事単位パイプライン化)。commit e面は git log 参照
+- 2026-08-05 プペル AEキット: number/choreographer/member のフォントを Baskerville Italic → Bodoni 72 Oldstyle Bold に変更 (YD指示)。README/HTML同期済み
+- 2026-08-05 プペル: 3チームサンプル完成 (萌美路/琴/まなぱんまん+i.Buu)。参照動画準拠の等速ロール+ポラロイドスピン切替+音源。AE内で全構築→aerenderで19秒レンダー。renders/PartA_sample_3teams.mp4 (18s/1080p59.94/音声入り)
+[2026-08-05] 平成たち祭: メイキング+ダイジェストv3の章内時系列整列版TLをビルド (04_MAKING_chrono / 04_2min_v3_chrono、既存TL無傷、GoPro時計ズレ・フラッシュフォワード・最終カットの3補正つき)
+[2026-08-05 22:04] ai-researcher collect: raw=107 dedup=16 relevant=1 kept=1
+- 2026-08-05 プペル AEキット: ポラロイドをprecomp廃止で分解 (CTRL/枠/写真x3/影が独立レイヤー、YD指摘)。写真の窓マスク追加 (はみ出しバグ修正)。sample v2再レンダー納品
+[2026-08-05 23:06] ai-researcher collect: raw=109 dedup=19 relevant=3 kept=3
+[2026-08-06 00:04] ai-researcher collect: raw=108 dedup=16 relevant=1 kept=1
+[2026-08-06 00:22] 秘書セッション6日ぶり再開: 監査10点対応 — run-audit.sh失敗検知実装 / 7-30〜8-4遡及記帳+8-5クローズ+8-6作成 / 日報HTML復活 / active_projects frontmatter・秘書CLAUDE.md修正
+[2026-08-06 01:04] ai-researcher collect: raw=106 dedup=15 relevant=1 kept=1
+[2026-08-06 00:30] CC-business note販売: 表画像化22枚+投稿手順書(PUBLISH-GUIDE.md)自動生成完了。公開待ち状態 (YD: noteアカウント開設のみ)
+[2026-08-06 02:04] ai-researcher collect: raw=106 dedup=15 relevant=1 kept=1
+[2026-08-06 03:06] ai-researcher collect: raw=107 dedup=18 relevant=3 kept=3
+[2026-08-06 04:04] ai-researcher collect: raw=104 dedup=14 relevant=1 kept=1
+[2026-08-06 05:03] ai-researcher collect: raw=107 dedup=17 relevant=0 kept=0
+[2026-08-06 06:04] ai-researcher collect: raw=108 dedup=18 relevant=0 kept=0
+[2026-08-06 07:03] ai-researcher collect: raw=109 dedup=19 relevant=0 kept=0
+[2026-08-06 08:04] ai-researcher collect: raw=110 dedup=20 relevant=1 kept=1
+[2026-08-06 08:21] 人生設計セッション: 3タテ(Apple+映像+事業)前提で映像事業1年ロードマップ確定(月50万目標・SNS/直販/在庫資産化) → decisions/2026-08-05_映像事業_1年ロードマップ.md
+[2026-08-06 09:04] ai-researcher collect: raw=110 dedup=19 relevant=0 kept=0
+[2026-08-06 10:04] ai-researcher collect: raw=110 dedup=20 relevant=0 kept=0
+[2026-08-06 11:06] ai-researcher collect: raw=80 dedup=22 relevant=3 kept=3
+[2026-08-06 12:09] ai-researcher collect: raw=110 dedup=33 relevant=8 kept=8
+[2026-08-06 13:08] ai-researcher collect: raw=110 dedup=28 relevant=5 kept=5
+[2026-08-06 14:09] ai-researcher collect: raw=110 dedup=50 relevant=8 kept=8
+[2026-08-06 15:10] ai-researcher collect: raw=109 dedup=42 relevant=8 kept=7
+[2026-08-06 16:09] ai-researcher collect: raw=109 dedup=36 relevant=8 kept=8
+[2026-08-06 17:05] ai-researcher collect: raw=110 dedup=29 relevant=2 kept=2
+[2026-08-06 18:05] ai-researcher collect: raw=110 dedup=29 relevant=2 kept=2
+[2026-08-06 19:03] ai-researcher collect: raw=110 dedup=28 relevant=1 kept=1
+[2026-08-06 20:03] ai-researcher collect: raw=110 dedup=27 relevant=0 kept=0
+[2026-08-06 21:03] ai-researcher collect: raw=110 dedup=28 relevant=0 kept=0
+[2026-08-06 22:03] ai-researcher collect: raw=109 dedup=27 relevant=0 kept=0
+[2026-08-06 23:05] ai-researcher collect: raw=110 dedup=28 relevant=2 kept=2
+[2026-08-07 00:04] ai-researcher collect: raw=109 dedup=26 relevant=1 kept=1
+[2026-08-07 01:04] ai-researcher collect: raw=109 dedup=26 relevant=1 kept=1
+[2026-08-07 02:08] ai-researcher collect: raw=111 dedup=30 relevant=4 kept=4
+[2026-08-07 02:42] biz-scout R1+R2完走(58案→決定)→YD選好判明でプロダクト型へ方針転換、R3ハンドオフ作成。8/6日報+8/7 todos作成
+[2026-08-07 02:45] CC-business note販売: ペンネーム「深夜2時|パソコン1台の学校」YD確定。ブランド外装を夜仕様に統一 (brand/)、PLAYBOOK§5.5に世界観定義
+[2026-08-07 03:04] ai-researcher collect: raw=110 dedup=25 relevant=0 kept=0
+[2026-08-07 04:10] biz-scout Round 3 完了 (handoff実行CC): 9レンズ48案→懐疑役5/5全滅→唯一の収穫I1 (動画編集ツールBOOTH直販)。正本=biz-scout-2026-08/ROUND3_SYNTHESIS.md、REPORT記入済み
+[2026-08-07 04:05] ai-researcher collect: raw=109 dedup=24 relevant=0 kept=0
+[2026-08-07 04:30] CC-business 脱AI臭書き換え: リサーチ2本→企画書→機械層根治→パーツ層書き分け→記事7本の並列書き換え→検収まで完走。全記事が数値ゲート通過(息継ぎ26-30%/文末3連続0/機械記法0)。敵対的リーダー2系統で最終検分中
+[2026-08-07 05:00] CC-business 脱AI臭書き換え完了: 敵対的検収R1(45件超指摘)→R2全解消。全7記事最終合格 (息継ぎ26-31%/機械記法0/記事間反復0)。decisions/2026-08-07_CC-business_脱AI臭全面書き換え.md。残=YDのnoteアカウント開設のみ
+[2026-08-07 05:05] ai-researcher collect: raw=110 dedup=24 relevant=1 kept=1
+[2026-08-07 06:04] ai-researcher collect: raw=111 dedup=24 relevant=0 kept=0
+[2026-08-07 07:06] ai-researcher collect: raw=109 dedup=24 relevant=2 kept=2
+[2026-08-07 08:05] ai-researcher collect: raw=108 dedup=21 relevant=0 kept=0
+[2026-08-07 09:04] ai-researcher collect: raw=109 dedup=22 relevant=1 kept=1
+[2026-08-07 10:06] ai-researcher collect: raw=107 dedup=20 relevant=1 kept=1
+[2026-08-07 11:08] ai-researcher collect: raw=77 dedup=17 relevant=6 kept=6
+[2026-08-07 12:09] ai-researcher collect: raw=78 dedup=16 relevant=6 kept=6
+[2026-08-07 13:10] ai-researcher collect: raw=108 dedup=41 relevant=8 kept=8
+[2026-08-07 14:09] ai-researcher collect: raw=107 dedup=34 relevant=8 kept=8
+[2026-08-07 15:09] ai-researcher collect: raw=107 dedup=28 relevant=8 kept=8
+[2026-08-07 16:03] ai-researcher collect: raw=0 dedup=0 relevant=0 kept=0
+[2026-08-07 17:03] ai-researcher collect: raw=0 dedup=0 relevant=0 kept=0
+[2026-08-07 18:09] ai-researcher collect: raw=110 dedup=28 relevant=6 kept=6
+[2026-08-07 19:04] ai-researcher collect: raw=109 dedup=22 relevant=1 kept=1
+[2026-08-07 20:04] ai-researcher collect: raw=108 dedup=21 relevant=1 kept=1
+[2026-08-07 21:37] ai-researcher collect: raw=0 dedup=0 relevant=0 kept=0
+[2026-08-07 22:05] ai-researcher collect: raw=0 dedup=0 relevant=0 kept=0
+[2026-08-07 23:04] ai-researcher collect: raw=105 dedup=21 relevant=2 kept=2
+[2026-08-08 00:04] ai-researcher collect: raw=107 dedup=21 relevant=1 kept=1
+[2026-08-08 01:04] ai-researcher collect: raw=107 dedup=20 relevant=0 kept=0
+[2026-08-08 02:05] ai-researcher collect: raw=106 dedup=20 relevant=1 kept=0
+[2026-08-08 03:05] ai-researcher collect: raw=108 dedup=22 relevant=2 kept=1
+[2026-08-08 03:40] Arte Grow: 軸を「映像で伝える」に再定義 / 渡航10/1-2確定 / Manuel Stumpf(CFA)へ訪問打診をMessenger送信 / Notion新アカウントに「Arte Grow｜フィリピンプロジェクト」ページ+DB5つ新設 → [[2026-08-08_ArteGrow_軸再定義_渡航確定]]
+[2026-08-08 03:55] Arte Grow: 渡航全日程確定を保存 (9/21〜10/3、セブ9/26〜10/3、4名: YD/Rina/Taichi/Hina、YD・Rinaの香港→マニラは9/23 14:00に変更) → knowledge/arte_grow/2026-09_渡航情報.md 新規作成、Notion/active_projects/decisions同期済
+[2026-08-08 04:05] ai-researcher collect: raw=108 dedup=21 relevant=2 kept=1
+[2026-08-08 04:15] PAA: セキュリティ総合再監査 (Edge/DB/クライアント/設定の4系統独立監査、60+所見) → 確定分を修正・commit `22d684a`。P1: SSRF の IPv4-mapped IPv6 バイパス(実行検証27種)・Push偽装・招待の二重消化レース・セッション注入・Play秘密鍵のgitignore漏れ。migration 023 起票(未適用)。★022は適用保留=ホーム完了を壊すと判明 → [[2026-08-08_PAA_セキュリティ総合再監査]]
+[2026-08-08 05:05] ai-researcher collect: raw=106 dedup=20 relevant=1 kept=1
+[2026-08-08 06:04] ai-researcher collect: raw=106 dedup=20 relevant=1 kept=1
+[2026-08-08 07:05] ai-researcher collect: raw=105 dedup=21 relevant=2 kept=2
+[2026-08-08 08:04] ai-researcher collect: raw=105 dedup=19 relevant=1 kept=1
+[2026-08-08 09:03] ai-researcher collect: raw=105 dedup=18 relevant=0 kept=0
+[2026-08-08 10:04] ai-researcher collect: raw=75 dedup=10 relevant=0 kept=0
+[2026-08-08 11:04] ai-researcher collect: raw=107 dedup=20 relevant=1 kept=1
+[2026-08-08 12:03] ai-researcher collect: raw=106 dedup=18 relevant=0 kept=0
+[2026-08-08 13:03] ai-researcher collect: raw=105 dedup=18 relevant=0 kept=0
+[2026-08-08 13:25] プペルOP映像(YF-13)本制作完了: ぷー素材15本DL/検分→canvas決定論エンジンで35.4秒構築→曲image mux→納品/プペルOP映像_曲フル尺_v1.mp4 (納期8/16の8日前倒し、YD送付待ち)
+[2026-08-08 14:04] ai-researcher collect: raw=105 dedup=18 relevant=0 kept=0
+[2026-08-08 15:04] ai-researcher collect: raw=105 dedup=18 relevant=0 kept=0
+[2026-08-08 16:04] ai-researcher collect: raw=105 dedup=18 relevant=0 kept=0
+[2026-08-08 17:03] ai-researcher collect: raw=105 dedup=18 relevant=0 kept=0
+[2026-08-08 18:03] ai-researcher collect: raw=105 dedup=18 relevant=0 kept=0
+[2026-08-08 19:03] ai-researcher collect: raw=105 dedup=18 relevant=0 kept=0
+[2026-08-08 20:03] ai-researcher collect: raw=105 dedup=18 relevant=0 kept=0
+[2026-08-08 21:03] ai-researcher collect: raw=105 dedup=18 relevant=0 kept=0
+[2026-08-08 22:03] ai-researcher collect: raw=107 dedup=20 relevant=0 kept=0
+[2026-08-08 23:03] ai-researcher collect: raw=107 dedup=20 relevant=0 kept=0
+[2026-08-09 00:03] ai-researcher collect: raw=108 dedup=20 relevant=0 kept=0
+[2026-08-09 01:03] ai-researcher collect: raw=109 dedup=21 relevant=0 kept=0
+[2026-08-09 02:03] ai-researcher collect: raw=109 dedup=21 relevant=0 kept=0
+[2026-08-09 03:03] ai-researcher collect: raw=108 dedup=20 relevant=0 kept=0
+[2026-08-09 04:03] ai-researcher collect: raw=108 dedup=20 relevant=0 kept=0
+[2026-08-09 05:03] ai-researcher collect: raw=108 dedup=20 relevant=0 kept=0
+[2026-08-09 06:03] ai-researcher collect: raw=108 dedup=20 relevant=0 kept=0
+[2026-08-09 07:03] ai-researcher collect: raw=106 dedup=20 relevant=0 kept=0
+[2026-08-09 08:04] ai-researcher collect: raw=107 dedup=21 relevant=1 kept=1
+[2026-08-09 09:04] ai-researcher collect: raw=107 dedup=20 relevant=0 kept=0
+[2026-08-09 10:03] ai-researcher collect: raw=106 dedup=19 relevant=0 kept=0
+[2026-08-09 11:04] ai-researcher collect: raw=76 dedup=11 relevant=0 kept=0
+[2026-08-09 05:00] PAA: 白基調リデザイン確定 — claude.ai/design (Fable5/Max) で全41画面生成。文法=1b×1c統合(白地+青帯+浮いた白キー)、クリーム完全撤廃、ダーク例外3つのみ。YD指示でタスク詳細再構成+コピーの語調を大人向けに全画面統一。実装は未着手(トークン反転と型適用は同一コミット必須)。commit e3cd990/e8cabec → [[2026-08-08_PAA_白基調リデザイン確定]]
+[2026-08-09 12:03] ai-researcher collect: raw=106 dedup=19 relevant=0 kept=0
+[2026-08-09 12:20] Project Agent App: 白基調リデザイン基盤コミット 49cc2d5 (tokens反転+カードの型+不可視化24箇所、tsc0/lint0/jest34/シミュレータ4画面確認済)
+[2026-08-09 13:03] ai-researcher collect: raw=106 dedup=19 relevant=0 kept=0
+[2026-08-09 14:03] ai-researcher collect: raw=106 dedup=19 relevant=0 kept=0
+[2026-08-09 15:03] ai-researcher collect: raw=105 dedup=18 relevant=0 kept=0
+[2026-08-09 16:03] ai-researcher collect: raw=106 dedup=19 relevant=0 kept=0
+[2026-08-09 17:03] ai-researcher collect: raw=104 dedup=18 relevant=0 kept=0
+[2026-08-09 17:10] Project Agent App: YDレビュー反映3バッチ完了 (22e69f4 画面集1-3反映 / 7dc01ef 通知語調25文 / c23e1a9 横断ルール4-6適用14画面監査)。全ゲートPass、残タスクはYD判断待ち4件
+[2026-08-09 18:03] ai-researcher collect: raw=104 dedup=18 relevant=0 kept=0
+[2026-08-09 19:03] ai-researcher collect: raw=104 dedup=18 relevant=0 kept=0
+[2026-08-09 20:03] ai-researcher collect: raw=105 dedup=19 relevant=0 kept=0
+[2026-08-09 21:03] ai-researcher collect: raw=105 dedup=19 relevant=0 kept=0
+[2026-08-09 22:03] ai-researcher collect: raw=105 dedup=19 relevant=0 kept=0
+[2026-08-09 23:04] ai-researcher collect: raw=106 dedup=20 relevant=1 kept=0
+[2026-08-10 00:03] ai-researcher collect: raw=105 dedup=19 relevant=0 kept=0
+[2026-08-10 00:10] Project Agent App: App Store風プロモスクショ6枚をClaude Designで生成 (1290×2796) → Google Drive「Project Agent マーケスクショ 2026-08」へ保存完了
+[2026-08-10 01:04] ai-researcher collect: raw=106 dedup=20 relevant=1 kept=1
+[2026-08-10 02:03] ai-researcher collect: raw=102 dedup=15 relevant=0 kept=0
+[2026-08-10 03:03] ai-researcher collect: raw=102 dedup=15 relevant=0 kept=0
+[2026-08-10 04:03] ai-researcher collect: raw=101 dedup=15 relevant=0 kept=0
+[2026-08-10 05:04] ai-researcher collect: raw=101 dedup=16 relevant=1 kept=1
+[2026-08-10 06:01] ai-researcher weekly: 2026-W32.md (top 10)
+[2026-08-10 06:04] ai-researcher collect: raw=103 dedup=17 relevant=0 kept=0
+[2026-08-10 07:05] ai-researcher collect: raw=103 dedup=17 relevant=1 kept=1
+[2026-08-10 08:04] ai-researcher collect: raw=103 dedup=16 relevant=0 kept=0
+[2026-08-10 09:03] ai-researcher collect: raw=103 dedup=16 relevant=0 kept=0
+[2026-08-10 10:04] ai-researcher collect: raw=104 dedup=17 relevant=0 kept=0
+[2026-08-10 11:04] ai-researcher collect: raw=105 dedup=18 relevant=0 kept=0
+[2026-08-10 12:09] ai-researcher collect: raw=104 dedup=46 relevant=8 kept=8
+[2026-08-10 13:09] ai-researcher collect: raw=104 dedup=41 relevant=8 kept=8
+[2026-08-10 14:10] ai-researcher collect: raw=105 dedup=38 relevant=8 kept=8
+[2026-08-10 15:09] ai-researcher collect: raw=106 dedup=31 relevant=8 kept=8
+[2026-08-10 16:09] ai-researcher collect: raw=109 dedup=26 relevant=8 kept=8
+[2026-08-10 17:05] ai-researcher collect: raw=110 dedup=20 relevant=2 kept=2
+[2026-08-10 18:04] ai-researcher collect: raw=110 dedup=20 relevant=1 kept=1
+[2026-08-10 19:04] ai-researcher collect: raw=109 dedup=20 relevant=1 kept=1
+[2026-08-10 20:04] ai-researcher collect: raw=110 dedup=21 relevant=2 kept=2
+[2026-08-10 21:03] ai-researcher collect: raw=109 dedup=20 relevant=1 kept=1
+[2026-08-10 22:04] ai-researcher collect: raw=108 dedup=21 relevant=1 kept=1
+[2026-08-10 23:05] ai-researcher collect: raw=110 dedup=22 relevant=0 kept=0
+[2026-08-11 00:05] ai-researcher collect: raw=112 dedup=24 relevant=1 kept=1
+[2026-08-11 01:04] ai-researcher collect: raw=112 dedup=24 relevant=0 kept=0
+[2026-08-11 00:40] Project Agent App: TestFlightデモbuild 3 提出完了 (白基調+レビュー反映全部入り)。EAS pod install失敗はAppCheckCore新依存が原因、expo-build-properties extraPodsで根治 (d0eaa19)
+[2026-08-11 02:09] ai-researcher collect: raw=107 dedup=26 relevant=5 kept=5
+[2026-08-11 01:50] Project Agent App: セッション保存。白基調実装+YDレビュー3バッチ+マーケスクショDrive保存+TestFlight build3提出まで完了、HANDOVER/active_projects同期済
