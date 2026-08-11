@@ -26,6 +26,7 @@
 ## 環境メモ
 
 - MacBook Neo / user `yitao` (旧機 `ittou` のパスは全て読み替え)
-- ツール: ~/.local/bin (gh, node, npm, uv) — Homebrew未導入
-- organize_tool: `~/organize_tool` (launchd `com.yd.organize-watcher` 稼働中)
+- ツール: ~/.local/bin (gh, node, npm, uv, ffmpeg/ffprobe 静的ビルド) — Homebrew未導入
+- organize_tool: `~/organize_tool` (launchd `com.yd.organize-watcher` 稼働中、GitHub private `organize-tool`)
 - Vault自動同期: launchd `com.yd.vault-autosync` (30分毎 commit+push)
+- プロジェクト自動保存: launchd `com.yd.projects-autosync` (30分毎、`~/Projects/*`+`~/organize_tool` を autosave commit+push、`~/.claude` の CLAUDE.md/settings/skills を Vault `system_backup/claude/` へミラー)。新規プロジェクトは `~/Projects/` に置き初回のみ `gh repo create <name> --private --source=. --push`
