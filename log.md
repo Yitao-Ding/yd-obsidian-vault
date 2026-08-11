@@ -2382,3 +2382,4 @@
 [2026-08-11 17:50] プペルOPは納品済みとYD確認 → active_projects/棚卸しdecisionを訂正 (誤警報解除)。残注意: v2再レンダー要時はパイプライン再構築が前提
 [2026-08-11 18:10] 平成たち祭り素材559GiB(Sony/CANON/Insta360/CLIP/GOPRO 226ファイル)はGoogle Driveに現存と判明 → rclone(新規導入~/.local/bin)でYitao HDDへ直接DL開始。ロスト確定リストから平成たち祭を除外
 [2026-08-11 19:15] rclone 0B/s誤診kill(48GB無駄)をmistakes/tool_usage_mistakes.mdに記録。実態はハッシュ検証中と iostat で確定、DL継続中
+[2026-08-11 23:22] rcloneがセッション経由起動だとSIGTERMで2回停止 → launchd com.yd.hatachi-dl に切替 (セッション独立)。DL済み386GiB+は無傷、残り約170GiB続行中
