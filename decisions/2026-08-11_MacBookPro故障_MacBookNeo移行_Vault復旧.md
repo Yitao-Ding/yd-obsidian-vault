@@ -41,3 +41,12 @@
 4. 復旧優先順: Vault → GitHub push済みプロジェクト → iCloud書類 → ローカルのみのプロジェクト (最後は救出前提)
 5. 新機体セットアップの定番: Homebrew → gh → gh auth login → private repo一括クローン → ~/.claude 再構築
 6. **教訓: push未のローカルコミットは機体故障で消える。「セッション末に必ずpush」をルール化する価値あり**
+
+## 追記 (2026-08-11 午後): 環境復元の実施結果
+
+- ツール導入 (Homebrew不使用、全て `~/.local`): gh 2.97.0 / Node v24.19.0 LTS + npm 11.17 / uv
+- organize_tool: iCloudから復元 → **`~/organize_tool`** に配置 (旧 `~/Documents/` はTCC保護でlaunchdから読めず移設)。watchdogをpip --userで導入、launchd `com.yd.organize-watcher` 稼働確認済
+- Obsidian: `~/ObsidianVault` をアプリに登録済 (次回起動で開く)
+- グローバル `~/.claude/CLAUDE.md` 再構築 (Vault起動シーケンス+スタイルルール)
+- Vault自動同期: launchd `com.yd.vault-autosync` (30分毎 commit+push、pushはgh auth後に有効化)
+- YD残作業: ① `gh auth login` (private repo復旧+push有効化) ② Claude in Chrome拡張インストール ③ Extreme pro接続確認
