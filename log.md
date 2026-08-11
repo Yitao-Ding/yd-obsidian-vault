@@ -2380,3 +2380,4 @@
 [2026-08-11 17:10] YD許可でグローバルCLAUDE.md環境メモ更新 (projects-autosync/ffmpeg/organize-tool GitHub化を追記)
 [2026-08-11 17:40] Yitao HDD (4.5TB)接続・実在検証: 一匹でも一式/LiteOP納品版/プペルメイキング素材175本など生存確認。プペルOP納品mp4(納期8/16)・エンドロール素材116・平成たち祭はHDDに無し → decisions/2026-08-11_YitaoHDD接続_素材資産棚卸し.md
 [2026-08-11 17:50] プペルOPは納品済みとYD確認 → active_projects/棚卸しdecisionを訂正 (誤警報解除)。残注意: v2再レンダー要時はパイプライン再構築が前提
+[2026-08-11 18:10] 平成たち祭り素材559GiB(Sony/CANON/Insta360/CLIP/GOPRO 226ファイル)はGoogle Driveに現存と判明 → rclone(新規導入~/.local/bin)でYitao HDDへ直接DL開始。ロスト確定リストから平成たち祭を除外
