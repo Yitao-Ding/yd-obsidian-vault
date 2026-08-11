@@ -2375,3 +2375,5 @@
 [2026-08-11 16:20] MacBook Pro故障→MacBook Neo移行。VaultをGitHubから~/ObsidianVaultへ復旧 (ロスほぼゼロ)、profile.md機体情報更新、decisions/2026-08-11_MacBookPro故障_MacBookNeo移行_Vault復旧.md 作成
 [2026-08-11 16:30] MacBook Neo環境復元: gh/node/uv導入・organize_tool復旧(~/organize_tool)・Obsidian登録・グローバルCLAUDE.md再構築・vault-autosync稼働
 [2026-08-11 17:05] 復旧完了: gh認証・全9repo再クローン・Vault push再開・Obsidianプラグイン復元。新機体移行ほぼ完了
+[2026-08-11 復元続き] スキル3本再生成 (fcp-autocut/fcp-tighten/video-tutorial、新パス~/Projects/vidkit対応)+ffmpeg9.0静的ビルド導入+vidkit venv構築・CLI動作確認
+[2026-08-11 保存自動化] YD指示で保存系全自動化: com.yd.projects-autosync新設 (全repo 30分毎commit+push)+~/.claude→Vaultミラー+organize_toolをGitHub private化
