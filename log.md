@@ -2372,3 +2372,4 @@
 [2026-08-11 00:40] Project Agent App: TestFlightデモbuild 3 提出完了 (白基調+レビュー反映全部入り)。EAS pod install失敗はAppCheckCore新依存が原因、expo-build-properties extraPodsで根治 (d0eaa19)
 [2026-08-11 02:09] ai-researcher collect: raw=107 dedup=26 relevant=5 kept=5
 [2026-08-11 01:50] Project Agent App: セッション保存。白基調実装+YDレビュー3バッチ+マーケスクショDrive保存+TestFlight build3提出まで完了、HANDOVER/active_projects同期済
+[2026-08-11 16:20] MacBook Pro故障→MacBook Neo移行。VaultをGitHubから~/ObsidianVaultへ復旧 (ロスほぼゼロ)、profile.md機体情報更新、decisions/2026-08-11_MacBookPro故障_MacBookNeo移行_Vault復旧.md 作成
