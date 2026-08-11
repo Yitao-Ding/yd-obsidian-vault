@@ -50,3 +50,13 @@
 - グローバル `~/.claude/CLAUDE.md` 再構築 (Vault起動シーケンス+スタイルルール)
 - Vault自動同期: launchd `com.yd.vault-autosync` (30分毎 commit+push、pushはgh auth後に有効化)
 - YD残作業: ① `gh auth login` (private repo復旧+push有効化) ② Claude in Chrome拡張インストール ③ Extreme pro接続確認
+
+## 追記2 (2026-08-11 夕): 復旧完了
+
+- gh認証完了 (デバイスフロー、コード自動取得→Chrome自動オープンで2分) + `gh auth setup-git`
+- Vault push再開 (`c15b198` まで反映、autosyncも今後push成功する)
+- **全9リポジトリをローカル復元** (`~/Projects/`): vidkit / lecture-hub / morning-briefing / salamat-task-hub / salamat-website-v2 / project-agent-application / ai-researcher / yd-obsidian-vault / yitao-ding.github.io
+- Obsidianプラグイン3つ復元 (dataview / Templater / calendar、releases直DL方式)
+- .zshrc復元 (`vsync` / `organize` エイリアス)
+- Claude in Chrome拡張はYDインストール済み
+- **消失確定**: `~/.claude/skills/` (fcp-autocut / fcp-tighten / video-tutorial 等) → vidkit docsから必要時に再生成 / morning-briefingのDrive OAuth token → 使う時に再認証 / CC-business・youtube bgmはGitHub未登録だった (YD確認済み「未pushは無い」)

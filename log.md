@@ -2374,3 +2374,4 @@
 [2026-08-11 01:50] Project Agent App: セッション保存。白基調実装+YDレビュー3バッチ+マーケスクショDrive保存+TestFlight build3提出まで完了、HANDOVER/active_projects同期済
 [2026-08-11 16:20] MacBook Pro故障→MacBook Neo移行。VaultをGitHubから~/ObsidianVaultへ復旧 (ロスほぼゼロ)、profile.md機体情報更新、decisions/2026-08-11_MacBookPro故障_MacBookNeo移行_Vault復旧.md 作成
 [2026-08-11 16:30] MacBook Neo環境復元: gh/node/uv導入・organize_tool復旧(~/organize_tool)・Obsidian登録・グローバルCLAUDE.md再構築・vault-autosync稼働
+[2026-08-11 17:05] 復旧完了: gh認証・全9repo再クローン・Vault push再開・Obsidianプラグイン復元。新機体移行ほぼ完了
