@@ -2379,3 +2379,4 @@
 [2026-08-11 保存自動化] YD指示で保存系全自動化: com.yd.projects-autosync新設 (全repo 30分毎commit+push)+~/.claude→Vaultミラー+organize_toolをGitHub private化
 [2026-08-11 17:10] YD許可でグローバルCLAUDE.md環境メモ更新 (projects-autosync/ffmpeg/organize-tool GitHub化を追記)
 [2026-08-11 17:40] Yitao HDD (4.5TB)接続・実在検証: 一匹でも一式/LiteOP納品版/プペルメイキング素材175本など生存確認。プペルOP納品mp4(納期8/16)・エンドロール素材116・平成たち祭はHDDに無し → decisions/2026-08-11_YitaoHDD接続_素材資産棚卸し.md
+[2026-08-11 17:50] プペルOPは納品済みとYD確認 → active_projects/棚卸しdecisionを訂正 (誤警報解除)。残注意: v2再レンダー要時はパイプライン再構築が前提
