@@ -10,12 +10,7 @@ last_updated: 2026-05-18
 
 ## 🤔 検討中
 
-### ★Q0. 【矛盾発見 2026-08-13】PAA の7〜8月コミットは GitHub 未push = 旧Macロスト対象だった
-- **事実**: `Yitao-Ding/project-agent-application` の GitHub 上の main HEAD = `decd10e` (2026-06-04 実モード全配線時点)。リモートブランチも main のみ (Neo 実機で `git branch -r` / `git log --all` 確認済)
-- **矛盾**: 移行棚卸し ([[2026-08-11_MacBookPro故障_MacBookNeo移行_Vault復旧]]) の「未pushは無い (YD確認済み)」と食い違う。実際は **2026-07-13 全面改修 (branch overhaul/2026-07、99ファイル) / 2026-08-08 セキュリティ再監査 (`22d684a`、migration 023含む) / 2026-08-09〜11 白基調リデザイン実装 (16コミット)** が旧Macローカルのみ → ロスト対象
-- **生きているもの**: TestFlight build 3 (白基調全部入り、提出済) / 実DBに適用済みのmigration・deploy済みEdge関数 / デザインの正 = claude.ai/design プロジェクト / Vault内の設計・レビュー正本の記述
-- **復元ルート候補**: ①旧Macディスク救出 (最優先・全プロジェクト共通) ②EAS build 3 の project archive (expo.dev のビルド詳細からソースtarball DL可否を要確認 — 可ならgit履歴以外は白基調込みで丸ごと戻る) ③最悪 main `decd10e` + Vault正本から再実装
-- **次**: 旧Macのデータ救出可否が判明するまで PAA のコード作業は凍結推奨 (再実装が無駄になる/衝突する)
+### Q1. vidkit tutorial モードの設計
 - **背景**: YouTube のWebサイト制作チュートリアル動画を、Markdown手順書 + Claude Code 実装まで一気通貫させたい
 - **未決**: 動画のタイプ別の処理方法、出力先 (既存プロジェクトに組み込むか新規か)、応用版を作るか
 - **次のアクション**: 設計書 v3 作成
