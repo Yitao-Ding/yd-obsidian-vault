@@ -2384,3 +2384,4 @@
 [2026-08-11 19:15] rclone 0B/s誤診kill(48GB無駄)をmistakes/tool_usage_mistakes.mdに記録。実態はハッシュ検証中と iostat で確定、DL継続中
 [2026-08-11 23:22] rcloneがセッション経由起動だとSIGTERMで2回停止 → launchd com.yd.hatachi-dl に切替 (セッション独立)。DL済み386GiB+は無傷、残り約170GiB続行中
 [2026-08-12 01:35] 平成たち祭り素材559.553GiB/226ファイルのHDD復元完了 (Drive完全一致・エラー0)。launchd一時ジョブ撤去、active_projects/棚卸しdecision更新
+[2026-08-13 13:00] デート招待サイト (IGリール再現/日本語/ピクセルアート) を制作 → ~/Projects/date-invite、GitHub private push、Artifact公開
