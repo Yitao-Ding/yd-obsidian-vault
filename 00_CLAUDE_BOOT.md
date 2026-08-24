@@ -191,3 +191,16 @@ YDが「健忘症」「忘れてる」「これ前にも言った」等を発言
 4. **同じセッション内で同じことを聞き返さない**
 
 このVault自体が「Claudeの健忘症問題を解決するため」に作られたものであることを思い出す。
+
+
+---
+
+## 🤖 完全自動保存 (2026-08-24 追加)
+
+保存は全経路で自動化済み。詳細は [[vault_autosave]] (knowledge/programming/tools/)。
+
+- Claude Code: transcript を機械的に抽出する背景ジョブ (SessionEnd フック + 30分毎の watch) が decisions / knowledge / mistakes / current_state / log.md に振り分ける。会話中の Phase 3 自動保存はこれまで通り行ってよい (ジョブ側が「📥 Vault保存」報告を見て重複を避ける)
+- デスクトップチャット / Cowork: 会話の中で合図なしに保存する (Preferences / Cowork 全体指示に記載)
+- iPhone など Mac に届かない環境: GitHub コネクタで `inbox/` に新規ファイルを置く → Mac 側が30分以内に振り分ける
+- 起動時に `inbox/` にファイルが残っていれば、それは未振り分けのメモなので読んでから応答する
+- 自動保存ジョブは identity/ を直接触らず、`current_state/open_questions.md` に「identity 更新提案 (autosave)」として書く。起動時にそれが残っていたら YD に確認して identity/ に反映する

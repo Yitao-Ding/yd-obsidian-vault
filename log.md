@@ -3,6 +3,9 @@
 > このVaultへの全ての変更・操作を時系列で記録する
 > Append-only (削除しない)
 > Format: `[YYYY-MM-DD HH:MM] <操作内容>`
+[2026-08-24 13:24] autosave(ittou): active_projects.md更新 (Project Agent キャラ再設計Round2完成+push完了)
+[2026-08-24 13:21] autosave(ittou): 保存対象なし
+[2026-08-24 13:22] autosave(プペル_エンドロール素材): decisions/2026-08-23_プペル_エンドロール_Remotion版構成確定.md
 
 ---
 
@@ -2602,6 +2605,7 @@
 [2026-08-24 12:40] 第二の脳キットを全自動保存版に更新 (02/03/05/00)。Mac の Downloads/second-brain-kit/ に同期、decisions/2026-08-24_彼女用第二の脳_Notion方式キット.md に追記
 [2026-08-24 13:10] ai-researcher collect: raw=106 dedup=48 relevant=8 kept=8
 [2026-08-24 13:16] autosave(cc_company): log.md追記, current_state/open_questions.md追記 (就活矛盾フラグ)
+[2026-08-24 13:20] autosave(ittou): 保存対象なし (セッション0ec97a05 2026-05-19 18:47〜19:08 の全保存はセッション中に完了済)
 [2026-08-11 16:20] MacBook Pro故障→MacBook Neo移行。VaultをGitHubから~/ObsidianVaultへ復旧 (ロスほぼゼロ)、profile.md機体情報更新、decisions/2026-08-11_MacBookPro故障_MacBookNeo移行_Vault復旧.md 作成
 [2026-08-11 16:30] MacBook Neo環境復元: gh/node/uv導入・organize_tool復旧(~/organize_tool)・Obsidian登録・グローバルCLAUDE.md再構築・vault-autosync稼働
 [2026-08-11 17:05] 復旧完了: gh認証・全9repo再クローン・Vault push再開・Obsidianプラグイン復元。新機体移行ほぼ完了
@@ -2618,3 +2622,4 @@
 [2026-08-13] Neo待機中タスク洗い出し: PAA 7-8月コミット(全面改修/セキュ監査/白基調)がGitHub未push=旧Macロスト対象と発見→open_questions Q0記録。OOO Studio DNS/Gmailは開通済み(MX=smtp.google.com実測)を確認
 [2026-08-15] PAA救出調査: EASソースtarball不可(GraphQL全フィールド検証)/IPA build4はDL可(25日期限)/★claude.ai/codeに旧Mac全セッション記録が残存と確認(replay復元ルート成立)/Supabase側は回収可 → open_questions Q0更新
 [2026-08-15] PAA救出実行: IPA build4 (61MB) DL→iCloud Recovery_PAA/退避、RECOVERY.md作成→GitHub push (0b6b3ae)。Supabase側は8/8修正未deploy判明で回収価値低。全repo ahead=0確認 (autosync健全)。残=claude.ai再サインイン(YD)→セッションreplay or 旧Macディスク救出
+[2026-08-24 13:25] Vault完全自動保存を全経路に導入 (vault-autosave: SessionEndフック + launchd watch 30分 + sync 10分 + GitHub inbox)。Neo線 (08-11〜15、16 commit) を union merge して push 再開。decisions/2026-08-24_Vault完全自動保存_全経路.md、knowledge/programming/tools/vault_autosave.md、00_CLAUDE_BOOT.md 追記
