@@ -2625,3 +2625,4 @@
 [2026-08-24 13:35] autosave(inbox): knowledge/programming/tools/vault_autosave.md更新 (iPhone経路をGitHub→Google Driveに訂正)
 [2026-08-24 13:25] Vault完全自動保存を全経路に導入 (vault-autosave: SessionEndフック + launchd watch 30分 + sync 10分 + GitHub inbox)。Neo線 (08-11〜15、16 commit) を union merge して push 再開。decisions/2026-08-24_Vault完全自動保存_全経路.md、knowledge/programming/tools/vault_autosave.md、00_CLAUDE_BOOT.md 追記
 [2026-08-24 13:42] iPhone経路をGitHub→Google Driveに変更 (claude.aiにGitHubコネクタ無し)。Drive「ObsidianVault-inbox」作成、watchにDrive取り込み+_boot写し出力を追加、Cowork→Drive→Mac→振り分けの通し確認OK。00_CLAUDE_BOOT.md / inbox/README.md / decisions 追記
+[2026-08-24 14:10] ai-researcher collect: raw=107 dedup=43 relevant=8 kept=8
