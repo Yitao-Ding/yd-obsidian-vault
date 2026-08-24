@@ -2642,3 +2642,4 @@
 [2026-08-25 04:03] ai-researcher collect: raw=95 dedup=25 relevant=0 kept=0
 [2026-08-25 04:20] autosave(cc_company): active_projects.md (YF-13請求2週間未対応を監査指摘として追記)
 [2026-08-25 05:05] ai-researcher collect: raw=105 dedup=26 relevant=1 kept=1
+[2026-08-25 06:05] ai-researcher collect: raw=106 dedup=26 relevant=2 kept=2
