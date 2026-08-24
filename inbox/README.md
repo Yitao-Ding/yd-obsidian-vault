@@ -5,9 +5,9 @@ created: 2026-08-24
 
 # inbox — Mac に届かない環境からの投函口
 
-iPhone のチャットやブラウザの Claude など、Desktop Commander もデバイスブリッジも使えない環境の Claude が、GitHub コネクタでこのディレクトリに新規ファイルを置く。Mac 側の自動保存ジョブ (`~/.claude/vault-autosave/`、30分毎) が pull して decisions / knowledge / mistakes / current_state / log.md に振り分け、処理済みファイルは `archive/inbox_processed/` に移す。
+iPhone のチャットやブラウザの Claude など、Desktop Commander もデバイスブリッジも使えない環境の Claude は、Google Drive コネクタで Drive の `ObsidianVault-inbox` フォルダに Markdown ファイルを置く (Google ドキュメントに変換しない)。Mac の Google Drive デスクトップ (save.yitao@gmail.com) が `~/Library/CloudStorage/GoogleDrive-save.yitao@gmail.com/マイドライブ/ObsidianVault-inbox/` に同期し、自動保存ジョブ (`~/.claude/vault-autosave/`、30分毎) がこのディレクトリに取り込んで decisions / knowledge / mistakes / current_state / log.md に振り分け、処理済みファイルは `archive/inbox_processed/` に移す (Drive 側の元ファイルは `_processed/` へ)。Drive の `_boot/` には起動用の写し (current_focus / active_projects / recent_decisions / claude_mistakes / 00_CLAUDE_BOOT) が毎回書き出される。
 
-ここに置くファイルは常に新規作成 (既存ファイルの編集はしない)。ファイル名は `YYYY-MM-DD_HHMM_<内容>.md`。
+Mac 上で直接ここに置いてもいい。ファイル名は `YYYY-MM-DD_HHMM_<内容>.md`。既存ファイルの編集はしない。
 
 ```
 ---
