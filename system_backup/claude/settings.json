@@ -1,0 +1,7 @@
+{
+  "model": "claude-fable-5[1m]",
+  "skipDangerousModePermissionPrompt": true,
+  "theme": "dark",
+  "inputNeededNotifEnabled": true,
+  "agentPushNotifEnabled": true
+}

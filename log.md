@@ -2602,3 +2602,19 @@
 [2026-08-24 12:40] 第二の脳キットを全自動保存版に更新 (02/03/05/00)。Mac の Downloads/second-brain-kit/ に同期、decisions/2026-08-24_彼女用第二の脳_Notion方式キット.md に追記
 [2026-08-24 13:10] ai-researcher collect: raw=106 dedup=48 relevant=8 kept=8
 [2026-08-24 13:16] autosave(cc_company): log.md追記, current_state/open_questions.md追記 (就活矛盾フラグ)
+[2026-08-11 16:20] MacBook Pro故障→MacBook Neo移行。VaultをGitHubから~/ObsidianVaultへ復旧 (ロスほぼゼロ)、profile.md機体情報更新、decisions/2026-08-11_MacBookPro故障_MacBookNeo移行_Vault復旧.md 作成
+[2026-08-11 16:30] MacBook Neo環境復元: gh/node/uv導入・organize_tool復旧(~/organize_tool)・Obsidian登録・グローバルCLAUDE.md再構築・vault-autosync稼働
+[2026-08-11 17:05] 復旧完了: gh認証・全9repo再クローン・Vault push再開・Obsidianプラグイン復元。新機体移行ほぼ完了
+[2026-08-11 復元続き] スキル3本再生成 (fcp-autocut/fcp-tighten/video-tutorial、新パス~/Projects/vidkit対応)+ffmpeg9.0静的ビルド導入+vidkit venv構築・CLI動作確認
+[2026-08-11 保存自動化] YD指示で保存系全自動化: com.yd.projects-autosync新設 (全repo 30分毎commit+push)+~/.claude→Vaultミラー+organize_toolをGitHub private化
+[2026-08-11 17:10] YD許可でグローバルCLAUDE.md環境メモ更新 (projects-autosync/ffmpeg/organize-tool GitHub化を追記)
+[2026-08-11 17:40] Yitao HDD (4.5TB)接続・実在検証: 一匹でも一式/LiteOP納品版/プペルメイキング素材175本など生存確認。プペルOP納品mp4(納期8/16)・エンドロール素材116・平成たち祭はHDDに無し → decisions/2026-08-11_YitaoHDD接続_素材資産棚卸し.md
+[2026-08-11 17:50] プペルOPは納品済みとYD確認 → active_projects/棚卸しdecisionを訂正 (誤警報解除)。残注意: v2再レンダー要時はパイプライン再構築が前提
+[2026-08-11 18:10] 平成たち祭り素材559GiB(Sony/CANON/Insta360/CLIP/GOPRO 226ファイル)はGoogle Driveに現存と判明 → rclone(新規導入~/.local/bin)でYitao HDDへ直接DL開始。ロスト確定リストから平成たち祭を除外
+[2026-08-11 19:15] rclone 0B/s誤診kill(48GB無駄)をmistakes/tool_usage_mistakes.mdに記録。実態はハッシュ検証中と iostat で確定、DL継続中
+[2026-08-11 23:22] rcloneがセッション経由起動だとSIGTERMで2回停止 → launchd com.yd.hatachi-dl に切替 (セッション独立)。DL済み386GiB+は無傷、残り約170GiB続行中
+[2026-08-12 01:35] 平成たち祭り素材559.553GiB/226ファイルのHDD復元完了 (Drive完全一致・エラー0)。launchd一時ジョブ撤去、active_projects/棚卸しdecision更新
+[2026-08-13 13:00] デート招待サイト (IGリール再現/日本語/ピクセルアート) を制作 → ~/Projects/date-invite、GitHub private push、Artifact公開
+[2026-08-13] Neo待機中タスク洗い出し: PAA 7-8月コミット(全面改修/セキュ監査/白基調)がGitHub未push=旧Macロスト対象と発見→open_questions Q0記録。OOO Studio DNS/Gmailは開通済み(MX=smtp.google.com実測)を確認
+[2026-08-15] PAA救出調査: EASソースtarball不可(GraphQL全フィールド検証)/IPA build4はDL可(25日期限)/★claude.ai/codeに旧Mac全セッション記録が残存と確認(replay復元ルート成立)/Supabase側は回収可 → open_questions Q0更新
+[2026-08-15] PAA救出実行: IPA build4 (61MB) DL→iCloud Recovery_PAA/退避、RECOVERY.md作成→GitHub push (0b6b3ae)。Supabase側は8/8修正未deploy判明で回収価値低。全repo ahead=0確認 (autosync健全)。残=claude.ai再サインイン(YD)→セッションreplay or 旧Macディスク救出

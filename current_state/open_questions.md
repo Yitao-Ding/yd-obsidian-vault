@@ -10,7 +10,16 @@ last_updated: 2026-05-18
 
 ## 🤔 検討中
 
-### Q1. vidkit tutorial モードの設計
+### ★Q0. 【矛盾発見 2026-08-13】PAA の7〜8月コミットは GitHub 未push = 旧Macロスト対象だった
+- **事実**: `Yitao-Ding/project-agent-application` の GitHub 上の main HEAD = `decd10e` (2026-06-04 実モード全配線時点)。リモートブランチも main のみ (Neo 実機で `git branch -r` / `git log --all` 確認済)
+- **矛盾**: 移行棚卸し ([[2026-08-11_MacBookPro故障_MacBookNeo移行_Vault復旧]]) の「未pushは無い (YD確認済み)」と食い違う。実際は **2026-07-13 全面改修 (branch overhaul/2026-07、99ファイル) / 2026-08-08 セキュリティ再監査 (`22d684a`、migration 023含む) / 2026-08-09〜11 白基調リデザイン実装 (16コミット)** が旧Macローカルのみ → ロスト対象
+- **生きているもの**: TestFlight build 3 (白基調全部入り、提出済) / 実DBに適用済みのmigration・deploy済みEdge関数 / デザインの正 = claude.ai/design プロジェクト / Vault内の設計・レビュー正本の記述
+- **復元ルート調査結果 (2026-08-15 実機検証済)**:
+  - ❌ **EASソースtarball**: GraphQL Build型に project archive 系フィールド無し (全フィールド実取得で確認)・expo/fyi ドキュメントにもDL手段の記載無し → **EASからソース回収は不可** (Expoサポートに build 74499b8c のアーカイブ提供を依頼する長打ルートのみ残る)
+  - ✅ **EAS build 4 (1.0.0(4), commit `d0eaa19`, 2026-08-11)**: IPA (白基調全部入りのコンパイル済アプリ) がDL可。**残り約25日で失効** → 保険DL推奨。build一覧: expo.dev/accounts/yitao0907/projects/project-agent-application/builds
+  - ★★ **claude.ai/code に旧Macの全セッション記録がクラウド同期残存 (実物確認済)**: 8/9〜11の白基調実装セッション「2026年8月のハンドオーバー情報を確認」を開けた (最終コミット `7adaa71` まで記録)。サイドバーに旧Macの他セッション多数 (平成たち祭プロンプト実行と実装 等)。**транскリプト内の編集差分から main `decd10e` ベースに再生 (replay) 復元が可能な見込み** — 7/13全面改修・8/8セキュ監査・8/9-11白基調の各セッションを順に。閲覧にはデバイス確認の再サインインが必要 (elevated auth)
+  - ✅ **Supabase本番**: 適用済みmigration (023含む) はDBに、deploy済みEdge関数はサーバに現存 → `supabase db dump` / functions download で回収可
+- **次**: ①旧Macディスク救出の可否をYDに確認 (可なら全部一発解決・replay不要) ②保険でIPA DL ③救出不可ならclaude.aiセッションreplay復元をNeoで実行
 - **背景**: YouTube のWebサイト制作チュートリアル動画を、Markdown手順書 + Claude Code 実装まで一気通貫させたい
 - **未決**: 動画のタイプ別の処理方法、出力先 (既存プロジェクトに組み込むか新規か)、応用版を作るか
 - **次のアクション**: 設計書 v3 作成

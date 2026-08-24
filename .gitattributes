@@ -1,0 +1,3 @@
+log.md merge=union
+mistakes/*.md merge=union
+current_state/open_questions.md merge=union
