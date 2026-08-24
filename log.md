@@ -2622,4 +2622,5 @@
 [2026-08-13] Neo待機中タスク洗い出し: PAA 7-8月コミット(全面改修/セキュ監査/白基調)がGitHub未push=旧Macロスト対象と発見→open_questions Q0記録。OOO Studio DNS/Gmailは開通済み(MX=smtp.google.com実測)を確認
 [2026-08-15] PAA救出調査: EASソースtarball不可(GraphQL全フィールド検証)/IPA build4はDL可(25日期限)/★claude.ai/codeに旧Mac全セッション記録が残存と確認(replay復元ルート成立)/Supabase側は回収可 → open_questions Q0更新
 [2026-08-15] PAA救出実行: IPA build4 (61MB) DL→iCloud Recovery_PAA/退避、RECOVERY.md作成→GitHub push (0b6b3ae)。Supabase側は8/8修正未deploy判明で回収価値低。全repo ahead=0確認 (autosync健全)。残=claude.ai再サインイン(YD)→セッションreplay or 旧Macディスク救出
+[2026-08-24 13:35] autosave(inbox): knowledge/programming/tools/vault_autosave.md更新 (iPhone経路をGitHub→Google Driveに訂正)
 [2026-08-24 13:25] Vault完全自動保存を全経路に導入 (vault-autosave: SessionEndフック + launchd watch 30分 + sync 10分 + GitHub inbox)。Neo線 (08-11〜15、16 commit) を union merge して push 再開。decisions/2026-08-24_Vault完全自動保存_全経路.md、knowledge/programming/tools/vault_autosave.md、00_CLAUDE_BOOT.md 追記

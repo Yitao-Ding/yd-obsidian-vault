@@ -19,7 +19,7 @@ Claude Code は、transcript (`~/.claude/projects/*/*.jsonl`) を機械的に読
 
 デスクトップアプリのチャットと Cowork は、会話の中で Claude 自身が Desktop Commander (Cowork はデバイスブリッジ経由) で直接 Vault に書く。合図なし、返事のたび、末尾に「📥 Vault保存: ...」1行。ルールは Preferences と Cowork 全体指示に置いてある (アプリ設定なので Claude からは編集不可)。
 
-iPhone のチャットなど Mac に届かない環境は、claude.ai の GitHub コネクタで `Yitao-Ding/yd-obsidian-vault` の `inbox/` に新規ファイルを置く。Mac 側の watch ジョブが pull → `claude -p` で振り分け → `archive/inbox_processed/` へ移す。起動時の読み込みも GitHub 経由で current_focus / active_projects / claude_mistakes の3ファイルを読む。
+iPhone / Cowork など Mac に届かない環境は、Google Drive コネクタで `ObsidianVault-inbox` フォルダにファイルを置く (save.yitao@gmail.com で同期中のため Mac へトークン不要で届く)。Mac の Google Drive デスクトップが同期し、vault-autosave の watch が inbox/ に取り込んで振り分け → `archive/inbox_processed/` へ移す。注: claude.ai に GitHub コネクタは存在しない (レジストリに無し、GitHub の remote MCP は claude.ai のカスタムコネクタ非対応)。2026-08-24 に GitHub 経由から Google Drive 経由へ切り替え済み。
 
 同期は `vault_sync.sh` (launchd `com.yd.vault-autosave.sync`、10分毎、watch の前後でも実行)。commit → fetch → merge (rebase ではない) → push。`.gitattributes` で log.md / mistakes/*.md / open_questions.md を merge=union にしてあるので、別 Mac との追記衝突は自動解決する。
 
