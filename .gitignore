@@ -24,3 +24,6 @@ Thumbs.db
 # **/secrets/
 # **/*credential*.md
 # **/*token*.md
+
+# Claude Code 会話ログ (自動保存、容量大なので git 対象外)
+raw/chats/claude_code/
