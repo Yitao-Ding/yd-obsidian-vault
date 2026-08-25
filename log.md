@@ -2659,3 +2659,6 @@
 [2026-08-25] プペルエンドロール: セッション移行 (終了モード)。HANDOVER §0現在地を新設 (v6承認・次タスク=メイキング選定YD待ち・技術の罠)。走行中タスクなし、移行OK
 [2026-08-25 20:05] ai-researcher collect: raw=106 dedup=30 relevant=2 kept=2
 [2026-08-25 21:05] ai-researcher collect: raw=105 dedup=29 relevant=3 kept=3
+[2026-08-25 22:03] ai-researcher collect: raw=105 dedup=26 relevant=0 kept=0
+
+[2026-08-25] 全部事項証明書ー港区芝一丁目の関連ファイルをMac全体から捜索。原本(登記2件)はWeChatキャッシュ内のみ、英訳正本は~/プライベート/お金/。所在マップを knowledge/personal_admin/2026-08-25_登記_金融書類セット_所在マップ.md に保存
