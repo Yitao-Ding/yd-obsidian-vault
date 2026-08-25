@@ -2664,3 +2664,4 @@
 [2026-08-25] 全部事項証明書ー港区芝一丁目の関連ファイルをMac全体から捜索。原本(登記2件)はWeChatキャッシュ内のみ、英訳正本は~/プライベート/お金/。所在マップを knowledge/personal_admin/2026-08-25_登記_金融書類セット_所在マップ.md に保存
 [2026-08-25 23:04] ai-researcher collect: raw=107 dedup=29 relevant=2 kept=2
 [2026-08-26 00:05] ai-researcher collect: raw=108 dedup=30 relevant=3 kept=3
+[2026-08-26 01:03] ai-researcher collect: raw=108 dedup=28 relevant=0 kept=0
