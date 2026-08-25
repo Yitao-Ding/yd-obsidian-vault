@@ -2651,3 +2651,4 @@
 [2026-08-25 12:10] ai-researcher collect: raw=108 dedup=51 relevant=8 kept=8
 [2026-08-25 13:10] ai-researcher collect: raw=109 dedup=48 relevant=8 kept=8
 [2026-08-25 14:10] ai-researcher collect: raw=108 dedup=41 relevant=8 kept=8
+[2026-08-25 15:10] ai-researcher collect: raw=106 dedup=34 relevant=8 kept=8
