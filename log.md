@@ -2656,3 +2656,4 @@
 [2026-08-25 17:05] ai-researcher collect: raw=107 dedup=29 relevant=3 kept=3
 [2026-08-25 18:04] ai-researcher collect: raw=106 dedup=27 relevant=2 kept=2
 [2026-08-25 19:04] ai-researcher collect: raw=106 dedup=29 relevant=1 kept=1
+[2026-08-25] プペルエンドロール: セッション移行 (終了モード)。HANDOVER §0現在地を新設 (v6承認・次タスク=メイキング選定YD待ち・技術の罠)。走行中タスクなし、移行OK
