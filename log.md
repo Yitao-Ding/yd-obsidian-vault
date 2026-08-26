@@ -2681,3 +2681,4 @@
 [2026-08-26 13:20] プペルエンドロール: 2-2さえ再アップ受領→DL・統合・prep_media.py再実行、全20枠欠番ゼロに。セグメントレンダーで表示確認済み
 [2026-08-26 13:25] autosave(ittou): 保存対象なし (セッション内保存済み)
 [2026-08-26 14:09] ai-researcher collect: raw=105 dedup=41 relevant=8 kept=8
+[2026-08-26 15:11] ai-researcher collect: raw=105 dedup=34 relevant=8 kept=8
