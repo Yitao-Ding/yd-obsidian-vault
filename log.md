@@ -2695,3 +2695,4 @@
 [2026-08-27 02:04] ai-researcher collect: raw=109 dedup=27 relevant=1 kept=1
 [2026-08-27 03:04] ai-researcher collect: raw=109 dedup=28 relevant=2 kept=2
 [2026-08-27 04:03] ai-researcher collect: raw=109 dedup=27 relevant=0 kept=0
+[2026-08-27 04:27] autosave(cc_company): log.md追記のみ (監査実行完了 score:14/100 前回比-2、保存対象の決定・知識・ミスなし)
