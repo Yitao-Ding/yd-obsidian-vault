@@ -2678,3 +2678,4 @@
 [2026-08-26 11:04] ai-researcher collect: raw=75 dedup=19 relevant=0 kept=0
 [2026-08-26 12:10] ai-researcher collect: raw=105 dedup=53 relevant=8 kept=8
 [2026-08-26 13:09] ai-researcher collect: raw=105 dedup=48 relevant=8 kept=8
+[2026-08-26 13:20] プペルエンドロール: 2-2さえ再アップ受領→DL・統合・prep_media.py再実行、全20枠欠番ゼロに。セグメントレンダーで表示確認済み
