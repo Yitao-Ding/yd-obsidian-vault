@@ -2722,3 +2722,4 @@
 [2026-08-27 22:03] ai-researcher collect: raw=114 dedup=29 relevant=0 kept=0
 
 [2026-08-27 22:29] 簿記3級の無料テキストを調査。TACではなくCPAラーニング(完全無料・PDF+講義+模試、1級まで)が正解。knowledge/academic/簿記3級_無料教材.md に保存
+[2026-08-27 23:03] ai-researcher collect: raw=110 dedup=28 relevant=0 kept=0
