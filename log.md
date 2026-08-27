@@ -2719,3 +2719,4 @@
 [2026-08-27 19:45] プペルエンドロール: 全編v7レンダー完了 (2-2さえ込み全20枠、1080p 124s、110MB+送付用30MB)。AE側PartA_v2プレビュー書き出しも実施 (こちらはモック)
 [2026-08-27 20:05] ai-researcher collect: raw=112 dedup=29 relevant=2 kept=2
 [2026-08-27 21:04] ai-researcher collect: raw=113 dedup=29 relevant=1 kept=1
+[2026-08-27 22:03] ai-researcher collect: raw=114 dedup=29 relevant=0 kept=0
