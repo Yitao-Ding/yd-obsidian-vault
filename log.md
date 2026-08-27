@@ -2707,3 +2707,4 @@
 [2026-08-27 13:10] ai-researcher collect: raw=110 dedup=51 relevant=8 kept=8
 [2026-08-27 13:58] autosave(ittou): ハタチたちWebサイト制作セッション開始 (Canva草案確認中で途切れ、確定事項なし) → log.md追記のみ
 [2026-08-27 14:10] ai-researcher collect: raw=110 dedup=46 relevant=8 kept=8
+[2026-08-27 15:10] ai-researcher collect: raw=82 dedup=30 relevant=8 kept=8
