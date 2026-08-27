@@ -2712,3 +2712,4 @@
 [2026-08-27 17:06] ai-researcher collect: raw=111 dedup=31 relevant=4 kept=4
 [2026-08-27 18:03] ai-researcher collect: raw=111 dedup=28 relevant=1 kept=1
 [2026-08-27 19:05] ai-researcher collect: raw=111 dedup=28 relevant=1 kept=1
+[2026-08-27 19:30] プペルAE: PartA_v2をAEレンダーキューで書き出し (1080p59.94/H.264/130s/33MB) → _cc_work/ae/renders/PartA_v2_preview_20260827.mp4
