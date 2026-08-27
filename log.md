@@ -2717,3 +2717,4 @@
 [2026-08-27 19:05] ai-researcher collect: raw=111 dedup=28 relevant=1 kept=1
 [2026-08-27 19:30] プペルAE: PartA_v2をAEレンダーキューで書き出し (1080p59.94/H.264/130s/33MB) → _cc_work/ae/renders/PartA_v2_preview_20260827.mp4
 [2026-08-27 19:45] プペルエンドロール: 全編v7レンダー完了 (2-2さえ込み全20枠、1080p 124s、110MB+送付用30MB)。AE側PartA_v2プレビュー書き出しも実施 (こちらはモック)
+[2026-08-27 20:05] ai-researcher collect: raw=112 dedup=29 relevant=2 kept=2
