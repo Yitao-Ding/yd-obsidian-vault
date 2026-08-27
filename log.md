@@ -2732,3 +2732,4 @@
 [2026-08-28 01:05] ai-researcher collect: raw=114 dedup=30 relevant=2 kept=2
 [2026-08-28 01:34] autosave(ittou): 保存対象なし
 [2026-08-28 02:05] ai-researcher collect: raw=110 dedup=29 relevant=2 kept=2
+[2026-08-28 03:05] ai-researcher collect: raw=110 dedup=29 relevant=2 kept=1
