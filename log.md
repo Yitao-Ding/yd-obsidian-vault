@@ -2729,3 +2729,4 @@
 [2026-08-27] 久喜大ホール備品PDFで「所作台(花道用)1式」を確認 (花道常備)。YD所有の E 16-55mm F2.8 G で必要域(28〜40mm)を全てカバーできると結論、舞台収録_画角計算.md に追記
 [2026-08-28 00:04] ai-researcher collect: raw=109 dedup=28 relevant=2 kept=2
 [2026-08-28 01:04] autosave(ittou): 保存対象なし
+[2026-08-28 01:05] ai-researcher collect: raw=114 dedup=30 relevant=2 kept=2
