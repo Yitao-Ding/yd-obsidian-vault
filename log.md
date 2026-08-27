@@ -3,6 +3,7 @@
 > このVaultへの全ての変更・操作を時系列で記録する
 > Append-only (削除しない)
 > Format: `[YYYY-MM-DD HH:MM] <操作内容>`
+[2026-08-27 19:30] autosave(ittou): knowledge/programming/tools/after_effects_extendscript.md新規 (osascriptタイムアウト≠レンダー失敗パターン)
 [2026-08-24 13:24] autosave(ittou): active_projects.md更新 (Project Agent キャラ再設計Round2完成+push完了)
 [2026-08-24 13:21] autosave(ittou): 保存対象なし
 [2026-08-24 13:22] autosave(プペル_エンドロール素材): decisions/2026-08-23_プペル_エンドロール_Remotion版構成確定.md
