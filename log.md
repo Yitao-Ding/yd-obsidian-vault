@@ -2767,3 +2767,4 @@
 [2026-08-28 17:12] ai-researcher collect: 3 consecutive claude -p failures, kept 3
 [2026-08-28 18:04] ai-researcher collect: 3 consecutive claude -p failures, kept 0
 [2026-08-28 19:03] ai-researcher collect: 3 consecutive claude -p failures, kept 0
+[2026-08-28 20:09] ai-researcher collect: raw=112 dedup=50 relevant=8 kept=8
