@@ -3,6 +3,7 @@
 > このVaultへの全ての変更・操作を時系列で記録する
 > Append-only (削除しない)
 > Format: `[YYYY-MM-DD HH:MM] <操作内容>`
+[2026-08-28 23:09] autosave(ittou): active_projects.md更新 (プペルエンドロール: v12完成・v13レンダー中 clip7→A021C163楽屋/last→A021C072白ホリ紙吹雪・1-2萌美路1枚目削除/3枚目未着)
 [2026-08-28 22:37] autosave(ittou): active_projects.md更新 (プペルエンドロール v12レンダー: Part B swap2確定 swap7=A021C043モニターチェック/swap10=A021C177撤収7人)
 [2026-08-28 22:06] autosave(ittou): 保存対象なし (プペルエンドロール: 冒頭フェードイン1.5s・前後半切り替えフェード実装・Osmo/最終カット差し替え候補検索中)
 [2026-08-28 21:34] autosave(ittou): active_projects.md更新 (プペルエンドロール v11完成: Part B メイキング10カット32秒・送付用mp4完成)
