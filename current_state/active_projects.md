@@ -1,6 +1,6 @@
 ---
 type: current_state
-last_updated: 2026-08-08b (プペルOP映像YF-13本制作完了・納品ファイル生成、詳細セクション先頭 / 同日: Arte Grow: 軸を「映像で伝える」に再定義・渡航10/1-2確定・Notion新ページ新設、詳細#5 / 旧2026-08-05注記: CC-business: noteオンリー分売の全7記事完成原稿・YD承認済 / 平成たち祭: 時系列整列TL2本追加。詳細は各セクション参照。※frontmatter 21日放置を外部監査2026-08-05指摘5で是正、旧7/14注記はCC-business本文へ)
+last_updated: 2026-08-28 (ハタチたち公式HP Phase1完了・新規追加、詳細はアクティブ先頭 / 旧2026-08-08b: プペルOP映像YF-13本制作完了・納品ファイル生成、詳細セクション先頭 / 同日: Arte Grow: 軸を「映像で伝える」に再定義・渡航10/1-2確定・Notion新ページ新設、詳細#5 / 旧2026-08-05注記: CC-business: noteオンリー分売の全7記事完成原稿・YD承認済 / 平成たち祭: 時系列整列TL2本追加。詳細は各セクション参照。※frontmatter 21日放置を外部監査2026-08-05指摘5で是正、旧7/14注記はCC-business本文へ)
 update_frequency: 週1回以上
 ---
 
@@ -12,6 +12,16 @@ update_frequency: 週1回以上
 > ⚠️ **2026-06-14 全件棚卸し済**: 実体ベース(git log/mtime/HANDOVER)の全プロジェクト棚卸しを `~/projects/AUTONOMOUS_SESSION_2026-06-14.md` に作成。本ファイルの各ステータスは5月下旬〜6月上旬時点なので、続ける/殺すの判断はそちらの「即決マトリックス」を参照。要点: ①大半は "YD待ち"(認証/本名/素材) ②CC-businessが最も本番ローンチ間近 ③ai-researcher/morning-briefing は "動くが成果が届かない" 状態。
 
 ## 🟢 アクティブ・優先度高
+
+### ★ ハタチたち 公式ホームページ (2026-08-28 着手) ★
+- **状況**: 🟢 **Phase 1 完了** — Canva草案 (Linaさん共有 `canva.link/34707g8vpyurk5o`、デザインID DAHTaN6Dxr8、1ページ7セクション) を Next.js 16.2.6 + React 19 + Tailwind v4 + microCMS でプレースホルダー実装。`pnpm build`/`lint` 緑、375px・1200px でPlaywright表示確認済、git初期コミット `d4498e4`
+- **パス**: `~/AI projects/hatachi-tachi-website` (※`projects/` でなく `AI projects/` 配下)。**引き継ぎ正本=同ディレクトリの `HANDOVER.md`**
+- **草案の実態**: 7セクション中、ヒーロー (赤い手書き風「ハタチたち」+円陣写真) / NEWS (紺の斜めカット帯「ハタチたち5開催決定！」) / ABOUT (珊瑚レッド全面) の3つだけ実コンテンツ済。NOW PLAYING / LOCK BACK (アーカイブ6枠: 初代〜5+平成たち祭) / INSTAGRAM / フッターはプレースホルダーだった
+- **YD確定事項**: 更新の仕組み=microCMS無料枠 (毎年二十歳の代に総入れ替えする素人運営が管理画面で更新できることが最優先) / Instagram=手動埋め込み (Meta API・外部ウィジェットは運用が重く不採用) / 公開先=Vercel+最初から独自ドメイン / サイトの役割=①信頼性の担保 (保護者・会場・協賛向け) ②当日の告知・案内、応募フォーム自作は不要
+- **設計**: microCMS 3 API (news / archive / site) → 公開時Webhook → Vercel Deploy Hook 再ビルド。SSG + `revalidate=3600` 保険。**microCMS未接続でも `src/content/site.ts` のフォールバックで全ページ成立** (env待ちで実装が止まらない設計、今後も崩さない)
+- **次のアクション (YD作業)**: ①microCMSアカウント+API3本作成 → 手順書 `docs/microcms-setup.md` (フィールドID1文字違いで無言でフォールバックに落ちるので厳密に) ②素材提供 → `docs/assets-list.md` (円陣写真・ABOUT集合写真2枚・アーカイブ6枚・タイトルレタリング透過PNG・正確なHEX・各種URL) ③ドメイン取得 ④「LOCK BACK」が "LOOK BACK" の誤記でないか確認
+- **残 (Claude作業)**: Phase2 microCMS疎通 → Phase3 実素材差し替え → Phase4 デプロイ+ドメイン+Webhook (push/deployは都度YD確認) → Phase5 非エンジニア向け更新マニュアル
+- **関連**: [[2026-08-28_ハタチたちHP_スタック確定]]
 
 ### ★ プペルOP映像 YF-13 (紗幕投影35秒、クライアント: はるきさん) ✅✅納品済み (YD口頭確認 2026-08-11)
 - **状況**: ✅ **納品ファイル完成** — `ALL WORKs/ぷぺる_2026-08/納品/プペルOP映像_曲フル尺_v1.mp4` (1920×1080 / 曲「image」フル尺5:19.8 / 頭35.4秒に映像→34.95秒=イントロ明けで消滅→以降黒+音のみ) + 確認用頭36秒720p。納期希望8/16に対し8日前倒し
