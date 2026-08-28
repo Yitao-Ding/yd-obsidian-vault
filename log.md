@@ -3,6 +3,7 @@
 > このVaultへの全ての変更・操作を時系列で記録する
 > Append-only (削除しない)
 > Format: `[YYYY-MM-DD HH:MM] <操作内容>`
+[2026-08-28 21:34] autosave(ittou): active_projects.md更新 (プペルエンドロール v11完成: Part B メイキング10カット32秒・送付用mp4完成)
 [2026-08-28 20:33] autosave(ittou): active_projects.md更新 (プペルエンドロール: QC3修正完了・1-2アニメモニタクロップ確認・メイキングrecut進行中67→8〜10カット)
 [2026-08-28 20:01] autosave(ittou): active_projects.md更新 (プペルエンドロール: ワープ解消・クレジット3行2列レイアウト確定・2-7絵文字☺︎確定・みかづきんぱにー団体名のみ確定・Part B recut未完) + knowledge/filmmaking/remotion_endroll_card_display.md追記 (ワープ原因と対処・クレジット可読性パターン)
 [2026-08-28 16:27] autosave(ittou): decisions/2026-08-28_プペルエンドロール_2-9動画ロック確定.md新規 (ナンバー指定素材・差し替え禁止確定)
