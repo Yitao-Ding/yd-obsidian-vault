@@ -3,6 +3,7 @@
 > このVaultへの全ての変更・操作を時系列で記録する
 > Append-only (削除しない)
 > Format: `[YYYY-MM-DD HH:MM] <操作内容>`
+[2026-08-28 16:27] autosave(ittou): decisions/2026-08-28_プペルエンドロール_2-9動画ロック確定.md新規 (ナンバー指定素材・差し替え禁止確定)
 [2026-08-28 15:55] autosave(ittou): active_projects.md更新 (プペルエンドロール: v8 QC blocker6/should-fix27→v9完成67点・QC第2パス実行中・2-9動画内容YD確認待ち)
 [2026-08-28 10:42] autosave(ittou): active_projects.md更新 (ハタチたちHP: 多観点11エージェントレビュー46件+クリティック14件反映・hatachitachi.com空き確認済) + knowledge/programming/tools/vercel.md追記 (next/font CSS変数は<html>に渡す必要あり・preload 123→1)
 [2026-08-28 10:40] autosave(ittou): active_projects.md更新 (プペルエンドロール: カード40エージェント選定検証完了・2-9追加動画確定・Part B making素材パス訂正Extreme pro→Yitao HDD・切り抜き位置ワークフロー進行中・メイキング182本スクリーニング進行中)
