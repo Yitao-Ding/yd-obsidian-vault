@@ -2770,3 +2770,4 @@
 [2026-08-28 19:03] ai-researcher collect: 3 consecutive claude -p failures, kept 0
 [2026-08-28 20:09] ai-researcher collect: raw=112 dedup=50 relevant=8 kept=8
 [2026-08-28 18:40] 進路: AKIYA型映像会社6社を調査し全社に採用導線が無いことを確認。3条件(作品の質/チーム/案件規模)で洗い直した業務委託ターゲット14社をArtifact化。本命はアノマリー・撮れ高・ODORIBA・カラーズ。知見は knowledge/career/映像業界_業務委託ターゲット.md
+[2026-08-28 21:10] ai-researcher collect: raw=111 dedup=41 relevant=8 kept=8
