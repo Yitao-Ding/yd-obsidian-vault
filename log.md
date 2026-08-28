@@ -2789,3 +2789,4 @@
 [2026-08-29 00:35] プペルエンドロール 納品版: 音源を2:01から曲の最後まで(233.43秒)に延長、映像は123秒で暗転しその後は黒画+音のみ。1080p確認版OK、4Kマスター書き出し中 (納品/プペルエンドロール_4K_20260829.mp4)
 [2026-08-29 00:45] autosave(ittou): active_projects.md(プペルエンドロールv18+4KProRes確定更新), remotion_endroll_card_display.md(小数フレーム数クラッシュ追記)
 [2026-08-29 01:03] ai-researcher collect: raw=105 dedup=19 relevant=0 kept=0
+[2026-08-29 01:30] ★ミス記録: 4Kレンダーが遅い(1h40m)のを所要時間と誤認しYDに報告。実際はGPU未使用が原因で--gl=angleで8分に。mistakes A-24追記、remotion.config.tsにGPU常設
