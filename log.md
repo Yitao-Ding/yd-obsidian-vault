@@ -3,6 +3,7 @@
 > このVaultへの全ての変更・操作を時系列で記録する
 > Append-only (削除しない)
 > Format: `[YYYY-MM-DD HH:MM] <操作内容>`
+[2026-08-28 10:42] autosave(ittou): active_projects.md更新 (ハタチたちHP: 多観点11エージェントレビュー46件+クリティック14件反映・hatachitachi.com空き確認済) + knowledge/programming/tools/vercel.md追記 (next/font CSS変数は<html>に渡す必要あり・preload 123→1)
 [2026-08-28 10:40] autosave(ittou): active_projects.md更新 (プペルエンドロール: カード40エージェント選定検証完了・2-9追加動画確定・Part B making素材パス訂正Extreme pro→Yitao HDD・切り抜き位置ワークフロー進行中・メイキング182本スクリーニング進行中)
 [2026-08-28 10:09] autosave(ittou): active_projects.md更新 (プペルエンドロール: カード4点上限判明・動画始まりOK確定・Endroll.tsx修正・curationワークフロー実行中)
 [2026-08-28 10:06] autosave(ittou): knowledge/filmmaking/davinci_resolve_crash_recovery.md新規 (Hi,Me:)さなぎ復旧調査から抽出・Sm2EffectKeyframeクラッシュ診断パターン)

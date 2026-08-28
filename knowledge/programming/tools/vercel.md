@@ -98,6 +98,24 @@ const nextConfig: NextConfig = {
 | `<name>-<hash>-yitao-dings-projects.vercel.app` (個別) | ❌ 401 | 自分の確認・差分比較 |
 | 独自ドメイン (例: `salamat-toyo.com`) | ✅ 200 (DNS設定後) | 最終的な公開URL |
 
+## ⚠️ Next.js / next/font の落とし穴 (2026-08-28 ハタチたちHP実機検証で発見)
+
+### next/font の CSS 変数は `<html>` に渡さないと全ページで無効になる
+
+`next/font` で定義したフォント変数 (`variable: '--ff-mincho'` など) は、`layout.tsx` の `<html>` タグに `className={mincho.variable}` を渡さないと CSS に展開されない。`:root` 変数として書いても解決できない。
+
+```tsx
+// ❌ ダメ: layout.tsx の <body> だけに渡す
+<body className={mincho.variable}>
+
+// ✅ 正しい: <html> に渡す
+<html lang="ja" className={`${mincho.variable} ${sans.variable}`}>
+```
+
+症状: `getComputedStyle(document.documentElement).getPropertyValue('--ff-mincho')` が空文字列になる。日本語フォントのpreloadリクエストが全ページ分積み上がる (今回は123本 → 修正後1本)。
+
+---
+
 ## 📋 YDのプロジェクト別 Vercel 状況
 
 | プロジェクト | スコープ | 本番URL | 状態 |

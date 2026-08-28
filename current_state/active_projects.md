@@ -14,12 +14,12 @@ update_frequency: 週1回以上
 ## 🟢 アクティブ・優先度高
 
 ### ★ ハタチたち 公式ホームページ (2026-08-28 着手) ★
-- **状況**: 🟢 **Phase 1 完了** — Canva草案 (Linaさん共有 `canva.link/34707g8vpyurk5o`、デザインID DAHTaN6Dxr8、1ページ7セクション) を Next.js 16.2.6 + React 19 + Tailwind v4 + microCMS でプレースホルダー実装。`pnpm build`/`lint` 緑、375px・1200px でPlaywright表示確認済、git初期コミット `d4498e4`
+- **状況**: 🟢 **多観点レビュー反映済 (v5)** — Phase 1 実装後、11エージェント多観点レビュー (46件) + 完全性クリティック (14件) を反映。主要修正: next/font変数を `<html>` へ移動 (明朝フォント全ページ有効化) / 日本語preload 123→1 / YouTube facade実装 / microCMS error shape修正 / ビルド・lint緑・`git commit`完了。HANDOVER.md + docs/3ファイル (microcms-setup.md / assets-list.md / accounts.md) 整備済み
 - **パス**: `~/AI projects/hatachi-tachi-website` (※`projects/` でなく `AI projects/` 配下)。**引き継ぎ正本=同ディレクトリの `HANDOVER.md`**
 - **草案の実態**: 7セクション中、ヒーロー (赤い手書き風「ハタチたち」+円陣写真) / NEWS (紺の斜めカット帯「ハタチたち5開催決定！」) / ABOUT (珊瑚レッド全面) の3つだけ実コンテンツ済。NOW PLAYING / LOCK BACK (アーカイブ6枠: 初代〜5+平成たち祭) / INSTAGRAM / フッターはプレースホルダーだった
 - **YD確定事項**: 更新の仕組み=microCMS無料枠 (毎年二十歳の代に総入れ替えする素人運営が管理画面で更新できることが最優先) / Instagram=手動埋め込み (Meta API・外部ウィジェットは運用が重く不採用) / 公開先=Vercel+最初から独自ドメイン / サイトの役割=①信頼性の担保 (保護者・会場・協賛向け) ②当日の告知・案内、応募フォーム自作は不要
 - **設計**: microCMS 3 API (news / archive / site) → 公開時Webhook → Vercel Deploy Hook 再ビルド。SSG + `revalidate=3600` 保険。**microCMS未接続でも `src/content/site.ts` のフォールバックで全ページ成立** (env待ちで実装が止まらない設計、今後も崩さない)
-- **次のアクション (YD作業)**: ①microCMSアカウント+API3本作成 → 手順書 `docs/microcms-setup.md` (フィールドID1文字違いで無言でフォールバックに落ちるので厳密に) ②素材提供 → `docs/assets-list.md` (円陣写真・ABOUT集合写真2枚・アーカイブ6枚・タイトルレタリング透過PNG・正確なHEX・各種URL) ③ドメイン取得 ④「LOCK BACK」が "LOOK BACK" の誤記でないか確認
+- **次のアクション (YD作業)**: ①microCMSアカウント+API3本作成 → 手順書 `docs/microcms-setup.md` (フィールドID1文字違いで無言でフォールバックに落ちるので厳密に) ②素材提供 → `docs/assets-list.md` (円陣写真・ABOUT集合写真2枚・アーカイブ6枚・タイトルレタリング透過PNG・正確なHEX・各種URL) ③ドメイン取得 (**hatachitachi.com が RDAP確認で空き確認済み 2026-08-28**) ④「LOCK BACK」が "LOOK BACK" の誤記でないか確認
 - **残 (Claude作業)**: Phase2 microCMS疎通 → Phase3 実素材差し替え → Phase4 デプロイ+ドメイン+Webhook (push/deployは都度YD確認) → Phase5 非エンジニア向け更新マニュアル
 - **関連**: [[2026-08-28_ハタチたちHP_スタック確定]]
 
