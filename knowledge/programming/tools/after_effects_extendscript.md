@@ -49,16 +49,57 @@ done
 | BG_v2 | 3840×2160 | 59.94 | - | - |
 | PartB_v2 | 3840×2160 | 59.94 | - | - |
 
+## 日本語版AE の ExtendScript 注意点
+
+日本語版AEでは `layer.property("Source Text")` のような**表示名でのプロパティアクセスが失敗する**。matchName を使う必要がある。
+
+```javascript
+// NG: 日本語版AEでは表示名が日本語になっておりアクセス失敗する
+var td = layer.property("Source Text");
+
+// OK: matchName は言語に依存しない
+var td = layer.property("ADBE Text Document");
+```
+
+確認済みの matchName:
+- `ADBE Text Document` — テキストレイヤーの文字列
+- `ADBE Layer Overrides` — エッセンシャルプロパティ (AE CC 2018以降)
+
+## Remotion + AE ハイブリッドワークフロー
+
+コードで背景を生成している Remotion プロジェクトを AE で直接編集可能にする手順。
+
+背景を動画として書き出す: コード生成の要素 (パーティクル・乱流・Perlin 背景等) は AE で再現するより Remotion でそのまま書き出すほうが速い。
+
+```bash
+# Remotion で背景コンポだけをレンダー (4K ProRes が推奨)
+npx remotion render BgOnly /path/to/BG.mov \
+  --codec=prores \
+  --prores-profile=4444 \
+  --width=3840 --height=2160
+```
+
+その上の要素 (テロップ・カード・クレジット) は ExtendScript で AE レイヤーとして生成する。
+
+プペルエンドロール v17_AE の構成:
+- `ENDROLL_v17_AE` — マスター 123秒
+- `ROLL_中身` — 演目テロップ141レイヤー + カード67レイヤー (230レイヤー計)
+- `PARTB_メイキング` — メイキング10カット + 下端グラデ (32秒)
+
+レイヤー命名規則: `演目番号_種別_コンテンツ` (例: `1-1_title_Hi,Me:) number`, `カード枠_1-1`)。この命名で AE の検索機能から直接絞り込める。
+
 ## ✅ うまく行ったこと
 
 - osascript タイムアウト後にファイルポーリングに切り替えたら、レンダー完了を正確に検知できた
 - `runner.sh --background` でバックグラウンド実行し、タイムアウトを Task 側に逃がす設計が有効
 
-## ❌ 詰まったこと
+## ❌ 詰まったこと (追記: 2026-08-28)
 
 - `--background` フラグなしだと Claude のメイン処理がブロックされる (osascript が返らない)
 - `runner.sh --background` でも Task が exit 1 で終了する → これは osascript タイムアウトであり、AE のレンダー失敗ではない
 - 出力ファイルが `.m4v` (一時ファイル) として生成されてから `.mp4` (完成) に切り替わるタイミングがあり、`.m4v` の存在だけで完了と判断すると早すぎる
+- 日本語版AEで `layer.property("Source Text")` が失敗: matchName に切り替えが必要 (上述)
+- ExtendScript が重い (レイヤー数230超) 場合、osascript タイムアウトが発生しても AE 内では処理継続。`.aep` ファイルのポーリングで完了を検知するのが正解
 
 ## 📋 次回同じことをするときのチェックリスト
 
