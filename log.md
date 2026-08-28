@@ -2787,3 +2787,4 @@
 [2026-08-29 00:12] autosave(ittou): active_projects.md(プペルエンドロールv17完成+AEプロジェクト生成追記), after_effects_extendscript.md(日本語版AE matchName対策+Remotion+AEハイブリッドワークフロー追記)
 [2026-08-29 00:35] プペルエンドロール 納品版: 音源を2:01から曲の最後まで(233.43秒)に延長、映像は123秒で暗転しその後は黒画+音のみ。1080p確認版OK、4Kマスター書き出し中 (納品/プペルエンドロール_4K_20260829.mp4)
 [2026-08-29 00:45] autosave(ittou): active_projects.md(プペルエンドロールv18+4KProRes確定更新), remotion_endroll_card_display.md(小数フレーム数クラッシュ追記)
+[2026-08-29 01:03] ai-researcher collect: raw=105 dedup=19 relevant=0 kept=0
