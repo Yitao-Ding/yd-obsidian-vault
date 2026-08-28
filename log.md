@@ -3,6 +3,8 @@
 > このVaultへの全ての変更・操作を時系列で記録する
 > Append-only (削除しない)
 > Format: `[YYYY-MM-DD HH:MM] <操作内容>`
+[2026-08-28 10:09] autosave(ittou): active_projects.md更新 (プペルエンドロール: カード4点上限判明・動画始まりOK確定・Endroll.tsx修正・curationワークフロー実行中)
+[2026-08-28 10:06] autosave(ittou): knowledge/filmmaking/davinci_resolve_crash_recovery.md新規 (Hi,Me:)さなぎ復旧調査から抽出・Sm2EffectKeyframeクラッシュ診断パターン)
 [2026-08-27 20:02] autosave(ittou): 保存対象なし
 [2026-08-27 20:01] autosave(ittou): 保存対象なし (active_projects.md/log.mdはセッション内で保存済み)
 [2026-08-27 19:30] autosave(ittou): knowledge/programming/tools/after_effects_extendscript.md新規 (osascriptタイムアウト≠レンダー失敗パターン)
@@ -2742,3 +2744,4 @@
 [2026-08-28 09:04] ai-researcher collect: raw=81 dedup=19 relevant=0 kept=0
 [2026-08-28 09:30] ハタチたち公式HP: Canva草案(7セクション)を Next.js 16 + microCMS で Phase1実装、build/lint緑・git初期化 (~/AI projects/hatachi-tachi-website)
 [2026-08-28 10:05] ai-researcher collect: raw=111 dedup=28 relevant=1 kept=1
+[2026-08-28 10:08] autosave(ittou): decisions/2026-08-28_ハタチたちHP_スタック確定.md に実測カラー値追記 (#ff5757/#1f469d)
