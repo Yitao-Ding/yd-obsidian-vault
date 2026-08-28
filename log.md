@@ -2755,3 +2755,4 @@
 [2026-08-28 13:03] ai-researcher collect: 3 consecutive claude -p failures, kept 0
 [2026-08-28 14:03] ai-researcher collect: 3 consecutive claude -p failures, kept 0
 [2026-08-28 15:14] ai-researcher collect: raw=86 dedup=37 relevant=8 kept=8
+[2026-08-28 15:24] autosave(ittou): active_projects.md (プペルエンドロール: メイキング90区間プール・32秒3案審査中・Remotion 4点タイミングfix)
