@@ -19,7 +19,10 @@ update_frequency: 週1回以上
 - **草案の実態**: 7セクション中、ヒーロー (赤い手書き風「ハタチたち」+円陣写真) / NEWS (紺の斜めカット帯「ハタチたち5開催決定！」) / ABOUT (珊瑚レッド全面) の3つだけ実コンテンツ済。NOW PLAYING / LOCK BACK (アーカイブ6枠: 初代〜5+平成たち祭) / INSTAGRAM / フッターはプレースホルダーだった
 - **YD確定事項**: 更新の仕組み=microCMS無料枠 (毎年二十歳の代に総入れ替えする素人運営が管理画面で更新できることが最優先) / Instagram=手動埋め込み (Meta API・外部ウィジェットは運用が重く不採用) / 公開先=Vercel+最初から独自ドメイン / サイトの役割=①信頼性の担保 (保護者・会場・協賛向け) ②当日の告知・案内、応募フォーム自作は不要
 - **設計**: microCMS 3 API (news / archive / site) → 公開時Webhook → Vercel Deploy Hook 再ビルド。SSG + `revalidate=3600` 保険。**microCMS未接続でも `src/content/site.ts` のフォールバックで全ページ成立** (env待ちで実装が止まらない設計、今後も崩さない)
-- **次のアクション (YD作業)**: ①microCMSアカウント+API3本作成 → 手順書 `docs/microcms-setup.md` (フィールドID1文字違いで無言でフォールバックに落ちるので厳密に) ②素材提供 → `docs/assets-list.md` (円陣写真・ABOUT集合写真2枚・アーカイブ6枚・タイトルレタリング透過PNG・正確なHEX・各種URL) ③ドメイン取得 (**hatachitachi.com が RDAP確認で空き確認済み 2026-08-28**) ④「LOCK BACK」が "LOOK BACK" の誤記でないか確認
+- **★ 品質パス完了 (2026-08-28)**: 11エージェント×2系統 (5観点レビュー+敵対的検証+完全性クリティック / セクション別精密仕様+情報設計リサーチ+デザイン審査) を回し、確定46件+14件を反映。**明朝が全ページで一切適用されていない** (next/fontの変数を`<body>`に付けたため`:root`から解決できずCSS変数チェーンが無効化) / **font preloadが123本** / microCMSの例外を全握りつぶし / ブランド色が草案とズレ / 草案の「写真がレタリングを食う」重なり構図の欠落、を検出して修正。コントラストはレンダリング結果の実測で32要素すべて適合 (ブランド色 #ff5757 は変えず、サイズと配置でAAを満たす方式)。commits `d4498e4`→`bb70920`
+- **★ 判明した実データ**: 公式IG [@hatachi_tachi](https://www.instagram.com/hatachi_tachi/) (川崎市・相模原市・福島市協力、2026-08-01にハタチたち5の応募フォーム告知) / 公式YouTube [スタジオメタリ](https://www.youtube.com/@Studio_Metali) / 旧公式サイトはWix (`hatachitachi100.wixsite.com/hatachi-tachi`、初代のみの内容) / 過去作4本のURL確定 (初代=二十歳/LUCCI、2=生きるをする/マカロニえんぴつ、3=かくれんぼ/AliA、4=ピーターパン/優里) → 全部 `src/content/site.ts` に反映済み
+- **★ ドメイン (2026-08-28 YD指示)**: `studiometali.com` / `hatachitachi.com` をお名前ID 20382623 のカートに入れ**支払い画面まで到達**。合計1,906円 (各750円+サービス維持調整費203円、Whois情報公開代行0円込み、レンタルサーバー・追加オプション無し)。**カード入力はYD作業**。操作手順は [[chrome_session_cdp]]
+- **次のアクション (YD作業)**: ①**お名前.comの支払い画面でカード入力→「申込む」** (Chromeウィンドウを前面に出してある) ②microCMSアカウント+API3本作成 → `docs/microcms-setup.md` (フィールドID1文字違いで無言でフォールバックに落ちる) ③素材提供 → `docs/assets-list.md` ④確認5件 (LOCK BACK表記 / 「二十歳の台」→「代」/ アーカイブ枠数 / 応募導線の優先度 / 赤の濃さ) ⑤`docs/accounts.md` で GitHub・Vercel・レジストラの名義を決める (個人名義だと翌年の代が触れなくなる)
 - **残 (Claude作業)**: Phase2 microCMS疎通 → Phase3 実素材差し替え → Phase4 デプロイ+ドメイン+Webhook (push/deployは都度YD確認) → Phase5 非エンジニア向け更新マニュアル
 - **関連**: [[2026-08-28_ハタチたちHP_スタック確定]]
 
