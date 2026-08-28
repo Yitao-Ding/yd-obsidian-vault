@@ -2741,3 +2741,4 @@
 [2026-08-28 08:03] ai-researcher collect: raw=112 dedup=27 relevant=0 kept=0
 [2026-08-28 09:04] ai-researcher collect: raw=81 dedup=19 relevant=0 kept=0
 [2026-08-28 09:30] ハタチたち公式HP: Canva草案(7セクション)を Next.js 16 + microCMS で Phase1実装、build/lint緑・git初期化 (~/AI projects/hatachi-tachi-website)
+[2026-08-28 10:05] ai-researcher collect: raw=111 dedup=28 relevant=1 kept=1
