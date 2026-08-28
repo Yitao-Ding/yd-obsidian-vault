@@ -3,6 +3,7 @@
 > このVaultへの全ての変更・操作を時系列で記録する
 > Append-only (削除しない)
 > Format: `[YYYY-MM-DD HH:MM] <操作内容>`
+[2026-08-29 01:16] autosave(ittou): mistakes/claude_mistakes.md追記(A-24: nohupレンダー進捗ログ未取得) + remotion_endroll_card_display.md追記(納品コーデック選択)
 [2026-08-28 23:40] autosave(ittou): active_projects.md更新 (プペルエンドロール: v13確認済・v15=1-2萌美路IMG_0169組み込み完了・v16/v17=音源2:01ラッパ入り差し替え・映像123秒・v17レンダー中) + decisions/2026-08-28_プペルエンドロール_音源差し替えv17.md新規
 [2026-08-28 23:09] autosave(ittou): active_projects.md更新 (プペルエンドロール: v12完成・v13レンダー中 clip7→A021C163楽屋/last→A021C072白ホリ紙吹雪・1-2萌美路1枚目削除/3枚目未着)
 [2026-08-28 22:37] autosave(ittou): active_projects.md更新 (プペルエンドロール v12レンダー: Part B swap2確定 swap7=A021C043モニターチェック/swap10=A021C177撤収7人)
