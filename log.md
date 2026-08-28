@@ -2747,3 +2747,4 @@
 [2026-08-28 09:30] ハタチたち公式HP: Canva草案(7セクション)を Next.js 16 + microCMS で Phase1実装、build/lint緑・git初期化 (~/AI projects/hatachi-tachi-website)
 [2026-08-28 10:05] ai-researcher collect: raw=111 dedup=28 relevant=1 kept=1
 [2026-08-28 10:08] autosave(ittou): decisions/2026-08-28_ハタチたちHP_スタック確定.md に実測カラー値追記 (#ff5757/#1f469d)
+[2026-08-28 11:10] ai-researcher collect: raw=112 dedup=30 relevant=2 kept=1
