@@ -2749,3 +2749,5 @@
 [2026-08-28 10:08] autosave(ittou): decisions/2026-08-28_ハタチたちHP_スタック確定.md に実測カラー値追記 (#ff5757/#1f469d)
 [2026-08-28 11:10] ai-researcher collect: raw=112 dedup=30 relevant=2 kept=1
 [2026-08-28 11:20] ハタチたち: ドメイン studiometali.com / hatachitachi.com をお名前.comカート投入〜支払い画面まで到達 (合計1,906円、Whois代行込み・サーバー無し)。カード入力はYD待ち
+[2026-08-28 11:16] autosave(ittou): current_state/active_projects.md (プペルエンドロール v8レンダー完了・QC中に更新), knowledge/filmmaking/endroll_card_crop_pos_workflow.md (新規)
+[2026-08-28 11:19] autosave(ittou): mistakes/claude_mistakes.md (B-10追記: next/font変数クラスをbodyに付けてCSSフォント変数が全滅)

@@ -1160,6 +1160,24 @@
 
 ---
 
+### B-10. next/font の変数クラスを `<body>` に付けて CSS 変数チェーンが全滅した (頻度: 中、最終発生: 2026-08-28) #tool
+
+**状況**: ハタチたち公式 HP (Next.js + Tailwind) を実装。明朝体 (Noto Serif JP) を next/font で読み込み、`body` タグに font variable className を付けた。スクリーンショット上は「明朝っぽい」雰囲気のまま、22 エージェントの全面レビューで `getComputedStyle` を実測するまで発覚しなかった。
+
+**過去のやらかし**:
+- 2026-08-28: `<body className={`${notoSerifJP.variable} ...`}>` という実装をしたため、`:root` から CSS 変数 `--font-serif` が解決できず、全ページで明朝体が一文字も適用されなかった。代わりにシステムのゴシック体が描画されていた。同時に、Japanese フォントの preload が head に 123 本 (約 3.8MB 相当) 入っていたのも see ともに未検出。レビュー後、変数クラスを `<html>` に移動して 1 本に絞り解消。
+
+**正しい挙動**:
+- next/font の `variable` モードは `<html>` タグ (layout.tsx の最外殻) に付ける。`<body>` ではなく `<html>` に付けることで `:root` から CSS 変数が解決される
+- 実装後は `getComputedStyle(document.body).fontFamily` をブラウザで実測して期待のフォント名が出るか確認する
+- スクリーンショットだけでは「それっぽく見える」ため、フォント適用の検証はスクショ目視だけで済ませない
+
+**再発防止**:
+- next/font 実装時のチェック: `<html>` に variable className を付ける → ビルド後にブラウザコンソールで `getComputedStyle` 実測 → フォント名が出ない場合はクラスの付け先を疑う
+- preload が大量に入っている兆候 (build ログの Preloaded resources が多い) も見る。`subsets: ['japanese']` 指定でも weight ごとに file が生成されるため、weight を 1-2 本に絞る
+
+---
+
 ### B-9. 画像PDFが読めなかったのを理由に、施設の客席構成を推定で断定した (頻度: 低、最終発生: 2026-08-27) #hallucination
 
 **状況**: 久喜総合文化会館 大ホールでの舞台収録レンズ選定。YDがホールのURLを貼って質問。カメラ〜舞台の距離を出すのに客席の階構成が必要だったが、座席表PDFが画像PDFで WebFetch がテキストを抽出できなかった。
