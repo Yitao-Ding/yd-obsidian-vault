@@ -2763,3 +2763,4 @@
 [2026-08-28 17:00] プペルエンドロール: v10完成 (Part Aカード再セレクト + Part Bメイキング5カット32秒、149MB/送付用41MB)。QC2巡目で発覚した動画尺切れの黒落ち13枠をLoopで修正、4点枠のスケジュール後ろ寄せ、FADE 0.5→0.3。QC3巡目実行中。知見をknowledge/filmmaking/remotion_endroll_card_display.mdに保存
 [2026-08-28 16:58] autosave(ittou): active_projects.md更新 (プペルエンドロール: v10完成・黒落ち13枠Loop修正・FADE 0.5→0.3・QC3巡目実行中・知見ファイルリンク追記)
 [2026-08-28 18:00] 進路: 「AKIYAMOVIEみたいな映像制作のところに入りたい」発言。GOC株式会社/AKIYA氏の実態を調査 (クリエイター企業・採用情報なし・ダンサー起点) し、税理士ルートとの整合を open_questions.md に論点化
+[2026-08-28 17:12] ai-researcher collect: 3 consecutive claude -p failures, kept 3
