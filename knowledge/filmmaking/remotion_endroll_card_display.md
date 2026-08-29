@@ -95,6 +95,33 @@ export const DURATION_IN_FRAMES = Math.round(totalDurationSec * FPS);
 - [ ] レンダー後、枠ごとの表示時刻を計算して実フレームを抜き、もう一度検証する
 - [ ] クライアント確定事項は「差し替え禁止」と理由を引き継ぎ文書に書く
 
+### 9. GPU レンダリングを必ず有効にする (デフォルトはソフトウェア描画)
+
+Remotion はデフォルトでソフトウェア描画 (CPU) を使う。4K レンダーで「残り1時間40分」と出た場合、GPU を有効にするだけで **7〜9分** になる (14倍差)。
+
+`remotion.config.ts` に常設すること (コマンドの付け忘れで遅くならないように):
+
+```ts
+import { Config } from "@remotion/cli/config";
+Config.setChromiumOpenGlRenderer("angle");   // GPU レンダリング
+Config.setConcurrency(8);                    // 並列数
+```
+
+コマンドラインでの一時指定: `--gl=angle --concurrency=8`
+
+**「並列数を上げても速くならない」= CPU ではなく描画パスがボトルネック**というシグナル。GPU を疑う。
+
+### 10. レンダーを強制終了してすぐ再起動すると出力ファイルが壊れる
+
+`pkill` で remotion render を止めた後、残留した古いエンコーダプロセスが同じ出力先に書き続けることがある。別ファイル名にしても共有バッファ経由で競合する。
+
+対処:
+1. `pkill -9 -f "remotion render"` 後に `pgrep -fl "remotion|ffmpeg"` で全滅を確認する
+2. `sleep 5` を入れてから次のレンダーを開始する
+3. 出力ファイルを必ず新名前 or 先に `rm` してから書く
+
+検証は `ffprobe -v error ...` だけでなく、数フレームを実際にデコードして確認する (ffprobe がパスしても壊れているケースがある)。
+
 ### 8. 納品コーデックは ProRes 4444 より H.264 を選ぶ (ファイルサイズ問題)
 
 テキスト主体の 4K エンドロールに ProRes 4444 を選ぶと 30GB 超になり、データ受け渡しが現実的でなくなる。品質が落ちるが H.264 (CRF 18〜23 相当) で十分。受け渡しではなくマスターとして保管する場合にのみ ProRes を使う。
