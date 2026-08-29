@@ -2792,3 +2792,4 @@
 [2026-08-29 01:03] ai-researcher collect: raw=105 dedup=19 relevant=0 kept=0
 [2026-08-29 01:30] ★ミス記録: 4Kレンダーが遅い(1h40m)のを所要時間と誤認しYDに報告。実際はGPU未使用が原因で--gl=angleで8分に。mistakes A-24追記、remotion.config.tsにGPU常設
 [2026-08-29 11:56] ai-researcher collect: raw=0 dedup=0 relevant=0 kept=0
+[2026-08-29 12:51] ai-researcher collect: raw=20 dedup=2 relevant=2 kept=2
