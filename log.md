@@ -2822,3 +2822,4 @@
 [2026-08-31 00:50] プペル定点納品: 44本リネーム完了 (プペル１=夜_寄り、プペル２=昼_引き、YD訂正反映)、夜C001を04:55で分割。ギガファイル便へ CLI で 22 リンク順次アップロード中 (_tools/run_all.py)。knowledge/filmmaking/gigafile_cli_delivery.md 作成[2026-08-31 01:03] ai-researcher collect: raw=107 dedup=23 relevant=2 kept=0
 [2026-08-31 02:00] プペル定点納品 完了: 22リンク (44本、全ファイルサイズ検証OK)、期限 2026-12-09。一覧は /Volumes/Extreme pro/プペル/納品リンク一覧.txt と _tools/results.jsonl[2026-08-31 02:03] ai-researcher collect: 3 consecutive claude -p failures, kept 0
 [2026-08-31 03:03] ai-researcher collect: 3 consecutive claude -p failures, kept 0
+[2026-08-31 04:03] ai-researcher collect: 3 consecutive claude -p failures, kept 0
