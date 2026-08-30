@@ -2819,4 +2819,4 @@
 [2026-08-30 22:34] ai-researcher collect: raw=0 dedup=0 relevant=0 kept=0
 [2026-08-30 23:20] ai-researcher collect: raw=35 dedup=10 relevant=0 kept=0
 [2026-08-31 00:03] ai-researcher collect: raw=107 dedup=23 relevant=2 kept=0
-[2026-08-31 00:50] プペル定点納品: 44本リネーム完了 (プペル１=夜_寄り、プペル２=昼_引き、YD訂正反映)、夜C001を04:55で分割。ギガファイル便へ CLI で 22 リンク順次アップロード中 (_tools/run_all.py)。knowledge/filmmaking/gigafile_cli_delivery.md 作成
+[2026-08-31 00:50] プペル定点納品: 44本リネーム完了 (プペル１=夜_寄り、プペル２=昼_引き、YD訂正反映)、夜C001を04:55で分割。ギガファイル便へ CLI で 22 リンク順次アップロード中 (_tools/run_all.py)。knowledge/filmmaking/gigafile_cli_delivery.md 作成[2026-08-31 01:03] ai-researcher collect: raw=107 dedup=23 relevant=2 kept=0
