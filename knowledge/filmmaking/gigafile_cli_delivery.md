@@ -28,3 +28,9 @@ tags: [gigafile, 納品, 舞台収録, cli]
 
 ## ファイル名の記号
 - macOS で `/` `:` は使えないので全角 `／` `：` に置換 (例: `Hi,Me：)`、`KAЯO×Pooh／Haruki`)
+
+## Google Drive バックアップ (2026-08-31 追記)
+- Mac の空き容量より大きいデータを Google Drive アプリ経由でコピーすると、ローカルキャッシュでディスクが溢れる。大容量は rclone で SSD から直接送る
+- rclone リモート `gdrive_save` = save.yitao@gmail.com の Drive (5TB 契約、2026-08-31 時点で空き 1.9TB)。認証トークンは ~/.config/rclone/rclone.conf
+- 実行例: `rclone copy "<src>" "gdrive_save:<folder>" --transfers 2 --drive-chunk-size 128M --stats 30s -v --log-file <log>`、終了後 `rclone check --size-only` で照合
+- 実測 約45MB/s (2026-08-31)。保存先: マイドライブ/プペル_2026-08-30/
