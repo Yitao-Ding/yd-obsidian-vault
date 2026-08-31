@@ -2847,3 +2847,4 @@
 [2026-09-01 02:03] ai-researcher collect: 3 consecutive claude -p failures, kept 0
 [2026-09-01 03:03] ai-researcher collect: 3 consecutive claude -p failures, kept 0
 [2026-09-01 04:00] ai-researcher archive: moved 49 files older than 30d
+[2026-09-01 04:03] ai-researcher collect: 3 consecutive claude -p failures, kept 0
