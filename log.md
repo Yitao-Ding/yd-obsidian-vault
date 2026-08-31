@@ -2850,3 +2850,4 @@
 [2026-09-01 04:03] ai-researcher collect: 3 consecutive claude -p failures, kept 0
 [2026-09-01 05:04] ai-researcher collect: 3 consecutive claude -p failures, kept 0
 [2026-09-01 06:04] ai-researcher collect: 3 consecutive claude -p failures, kept 0
+[2026-09-01 07:03] ai-researcher collect: 3 consecutive claude -p failures, kept 0
