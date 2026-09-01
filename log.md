@@ -2886,3 +2886,4 @@
 [2026-09-02 03:06] ai-researcher collect: raw=105 dedup=25 relevant=3 kept=3
 [2026-09-02 04:05] ai-researcher collect: raw=106 dedup=25 relevant=2 kept=2
 [2026-09-02 04:24] autosave(cc_company): 監査実行 score=15/100 (前回比-6) 監査4日欠測(認証失効)・YF-13請求21日目・帳簿25日停止 — 保存対象なし(audit出力はcc_company配下)
+[2026-09-02 05:04] ai-researcher collect: raw=108 dedup=26 relevant=1 kept=1
