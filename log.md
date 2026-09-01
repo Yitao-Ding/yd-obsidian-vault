@@ -2870,3 +2870,4 @@
 [2026-09-01 21:35] プペル number: 夜公演21本を <グループ名>_夜_number.mov にリネーム。昼はIMG_81xx.movのまま。リネーム対応表は ~/gfdl/rename_map.csv
 
 [2026-09-01 21:40] プペル number: 昼公演18本も <グループ名>_昼_number.mov にリネーム。39本すべて命名統一完了
+[2026-09-01 22:10] ai-researcher collect: raw=104 dedup=32 relevant=8 kept=8
