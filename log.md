@@ -2866,3 +2866,7 @@
 [2026-09-01 21:08] ai-researcher collect: raw=105 dedup=39 relevant=8 kept=8
 
 [2026-09-01 21:25] プペル: number映像21リンク(ギガファイル便1210系)を全DL完了。39ファイル16.5GB → /Volumes/Extreme pro/プペル/number/<グループ名>/。IMG_81xx=昼・IMG_82xx=夜。リンク一覧.txt を同フォルダに作成。DLスクリプトは ~/gfdl/gf.py (ページ解析→download.php、Cookie必須、Range再開・5並列)
+
+[2026-09-01 21:35] プペル number: 夜公演21本を <グループ名>_夜_number.mov にリネーム。昼はIMG_81xx.movのまま。リネーム対応表は ~/gfdl/rename_map.csv
+
+[2026-09-01 21:40] プペル number: 昼公演18本も <グループ名>_昼_number.mov にリネーム。39本すべて命名統一完了
