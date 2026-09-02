@@ -78,3 +78,10 @@ YD の指摘「アウトプットが多すぎてインプットが全然でき�
 - `AudioPlayer.playAndWait()` を追加 (continuation で再生完了を待つ)。ストーリー行は phraseId があれば教材 mp3、無ければ `stXX_NN.mp3`、無ければ relay TTS → 代読
 
 ElevenLabs は無料枠 (月 10,000 文字)。教材 307 フレーズで 4,768 文字使用済みなので、ストーリー新規行は 4,500 文字を上限にした。
+
+## build 6〜7 (2026-09-02 22 時)
+
+- ロック撤廃: `PathNode.NodeState` は open / active (次にやる 1 つ) / done。XP・ストリーク・ランキング表示は全部削除、`LocalProfile` の XP と Supabase 同期は残置
+- レッスン自動保存: `LessonProgressStore` (UserDefaults `lesson.progress.<lessonId>` に seed / index / retryIds / correct / answered)。問題列は seed から `LessonEngine.build(seed:)` で再現するので保存は位置だけ。`next()` と やめる で保存、完了で削除。ポップオーバーは `progressTick` (fullScreenCover の onDismiss で +1) で再評価して「続きから (n/m)」を出す
+- やめる確認は `.sheet` (`QuitSheet`) に置き換え、`lesson.skipQuitConfirm` で省略。シート内の SwiftUI Toggle はシミュレータでタップが効かず drag でだけ反応したので Button + `checkmark.square` のチェックボックスにした
+- computer use の注意: Simulator を内蔵ディスプレイに置くとクリックが約 80px 下にずれた (外部モニタでは正確)。座標が合わない時は外部モニタ側で操作する
