@@ -33,6 +33,10 @@ trigger_keywords: [Bitaw, ビサヤ語, セブアノ語, Cebuano, 会話アプ�
 
 `mcp.json` は `{"mcpServers":{}}`。`--mcp-config '{}'` は不正扱い。`CLAUDE_CODE_SIMPLE=1` と `--bare` は OAuth を読まないので不可。`ANTHROPIC_API_KEY` は子プロセス環境から削除する。
 
+## 教材パイプライン (2026-09-02 追加)
+
+`scripts/batch_topics.py` に 23 場面のトピック表があり、1 場面 = 1 回の `claude -p` (opus、1〜2 分) でユニットを生成する。続けて `scripts/review_content.py` (ネイティブ視点で誤りだけ直す。最初の版は note を「〜である」調に書き換えてしまったので「Report ONLY real mistakes」に絞った) → `scripts/normalize_course.py` (カナの「・」を空白に、em dash 除去、version +1) → `scripts/validate_course.py` → `scripts/add_scenarios.py` (会話シナリオ追記)。`scripts/finish_after_review.sh` がレビュー完了を待って正規化・検証・ビルド・commit まで自動で行う。API が遅い時間帯は 1 チャンク 3〜5 分かかり 240 秒でタイムアウトすることがある (再実行で通る)。
+
 ## ✅ うまく行ったこと
 
 - 初回ビルド成功、シミュレータ実操作で レッスン → 判定 → 会話練習 (relay 経由の訂正付き返答) まで確認
