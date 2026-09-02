@@ -3,6 +3,7 @@
 > このVaultへの全ての変更・操作を時系列で記録する
 > Append-only (削除しない)
 > Format: `[YYYY-MM-DD HH:MM] <操作内容>`
+[2026-09-02 21:02] autosave(project-agent-application): active_projects.md更新(PAA release-readiness 64エージェント完了・RELEASE_PLAN確定・提出9/6・D-1〜D-8 YD決定待ち・R3-14エラー訂正)
 [2026-09-02 20:31] autosave(project-agent-application): active_projects.md更新(PAA 2026-09-02 公開判断・release-readiness Workflow・Sprint R1・DB restore)
 [2026-09-01 15:51] autosave(cc_company): 保存対象なし
 [2026-08-29 09:37] autosave(ittou): remotion_endroll_card_display.md追記(§9 GPU--gl=angle / §10 pkill競合で出力ファイル破損) + active_projects.md更新(プペルエンドロール 4K納品マスター完成 267MB)
@@ -2913,3 +2914,4 @@
 [2026-09-02 20:03] Claude Code (PAA): YD 指示で ultracode のモデル分業方針を確定 (企画・監視=Fable / 実装=Opus以下)。decisions 保存 + .claude/agents 4本を fable へ + Claude Code メモリ更新
 [2026-09-02 20:04] ai-researcher collect: raw=107 dedup=23 relevant=1 kept=1
 - 2026-09-02 20:45 Bitaw v0.3.0 (5) TestFlight 上げ: 聞くタブ (聞き流し / FSRS カード / ミニ会話 20 話 + 音声 64 行、ElevenLabs 622 文字)、レッスンをインプット先行に。TestFlight グループに 菅野日菜・Chiaki 追加 (Rina は招待未承諾)。knowledge/programming/projects/bitaw.md 更新
+[2026-09-02 21:03] ai-researcher collect: raw=108 dedup=23 relevant=0 kept=0
