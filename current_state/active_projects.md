@@ -297,7 +297,11 @@ update_frequency: 週1回以上
   - ✅ **★ Vault 全件監査完了 (2026-05-26、メイン Claude ⇄ サブエージェント 二重チェックループ Pass)** — 差分分析 `/tmp/project_agent_app_audit_diff.md`、Round 1 報告 `/tmp/audit_round1_report.md` (致命 0/中 7/軽 5、すべて運用マニュアル + active_projects + claude_mistakes に反映済)
   - ✅ **Sprint 01 完全 Pass (2026-05-26 11:35、log.md 参照)** — 自立ループ初運用 loop 2 で達成、qa-evaluator **Pass 38/0** + design-evaluator v2 **Pass 9/0** (AI スロップ匂い度 0)。次セッションで Sprint 02 (5 階層モデル) 着手可能
   - ★ **YD 指示 (最重要)**: builder/designer ⇄ evaluator 自立ループ運用ルール確立 + 「キリのいいところで終了」モード明文化 ([[2026-05-26_セッション引継ぎ_自立ループ強化指示]])
+  - ✅ **Wave 0 コミット完了 (2026-09-02)** — C-01/C-03/C-04/C-11/C-12 (準備中UI撤去・実モードバグ修正・migration 025・app.json・keep-alive) builder B1/B2/B3 + Fable ゲート全 Pass → コミット済
 - **次のアクション (新セッション以降、優先度順)**:
+  - [ ] **YD 決定 8 件 (Q1-Q8)** — ログイン構成・メール方式・ドメイン・運営者表記・Supabase プラン・Gemini・アイコン・Expo SDK (RELEASE_PLAN_2026-09.md 参照)
+  - [ ] Wave 1 実装 (アカウント削除 / 通報・ブロック / ログイン画面 / 法的文書) — YD 決定後
+  - [ ] App Store Connect 入力・提出 (9/6 目標、初回審査通過で 9/8〜9 公開)
   - [ ] **★ 新セッション再開**: `~/projects/project-agent-application/HANDOVER.md` を Read (Sprint 01 Pass 確定済、Sprint 02 着手可能)
   - [ ] **★ designer Sprint 02 起動** (5 階層モデル UI、Discord サーバーサイドバー風 + チャンネルリスト風) → design-evaluator 自立ループ
   - [ ] designer Sprint 02-06 起動 (機能ロジック中心) → design-evaluator 自立ループ

@@ -3,6 +3,7 @@
 > このVaultへの全ての変更・操作を時系列で記録する
 > Append-only (削除しない)
 > Format: `[YYYY-MM-DD HH:MM] <操作内容>`
+[2026-09-02 21:34] autosave(project-agent-application): active_projects.md更新(Wave 0 コミット完了 B1/B2/B3 Pass・次アクション更新)
 [2026-09-02 21:02] autosave(project-agent-application): active_projects.md更新(PAA release-readiness 64エージェント完了・RELEASE_PLAN確定・提出9/6・D-1〜D-8 YD決定待ち・R3-14エラー訂正)
 [2026-09-02 20:31] autosave(project-agent-application): active_projects.md更新(PAA 2026-09-02 公開判断・release-readiness Workflow・Sprint R1・DB restore)
 [2026-09-01 15:51] autosave(cc_company): 保存対象なし
