@@ -298,9 +298,13 @@ update_frequency: 週1回以上
   - ✅ **Sprint 01 完全 Pass (2026-05-26 11:35、log.md 参照)** — 自立ループ初運用 loop 2 で達成、qa-evaluator **Pass 38/0** + design-evaluator v2 **Pass 9/0** (AI スロップ匂い度 0)。次セッションで Sprint 02 (5 階層モデル) 着手可能
   - ★ **YD 指示 (最重要)**: builder/designer ⇄ evaluator 自立ループ運用ルール確立 + 「キリのいいところで終了」モード明文化 ([[2026-05-26_セッション引継ぎ_自立ループ強化指示]])
   - ✅ **Wave 0 コミット完了 (2026-09-02)** — C-01/C-03/C-04/C-11/C-12 (準備中UI撤去・実モードバグ修正・migration 025・app.json・keep-alive) builder B1/B2/B3 + Fable ゲート全 Pass → コミット済
+  - ✅ **YD 決定 8 件 (Q1-Q8) 確定 (2026-09-02 夜)** — ログイン4種(メール+Apple+Google+LINE)、6桁コード、Yitao Dingのみ表記 ほか。decisions/2026-09-02_PAA_iOS公開計画と決定8件.md 参照
+  - ✅ **Wave 1 実装完了 (2026-09-02 夜)** — C-02 ログイン / C-05 アカウント削除 / C-06 通報・ブロック / C-07 法的文書 + C-08 静的サイト、builder 4 便 + Fable 検収 W1/W2/W3 全 Pass、P2 defect 修正済みコミット
+  - ✅ **キャラ撤去決定 (2026-09-02 夜)** — マスコット(ハル/Finch/お掃除演出/キャラ名カスタマイズ)を v1 から撤去。78 ファイル影響範囲を棚卸し中、Wave 1 完了後に builder 実行予定
 - **次のアクション (新セッション以降、優先度順)**:
-  - [ ] **YD 決定 8 件 (Q1-Q8)** — ログイン構成・メール方式・ドメイン・運営者表記・Supabase プラン・Gemini・アイコン・Expo SDK (RELEASE_PLAN_2026-09.md 参照)
-  - [ ] Wave 1 実装 (アカウント削除 / 通報・ブロック / ログイン画面 / 法的文書) — YD 決定後
+  - [ ] キャラ撤去 builder 実行 (棚卸し仕様完成後) — 9/3 中完了目標
+  - [ ] Wave 2 以降 (残 C-xx) 実装
+  - [ ] App Store Connect 入力・提出 (9/6 目標、初回審査通過で 9/8〜9 公開)
   - [ ] App Store Connect 入力・提出 (9/6 目標、初回審査通過で 9/8〜9 公開)
   - [ ] **★ 新セッション再開**: `~/projects/project-agent-application/HANDOVER.md` を Read (Sprint 01 Pass 確定済、Sprint 02 着手可能)
   - [ ] **★ designer Sprint 02 起動** (5 階層モデル UI、Discord サーバーサイドバー風 + チャンネルリスト風) → design-evaluator 自立ループ
