@@ -2919,3 +2919,4 @@
 [2026-09-02 21:04] Claude Code (PAA): YD「もういい加減に公開したい」→ 公開監査 Workflow (64 agents、7次元→Fable反証→計画) で RELEASE_PLAN_2026-09.md 作成 (ブロッカー41件=7束、提出 9/6 目標)。実DB が再 pause → restore。決定不要タスク C-01/C-03/C-04/C-11/C-12 を builder 3便 (opus) + Fable 検収で起動中。YD 決定 D-1〜D-8 待ち
 [2026-09-02 21:39] PAA: YD 決定 8 件回答 (ログイン 4 種 / 6 桁コード / ドメイン購入 / Yitao Ding 表記 / Free+keep-alive / Gemini 課金 / アイコン案1 / SDK56)。decisions 保存、Day1 シートに Google OAuth + LINE Developers を追記。wave1 (ログイン/削除/通報/法的文書) 走行中
 [2026-09-02 21:43] PAA: YD 決定「キャラ消そう、関連要素も、あまり影響ない範囲で」→ キャラ再設計 (Round 2 六体) は打ち切り。棚卸し Workflow (opus 4 読者 → Fable 撤去仕様 sprint-R2) 起動
+- 2026-09-02 21:45 Bitaw v0.3.0 (6) TestFlight 上げ: YD の指示でレッスンのロック撤廃 (全レッスン開放、次のレッスンだけスタート印)、XP・ストリーク・ランキング表示を削除 (ゲーム性は不要)。内部の XP 計算と Supabase 同期コードは残置
