@@ -37,6 +37,16 @@ trigger_keywords: [Bitaw, ビサヤ語, セブアノ語, Cebuano, 会話アプ�
 
 `scripts/batch_topics.py` に 23 場面のトピック表があり、1 場面 = 1 回の `claude -p` (opus、1〜2 分) でユニットを生成する。続けて `scripts/review_content.py` (ネイティブ視点で誤りだけ直す。最初の版は note を「〜である」調に書き換えてしまったので「Report ONLY real mistakes」に絞った) → `scripts/normalize_course.py` (カナの「・」を空白に、em dash 除去、version +1) → `scripts/validate_course.py` → `scripts/add_scenarios.py` (会話シナリオ追記)。`scripts/finish_after_review.sh` がレビュー完了を待って正規化・検証・ビルド・commit まで自動で行う。API が遅い時間帯は 1 チャンク 3〜5 分かかり 240 秒でタイムアウトすることがある (再実行で通る)。
 
+## 翻訳タブと配布 (2026-09-02 夕方追加)
+
+翻訳タブ: 日本語 (入力 or WhisperKit の日本語文字起こし) → relay `POST /v1/translate` → `server/translate_system.md` のプロンプトで {ceb, kana, ja, literal, breakdown[], grammar, pronunciation, alternatives[]}。音声は `GET /v1/tts?text=` が `ELEVEN_API_KEY` があれば ElevenLabs (Mac の `server/tts-cache/` に sha1 でキャッシュ、iPhone 側も Caches/tts にキャッシュ)、無ければ 404 でアプリがインドネシア語音声に落ちる。`AudioPlayer.speak()` が同梱 mp3 → relay TTS → 代読の順に試す。保存フレーズは SwiftData `SavedPhrase`、フレーズタブの先頭に出て「練習」(PracticeSheet = 単発のまねして言う)。
+
+配布: Xcode に Apple ID を入れると `xcodebuild -allowProvisioningUpdates` が証明書と Provisioning を自動発行。App Store Connect のアプリ記録が無いと `exportArchive` は `missingApp` で落ちるので、Xcode Organizer の Distribute App (TestFlight Internal Only) で記録を作らせた (作成直後の GET が空で error 0 になるが記録はできている)。以後は `xcodebuild -exportArchive -exportOptionsPlist ExportOptions.plist` (destination upload) で自動アップロードできる。
+
+Tailscale: tailnet は Apple ID (yitao0907@gmail.com) でサインイン。Google で入ると別 tailnet になり「node not found」。Funnel は `tailscale funnel --bg 8787` → `https://macbook-pro-2.tail60869d.ts.net`。
+
+iPhone から Claude サブスク枠を直接使う手段は無い (Claude アプリを他アプリから呼べない)。Mac 中継が唯一の経路。渡航中は MacBook 持参 + 電源 + WiFi が前提。
+
 ## ✅ うまく行ったこと
 
 - 初回ビルド成功、シミュレータ実操作で レッスン → 判定 → 会話練習 (relay 経由の訂正付き返答) まで確認
