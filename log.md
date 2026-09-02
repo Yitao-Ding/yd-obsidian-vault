@@ -2912,3 +2912,4 @@
 [2026-09-02 19:03] ai-researcher collect: raw=107 dedup=22 relevant=0 kept=0
 [2026-09-02 20:03] Claude Code (PAA): YD 指示で ultracode のモデル分業方針を確定 (企画・監視=Fable / 実装=Opus以下)。decisions 保存 + .claude/agents 4本を fable へ + Claude Code メモリ更新
 [2026-09-02 20:04] ai-researcher collect: raw=107 dedup=23 relevant=1 kept=1
+- 2026-09-02 20:45 Bitaw v0.3.0 (5) TestFlight 上げ: 聞くタブ (聞き流し / FSRS カード / ミニ会話 20 話 + 音声 64 行、ElevenLabs 622 文字)、レッスンをインプット先行に。TestFlight グループに 菅野日菜・Chiaki 追加 (Rina は招待未承諾)。knowledge/programming/projects/bitaw.md 更新
