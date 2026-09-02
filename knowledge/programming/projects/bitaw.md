@@ -66,3 +66,15 @@ iPhone から Claude サブスク枠を直接使う手段は無い (Claude ア�
 3. relay.log の `cost` が $0.5 級に戻ったら `--setting-sources` が効いていない
 4. 発音判定の閾値は実機で 2〜3 フレーズ試してから決める (`SpeechScorer.passThreshold`)
 5. シミュレータ検証は `defaults write com.yitaoding.bitaw relay.baseURL http://localhost:8787` で relay を直接指す
+
+## インプット機能「聞く」タブ (2026-09-02 夜追加、v0.3.0 build 5)
+
+YD の指摘「アウトプットが多すぎてインプットが全然できない」への対応。設計原理は 意味が分かる状態で大量に聞く (comprehensible input) / 軽い想起 (recognition だけ、recall は求めない) / 間隔反復。タブ構成を 学ぶ / 聞く / 話す (翻訳 + 会話練習をセグメントで統合) / フレーズ / プロフィール に変更。
+
+- 聞き流し `Services/ListenPlayer.swift`: 日本語 (AVSpeechSynthesizer ja-JP) → セブアノ語 mp3 ×2 → 間、の自動再生。モード 3 種 (日本語先 / セブアノ語先で考える / セブアノ語だけ)、速さ 0.7〜1.2x、間 0.5〜4 秒、シャッフル、ループ。`UIBackgroundModes: audio` + `MPRemoteCommandCenter` でロック画面とイヤホン操作。範囲は 復習期限 / 学習済み / ユニット / 保存 / ミニ会話のセリフ / 全部
+- 聞いて分かるカード `Features/Input/ReviewView.swift` + `Models/FSRS.swift`: FSRS-4.5 (デフォルト重み) を 3 段階評価 (分からない=Again / 微妙=Hard / 分かった=Good) で。音だけ → 答えを見る → 判定。新規カードは全部見せて「まだ / OK」だけ。レッスン完了でそのフレーズが CardState に入る (addedAt=epoch で当日枠を消費しない)。1 日の新規は既定 10、設定で「全フレーズ」に切替可
+- ミニ会話 `Features/Input/StoriesView.swift` + `content/stories.json`: `scripts/gen_stories.py` が claude -p (sonnet、4 話/回、約 6 分) で 20 場面を生成。行の 60% 以上を教材フレーズそのまま (phraseId 付き) にさせ、その行は既存 mp3 を再利用するので ElevenLabs 文字数は新規行だけ (1 話 50〜100 文字)。`scripts/gen_story_audio.py` が相手役を男声 (Brian nPczCjzI2devNBz1zQrb)、自分役を Jessica で生成、`--budget` で上限。通し再生 → セリフをタップで訳 → 日本語 3 択 1 問 (初回正解 8 XP)
+- レッスン改修 `LessonEngine.build(repeatRun:)`: 新規フレーズ提示 (.present、音声 2 回) → 聞いて意味を選ぶ → 会話の返事を聞き取る (.dialogueListen) → 日本語からセブアノ語を選ぶ → 発話は最後の 3 問だけ。2 回目以降は提示を飛ばす
+- `AudioPlayer.playAndWait()` を追加 (continuation で再生完了を待つ)。ストーリー行は phraseId があれば教材 mp3、無ければ `stXX_NN.mp3`、無ければ relay TTS → 代読
+
+ElevenLabs は無料枠 (月 10,000 文字)。教材 307 フレーズで 4,768 文字使用済みなので、ストーリー新規行は 4,500 文字を上限にした。
