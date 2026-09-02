@@ -2905,3 +2905,4 @@
 [2026-09-02 17:03] ai-researcher collect: raw=108 dedup=22 relevant=0 kept=0
 [2026-09-02 18:00] Bitaw v0.2: 翻訳タブ (relay /v1/translate + /v1/tts、ElevenLabs キー任意) 追加、教材レビュー完了 (307 フレーズ)、Tailscale Funnel 有効化 (Apple ID ログイン)、Xcode 署名 → 実機ビルド → Archive → TestFlight 0.2.0 (2) アップロード成功 (ASC アプリ ID 6807736203)。git 3 commits (push 未)。残: 内部テスター追加 / ElevenLabs / Supabase。YD 質問への回答: iPhone から Claude サブスク枠は使えない → Mac 中継固定、渡航に MacBook 持参推奨
 [2026-09-02 18:04] ai-researcher collect: raw=108 dedup=23 relevant=0 kept=0
+[2026-09-02 18:15] Bitaw: App Store Connect の TestFlight 内部グループ「Bitaw 3人」を作成、YD と Taichi (mdrdst74@gmail.com、既に ASC 管理者) を追加 (Chrome の ASC セッションで JS 操作)。3人目は未登録。新アイコン (白い吹き出しキャラ + マンゴー帽、design/icon.svg) でビルド 3 をアップロード。commit 0d2bb9e
