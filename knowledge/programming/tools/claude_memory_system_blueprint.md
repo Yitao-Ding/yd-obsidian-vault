@@ -2,24 +2,48 @@
 
 作成: 2026-09-02。元システム: YD (Yitao Ding) が 2026-05-18 から運用している Obsidian Vault + Claude Code + Claude デスクトップアプリの構成を、そのまま別の人の Mac に再現するための手順書。
 
-## この文書の使い方
+## この文書の使い方 (受け取った人向け)
 
-この md を Claude デスクトップアプリにそのまま添付して「この設計図の通りに構築して」と言えば、Claude が Step 1 から順に作業する。ただしアプリの Claude がファイルを書くには Desktop Commander (MCP) が先に要るので、Step 7 の Desktop Commander 導入だけ先に済ませてから渡す。手で打つのは Step 5 の GitHub 認証 (`gh auth login`) と Step 8 の launchd 登録くらいで、残りは Claude が作れる。Claude Code から渡しても同じように動く。
+やることは 3 つ。
 
-文書中のプレースホルダは先に置き換える。置き換えは Claude に「以下の値で置換してから始めて」と伝えればよい。
+1. Claude デスクトップアプリを入れてログインする (Max プラン推奨)
+2. アプリの 設定 → 拡張機能 で「Desktop Commander」を検索してインストールする (クリックだけ。これが無いと Claude がファイルを書けない)
+3. 新しいチャットにこの md を添付して「この設計図の通りに構築して」と送る
+
+あとは Claude が呼び名などを 3 つほど聞いてきて、Step 1 から 10 を順に作る。所要 30 分から 1 時間。ターミナルを開く必要はない。途中で Claude が「実行していいですか」と聞いてきたら全部 OK で通す。
+
+構築の最後に Claude が「アプリの設定に貼る文」を出力する。それを 設定 → プロフィール → Claude への指示 にコピペする。これだけはアプリの設定画面なので Claude が代わりにできない。貼らなくても Claude Code 側は動くし、アプリ側も毎回「Vault読んで」と言えば動くが、貼れば言わなくて済む。
+
+GitHub 同期と iPhone 経路は後回しでよい。Vault はローカルだけで完結して動く。あとで「GitHub に繋いで」と Claude に言えば、ブラウザで Authorize を 1 回押すだけで繋がる。
+
+文体ルール (Step 4 の identity/preferences.md と Step 6 の hikizan) は YD 版がそのまま入っている。敬語や先輩後輩の距離感は YD の好みなので、構築後に Claude に「もっとくだけた口調にして」などと言えば preferences.md を直してくれる。
+
+## 構築する Claude への指示
+
+この md を添付されて「構築して」と言われた Claude は、以下の順で進める。ユーザーには最初に 1 回だけ質問し、あとは確認せずに進める。
+
+最初に聞くこと (1 回のメッセージで全部):
 
 ```
 {{USER}}          Claude に呼ばせる名前 (例: YD)
-{{FULLNAME}}      本名 (identity/profile.md にだけ入る。不要なら空でよい)
-{{HOME}}          Mac のホームディレクトリ (例: /Users/taro)
-{{GH}}            GitHub ユーザー名
-{{REPO}}          Vault 用 Private リポジトリ名 (例: my-obsidian-vault)
-{{DRIVE_ACCOUNT}} Google Drive デスクトップで同期している Gmail (iPhone 経路を使わないなら不要)
+{{FULLNAME}}      本名 (identity/profile.md にだけ入る。空でもよい)
+{{DRIVE_ACCOUNT}} claude.ai に登録している Gmail (iPhone からも使いたい場合だけ。使わないなら空)
 ```
 
-置き換え後、文体ルール (Step 4 の identity/preferences.md と Step 6 の hikizan) は YD 版がそのまま入っている。敬語や先輩後輩の距離感、hikizan の引き算ルールは YD の好みなので、自分に合わせて書き換える。書き換え箇所は各所に「ここを書き換える」と書いてある。
+聞かずに自分で決めるもの: `{{HOME}}` は Desktop Commander で `echo $HOME` を実行して得る。`{{GH}}` と `{{REPO}}` は GitHub 同期を後回しにするので今は使わない (繋ぐ時に `gh api user -q .login` で取り、REPO は `obsidian-vault` にする)。
 
-構築順は Step 1 から 10。ただし上に書いた通り、アプリの Claude に作業させるなら Step 7 の前半 (Desktop Commander 導入) を最初にやる。Step 1 から 6 で最低限動く (Vault + Claude Code)。Step 7 でデスクトップアプリ、Step 8 で自動保存、Step 9 で iPhone 経路が足される。全部で 2 から 3 時間。
+進め方:
+
+1. 全ファイル・全コマンドは Desktop Commander (write_file / start_process) で自分が実行する。ユーザーにコマンドを打たせない
+2. Step 1 から Step 8 を順に作る。Step 5 の GitHub 認証と Step 9 の Google Drive は飛ばす (Vault はローカルだけで動く)
+3. `brew` が無い Mac では Claude Code を `curl -fsSL https://claude.ai/install.sh | bash` で入れる (Node 不要)。Obsidian は `brew install --cask obsidian` か、無理なら「https://obsidian.md/download から入れてください」と最後に案内する
+4. start_process は 60 秒でタイムアウトするので、時間のかかるコマンド (インストール類) は `nohup ... > /tmp/x.log 2>&1 &` で背景実行してログを確認する
+5. 各 Step が終わるごとに実ファイルを `ls` で確認する
+6. Step 10 の初回テストを自分で実行する。Claude Code のテストは `claude -p "準備できた?"` を start_process で背景実行し、出力に Vault の内容が反映されていれば OK
+7. 最後に、Step 7 の「Preferences に貼る文」をプレースホルダ置換済みの状態でそのままコードブロックで出力し、「設定 → プロフィール → Claude への指示 に貼ってください」と 1 行添える。Cowork を使う人には Cowork 全体指示も同様に出す
+8. Claude Code を初めて起動した時にブラウザでログイン画面が出ることを伝える (これは設定作業ではなく普通のログイン)
+
+自分が構築中の Claude であって、まだ Vault が無いので、この md の起動シーケンスは自分には適用しない。構築が終わったチャットの次のチャットから適用される。
 
 ## 全体像
 
@@ -54,15 +78,16 @@ iPhone / Web ──Google Drive コネクタで ObsidianVault-inbox/ に md を�
 
 ## 前提ソフト
 
-Mac にこれが入っていること。
+Mac にこれが入っていること。構築する Claude が Desktop Commander で入れる。
 
 ```
-brew install --cask obsidian
-brew install git gh python3
-npm install -g @anthropic-ai/claude-code     # Claude Code (claude コマンド)
+xcode-select --install 2>/dev/null || true          # git はこれで入る (macOS 標準)
+curl -fsSL https://claude.ai/install.sh | bash      # Claude Code (claude コマンド)。brew があれば brew install claude-code でも可
+brew install --cask obsidian                        # brew が無ければ https://obsidian.md/download
+brew install gh                                     # GitHub 同期を繋ぐ時だけ必要。後回し可
 ```
 
-Claude デスクトップアプリ (claude.ai のアプリ) は公式サイトから。Cowork も同じアプリの機能。Desktop Commander は Step 7 で入れる。Google Drive デスクトップは Step 9 を使う場合のみ。
+python3 は macOS 標準の `/usr/bin/python3` で足りる (自動保存ジョブは標準ライブラリしか使わない)。Claude デスクトップアプリ (claude.ai のアプリ) は公式サイトから。Cowork も同じアプリの機能。Desktop Commander は Step 7 (受け取った人が先に入れている前提)。Google Drive デスクトップは Step 9 を使う場合のみ。
 
 Claude のプランは Max (20x) 前提。自動保存ジョブが `claude -p --model sonnet` を 1 日に何十回も回すので、API 従量課金だと費用が読めない。Max なら定額内で完結する。
 
@@ -569,12 +594,22 @@ status: active
 
 ## Step 5: Git と GitHub
 
+構築時はローカル git だけで進める。GitHub は後から繋げる。
+
 ```
 cd ~/ObsidianVault
 git init -b main
-gh auth login                      # ブラウザで認証
+git add -A && git commit -m "init vault"
+```
+
+GitHub に繋ぐ時 (受け取った人が「GitHub に繋いで」と言った時に Claude がやる)。`gh auth login --web` を実行するとターミナルに 8 桁のコードが出てブラウザが開くので、ユーザーにコードを伝えて Authorize を押してもらう。これが唯一ブラウザを触る場面。
+
+```
+gh auth login --web
 gh repo create {{REPO}} --private --source=. --push
 ```
+
+Step 8 の sync スクリプトは remote が無ければ commit だけして終わるので、繋ぐ前でも壊れない。
 
 `.gitignore`:
 
@@ -916,7 +951,9 @@ No em dashes. Banned vocabulary: delve, tapestry, landscape (abstract), testamen
 
 ### Desktop Commander (MCP) を入れる
 
-デスクトップアプリの Claude がローカルファイルを読み書きするための MCP サーバー。アプリの 設定 → 開発者 → 設定を編集 で `claude_desktop_config.json` を開き、以下を足す。
+デスクトップアプリの Claude がローカルファイルを読み書きするための MCP サーバー。受け取った人がこの md を渡す前に入れておく。アプリの 設定 → 拡張機能 (Extensions) で「Desktop Commander」を検索してインストール。クリックだけで終わる。
+
+拡張機能の一覧に無い場合の代替: 設定 → 開発者 → 設定を編集 で `claude_desktop_config.json` を開き、以下を足してアプリを再起動する (Node が必要)。
 
 ```json
 {
@@ -929,13 +966,13 @@ No em dashes. Banned vocabulary: delve, tapestry, landscape (abstract), testamen
 }
 ```
 
-アプリを再起動し、新しいチャットで「~/ObsidianVault/CLAUDE.md を読んで」と言って読めれば成功。Desktop Commander には allowedDirectories の設定があり、既定でホーム全体が許可される。
+新しいチャットで「ホームのファイル一覧を出して」と言って出れば成功。Desktop Commander には allowedDirectories の設定があり、既定でホーム全体が許可される。初回はコマンド実行の許可ダイアログが出るので OK で通す。
 
 Cowork (同じアプリの機能) はデバイスブリッジ経由で同じ Desktop Commander を使う。追加設定は不要。
 
 ### Preferences (設定 → プロフィール → Claude への指示) に貼る文
 
-アプリの Claude は `~/.claude/CLAUDE.md` を読まないので、同じルールをアプリ設定に書く。ここは Claude からは編集できない場所なので、Vault の identity/preferences.md と内容を揃えておく。YD 版をそのまま載せる。
+アプリの Claude は `~/.claude/CLAUDE.md` を読まないので、同じルールをアプリ設定に書く。ここは Claude からは編集できない場所なので、構築する Claude は最後にこのブロックをプレースホルダ置換済みで出力し、受け取った人がコピペする。Vault の identity/preferences.md と内容を揃えておく。YD 版をそのまま載せる。
 
 ```
 個人的に自分に寄り添った優しさとか肯定を必要とせず、世間一般的に考えて回答してください。あなたは、プロのマーケター / 熟練のプログラマー / 経験豊富な教師、そして実践的で成功されたビジネスプランを考えられるプロとして振る舞ってください。
@@ -946,8 +983,8 @@ Cowork (同じアプリの機能) はデバイスブリッジ経由で同じ Des
 # {{USER}} の AI アシスタントとしての設定
 
 ## 基本情報
-私の名前は {{USER}}。Mac (ユーザー名: XXX) を使用。
-Obsidian Vault を ~/ObsidianVault/ に配置しており、これが Claude の「外部記憶」。GitHub の Private リポ {{GH}}/{{REPO}} (main) と 10 分毎に自動同期されている。
+私の名前は {{USER}}。Mac (ホーム: {{HOME}}) を使用。
+Obsidian Vault を ~/ObsidianVault/ に配置しており、これが Claude の「外部記憶」。10 分毎に自動 commit されている (GitHub 接続後は push も)。
 
 ## Vault への経路 (読む時も書く時も、使えるものを上から順に選ぶ)
 1. Desktop Commander (デスクトップアプリ) → ~/ObsidianVault を直接読み書き
@@ -1010,7 +1047,7 @@ Cowork は Preferences を読まないので、要約版を別に貼る。
 
 ```
 # Vault (外部記憶) の扱い
-私の外部記憶は ~/ObsidianVault (Mac、GitHub Private リポ {{GH}}/{{REPO}} と 10 分毎に同期)。
+私の外部記憶は ~/ObsidianVault (Mac、10 分毎に自動 commit。GitHub 接続後は Private リポ {{GH}}/{{REPO}} と同期)。
 
 起動: セッション開始時、まだ読んでいなければ、デバイスブリッジの Desktop Commander で ~/ObsidianVault/CLAUDE.md → 00_CLAUDE_BOOT.md → identity/ current_state/ mistakes/ の全ファイル → inbox/ を読んでから作業に入る。ブリッジが無い時は Google Drive コネクタで ObsidianVault-inbox/_boot/ の写しを読む。どちらも無ければ「Vault 未接続」と一言。
 
@@ -1492,6 +1529,11 @@ if [ -n "$(git status --porcelain)" ]; then
   fi
 fi
 
+# remote が無ければ (GitHub 未接続) ここで終わり。ローカル commit だけで運用できる
+if ! git remote get-url origin >/dev/null 2>&1; then
+  exit 0
+fi
+
 # rebase ではなく merge で取り込む (別 Mac の commit と履歴が分岐しても merge=union で log/mistakes は自動解決)
 git fetch -q origin main >> "$LOG" 2>&1
 if [ "$(git rev-list --count main..origin/main 2>/dev/null)" != "0" ]; then
@@ -1610,7 +1652,7 @@ exit 0
 </plist>
 ```
 
-### 登録と動作確認
+### 登録と動作確認 (構築する Claude が Desktop Commander で実行する)
 
 ```
 mkdir -p ~/.claude/vault-autosave/{state,logs,tmp}
@@ -1618,10 +1660,12 @@ chmod +x ~/.claude/vault-autosave/*.sh
 launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/com.{{USER}}.vault-autosave.watch.plist
 launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/com.{{USER}}.vault-autosave.sync.plist
 launchctl list | grep vault-autosave        # 2 本、exit 0 なら OK
-tail ~/.claude/vault-autosave/logs/sync.log
+tail ~/.claude/vault-autosave/logs/sync.log  # "commit" が出れば sync が動いている
 ```
 
-初回テストは、Claude Code で短いセッション (何か 1 つ決定を含む会話を 10 往復ほど) をして `/exit` し、1 分ほど待って `tail ~/.claude/vault-autosave/logs/autosave.log` に `extract rc=0` が出て、Vault の `log.md` 末尾に `autosave(...)` 行が付けば動いている。
+Label の `{{USER}}` は英数字にする (日本語の呼び名なら `com.vault.autosave.watch` などにする)。
+
+抽出の初回テストは Claude Code にログインした後でないと `claude -p` が動かない。構築する Claude は `bash -c 'echo "{}" | bash ~/.claude/vault-autosave/hook_sessionend.sh; echo rc=$?'` でフックが exit 0 で返ることだけ確認し、本番テストは受け取った人が Claude Code を初めて使った後に自動で走る。`tail ~/.claude/vault-autosave/logs/autosave.log` に `extract rc=0` が出て、Vault の `log.md` 末尾に `autosave(...)` 行が付けば動いている。
 
 手動実行: `python3 ~/.claude/vault-autosave/vault_autosave.py watch` / `session <jsonl>` / `inbox`。抽出モデルは環境変数 `VAULT_AUTOSAVE_MODEL` (既定 sonnet)。止める時は `launchctl bootout gui/$(id -u)/com.{{USER}}.vault-autosave.watch` (sync も同様)。振り分け先や禁止事項を変えたい時は `vault_autosave.py` の EXTRACT_PROMPT / INBOX_PROMPT を編集する。
 
@@ -1653,11 +1697,19 @@ claude.ai には GitHub コネクタが無い (YD は最初 GitHub 経由で設�
 
 ## Step 10: 起動確認と運用
 
+### 構築完了時に Claude が出すもの
+
+構築する Claude は最後に次の 3 つを出力して終わる。
+
+1. Step 7 の「Preferences に貼る文」をプレースホルダ置換済みでコードブロックにしたもの。「設定 → プロフィール → Claude への指示 に貼ってください」と 1 行添える。Cowork を使うなら「Cowork 全体指示」も同様に
+2. 作ったファイルの一覧 (`ls -R ~/ObsidianVault` の要約と `~/.claude/` 配下)
+3. 次にやることの案内: 「新しいチャットを開いて『おはよう』と送ってください。Vault を読んでから挨拶が返れば完成です。ターミナルで `claude` を初めて起動するとログイン画面が出るので、ブラウザでログインしてください」
+
 ### 初回テスト
 
-Claude Code をどこかのディレクトリで起動し、何も言わずに「準備できた?」と送る。Vault を読んでから「起動完了です。進行中: ... 今の注力: ...」と返れば Step 6 まで動いている。返事がタメ口だったり Vault を読まずに答えたら、`~/.claude/CLAUDE.md` のパスと `identity/preferences.md` を確認する。
+デスクトップアプリで新しいチャットを開き「おはよう」と送る。Desktop Commander で Vault を読んでから挨拶を返せば Step 7 が動いている。「ローカルファイルにアクセスできない」と言ったら Desktop Commander が接続されていない。Preferences を貼っていない場合は「Vault読んで」と言えば同じ動きになる。
 
-デスクトップアプリで新しいチャットを開き「おはよう」と送る。Desktop Commander で Vault を読んでから挨拶を返せば Step 7 が動いている。「ローカルファイルにアクセスできない」と言ったら Desktop Commander が接続されていない。
+Claude Code をどこかのディレクトリで起動し (初回はログイン)、「準備できた?」と送る。Vault を読んでから「起動完了です。進行中: ... 今の注力: ...」と返れば Step 6 まで動いている。返事がタメ口だったり Vault を読まずに答えたら、`~/.claude/CLAUDE.md` のパスと `identity/preferences.md` を確認する。
 
 どちらかで何か決定を含む会話をして終える。「📥 Vault保存: decisions/...」の報告が出て、実ファイルが `ls ~/ObsidianVault/decisions/` にあること。Claude が「保存しました」と言っても実ファイルを確認する癖を最初は付ける。
 
