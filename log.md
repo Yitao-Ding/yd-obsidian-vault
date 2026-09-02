@@ -2893,3 +2893,4 @@
 - 2026-09-01 起業案の方向: 「革新的×すぐ売上」が条件、キャパ制約は考慮不要と明言。本人の本命は物販 (海外で安く仕入れ→映像/Web で宣伝→日本で販売)。Claude は自社ブランドD2C型 (映像クリエイター向けガジェット等) を推奨、単純転売は検証用途のみ[2026-09-02 10:05] ai-researcher collect: raw=79 dedup=19 relevant=2 kept=2
 [2026-09-02 11:09] ai-researcher collect: raw=80 dedup=26 relevant=7 kept=7
 [2026-09-02 12:11] ai-researcher collect: raw=108 dedup=31 relevant=8 kept=8
+[2026-09-02 13:36] ai-researcher collect: raw=107 dedup=46 relevant=8 kept=8
