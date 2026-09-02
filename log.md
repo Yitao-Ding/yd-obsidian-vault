@@ -2932,3 +2932,4 @@
 - 2026-09-02 23:40 Bitaw v1.0.0 (11) TestFlight 上げ (YD 判断: 正式リリース = v1.0 を TestFlight で確定、App Store 申請はしない)。ミニ会話 20 話に scripts/gen_story_notes.py で summary + notes (要点 3〜5 個、カタカナ・意味・使い方) を付与 (sonnet、thinking off、5 話 1 分)、日本語訳は常時表示に。git tag v1.0.0
 - 2026-09-02 23:57 Bitaw v1.0.0 (12) TestFlight 上げ: スター機能。会話練習の相手と自分の吹き出し (自分側はビサヤ語版を保存)、ミニ会話のセリフと解説の表現、翻訳結果と別の言い方に星。SavedPhrase に source を追加して StarredView で出どころ別に一覧 (検索、練習、聞き流し、スワイプで外す)。入口は 会話練習の先頭行 と フレーズタブの先頭
 [2026-09-03 00:04] ai-researcher collect: raw=110 dedup=26 relevant=2 kept=2
+[2026-09-03 01:04] ai-researcher collect: raw=111 dedup=26 relevant=1 kept=1
