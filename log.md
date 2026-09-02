@@ -2910,3 +2910,4 @@
 [2026-09-02 18:50] Bitaw: ElevenLabs キー投入 (set_eleven_key.sh、1回目はコマンド文字列を貼ってしまい 401 → 再投入で OK)。relay の /v1/tts 動作確認、307 フレーズの音声一括生成 (4,768 文字、7.7MB、失敗 0)。キーボードに「完了」バー追加 (実機で閉じられなかった不具合)。ビルド 4 を TestFlight にアップロード。commit 8c0c02e。ASC 招待 3 名は承諾待ち
 [2026-09-02 19:03] ai-researcher collect: raw=107 dedup=22 relevant=0 kept=0
 [2026-09-02 20:03] Claude Code (PAA): YD 指示で ultracode のモデル分業方針を確定 (企画・監視=Fable / 実装=Opus以下)。decisions 保存 + .claude/agents 4本を fable へ + Claude Code メモリ更新
+[2026-09-02 20:04] ai-researcher collect: raw=107 dedup=23 relevant=1 kept=1
