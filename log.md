@@ -2897,3 +2897,5 @@
 [2026-09-02 14:09] ai-researcher collect: raw=107 dedup=39 relevant=8 kept=8
 [2026-09-02 15:09] ai-researcher collect: raw=107 dedup=31 relevant=8 kept=8
 [2026-09-02 15:40] Bitaw (ビサヤ語会話アプリ、3人用) v0.1 完成。~/AI projects/bitaw/ (SwiftUI + WhisperKit + Supabase + Mac relay で claude -p)。シミュレータでレッスン・会話練習を実操作確認。決定=decisions/2026-09-02_Bitaw_ビサヤ語会話アプリ_設計確定.md、知識=knowledge/programming/projects/bitaw.md、引き継ぎ=bitaw/HANDOVER.md。YD 作業: 署名→ElevenLabs→relay 常駐+Funnel→Supabase→TestFlight
+[2026-09-02 16:05] ai-researcher collect: raw=107 dedup=23 relevant=2 kept=2
+[2026-09-02 07:07] Cowork: 友達向け Claude 外部記憶システム移植設計図を作成 → knowledge/programming/tools/claude_memory_system_blueprint.md (Vault構造・CLAUDE.md・BOOT・Preferences・Cowork指示・hikizan・vault_autosave 全文、プレースホルダ方式)
