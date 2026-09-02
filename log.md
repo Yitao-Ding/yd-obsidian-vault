@@ -2920,3 +2920,4 @@
 [2026-09-02 21:39] PAA: YD 決定 8 件回答 (ログイン 4 種 / 6 桁コード / ドメイン購入 / Yitao Ding 表記 / Free+keep-alive / Gemini 課金 / アイコン案1 / SDK56)。decisions 保存、Day1 シートに Google OAuth + LINE Developers を追記。wave1 (ログイン/削除/通報/法的文書) 走行中
 [2026-09-02 21:43] PAA: YD 決定「キャラ消そう、関連要素も、あまり影響ない範囲で」→ キャラ再設計 (Round 2 六体) は打ち切り。棚卸し Workflow (opus 4 読者 → Fable 撤去仕様 sprint-R2) 起動
 - 2026-09-02 21:45 Bitaw v0.3.0 (6) TestFlight 上げ: YD の指示でレッスンのロック撤廃 (全レッスン開放、次のレッスンだけスタート印)、XP・ストリーク・ランキング表示を削除 (ゲーム性は不要)。内部の XP 計算と Supabase 同期コードは残置
+[2026-09-02 22:04] ai-researcher collect: raw=110 dedup=26 relevant=1 kept=1
