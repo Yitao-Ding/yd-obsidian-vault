@@ -2915,3 +2915,4 @@
 [2026-09-02 20:04] ai-researcher collect: raw=107 dedup=23 relevant=1 kept=1
 - 2026-09-02 20:45 Bitaw v0.3.0 (5) TestFlight 上げ: 聞くタブ (聞き流し / FSRS カード / ミニ会話 20 話 + 音声 64 行、ElevenLabs 622 文字)、レッスンをインプット先行に。TestFlight グループに 菅野日菜・Chiaki 追加 (Rina は招待未承諾)。knowledge/programming/projects/bitaw.md 更新
 [2026-09-02 21:03] ai-researcher collect: raw=108 dedup=23 relevant=0 kept=0
+[2026-09-02 21:04] Claude Code (PAA): YD「もういい加減に公開したい」→ 公開監査 Workflow (64 agents、7次元→Fable反証→計画) で RELEASE_PLAN_2026-09.md 作成 (ブロッカー41件=7束、提出 9/6 目標)。実DB が再 pause → restore。決定不要タスク C-01/C-03/C-04/C-11/C-12 を builder 3便 (opus) + Fable 検収で起動中。YD 決定 D-1〜D-8 待ち
