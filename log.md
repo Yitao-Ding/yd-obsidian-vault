@@ -2930,3 +2930,4 @@
 [2026-09-02 23:03] ai-researcher collect: raw=106 dedup=22 relevant=0 kept=0
 - 2026-09-02 23:22 Bitaw v0.3.0 (10) TestFlight 上げ: 会話練習で自分の吹き出しの下に「ビサヤ語だと / 直すなら」+ カタカナ + 再生 (relay の learner フィールド)、相手を自作 (CustomScenario、最初のセリフは relay 生成)、会話は ChatSession に、翻訳は TranslationLog に保存して画面を離れても残る、会話ごとにリセットボタン、タブ切替・アプリ背景で一発音声を停止 (聞き流しは継続)。relay: extractJson に改行・末尾カンマの修復、roleplay プロンプトにタガログ語混入の禁止リスト
 - 2026-09-02 23:40 Bitaw v1.0.0 (11) TestFlight 上げ (YD 判断: 正式リリース = v1.0 を TestFlight で確定、App Store 申請はしない)。ミニ会話 20 話に scripts/gen_story_notes.py で summary + notes (要点 3〜5 個、カタカナ・意味・使い方) を付与 (sonnet、thinking off、5 話 1 分)、日本語訳は常時表示に。git tag v1.0.0
+- 2026-09-02 23:57 Bitaw v1.0.0 (12) TestFlight 上げ: スター機能。会話練習の相手と自分の吹き出し (自分側はビサヤ語版を保存)、ミニ会話のセリフと解説の表現、翻訳結果と別の言い方に星。SavedPhrase に source を追加して StarredView で出どころ別に一覧 (検索、練習、聞き流し、スワイプで外す)。入口は 会話練習の先頭行 と フレーズタブの先頭
