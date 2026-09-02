@@ -2925,3 +2925,4 @@
 [2026-09-02 22:09] PAA: wave1 (ログイン/アカウント削除/通報ブロック/法的文書/静的サイト) 検収 Pass・コミット c9a2160。キャラ撤去 Workflow (便1-3並列→便4→ゲート) 起動。HANDOVER 冒頭を 9/2 版に更新
 - 2026-09-02 22:10 Bitaw v0.3.0 (7) TestFlight 上げ: レッスン進捗を自動保存 (UserDefaults lesson.progress.<id>、seed 再現で同じ問題列)、パスのポップオーバーで「続きから (n/m) / 最初からやり直す」、やめる確認シートに「次からこの確認を出さない」チェック。シート内の Toggle はタップが効かず drag でしか反応しなかったので Button + checkmark.square に変更
 - 2026-09-02 22:17 Bitaw v0.3.0 (8) TestFlight 上げ: Info.plist UIUserInterfaceStyle=Light + preferredColorScheme(.light) でダークモード無効化 (Duo パレットがライト前提で、ダークだと Form/List 背景と文字が被る)。Mac 中継サーバーを Funnel 経由で全エンドポイント検証: /health ok・roleplay 4.7秒・translate 37秒 (出力が長いため)・TTS 200。URL https://macbook-pro-2.tail60869d.ts.net
+[2026-09-02 22:27] autosave(project-agent-application): current_state/active_projects.md (C-10 アイコン完了・bbox修正・コミット c26d149 を追記)
