@@ -85,3 +85,18 @@ ElevenLabs は無料枠 (月 10,000 文字)。教材 307 フレーズで 4,768 �
 - レッスン自動保存: `LessonProgressStore` (UserDefaults `lesson.progress.<lessonId>` に seed / index / retryIds / correct / answered)。問題列は seed から `LessonEngine.build(seed:)` で再現するので保存は位置だけ。`next()` と やめる で保存、完了で削除。ポップオーバーは `progressTick` (fullScreenCover の onDismiss で +1) で再評価して「続きから (n/m)」を出す
 - やめる確認は `.sheet` (`QuitSheet`) に置き換え、`lesson.skipQuitConfirm` で省略。シート内の SwiftUI Toggle はシミュレータでタップが効かず drag でだけ反応したので Button + `checkmark.square` のチェックボックスにした
 - computer use の注意: Simulator を内蔵ディスプレイに置くとクリックが約 80px 下にずれた (外部モニタでは正確)。座標が合わない時は外部モニタ側で操作する
+
+## claude -p の速度: モデルより thinking (2026-09-02 夜、実測)
+
+翻訳が 37 秒かかるので「速いモデルにすれば」を検証した。結果は逆。
+
+| モデル | 翻訳 1 回 | 出力トークン | セブアノ語の質 |
+|---|---|---|---|
+| haiku | 113〜119 秒 | 17,278 | 不可 (Makarating ba sa hotel ang daan na ito = タガログ語) |
+| sonnet | 22〜31 秒 | 1,057〜1,810 | 可 (Makaabot ba sa hotel niining dalan) |
+
+haiku が遅いのは出力の大半が思考トークンだから。単純なプロンプト ("Reply with just: ok") なら haiku は 1.6 秒で返るので、モデル自体は速い。長い構造化出力を求めると思考に入って遅くなる。
+
+効いた対策は2つ。`runClaude` の子プロセス環境に `MAX_THINKING_TOKENS=0` を入れる。そして 1 回の返答を短くする: `/v1/translate` は ceb/kana/ja/literal だけ (5.4 秒、ここで音声が鳴る)、単語ごと・文法・発音・別の言い方は `/v1/translate/detail` に分けてアプリが後から埋める (14 秒)。プロンプトにも "Answer immediately. Do not think step by step." を明記。
+
+判断: 会話 (roleplay) は返答が短いので元から 5〜7 秒、モデル変更の必要なし。品質が要る場面で haiku に落とすのは、セブアノ語では成立しない。
