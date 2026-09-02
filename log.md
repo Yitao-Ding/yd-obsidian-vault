@@ -2936,3 +2936,4 @@
 [2026-09-03 02:05] ai-researcher collect: raw=110 dedup=26 relevant=2 kept=2
 [2026-09-03 03:04] ai-researcher collect: raw=110 dedup=26 relevant=1 kept=1
 [2026-09-03 04:04] ai-researcher collect: raw=109 dedup=25 relevant=1 kept=1
+[2026-09-03 04:06] autosave(cc_company): 保存対象なし
