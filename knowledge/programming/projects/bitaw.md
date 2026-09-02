@@ -100,3 +100,11 @@ haiku が遅いのは出力の大半が思考トークンだから。単純な�
 効いた対策は2つ。`runClaude` の子プロセス環境に `MAX_THINKING_TOKENS=0` を入れる。そして 1 回の返答を短くする: `/v1/translate` は ceb/kana/ja/literal だけ (5.4 秒、ここで音声が鳴る)、単語ごと・文法・発音・別の言い方は `/v1/translate/detail` に分けてアプリが後から埋める (14 秒)。プロンプトにも "Answer immediately. Do not think step by step." を明記。
 
 判断: 会話 (roleplay) は返答が短いので元から 5〜7 秒、モデル変更の必要なし。品質が要る場面で haiku に落とすのは、セブアノ語では成立しない。
+
+## build 10 (2026-09-02 23 時): 会話練習の強化と保存
+
+- 自分の吹き出し: relay の roleplay 応答に `learner {ceb, kana}` (自分が言いたかったことを現地の言い方で)。日本語・混ぜ書き・間違ったセブアノ語のどれでも埋まる。表示は入力と同じなら出さず、違えば「ビサヤ語だと」、correction があれば「直すなら」+ カタカナ + 再生ボタン (relay TTS) + tip
+- 相手を自作: `CustomScenario` @Model (title / persona / goal)。opener 空 → messages [] で relay を呼ぶと相手が先に話す (プロンプト既存対応)
+- 保存: `ChatSession` (scenarioId ごとに [ChatLine] の JSON、変更のたび保存、リセットで削除) と `TranslationLog` (入力 + Translation の JSON。詳細が後から来たら上書き、復元時に詳細が無ければ再取得)。翻訳タブは onAppear で最新ログを復元し、履歴 12 件をタップで戻せる
+- 音声停止: `Notification.Name.bitawStopAudio` を RootView (タブ変更、scenePhase != active) と SpeakHub (セグメント変更) が投げ、StoryPlayer / RoleplayChat / Translate が受けて停止。ListenPlayer (聞き流し) は意図的に止めない
+- relay: `extractJson` が失敗時に制御文字→空白、末尾カンマ除去で再パース (日本語 tip に改行が入ると落ちていた)。`roleplay_system.md` にタガログ語混入の禁止リスト (magkano→pila, ito→kini, po 等)

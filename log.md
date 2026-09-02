@@ -2928,3 +2928,4 @@
 [2026-09-02 22:27] autosave(project-agent-application): current_state/active_projects.md (C-10 アイコン完了・bbox修正・コミット c26d149 を追記)
 - 2026-09-02 22:39 Bitaw v0.3.0 (9) TestFlight 上げ: 翻訳の体感を 37秒→5.4秒。(1) relay の runClaude に MAX_THINKING_TOKENS=0 (haiku は思考に17kトークン使い119秒かかっていた) (2) /v1/translate は ceb/kana/ja/literal だけ返す高速版に変更、単語ごと・文法・発音・別の言い方は新設の /v1/translate/detail (14秒) でアプリが後から埋める。モデルは sonnet 継続 (haiku はタガログ語混じりで品質不可)
 [2026-09-02 23:03] ai-researcher collect: raw=106 dedup=22 relevant=0 kept=0
+- 2026-09-02 23:22 Bitaw v0.3.0 (10) TestFlight 上げ: 会話練習で自分の吹き出しの下に「ビサヤ語だと / 直すなら」+ カタカナ + 再生 (relay の learner フィールド)、相手を自作 (CustomScenario、最初のセリフは relay 生成)、会話は ChatSession に、翻訳は TranslationLog に保存して画面を離れても残る、会話ごとにリセットボタン、タブ切替・アプリ背景で一発音声を停止 (聞き流しは継続)。relay: extractJson に改行・末尾カンマの修復、roleplay プロンプトにタガログ語混入の禁止リスト
