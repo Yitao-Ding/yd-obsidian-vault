@@ -2902,3 +2902,4 @@
 [2026-09-02 07:07] Cowork: 友達向け Claude 外部記憶システム移植設計図を作成 → knowledge/programming/tools/claude_memory_system_blueprint.md (Vault構造・CLAUDE.md・BOOT・Preferences・Cowork指示・hikizan・vault_autosave 全文、プレースホルダ方式)
 [2026-09-02 07:17] Cowork: 移植設計図 v2 (手作業ゼロ化: GitHub後回し・sync remote無し対応・構築Claude向け手順追加) → knowledge/programming/tools/claude_memory_system_blueprint.md
 [2026-09-02 16:52] Bitaw 教材を 23 場面 (u10〜u32) claude -p opus で一括生成 → 307 フレーズ / 32 ユニット / 65 レッスン / シナリオ 17。レビュー pass (review_content.py) を実行中、完了後 finish_after_review.sh が正規化→検証→ビルド→commit まで自動。フレーズ検索タブ・復習モード追加。relay は launchd 常駐済 (Funnel は YD の有効化待ち)。Xcode は Apple ID 未登録で署名不可 (YD 作業待ち)
+[2026-09-02 17:03] ai-researcher collect: raw=108 dedup=22 relevant=0 kept=0
