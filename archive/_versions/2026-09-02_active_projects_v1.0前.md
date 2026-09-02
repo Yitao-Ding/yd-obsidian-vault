@@ -1,6 +1,6 @@
 ---
 type: current_state
-last_updated: 2026-09-02 (Bitaw ビサヤ語会話アプリ v1.0.0 TestFlight 確定、詳細はアクティブ先頭 / 旧2026-08-28: ハタチたち公式HP Phase1完了・新規追加、詳細はアクティブ先頭 / 旧2026-08-08b: プペルOP映像YF-13本制作完了・納品ファイル生成、詳細セクション先頭 / 同日: Arte Grow: 軸を「映像で伝える」に再定義・渡航10/1-2確定・Notion新ページ新設、詳細#5 / 旧2026-08-05注記: CC-business: noteオンリー分売の全7記事完成原稿・YD承認済 / 平成たち祭: 時系列整列TL2本追加。詳細は各セクション参照。※frontmatter 21日放置を外部監査2026-08-05指摘5で是正、旧7/14注記はCC-business本文へ)
+last_updated: 2026-09-02 (Bitaw ビサヤ語会話アプリ v0.1 完成・新規追加、詳細はアクティブ先頭 / 旧2026-08-28: ハタチたち公式HP Phase1完了・新規追加、詳細はアクティブ先頭 / 旧2026-08-08b: プペルOP映像YF-13本制作完了・納品ファイル生成、詳細セクション先頭 / 同日: Arte Grow: 軸を「映像で伝える」に再定義・渡航10/1-2確定・Notion新ページ新設、詳細#5 / 旧2026-08-05注記: CC-business: noteオンリー分売の全7記事完成原稿・YD承認済 / 平成たち祭: 時系列整列TL2本追加。詳細は各セクション参照。※frontmatter 21日放置を外部監査2026-08-05指摘5で是正、旧7/14注記はCC-business本文へ)
 update_frequency: 週1回以上
 ---
 
@@ -13,12 +13,13 @@ update_frequency: 週1回以上
 
 ## 🟢 アクティブ・優先度高
 
-### ★ Bitaw ビサヤ語会話アプリ (2026-09-02 着手、同日 v1.0.0 (11) TestFlight で確定) ★
-- **状況 (2026-09-02 23:40)**: v1.0.0 build 11 を TestFlight に上げ、YD 判断で「正式リリース = TestFlight で確定、App Store 申請はしない」。テスター: YD + Taichi + 菅野日菜 + Chiaki (Rina は招待未承諾)。教材 307 フレーズ / 32 ユニット / 65 レッスン / シナリオ 17 + ミニ会話 20 話 (解説付き)。全 307 フレーズ + ミニ会話 64 行の ElevenLabs 音声同梱
-- **機能**: 学ぶ (ロック無し、インプット先行レッスン、自動保存と途中再開) / 聞く (聞き流し・FSRS カード・ミニ会話) / 話す (翻訳 5 秒 + 詳細後追い、会話練習: 自分の発言のビサヤ語版 + 訂正 + 発音、相手を自作、会話とリセット) / フレーズ / プロフィール。ゲーム性 (XP・ストリーク・ランキング) は表示から撤去、ダークモード無効
-- **中継**: `https://macbook-pro-2.tail60869d.ts.net` (launchd + Tailscale Funnel)、トークンは `server/.env`。4 人とも同じ URL・トークン。Mac が起きていることが前提
-- **残**: ①Rina の招待承諾待ち ②TestFlight は 90 日で期限切れ → 11 月末までに再アップロード ③Supabase (YD、未着手、無くても動く) ④Mac スリープ対策とセブ持参 ⑤ElevenLabs 無料枠 (今月 5,400 / 10,000 文字使用)
-- **パス**: `~/AI projects/bitaw/` (git、tag v1.0.0、push 未)。引き継ぎ正本 = `HANDOVER.md`、知識 = [[bitaw]]、決定 = [[2026-09-02_Bitaw_ビサヤ語会話アプリ_設計確定]]
+### ★ Bitaw ビサヤ語会話アプリ (2026-09-02 着手、v0.2 TestFlight アップロード済) ★
+- **状況 (2026-09-02 18:00)**: TestFlight に 0.2.0 (2) アップロード済 (App Store Connect アプリ ID 6807736203、Xcode が自動作成)。教材 307 フレーズ / 32 ユニット / 65 レッスン / シナリオ 17 (claude -p 生成 + レビュー pass 済)。翻訳タブ (日本語 → 自然なビサヤ語 + カナ + 単語分解 + 文の仕組み + 発音 + 別の言い方 + 音声、話しても打ってもよい、保存して練習可) を追加。Tailscale Funnel 有効: `https://macbook-pro-2.tail60869d.ts.net` (relay は launchd 常駐)。Xcode に Apple ID 登録済、Team FC2V887B8C
+- **残 (YD)**: ①App Store Connect にサインインして TestFlight 内部テスターに自分と友達2人を追加 (Users and Access で招待 → 承諾後に Internal Testing グループへ) ②ElevenLabs キーを `server/.env` に (`ELEVEN_API_KEY`) → relay 再起動で翻訳・会話の音声が本物に。同梱音声は `scripts/gen_audio.py` (約 6,000 文字) ③Supabase ④渡航中は MacBook を持って行き電源+WiFi に繋ぎっぱなし (iPhone から Claude 枠は直接使えない)
+- **判断待ち**: Mac 不達時の API キー従量フォールバックを入れるか (翻訳 1 回 1〜3 円)
+- **パス**: `~/AI projects/bitaw/` (git 管理、push 未)。**引き継ぎ正本 = `HANDOVER.md`**、知識 = [[bitaw]]、決定 = [[2026-09-02_Bitaw_ビサヤ語会話アプリ_設計確定]]
+- **構成**: SwiftUI (iOS 17+) + WhisperKit (発音判定、タガログ判定を代用) + Supabase (ランキング、未設定でも動く) + Mac 常駐 relay (`server/relay.mjs`、Tailscale Funnel で公開) + ElevenLabs 一括音声 (未生成、今はインドネシア語音声で代読)
+- **未確定**: 友達2人が誰か (Rina / Taichi / Hina のうち?) / 発音判定の閾値 (0.55 仮、実機未検証)
 
 ### ★ ハタチたち 公式ホームページ (2026-08-28 着手) ★
 - **状況**: 🟢 **多観点レビュー反映済 (v5)** — Phase 1 実装後、11エージェント多観点レビュー (46件) + 完全性クリティック (14件) を反映。主要修正: next/font変数を `<html>` へ移動 (明朝フォント全ページ有効化) / 日本語preload 123→1 / YouTube facade実装 / microCMS error shape修正 / ビルド・lint緑・`git commit`完了。HANDOVER.md + docs/3ファイル (microcms-setup.md / assets-list.md / accounts.md) 整備済み
