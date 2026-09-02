@@ -2896,3 +2896,4 @@
 [2026-09-02 13:36] ai-researcher collect: raw=107 dedup=46 relevant=8 kept=8
 [2026-09-02 14:09] ai-researcher collect: raw=107 dedup=39 relevant=8 kept=8
 [2026-09-02 15:09] ai-researcher collect: raw=107 dedup=31 relevant=8 kept=8
+[2026-09-02 15:40] Bitaw (ビサヤ語会話アプリ、3人用) v0.1 完成。~/AI projects/bitaw/ (SwiftUI + WhisperKit + Supabase + Mac relay で claude -p)。シミュレータでレッスン・会話練習を実操作確認。決定=decisions/2026-09-02_Bitaw_ビサヤ語会話アプリ_設計確定.md、知識=knowledge/programming/projects/bitaw.md、引き継ぎ=bitaw/HANDOVER.md。YD 作業: 署名→ElevenLabs→relay 常駐+Funnel→Supabase→TestFlight

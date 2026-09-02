@@ -1,0 +1,54 @@
+---
+type: knowledge
+domain: programming/projects
+last_updated: 2026-09-02
+status: active
+trigger_keywords: [Bitaw, ビサヤ語, セブアノ語, Cebuano, 会話アプリ, claude -p relay, WhisperKit]
+---
+
+# Bitaw — ビサヤ語会話特化 iPhone アプリ (3人用)
+
+パス: `~/AI projects/bitaw/` (git 管理、push 未)。引き継ぎ正本: 同ディレクトリの `HANDOVER.md`。仕様: `docs/SPEC.md`。決定: [[2026-09-02_Bitaw_ビサヤ語会話アプリ_設計確定]]。
+
+## 構成
+
+- `ios/` SwiftUI (iOS 17+, Xcode 26.6, xcodegen `project.yml`)。SPM: WhisperKit (argmaxinc/argmax-oss-swift 1.1.0) + supabase-swift 2.55。フォント Nunito (Duolingo の Feather Bold の代替、fontsource の woff2 を fonttools で ttf 化)
+- `content/course.json` 教材正本 (97 フレーズ / 9 ユニット / 19 レッスン / シナリオ 6)。アプリは `Documents/course.json` があれば同梱より優先 (再ビルド不要の差し替え)
+- `server/relay.mjs` Mac 常駐 Node サーバー。`POST /v1/roleplay` で `claude -p` (OAuth、API キー無し) を起動。launchd plist と Tailscale Funnel 手順は `server/README.md`
+- `scripts/gen_content.py` (claude -p で教材追加) / `scripts/gen_audio.py` (ElevenLabs でお手本音声一括生成)
+- `supabase/migrations/001_init.sql` profiles テーブル + RLS + XP 減少防止トリガー
+
+## 画面と体験 (Duolingo 準拠)
+
+パス (色付きユニットヘッダー + 左右にずれる丸ノード + スタート吹き出し) → 全画面レッスン (進捗バー、確認ボタン、緑/赤の判定パネル、間違いは最後に再出題) → XP と正確さ。問題は 聞いて意味を選ぶ / 日本語からビサヤ語を選ぶ / まねして言う / 日本語だけ見て言う / 返事する の 5 種。会話練習は相手のセリフ (ビサヤ語 + カタカナ + 日本語) に対してマイクで話し、文字起こしを直して送ると、返答と一緒に自分の発言の訂正とヒントが返る。ランキングは週間 XP (JST 月曜リセット)。
+
+## claude -p を速く安く呼ぶ設定 (実測 2026-09-02)
+
+| 設定 | cache_creation | 1 ターン |
+|---|---|---|
+| 素の `claude -p --system-prompt ...` | 131k〜137k tokens | 10〜36 秒 |
+| + `--setting-sources "" --strict-mcp-config --mcp-config mcp.json` | 0 | 3 秒 (一言) |
+| + `--json-schema` | 0 | 18〜20 秒 |
+| プロンプトで JSON 指示 + 受信側検証 | 0 | 4〜8 秒 |
+
+`mcp.json` は `{"mcpServers":{}}`。`--mcp-config '{}'` は不正扱い。`CLAUDE_CODE_SIMPLE=1` と `--bare` は OAuth を読まないので不可。`ANTHROPIC_API_KEY` は子プロセス環境から削除する。
+
+## ✅ うまく行ったこと
+
+- 初回ビルド成功、シミュレータ実操作で レッスン → 判定 → 会話練習 (relay 経由の訂正付き返答) まで確認
+- Duolingo の配色トークン名 (feather / macaw / cardinal / eel / swan) をそのまま Swift の enum にした → 実装中に迷わない
+- 3D ボタン (下辺 4pt の濃色 + 押下で 4pt 沈む) を ButtonStyle 1 つで共通化
+
+## ❌ 詰まったこと
+
+- WhisperKit のモデル DL 中に採点を呼ぶと未ロードエラー → 読み込み Task を保持して await する形に修正
+- computer use で Simulator の下部をクリックすると Aqua Voice の不可視ウィンドウに当たる → osascript で Simulator を左上 (60,40) に移動して回避。キー入力は computer_type だと長押し扱いでアクセント候補が出る → osascript の keystroke を使う (スペースが落ちる)
+- 会話相手の声は事前生成できない (動的文)。インドネシア語音声で代読中
+
+## 📋 次回同じことをするときのチェックリスト
+
+1. YD 作業の順番は HANDOVER.md (Team 署名 → ElevenLabs → relay 常駐 + Funnel → Supabase → TestFlight)
+2. 教材を増やしたら `gen_audio.py` → 再ビルド。セブアノ語話者に一度読んでもらう
+3. relay.log の `cost` が $0.5 級に戻ったら `--setting-sources` が効いていない
+4. 発音判定の閾値は実機で 2〜3 フレーズ試してから決める (`SpeechScorer.passThreshold`)
+5. シミュレータ検証は `defaults write com.yitaoding.bitaw relay.baseURL http://localhost:8787` で relay を直接指す

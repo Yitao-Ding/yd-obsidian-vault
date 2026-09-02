@@ -1,6 +1,6 @@
 ---
 type: current_state
-last_updated: 2026-09-02 (Bitaw ビサヤ語会話アプリ v0.1 完成・新規追加、詳細はアクティブ先頭 / 旧2026-08-28: ハタチたち公式HP Phase1完了・新規追加、詳細はアクティブ先頭 / 旧2026-08-08b: プペルOP映像YF-13本制作完了・納品ファイル生成、詳細セクション先頭 / 同日: Arte Grow: 軸を「映像で伝える」に再定義・渡航10/1-2確定・Notion新ページ新設、詳細#5 / 旧2026-08-05注記: CC-business: noteオンリー分売の全7記事完成原稿・YD承認済 / 平成たち祭: 時系列整列TL2本追加。詳細は各セクション参照。※frontmatter 21日放置を外部監査2026-08-05指摘5で是正、旧7/14注記はCC-business本文へ)
+last_updated: 2026-08-28 (ハタチたち公式HP Phase1完了・新規追加、詳細はアクティブ先頭 / 旧2026-08-08b: プペルOP映像YF-13本制作完了・納品ファイル生成、詳細セクション先頭 / 同日: Arte Grow: 軸を「映像で伝える」に再定義・渡航10/1-2確定・Notion新ページ新設、詳細#5 / 旧2026-08-05注記: CC-business: noteオンリー分売の全7記事完成原稿・YD承認済 / 平成たち祭: 時系列整列TL2本追加。詳細は各セクション参照。※frontmatter 21日放置を外部監査2026-08-05指摘5で是正、旧7/14注記はCC-business本文へ)
 update_frequency: 週1回以上
 ---
 
@@ -12,13 +12,6 @@ update_frequency: 週1回以上
 > ⚠️ **2026-06-14 全件棚卸し済**: 実体ベース(git log/mtime/HANDOVER)の全プロジェクト棚卸しを `~/projects/AUTONOMOUS_SESSION_2026-06-14.md` に作成。本ファイルの各ステータスは5月下旬〜6月上旬時点なので、続ける/殺すの判断はそちらの「即決マトリックス」を参照。要点: ①大半は "YD待ち"(認証/本名/素材) ②CC-businessが最も本番ローンチ間近 ③ai-researcher/morning-briefing は "動くが成果が届かない" 状態。
 
 ## 🟢 アクティブ・優先度高
-
-### ★ Bitaw ビサヤ語会話アプリ (2026-09-02 着手、v0.1 完成) ★
-- **状況**: v0.1 ビルド成功、シミュレータでレッスン (聞いて選ぶ / まねして言う) と会話練習 (Mac 中継 → claude -p、訂正付き返答 5〜14 秒) を実操作確認済み。渡航 9/21 までに3人 (YD + 友達2人) で使う
-- **パス**: `~/AI projects/bitaw/` (git 管理、push 未)。**引き継ぎ正本 = `HANDOVER.md`**、知識 = [[bitaw]]、決定 = [[2026-09-02_Bitaw_ビサヤ語会話アプリ_設計確定]]
-- **構成**: SwiftUI (iOS 17+) + WhisperKit (発音判定、タガログ判定を代用) + Supabase (ランキング、未設定でも動く) + Mac 常駐 relay (`server/relay.mjs`、Tailscale Funnel で公開) + ElevenLabs 一括音声 (未生成、今はインドネシア語音声で代読)
-- **次のアクション (YD 作業、順番どおり)**: ①Xcode で Team 署名 → 実機で発音判定を試す ②ElevenLabs キー → `scripts/gen_audio.py` ③relay を launchd 常駐 + `tailscale funnel --bg 8787` → URL とトークンをアプリのプロフィールに ④Supabase 作成 (`supabase/README.md`) ⑤TestFlight 内部テスターに友達2人
-- **未確定**: 友達2人が誰か (Rina / Taichi / Hina のうち?) / 会話相手の音声を本物にするか (ElevenLabs 有料枠) / 発音判定の閾値 (0.55 仮)
 
 ### ★ ハタチたち 公式ホームページ (2026-08-28 着手) ★
 - **状況**: 🟢 **多観点レビュー反映済 (v5)** — Phase 1 実装後、11エージェント多観点レビュー (46件) + 完全性クリティック (14件) を反映。主要修正: next/font変数を `<html>` へ移動 (明朝フォント全ページ有効化) / 日本語preload 123→1 / YouTube facade実装 / microCMS error shape修正 / ビルド・lint緑・`git commit`完了。HANDOVER.md + docs/3ファイル (microcms-setup.md / assets-list.md / accounts.md) 整備済み
