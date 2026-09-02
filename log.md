@@ -2907,3 +2907,4 @@
 [2026-09-02 18:04] ai-researcher collect: raw=108 dedup=23 relevant=0 kept=0
 [2026-09-02 18:15] Bitaw: App Store Connect の TestFlight 内部グループ「Bitaw 3人」を作成、YD と Taichi (mdrdst74@gmail.com、既に ASC 管理者) を追加 (Chrome の ASC セッションで JS 操作)。3人目は未登録。新アイコン (白い吹き出しキャラ + マンゴー帽、design/icon.svg) でビルド 3 をアップロード。commit 0d2bb9e
 [2026-09-02 18:40] Bitaw: App Store Connect ユーザ招待 3 名 (Customer Support、Bitaw のみ): Itsumi Chiaki itsumi102412@icloud.com / Sugano Hina hina.hana.dance.1103@icloud.com / Suzuki Rina rinachanman365@gmail.com。承諾後に TestFlight 内部グループ「Bitaw 3人」へ追加が必要。使用者は YD + Taichi + 3 名 = 5 人に拡大。ElevenLabs は YD 登録済、API キー投入待ち (server/.env に ELEVEN_API_KEY、gen_audio.py も同ファイルを読む。全 307 フレーズ 4,768 文字)
+[2026-09-02 18:50] Bitaw: ElevenLabs キー投入 (set_eleven_key.sh、1回目はコマンド文字列を貼ってしまい 401 → 再投入で OK)。relay の /v1/tts 動作確認、307 フレーズの音声一括生成 (4,768 文字、7.7MB、失敗 0)。キーボードに「完了」バー追加 (実機で閉じられなかった不具合)。ビルド 4 を TestFlight にアップロード。commit 8c0c02e。ASC 招待 3 名は承諾待ち
