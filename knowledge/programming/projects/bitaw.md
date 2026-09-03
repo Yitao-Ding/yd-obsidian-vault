@@ -112,3 +112,7 @@ haiku が遅いのは出力の大半が思考トークンだから。単純な�
 ## Funnel が落ちる (2026-09-03)
 
 アプリの "A TLS error caused the secure connection to fail" は Mac 側の問題。Funnel は Tailscale の入口が TCP をそのまま Mac に流し、TLS は Mac の tailscaled が終端するので、Mac の Tailscale が止まっていると TLS ハンドシェイクで失敗する (接続拒否ではなく TLS エラーに見える)。Mac 再起動後、launchd の relay は復帰したが Tailscale は `stopped`、Funnel は `No serve config` になっていた。対策は `server/funnel_watchdog.sh` (launchd 5 分おき: tailscale up → funnel --bg 8787 → relay /health)。外部確認は `curl -o /dev/null -w "%{http_code}" https://macbook-pro-2.tail60869d.ts.net/health` が 401 なら正常。
+
+## build 13 (2026-09-03): 発話スキップ = クリア
+
+友達の実使用フィードバック「外にいる時にもやりたいから、声出して読むやつはやらなくてもステージクリアになるように」。`LessonView.markSpeakSkipped` は不正解と同じ扱い (answered++ と retry.append) だったので、レッスンが終わらなかった。クリア扱いに変更: retry に戻さず、answered にも数えない (正確さは実際に答えた問題だけで計算、答えが 0 問なら「—」)。ボタンは「スキップ」→「声を出さずに次へ」、押すと青いパネル (`FeedbackPanel(skipped:)`) でお手本の文・カナ・意味・再生ボタンを出す。発話の練習機会自体は残す (次回同じレッスンでまた出る)。
