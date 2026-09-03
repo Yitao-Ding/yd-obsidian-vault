@@ -311,7 +311,8 @@ update_frequency: 週1回以上
   - [ ] 便4 追加修正 (空状態文言 + 動画フィルター) を commit
   - [ ] C-09 未コミット分を commit
   - [ ] iOS sim ビルド完了 → MOCK 通し確認 → C-15 スクショ 6 枚撮影 (合成スクリプト code/scripts/compose.py 配置済み)
-  - [ ] YD Day1 作業 (Cloudflare ドメイン/Resend/Apple/Supabase/GitHub/UptimeRobot/GCP/LINE) → migration 025 適用・Edge deploy・site deploy
+  - [ ] YD Day1 作業 進行中 (2026-09-03): Cloudflare から開始。gh push が workflow scope 不足で拒否 → 9/5 C-16 までに解決すればOK (`gh auth refresh -h github.com -s workflow` or `gh auth login` やり直し)。GitHub MCP 経由も後で試す予定
+  - [ ] YD Day1 残り: Cloudflare ドメイン/Resend/Apple/Supabase/UptimeRobot/GCP/LINE → migration 025 適用・Edge deploy・site deploy
   - [ ] Wave 2 以降 (残 C-xx) 実装
   - [ ] App Store Connect 入力・提出 (9/6 目標、初回審査通過で 9/8〜9 公開)
   - [ ] **★ 新セッション再開**: `~/projects/project-agent-application/HANDOVER.md` を Read (Sprint 01 Pass 確定済、Sprint 02 着手可能)
