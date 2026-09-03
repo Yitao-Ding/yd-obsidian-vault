@@ -514,6 +514,10 @@ npx expo start  # QR コード読み取り
 - **`useSegments()` 戻り型 tuple `[string]`**: `noUncheckedIndexedAccess` 下で index アクセスエラー → `as readonly string[]` キャストで対応 (IMPLEMENTATION_NOTES 5.4)
 - **Apple ボタン背景 `#000` の NG リスト例外扱い**: NG 2「純黒 #000 背景禁止」だが Apple HIG はボタン背景 `#000` を規定 → `brands.appleBg` トークンとして allowlist 化 (IMPLEMENTATION_NOTES 5.5)
 - **★ 評価ステップ省略バグ** (2026-05-26): builder Sprint 01 初版完了後、メイン Claude が qa/design-evaluator を起動せず YD の目視確認に依存 → SecureStore Web 非対応 + dev ボタン Android 限定のバグ流出 → 自立ループ運用ルール強化指示 ([[2026-05-26_セッション引継ぎ_自立ループ強化指示]])
+- **Expo Router でモーダルを追加すると初期ルートが変わる (2026-09-04)**: `Stack.Screen options={{ presentation: "modal" }}` を layout に追加すると、先頭に宣言された Screen がスタックの初期ルートになる。モーダルが最初に宣言されているとモーダル画面が initial route になってしまう。対処: `Stack initialRouteName="index"` を明示指定する。モーダルを追加する際のチェック項目。
+- **パーセント幅 + aspect-ratio で高さがゼロになる (2026-09-04)**: `width="XX%"` + `aspectRatio` の組み合わせで、wrapping flex row の中に入ると高さが 0 に collapse することがある。対処: `width` をスクリーン幅から計算した固定値 (px) に変更する。Wrapped 写真タイルで発覚。
+- **BlueHeader overline が日本語ラベルで字間崩れ (2026-09-04)**: Mono フォント + `letterSpacing: 1.6` は英大文字前提の設定。日本語を入れると「お 宝 箱」のように不自然な空きが入る。対処: システムフォント 11px + `letterSpacing: 0` に変更。英大文字ラベルを日本語化した後は必ずフォント設定を見直す。
+- **`casualColors.coral` がブルーのエイリアスだった**: 直感的に赤系に見える色名だが実体は primary blue。ActionMenu の destructive 項目が青になっていた原因。対処: セマンティック red トークンを使う。色名から色を推測しない、必ず tokens.ts を確認する。
 
 ## 📋 次回同様の判断をするときのチェックリスト
 
