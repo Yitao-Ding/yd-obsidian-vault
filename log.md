@@ -2959,3 +2959,4 @@
 [2026-09-03 15:04] cowork: ハタチたちHP GitHub public化+Vercel本番デプロイ完了 (hatachi-tachi-website.vercel.app、robots全面Disallowで検索避け中)。ドメインは決済完了画面が出ているのに実在しない (Navi一覧空・メール未着・RDAP404) → knowledge/programming/tools/onamae_ドメイン未反映_2026-09-03.md 新規、要問い合わせ
 [2026-09-03 15:11] ai-researcher collect: raw=109 dedup=46 relevant=8 kept=8
 [2026-09-03 15:44] cowork: ハタチたちHP 実素材反映 (円陣写真の黒帯除去・背景コラージュ4枚・ABOUT2枚・IG実投稿5件埋め込み・NEWS詳細ページ作り込み=募集要項をIG投稿から起こし・縦書きを珊瑚に・ハタチたち5の年=2027確定)。commit 4ce250e、GitHub push済、Vercel再デプロイ済。scripts/build-assets.mjs と check-hero-contrast.mjs 追加
+[2026-09-03 16:34] ai-researcher collect: raw=20 dedup=1 relevant=0 kept=0
