@@ -41,7 +41,7 @@ trigger_keywords: [成功パターン, 再利用, reusable, 昇格, skill化, �
 
 ## 🏷 昇格候補メモ (拾ったが未整理)
 
-- (月次メンテでここに候補を溜めてから P-番号 に昇格させる)
+- **FocusedStatusBar** (2026-09-03、project-agent-application): Expo Router 環境で `useIsFocused()` + `StatusBar` を組み合わせたコンポーネント。タスク詳細を開いてホームに戻ると StatusBar が白文字のままになるバグを 35 画面まとめて解決。実装は `src/components/ui/FocusedStatusBar.tsx` を参照。次回 Expo Router プロジェクトで StatusBar 管理が必要になったら昇格を検討。
 
 ## ✅ うまく行ったこと (この登録簿の運用について)
 

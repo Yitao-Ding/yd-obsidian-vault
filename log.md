@@ -2950,3 +2950,5 @@
 [2026-09-03 13:03] ai-researcher collect: raw=0 dedup=0 relevant=0 kept=0
 [2026-09-03 13:40] project-agent-application: sprint-R2 キャラ撤去 完了 (07fbdb2/ace913a)、C-09 ストア文言・ASC 入力シート確定、C-15 スクショ 6 枚生成、StatusBar フォーカスバグ修正 (f443bbe)。残りは YD Day 1 待ち (C-13/14/16)
 - 2026-09-03 14:05 Bitaw: 友達の iPhone で TLS エラー → 原因は Mac の Tailscale 停止 + Funnel 設定消失 (Mac 再起動後)。tailscale up / funnel --bg 8787 で復旧。再発防止に server/funnel_watchdog.sh + launchd com.yitao.bitaw-funnel (5 分おき) を導入。Rina に ASC 招待を再送、TestFlight は 3 人とも招待済み
+[2026-09-03 14:08] autosave(project-agent-application): knowledge/programming/tools/ios_simulator_screenshots.md, knowledge/programming/patterns/reusable.md (昇格候補追記)
+[2026-09-03 14:10] ai-researcher collect: raw=109 dedup=52 relevant=8 kept=8
