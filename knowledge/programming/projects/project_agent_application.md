@@ -502,6 +502,7 @@ npx expo start  # QR コード読み取り
 
 ## ❌ 詰まったこと
 
+- **expo run:ios でパスの空白が build script を壊す (2026-09-03)**: プロジェクトパスが `~/AI projects/project-agent-application/` と空白を含むため、EXConstants の `bash -l -c "... $PODS_TARGET_SRCROOT/..."` と react-native-xcode.sh を呼ぶ pbxproj のバックティック展開が失敗。対処: (1) `node_modules/expo-constants/ios/EXConstants.podspec` の bash コマンド内パスをクォート、(2) `ios/ProjectAgent.xcodeproj/project.pbxproj` のバックティック内 react-native-xcode.sh パスをクォート。pod install は `RCT_USE_PREBUILT_RNCORE=0 RCT_USE_RN_DEP=0` 付きで通った
 - **Edit ツールで auto-mode classifier 誤検知 2 回**: new_string に既存行を含めると「permission widening」判定、最小 diff (1 行追加のみ) で回避 ([[claude_mistakes]] A-14)
 - **planner が Bash を持たない**: ファイル名 mv 不可、内容と名前のズレが発生、冒頭注記でカバー + リネームは別タスク ([[claude_mistakes]] B-5)
 - **gh gist create が auto-mode で 2 回ブロック**: Public も Secret も「data exfiltration」判定、settings.local.json に `Bash(gh gist create:*)` を YD 明示認可後追加 ([[claude_mistakes]] A-15)

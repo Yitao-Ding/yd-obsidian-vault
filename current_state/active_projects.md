@@ -1,6 +1,6 @@
 ---
 type: current_state
-last_updated: 2026-09-03 (PAA: Sprint R2 便1-3 コミット済・便4 builder 実行中・C-09 ストア文言完了(未コミット) / 旧2026-09-02: Bitaw v1.0.0 TestFlight 確定)
+last_updated: 2026-09-03 09:39 (PAA: Sprint R2 便4 完了・commit ace913a・iOS simビルド対応中(パス空白問題) / Bitaw v1.0.0 TestFlight 確定)
 update_frequency: 週1回以上
 ---
 
@@ -303,11 +303,12 @@ update_frequency: 週1回以上
   - ✅ **C-10 アプリアイコン完了 (2026-09-02 22:16 コミット c26d149)** — 案 1 Horizon (青ドーム+橙の円+白地平線) を自前 PNG ラスタライザ (8×8 スーパーサンプリング) で生成。icon 1024px / splash 1024px / android foreground 512px / monochrome 512px / favicon 48px 全生成・サイズ/alpha/色内訳 機械検証済。Fable 検収で「シンボル 70px 下寄り」指摘 → bbox y:200→y:340 1 行修正で中央配置に修正後コミット。生成スクリプト `code/scripts/gen-app-icon.js` 残置 (再生成用)
   - ✅ **Sprint R2 便1-3 コミット (2026-09-03 08:55)** — ホーム/オンボ/タブ、ダイジェスト/Recognition/PJ詳細、お宝箱/通知文言/Edge/MOCK のキャラ撤去 51 ファイル変更をコミット。tsc 0 エラー確認済
   - ✅ **C-09 ストア文言完了 (2026-09-03 09:03、未コミット)** — APP_STORE_LISTING.md 全面書き直し (説明文 948 字、キーワード 74 字 16 語、プロモ 74 字、What's New 1.0.0、App Store Connect 入力値確定表、Review Notes 日英合計 3,990 字) + PII-CLASSIFICATION.md §2 を 6 タイプ確定表に差し替え。注意: treasure-box にキャラ語調文言残留あり (便4 範囲)、Review Notes にマイク未使用を明記 (app.json から外すなら1行削除)
-  - 🔄 **Sprint R2 便4 builder 実行中 (2026-09-03 08:55〜、agent: r2-ben4)** — finch/haru コンポーネント削除・messages.ts 移設・login/settings/treasure-box 最小 Edit・法的文書キャラ記述削除・文書更新。残存 18 ファイル対象。treasure-box 残留文言も含めて対応指示済み
+  - ✅ **Sprint R2 便4 完了 (commit ace913a, 2026-09-03 09:08)** — finch/haru コンポーネント削除・messages.ts 移設・16 デザイントークン削除・8 ドキュメント更新・treasure-box 残留文言修正。tsc 0 / lint 0 / jest 45 Pass 確認済。builder (r2-ben4) が追加で treasure-box 空状態文言 2 箇所を修正 (未コミット)。「動画のみ」フィルターは本番で常に空 (capture.tsx が mode="picture" only) → 動画 0 件時に chip 非表示にする修正も実施 (未コミット)
+  - 🔄 **C-15 スクショ + iOS simビルド (2026-09-03 09:09〜)** — MOCK モード Pro Max ビルドを試みるも 2 回 fail。原因: プロジェクトパス `AI projects/` の空白が EXConstants build script と react-native-xcode.sh を壊す。対応: podspec の bash コマンドをクォート、pbxproj のバックティック展開をクォート。再ビルド中 (ログ区間終端時点)
 - **次のアクション (2026-09-03 以降、優先度順)**:
-  - [ ] 便4 完了 → 検収 (tsc/lint/jest/grep 0件/MOCK通し) → commit
-  - [ ] C-09 未コミット分を commit (便4 commit 後)
-  - [ ] C-15 スクショ (expo run:ios → Pro Max ビルド → 6枚撮影)
+  - [ ] 便4 追加修正 (空状態文言 + 動画フィルター) を commit
+  - [ ] C-09 未コミット分を commit
+  - [ ] iOS sim ビルド完了 → MOCK 通し確認 → C-15 スクショ 6 枚撮影 (合成スクリプト code/scripts/compose.py 配置済み)
   - [ ] YD Day1 作業 (Cloudflare ドメイン/Resend/Apple/Supabase/GitHub/UptimeRobot/GCP/LINE) → migration 025 適用・Edge deploy・site deploy
   - [ ] Wave 2 以降 (残 C-xx) 実装
   - [ ] App Store Connect 入力・提出 (9/6 目標、初回審査通過で 9/8〜9 公開)
