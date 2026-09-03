@@ -2948,3 +2948,4 @@
 [2026-09-03 11:06] ai-researcher collect: raw=81 dedup=22 relevant=2 kept=2
 [2026-09-03 12:09] ai-researcher collect: raw=110 dedup=54 relevant=8 kept=8
 [2026-09-03 13:03] ai-researcher collect: raw=0 dedup=0 relevant=0 kept=0
+[2026-09-03 13:40] project-agent-application: sprint-R2 キャラ撤去 完了 (07fbdb2/ace913a)、C-09 ストア文言・ASC 入力シート確定、C-15 スクショ 6 枚生成、StatusBar フォーカスバグ修正 (f443bbe)。残りは YD Day 1 待ち (C-13/14/16)
