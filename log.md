@@ -3,6 +3,7 @@
 > このVaultへの全ての変更・操作を時系列で記録する
 > Append-only (削除しない)
 > Format: `[YYYY-MM-DD HH:MM] <操作内容>`
+[2026-09-04 03:50] autosave(project-agent-application): decisions/2026-09-04_PAA_タスクフィルタ2段構成採用.md 新規作成、active_projects.md更新(Loop1 Fail→loop1完了・タスクフィルタ2段採用決定)
 [2026-09-04 03:19] autosave(project-agent-application): 保存対象なし (仕上げ便完了・検収エージェント起動・Wrapped photo修復採用は既存エントリに記録済み)
 [2026-09-04 02:46] autosave(project-agent-application): active_projects.md更新(UI監査 便B+C commit 3ec0415・仕上げ便完了 7項目)、project_agent_application.md追記(Expo Router initialRouteName・パーセント幅+aspectRatio崩れ・BlueHeader日本語字間・casualColors.coral誤認)
 [2026-09-03 09:39] autosave(project-agent-application): active_projects.md更新(R2便4完了 commit ace913a・iOS simビルド失敗対応中)、knowledge/programming/projects/project_agent_application.md追記(パス空白ビルド問題)

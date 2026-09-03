@@ -1,6 +1,6 @@
 ---
 type: current_state
-last_updated: 2026-09-04 01:14 (PAA: UI監査 便A完了・NativeWind撤去・便B/C並列起動中・commit 4e61544 / Bitaw Tailscale URL修正・build 15 TestFlight)
+last_updated: 2026-09-04 03:50 (PAA: UI検収ループ1 Fail→builder loop1完了・タスクフィルタ2段採用決定・残3観察修正+再検収待ち)
 update_frequency: 週1回以上
 ---
 
@@ -318,6 +318,7 @@ update_frequency: 週1回以上
   - ✅ **UI/UX 全画面監査 便A完了 + NativeWind 撤去 (2026-09-04 01:09、commit 4e61544)** — 根本発見: NativeWind v4 の cssInterop が Pressable の関数形式 style を握り潰す。babel.config.js から NativeWind を撤去し一括解決。便A実装内容: SectionTitle uppercase 撤去・SectionHeader kicker 廃止・paddingHorizontal 直値52→0・rgba直値105→0・IconTextButton/ScreenFooter 新設・FocusedStatusBar 命令型化・disabled 色統一。tsc 0 / expo lint 0 / jest 45 pass。便B (タスク系・お宝箱系) と便C (タブ直下・認証・振り返り) を並列起動中
   - ✅ **UI/UX 全画面監査 便B+C完了 (2026-09-04 02:18、commit 3ec0415)** — 便B: 32 ファイル、パレット外5色・英大文字14箇所・用語統一 (団体/振り返り)・digest detail カバーメトリクス位置修正 (22% top)。便C: タブ直下・認証・振り返り全画面の文言敬体化・orange撤去・英大文字ラベル全廃。BlueHeader overline をシステムフォント11pxに変更 (日本語ラベルで字間崩れ防止)・ColorChip 選択リングを `colors.primary.base` に修正。tsc 0 / expo lint 0 / jest 45 pass
   - ✅ **UI/UX 全画面監査 仕上げ便完了 (2026-09-04 02:46)** — 7 項目: ActionMenu uppercase transform 撤去 + destructive 色を青→赤に修正・SectionTitle danger 赤統一・Wrapped photo tile palette 全9枚クール変換 (パーセント幅+aspect-ratio 高さゼロバグも修正)・digest list ghost number 「26」除去・mock data の「PJ」→「プロジェクト」20箇所・uppercase sweep (public profile 等10箇所)・task filter を 2行化 (チームタブ+ソート/フィルター3種、130pt→88pt)。BUILD_FINISH.md + shots-finish/ 14枚
+  - ⚠️ **UI検収 Loop 1 Fail → builder loop 1 完了 (2026-09-04 03:24〜03:47)** — ui-eval 判定: S1 Fail 1 (戻るボタン3様式) / 新規劣化 2 (挨拶バナー maxWidth・MembersStrip スケルトン永続) / 未修正 S1 相当 5 (無効ボタン 4 箇所 1.07:1 + タブ「振り返り」見切れ) / S2 Fail 4 / 文言残 7。ui-finish が全件対応 (commit 未・overhaul/2026-07)。**決定: タスクフィルタ 2 段構成を正とする** (1段化は 620pt 必要で 440pt に入らない物理制約。decisions/2026-09-04_PAA_タスクフィルタ2段構成採用.md 参照)。残 3 観察 (設定通知注記揃え / ログイン上端重複 / 反応アイコン色) も追加対応中 → 完了後 commit → 再検収 (ui-eval) 待ち
   - ✅ **UI/UX 全画面監査完了 (2026-09-04 00:22)** — S1 70 / S2 86 / S3 11 件。AUDIT.md + スクショ 51 枚 (`design/audit-2026-09-03/`)。主所見: paddingHorizontal 20 vs CONTENT_GUTTER 16 の 4pt ズレが全画面、旧暖色 rgba(28,25,23,*) が 43 ファイル 98 箇所、作成系 3 画面の主 CTA がタブバー下に埋没、アイコン+テキスト行が 4 画面で潰れ切れ。3 便に分割: 便 A (共通部品・トークン) → 便 B (tms/projects + treasure-box) → 便 C (タブ直下・認証・振り返り)。便 A builder 起動済 (2026-09-04 00:23)
 - **次のアクション (2026-09-03 以降、優先度順)**:
   - [ ] UI/UX 修正: ✅ 便 A → ✅ 便 B+C (commit 3ec0415) → ✅ 仕上げ便完了 → Opus 検収・commit 中
