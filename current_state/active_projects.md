@@ -16,7 +16,7 @@ update_frequency: 週1回以上
 ### ★ Bitaw ビサヤ語会話アプリ (2026-09-02 着手、同日 v1.0.0 (11) TestFlight で確定) ★
 - **状況 (2026-09-02 23:40)**: v1.0.0 build 11 を TestFlight に上げ、YD 判断で「正式リリース = TestFlight で確定、App Store 申請はしない」。テスター: YD + Taichi + 菅野日菜 + Chiaki (Rina は招待未承諾)。教材 307 フレーズ / 32 ユニット / 65 レッスン / シナリオ 17 + ミニ会話 20 話 (解説付き)。全 307 フレーズ + ミニ会話 64 行の ElevenLabs 音声同梱
 - **機能**: 学ぶ (ロック無し、インプット先行レッスン、自動保存と途中再開) / 聞く (聞き流し・FSRS カード・ミニ会話) / 話す (翻訳 5 秒 + 詳細後追い、会話練習: 自分の発言のビサヤ語版 + 訂正 + 発音、相手を自作、会話とリセット) / フレーズ / プロフィール。ゲーム性 (XP・ストリーク・ランキング) は表示から撤去、ダークモード無効
-- **中継**: `https://macbook-pro-2.tail60869d.ts.net` (launchd + Tailscale Funnel)、トークンは `server/.env`。4 人とも同じ URL・トークン。Mac が起きていることが前提
+- **中継**: `https://bitaw.tail60869d.ts.net` (launchd + Tailscale Funnel)、トークンは `server/.env`。4 人とも同じ URL・トークン。Mac が起きていることが前提。**2026-09-04 に旧名 macbook-pro-2 から変更** (Tailscale が旧名の公開 DNS レコードを黙って落とし、`tailscale funnel status` は「Funnel on」と言い続けたまま全員が「hostname could not be found」になった。`tailscale up --hostname=bitaw` でノード名を変えたらレコードが再作成された)。build 15 から URL はアプリに埋め込み済で、旧 URL を持っている端末は起動時に自動で書き換わる。watchdog が 5 分ごとに 8.8.8.8 で公開 DNS を確認するようにした
 - **残**: ①Rina の招待承諾待ち ②TestFlight は 90 日で期限切れ → 11 月末までに再アップロード ③Supabase (YD、未着手、無くても動く) ④Mac スリープ対策とセブ持参 ⑤ElevenLabs 無料枠 (今月 5,400 / 10,000 文字使用)
 - **パス**: `~/AI projects/bitaw/` (git、tag v1.0.0、push 未)。引き継ぎ正本 = `HANDOVER.md`、知識 = [[bitaw]]、決定 = [[2026-09-02_Bitaw_ビサヤ語会話アプリ_設計確定]]
 
