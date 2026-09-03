@@ -314,13 +314,12 @@ update_frequency: 週1回以上
   - ✅ **Sprint R2 便1-3 コミット (2026-09-03 08:55)** — ホーム/オンボ/タブ、ダイジェスト/Recognition/PJ詳細、お宝箱/通知文言/Edge/MOCK のキャラ撤去 51 ファイル変更をコミット。tsc 0 エラー確認済
   - ✅ **C-09 ストア文言完了 (2026-09-03 09:03、未コミット)** — APP_STORE_LISTING.md 全面書き直し (説明文 948 字、キーワード 74 字 16 語、プロモ 74 字、What's New 1.0.0、App Store Connect 入力値確定表、Review Notes 日英合計 3,990 字) + PII-CLASSIFICATION.md §2 を 6 タイプ確定表に差し替え。注意: treasure-box にキャラ語調文言残留あり (便4 範囲)、Review Notes にマイク未使用を明記 (app.json から外すなら1行削除)
   - ✅ **Sprint R2 便4 完了 (commit ace913a, 2026-09-03 09:08)** — finch/haru コンポーネント削除・messages.ts 移設・16 デザイントークン削除・8 ドキュメント更新・treasure-box 残留文言修正。tsc 0 / lint 0 / jest 45 Pass 確認済。builder (r2-ben4) が追加で treasure-box 空状態文言 2 箇所を修正 (未コミット)。「動画のみ」フィルターは本番で常に空 (capture.tsx が mode="picture" only) → 動画 0 件時に chip 非表示にする修正も実施 (未コミット)
-  - 🔄 **C-15 スクショ + iOS simビルド (2026-09-03 09:09〜)** — MOCK モード Pro Max ビルドを試みるも 2 回 fail。原因: プロジェクトパス `AI projects/` の空白が EXConstants build script と react-native-xcode.sh を壊す。対応: podspec の bash コマンドをクォート、pbxproj のバックティック展開をクォート。再ビルド中 (ログ区間終端時点)
+  - ✅ **C-15 スクショ 6 枚完了 (commit f443bbe, 2026-09-03 13:51)** — iOS simビルドは `AI projects/` パス空白が EXConstants / react-native-xcode.sh を壊す問題を podspec クォート + pbxproj バックティック修正で解消。FocusedStatusBar コンポーネント (useIsFocused) を作成して StatusBar が画面遷移後に消える問題も 35 画面まとめて修正。スクショ `code/docs/release/screenshots/` 保存済み
+  - 🔄 **UI/UX 全画面監査 (2026-09-03 23:48〜)** — YD 「ちょくちょくズレていたり、AIっぽさがある、ガチで整えてほしい。実装は Opus 以下のモデルで」→ Opus 監査エージェントで全画面スクショ棚卸し中。完了後に builder (Opus) が修正予定
 - **次のアクション (2026-09-03 以降、優先度順)**:
-  - [ ] 便4 追加修正 (空状態文言 + 動画フィルター) を commit
-  - [ ] C-09 未コミット分を commit
-  - [ ] iOS sim ビルド完了 → MOCK 通し確認 → C-15 スクショ 6 枚撮影 (合成スクリプト code/scripts/compose.py 配置済み)
-  - [ ] YD Day1 作業 進行中 (2026-09-03): Cloudflare から開始。gh push が workflow scope 不足で拒否 → 9/5 C-16 までに解決すればOK (`gh auth refresh -h github.com -s workflow` or `gh auth login` やり直し)。GitHub MCP 経由も後で試す予定
-  - [ ] YD Day1 残り: Cloudflare ドメイン/Resend/Apple/Supabase/UptimeRobot/GCP/LINE → migration 025 適用・Edge deploy・site deploy
+  - [ ] UI/UX 監査完了 → file:line 付き所見を受け取り → builder (Opus) で修正 → 検収 (Sonnet) → commit
+  - [ ] YD Day1 作業継続: Cloudflare ドメイン/Resend/Apple/Supabase/UptimeRobot/GCP/LINE → migration 025 適用・Edge deploy・site deploy
+  - [ ] gh push: workflow scope 不足で拒否中 → 9/5 C-16 までに `gh auth login` やり直しが必要
   - [ ] Wave 2 以降 (残 C-xx) 実装
   - [ ] App Store Connect 入力・提出 (9/6 目標、初回審査通過で 9/8〜9 公開)
   - [ ] **★ 新セッション再開**: `~/projects/project-agent-application/HANDOVER.md` を Read (Sprint 01 Pass 確定済、Sprint 02 着手可能)
