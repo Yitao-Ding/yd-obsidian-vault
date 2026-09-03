@@ -108,3 +108,7 @@ haiku が遅いのは出力の大半が思考トークンだから。単純な�
 - 保存: `ChatSession` (scenarioId ごとに [ChatLine] の JSON、変更のたび保存、リセットで削除) と `TranslationLog` (入力 + Translation の JSON。詳細が後から来たら上書き、復元時に詳細が無ければ再取得)。翻訳タブは onAppear で最新ログを復元し、履歴 12 件をタップで戻せる
 - 音声停止: `Notification.Name.bitawStopAudio` を RootView (タブ変更、scenePhase != active) と SpeakHub (セグメント変更) が投げ、StoryPlayer / RoleplayChat / Translate が受けて停止。ListenPlayer (聞き流し) は意図的に止めない
 - relay: `extractJson` が失敗時に制御文字→空白、末尾カンマ除去で再パース (日本語 tip に改行が入ると落ちていた)。`roleplay_system.md` にタガログ語混入の禁止リスト (magkano→pila, ito→kini, po 等)
+
+## Funnel が落ちる (2026-09-03)
+
+アプリの "A TLS error caused the secure connection to fail" は Mac 側の問題。Funnel は Tailscale の入口が TCP をそのまま Mac に流し、TLS は Mac の tailscaled が終端するので、Mac の Tailscale が止まっていると TLS ハンドシェイクで失敗する (接続拒否ではなく TLS エラーに見える)。Mac 再起動後、launchd の relay は復帰したが Tailscale は `stopped`、Funnel は `No serve config` になっていた。対策は `server/funnel_watchdog.sh` (launchd 5 分おき: tailscale up → funnel --bg 8787 → relay /health)。外部確認は `curl -o /dev/null -w "%{http_code}" https://macbook-pro-2.tail60869d.ts.net/health` が 401 なら正常。
