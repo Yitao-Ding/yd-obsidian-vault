@@ -2963,3 +2963,4 @@
 [2026-09-03 17:09] ai-researcher collect: raw=109 dedup=39 relevant=8 kept=8
 [2026-09-03 17:09] autosave(project-agent-application): 保存対象なし
 [2026-09-03 18:05] ai-researcher collect: raw=109 dedup=33 relevant=3 kept=3
+[2026-09-03 19:04] ai-researcher collect: raw=109 dedup=32 relevant=2 kept=2
