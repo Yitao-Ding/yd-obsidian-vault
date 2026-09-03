@@ -2956,3 +2956,4 @@
 [2026-09-03 14:39] cowork: docs/accounts.md書き換え (ハタチたちHP: 前提修正=スタジオメタリは彼女個人の屋号・ハタチたちはその中の企画・PD不変なので個人アカウントでOK / microCMS無料枠はAPI5本に更新 / 認証期限9-17を明記)
 [2026-09-03 14:40] autosave(project-agent-application): current_state/active_projects.md (PAA Day1開始・gh push workflow scope不足でスキップ・9/5 C-16期限)
 [2026-09-03 14:50] cowork: active_projects.md更新 (ハタチたちHP: 確認5件全確定=LOOK BACK修正/アーカイブ6枠+制作中表示/応募導線NEWS内/赤#ff5757維持、スタジオメタリHPは今回作らない、archiveにproject+inProduction追加、本番URL=hatachitachi.com、commit d02b54e)
+[2026-09-03 15:04] cowork: ハタチたちHP GitHub public化+Vercel本番デプロイ完了 (hatachi-tachi-website.vercel.app、robots全面Disallowで検索避け中)。ドメインは決済完了画面が出ているのに実在しない (Navi一覧空・メール未着・RDAP404) → knowledge/programming/tools/onamae_ドメイン未反映_2026-09-03.md 新規、要問い合わせ

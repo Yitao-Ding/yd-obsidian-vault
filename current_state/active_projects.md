@@ -34,7 +34,10 @@ update_frequency: 週1回以上
 - **★ 確認5件 全確定 (2026-09-03)**: ①LOCK BACK → **LOOK BACK** に修正 ②「二十歳の台」→「代」 ③アーカイブは**6枠**、ハタチたち5を「制作中」表示 (`inProduction` フラグ、完成したら動画URL入れてOFF) ④応募導線はNEWS内のまま ⑤赤は `#ff5757` 維持。commit `d02b54e`、lint/build緑
 - **★ 新たな判断待ち**: ハタチたち5の上映年 / 上映日と応募締切 (公開デッドラインが決まる) / 問い合わせ先アドレス (個人Gmailは載せない、info@studiometali.com 等かIG DMか)
 - **次のアクション (YD作業)**: ①**ドメイン情報認証メールをクリック (9/17期限、最優先)** + 自動更新ON確認 ②microCMSアカウント+API3本作成 → `docs/microcms-setup.md` (フィールドID1文字違いで無言でフォールバックに落ちる。archive に `inProduction` と `project` を追加済) ③素材提供 → `docs/assets-list.md` ④問い合わせ先アドレスを決める ⑤GitHub・Vercel をPDアカウントで作成
-- **残 (Claude作業)**: Phase2 microCMS疎通 → Phase3 実素材差し替え → Phase4 デプロイ+ドメイン+Webhook (push/deployは都度YD確認) → Phase5 非エンジニア向け更新マニュアル
+- **★ デプロイ完了 (2026-09-03)**: GitHub `Yitao-Ding/hatachi-tachi-website` (**public**、レジストラのアカウントIDはdocsから伏せ済 commit `ceb7796`) → Vercel `yitao-ding` アカウントで本番デプロイ。**https://hatachi-tachi-website.vercel.app で稼働中**。`NEXT_PUBLIC_SITE_URL` は未設定のままにしてあるので robots.txt は全面 Disallow (素材がプレースホルダーのうちは検索避け、YD判断)。`hatachitachi.com` はVercelプロジェクトに追加済だがDNS未設定で証明書発行は失敗
+- **🔴 ドメインが実在しない (2026-09-03 判明、要問い合わせ)**: 完了画面で「決済完了・受付完了」と出ているのに、①Naviのドメイン一覧が空 ②確認メール(受付/請求/認証)が1通も未着 ③RDAPで両ドメインとも404 (購入1時間半後)。決済だけ通って登録処理が走っていない。**お名前.comに問い合わせが必要。再購入は二重課金になるのでしない**。詳細と問い合わせ材料 = [[onamae_ドメイン未反映_2026-09-03]]
+- **DNS設定の内容 (ドメインが実在したら)**: ネームサーバーを 01〜04.dnsv.jp に設定 → DNSレコードで A レコード (ホスト名空欄) を `76.76.21.21` に。`hatachitachi.com` はVercel側に追加済なのでDNSが向けば自動で証明書が出る
+- **残 (Claude作業)**: DNS設定 (YDログイン後) → Phase2 microCMS疎通 → Phase3 実素材差し替え → `NEXT_PUBLIC_SITE_URL` 設定して検索避け解除 → Webhook → Phase5 非エンジニア向け更新マニュアル
 - **関連**: [[2026-08-28_ハタチたちHP_スタック確定]]
 
 ### ★ プペルOP映像 YF-13 (紗幕投影35秒、クライアント: はるきさん) ✅✅納品済み (YD口頭確認 2026-08-11)
