@@ -2981,3 +2981,4 @@
 - 2026-09-04 Bitaw build 16: 中継トークンもアプリに埋め込み (scripts/embed_token.sh が server/.env から git 管理外の Secrets.swift を生成、アーカイブ前に実行が必要)。プロフィール画面で入力した値が優先されるのでローテーション時はビルド無しでも切替可。テスターは URL もトークンも入力不要になった。commit d835024
 [2026-09-04 02:04] ai-researcher collect: raw=109 dedup=31 relevant=1 kept=0
 [2026-09-04 02:15] autosave(project-agent-application): current_state/active_projects.md (便B完了・便C作業中に更新)
+[2026-09-04 03:04] ai-researcher collect: raw=107 dedup=30 relevant=1 kept=1
