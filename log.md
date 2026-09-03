@@ -2972,4 +2972,5 @@
 [2026-09-03 23:04] ai-researcher collect: raw=113 dedup=35 relevant=1 kept=1
 [2026-09-04 00:03] ai-researcher collect: raw=110 dedup=33 relevant=0 kept=0
 [2026-09-04 00:10] autosave(project-agent-application): current_state/active_projects.md (C-15 ✅ + UI/UX 全画面監査 Opus エージェント起動 23:48 を追記)
+[2026-09-04 00:42] autosave(project-agent-application): current_state/active_projects.md (UI/UX 監査完了 S1 70/S2 86/S3 11、便 A builder 起動を更新)
 - 2026-09-04 00:30 Bitaw v1.0.0 (14) TestFlight 上げ: (1) 友達報告「数字の音声が英語読み (usa→USA, lima→ライマ)」。原因は eleven_v3 が 1〜2 語の入力で言語判定できず英語扱い。1〜2 語の 116 フレーズ + ミニ会話の短い行 16 を eleven_turbo_v2_5 + language_code=fil で再生成 (whisper で usa の読みが USA→Usa に変わるのを確認)。relay の TTS も短文は同モデルに。(2) 友達要望「文法学びたい」→ 文法セクション 15 テーマ (scripts/gen_grammar.py、sonnet、説明 4〜7 段落 + 例文 5〜7 + 確認 3 問)。入口は 学ぶタブ上部の「文法」と 聞くタブ
