@@ -2988,3 +2988,4 @@
 [2026-09-04 03:04] ai-researcher collect: raw=107 dedup=30 relevant=1 kept=1
 [2026-09-04 04:05] ai-researcher collect: raw=104 dedup=33 relevant=2 kept=2
 [2026-09-04 04:30] project-agent-application: UI/UX 整備 完了 (監査 S1 70/S2 86 → 便 A/B/C + 仕上げ + ループ 1、再検収 Pass)。NativeWind 未使用なのに Pressable 関数 style を握り潰していた根本バグを撤去で解消。未 push 10 コミット
+[2026-09-04 05:04] ai-researcher collect: raw=99 dedup=32 relevant=1 kept=1
