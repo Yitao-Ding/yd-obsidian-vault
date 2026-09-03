@@ -2979,3 +2979,4 @@
 [2026-09-04 01:14] autosave(project-agent-application): knowledge/programming/nativewind_pressable_style_bug.md (新規) / current_state/active_projects.md (便A完了・NativeWind撤去・便B/C起動 追記)
 - 2026-09-04 Bitaw build 16: 中継トークンもアプリに埋め込み (scripts/embed_token.sh が server/.env から git 管理外の Secrets.swift を生成、アーカイブ前に実行が必要)。プロフィール画面で入力した値が優先されるのでローテーション時はビルド無しでも切替可。テスターは URL もトークンも入力不要になった。commit d835024
 [2026-09-04 02:04] ai-researcher collect: raw=109 dedup=31 relevant=1 kept=0
+[2026-09-04 02:15] autosave(project-agent-application): current_state/active_projects.md (便B完了・便C作業中に更新)

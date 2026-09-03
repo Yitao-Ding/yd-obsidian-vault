@@ -318,7 +318,7 @@ update_frequency: 週1回以上
   - ✅ **UI/UX 全画面監査 便A完了 + NativeWind 撤去 (2026-09-04 01:09、commit 4e61544)** — 根本発見: NativeWind v4 の cssInterop が Pressable の関数形式 style を握り潰す。babel.config.js から NativeWind を撤去し一括解決。便A実装内容: SectionTitle uppercase 撤去・SectionHeader kicker 廃止・paddingHorizontal 直値52→0・rgba直値105→0・IconTextButton/ScreenFooter 新設・FocusedStatusBar 命令型化・disabled 色統一。tsc 0 / expo lint 0 / jest 45 pass。便B (タスク系・お宝箱系) と便C (タブ直下・認証・振り返り) を並列起動中
   - ✅ **UI/UX 全画面監査完了 (2026-09-04 00:22)** — S1 70 / S2 86 / S3 11 件。AUDIT.md + スクショ 51 枚 (`design/audit-2026-09-03/`)。主所見: paddingHorizontal 20 vs CONTENT_GUTTER 16 の 4pt ズレが全画面、旧暖色 rgba(28,25,23,*) が 43 ファイル 98 箇所、作成系 3 画面の主 CTA がタブバー下に埋没、アイコン+テキスト行が 4 画面で潰れ切れ。3 便に分割: 便 A (共通部品・トークン) → 便 B (tms/projects + treasure-box) → 便 C (タブ直下・認証・振り返り)。便 A builder 起動済 (2026-09-04 00:23)
 - **次のアクション (2026-09-03 以降、優先度順)**:
-  - [ ] UI/UX 修正: 便 A builder 完了 → 便 B・C 並列 → Opus 検収 → commit (3 便構成)
+  - [ ] UI/UX 修正: ✅ 便 A 完了 → ✅ 便 B 完了 (32 ファイル, tsc 0/lint 0/jest 45 pass, BUILD_B.md, 2026-09-04 01:55) → 便 C 作業中 (残: 振り返り・ログイン・オンボ + ゲート) → Opus 検収 → commit (3 便構成)
   - [ ] YD Day1 作業継続: Cloudflare ドメイン/Resend/Apple/Supabase/UptimeRobot/GCP/LINE → migration 025 適用・Edge deploy・site deploy
   - [ ] gh push: workflow scope 不足で拒否中 → 9/5 C-16 までに `gh auth login` やり直しが必要
   - [ ] Wave 2 以降 (残 C-xx) 実装
