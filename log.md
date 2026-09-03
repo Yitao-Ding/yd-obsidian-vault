@@ -2945,3 +2945,4 @@
 [2026-09-03 09:04] ai-researcher collect: raw=80 dedup=20 relevant=1 kept=1
 [2026-09-03 09:07] autosave(project-agent-application): current_state/active_projects.md
 [2026-09-03 10:05] ai-researcher collect: raw=80 dedup=20 relevant=2 kept=2
+[2026-09-03 11:06] ai-researcher collect: raw=81 dedup=22 relevant=2 kept=2
