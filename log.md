@@ -2955,3 +2955,4 @@
 [2026-09-03 14:24] cowork: active_projects.md更新 (ハタチたちHP: hatachitachi.com/studiometali.com 取得完了・お名前ID20382623団体名義・1,894円・ドメイン情報認証9/17期限 / 位置づけ=彼女の団体の代行)
 [2026-09-03 14:39] cowork: docs/accounts.md書き換え (ハタチたちHP: 前提修正=スタジオメタリは彼女個人の屋号・ハタチたちはその中の企画・PD不変なので個人アカウントでOK / microCMS無料枠はAPI5本に更新 / 認証期限9-17を明記)
 [2026-09-03 14:40] autosave(project-agent-application): current_state/active_projects.md (PAA Day1開始・gh push workflow scope不足でスキップ・9/5 C-16期限)
+[2026-09-03 14:50] cowork: active_projects.md更新 (ハタチたちHP: 確認5件全確定=LOOK BACK修正/アーカイブ6枠+制作中表示/応募導線NEWS内/赤#ff5757維持、スタジオメタリHPは今回作らない、archiveにproject+inProduction追加、本番URL=hatachitachi.com、commit d02b54e)
