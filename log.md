@@ -2960,3 +2960,5 @@
 [2026-09-03 15:11] ai-researcher collect: raw=109 dedup=46 relevant=8 kept=8
 [2026-09-03 15:44] cowork: ハタチたちHP 実素材反映 (円陣写真の黒帯除去・背景コラージュ4枚・ABOUT2枚・IG実投稿5件埋め込み・NEWS詳細ページ作り込み=募集要項をIG投稿から起こし・縦書きを珊瑚に・ハタチたち5の年=2027確定)。commit 4ce250e、GitHub push済、Vercel再デプロイ済。scripts/build-assets.mjs と check-hero-contrast.mjs 追加
 [2026-09-03 16:34] ai-researcher collect: raw=20 dedup=1 relevant=0 kept=0
+[2026-09-03 17:09] ai-researcher collect: raw=109 dedup=39 relevant=8 kept=8
+[2026-09-03 17:09] autosave(project-agent-application): 保存対象なし
