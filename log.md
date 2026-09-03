@@ -2969,3 +2969,4 @@
 [2026-09-03 21:05] ai-researcher collect: raw=109 dedup=33 relevant=2 kept=2
 [2026-09-03 22:03] ai-researcher collect: raw=109 dedup=31 relevant=0 kept=0
 - 2026-09-03 23:00 Bitaw v1.0.0 (13) TestFlight 上げ: 友達の要望「外にいる時は声出しをやらなくてもステージクリアにしたい」。発話問題のスキップを不正解扱い→クリア扱いに変更 (retry に戻さない、answered に数えない)。ボタン名は「スキップ」→「声を出さずに次へ」、押すと青い「声は出さなくてOK」パネルでお手本 (文・カナ・意味・再生) を表示。全問スキップでも正確さは「—」表示でレッスン完了できる。シミュレータで確認済み
+[2026-09-03 23:04] ai-researcher collect: raw=113 dedup=35 relevant=1 kept=1
