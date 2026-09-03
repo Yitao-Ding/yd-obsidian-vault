@@ -1,6 +1,6 @@
 ---
 type: current_state
-last_updated: 2026-09-02 (Bitaw ビサヤ語会話アプリ v1.0.0 TestFlight 確定、詳細はアクティブ先頭 / 旧2026-08-28: ハタチたち公式HP Phase1完了・新規追加、詳細はアクティブ先頭 / 旧2026-08-08b: プペルOP映像YF-13本制作完了・納品ファイル生成、詳細セクション先頭 / 同日: Arte Grow: 軸を「映像で伝える」に再定義・渡航10/1-2確定・Notion新ページ新設、詳細#5 / 旧2026-08-05注記: CC-business: noteオンリー分売の全7記事完成原稿・YD承認済 / 平成たち祭: 時系列整列TL2本追加。詳細は各セクション参照。※frontmatter 21日放置を外部監査2026-08-05指摘5で是正、旧7/14注記はCC-business本文へ)
+last_updated: 2026-09-03 (PAA: Sprint R2 便1-3 コミット済・便4 builder 実行中・C-09 ストア文言完了(未コミット) / 旧2026-09-02: Bitaw v1.0.0 TestFlight 確定)
 update_frequency: 週1回以上
 ---
 
@@ -301,10 +301,15 @@ update_frequency: 週1回以上
   - ✅ **Wave 1 実装完了 (2026-09-02 夜)** — C-02 ログイン / C-05 アカウント削除 / C-06 通報・ブロック / C-07 法的文書 + C-08 静的サイト、builder 4 便 + Fable 検収 W1/W2/W3 全 Pass、P2 defect 修正済みコミット
   - ✅ **キャラ撤去決定 (2026-09-02 夜)** — マスコット(ハル/Finch/お掃除演出/キャラ名カスタマイズ)を v1 から撤去。78 ファイル影響範囲を棚卸し中、Wave 1 完了後に builder 実行予定
   - ✅ **C-10 アプリアイコン完了 (2026-09-02 22:16 コミット c26d149)** — 案 1 Horizon (青ドーム+橙の円+白地平線) を自前 PNG ラスタライザ (8×8 スーパーサンプリング) で生成。icon 1024px / splash 1024px / android foreground 512px / monochrome 512px / favicon 48px 全生成・サイズ/alpha/色内訳 機械検証済。Fable 検収で「シンボル 70px 下寄り」指摘 → bbox y:200→y:340 1 行修正で中央配置に修正後コミット。生成スクリプト `code/scripts/gen-app-icon.js` 残置 (再生成用)
-- **次のアクション (新セッション以降、優先度順)**:
-  - [ ] キャラ撤去 builder 実行 (棚卸し仕様完成後) — 9/3 中完了目標
+  - ✅ **Sprint R2 便1-3 コミット (2026-09-03 08:55)** — ホーム/オンボ/タブ、ダイジェスト/Recognition/PJ詳細、お宝箱/通知文言/Edge/MOCK のキャラ撤去 51 ファイル変更をコミット。tsc 0 エラー確認済
+  - ✅ **C-09 ストア文言完了 (2026-09-03 09:03、未コミット)** — APP_STORE_LISTING.md 全面書き直し (説明文 948 字、キーワード 74 字 16 語、プロモ 74 字、What's New 1.0.0、App Store Connect 入力値確定表、Review Notes 日英合計 3,990 字) + PII-CLASSIFICATION.md §2 を 6 タイプ確定表に差し替え。注意: treasure-box にキャラ語調文言残留あり (便4 範囲)、Review Notes にマイク未使用を明記 (app.json から外すなら1行削除)
+  - 🔄 **Sprint R2 便4 builder 実行中 (2026-09-03 08:55〜、agent: r2-ben4)** — finch/haru コンポーネント削除・messages.ts 移設・login/settings/treasure-box 最小 Edit・法的文書キャラ記述削除・文書更新。残存 18 ファイル対象。treasure-box 残留文言も含めて対応指示済み
+- **次のアクション (2026-09-03 以降、優先度順)**:
+  - [ ] 便4 完了 → 検収 (tsc/lint/jest/grep 0件/MOCK通し) → commit
+  - [ ] C-09 未コミット分を commit (便4 commit 後)
+  - [ ] C-15 スクショ (expo run:ios → Pro Max ビルド → 6枚撮影)
+  - [ ] YD Day1 作業 (Cloudflare ドメイン/Resend/Apple/Supabase/GitHub/UptimeRobot/GCP/LINE) → migration 025 適用・Edge deploy・site deploy
   - [ ] Wave 2 以降 (残 C-xx) 実装
-  - [ ] App Store Connect 入力・提出 (9/6 目標、初回審査通過で 9/8〜9 公開)
   - [ ] App Store Connect 入力・提出 (9/6 目標、初回審査通過で 9/8〜9 公開)
   - [ ] **★ 新セッション再開**: `~/projects/project-agent-application/HANDOVER.md` を Read (Sprint 01 Pass 確定済、Sprint 02 着手可能)
   - [ ] **★ designer Sprint 02 起動** (5 階層モデル UI、Discord サーバーサイドバー風 + チャンネルリスト風) → design-evaluator 自立ループ
