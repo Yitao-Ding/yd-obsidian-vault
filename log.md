@@ -2977,3 +2977,4 @@
 - 2026-09-04 Bitaw: Tailscale Funnel の公開 DNS レコードが旧ノード名で消えていた件を修正。ノード名を bitaw に変更して URL を https://bitaw.tail60869d.ts.net に。build 15 を TestFlight にアップロード (URL 埋め込み + 旧 URL 自動書き換え)、watchdog に公開 DNS チェックを追加。commit b01678f
 [2026-09-04 01:05] ai-researcher collect: raw=110 dedup=35 relevant=2 kept=2
 [2026-09-04 01:14] autosave(project-agent-application): knowledge/programming/nativewind_pressable_style_bug.md (新規) / current_state/active_projects.md (便A完了・NativeWind撤去・便B/C起動 追記)
+- 2026-09-04 Bitaw build 16: 中継トークンもアプリに埋め込み (scripts/embed_token.sh が server/.env から git 管理外の Secrets.swift を生成、アーカイブ前に実行が必要)。プロフィール画面で入力した値が優先されるのでローテーション時はビルド無しでも切替可。テスターは URL もトークンも入力不要になった。commit d835024
