@@ -1,6 +1,6 @@
 ---
 type: current_state
-last_updated: 2026-09-03 09:39 (PAA: Sprint R2 便4 完了・commit ace913a・iOS simビルド対応中(パス空白問題) / Bitaw v1.0.0 TestFlight 確定)
+last_updated: 2026-09-04 01:14 (PAA: UI監査 便A完了・NativeWind撤去・便B/C並列起動中・commit 4e61544 / Bitaw Tailscale URL修正・build 15 TestFlight)
 update_frequency: 週1回以上
 ---
 
@@ -315,6 +315,7 @@ update_frequency: 週1回以上
   - ✅ **C-09 ストア文言完了 (2026-09-03 09:03、未コミット)** — APP_STORE_LISTING.md 全面書き直し (説明文 948 字、キーワード 74 字 16 語、プロモ 74 字、What's New 1.0.0、App Store Connect 入力値確定表、Review Notes 日英合計 3,990 字) + PII-CLASSIFICATION.md §2 を 6 タイプ確定表に差し替え。注意: treasure-box にキャラ語調文言残留あり (便4 範囲)、Review Notes にマイク未使用を明記 (app.json から外すなら1行削除)
   - ✅ **Sprint R2 便4 完了 (commit ace913a, 2026-09-03 09:08)** — finch/haru コンポーネント削除・messages.ts 移設・16 デザイントークン削除・8 ドキュメント更新・treasure-box 残留文言修正。tsc 0 / lint 0 / jest 45 Pass 確認済。builder (r2-ben4) が追加で treasure-box 空状態文言 2 箇所を修正 (未コミット)。「動画のみ」フィルターは本番で常に空 (capture.tsx が mode="picture" only) → 動画 0 件時に chip 非表示にする修正も実施 (未コミット)
   - ✅ **C-15 スクショ 6 枚完了 (commit f443bbe, 2026-09-03 13:51)** — iOS simビルドは `AI projects/` パス空白が EXConstants / react-native-xcode.sh を壊す問題を podspec クォート + pbxproj バックティック修正で解消。FocusedStatusBar コンポーネント (useIsFocused) を作成して StatusBar が画面遷移後に消える問題も 35 画面まとめて修正。スクショ `code/docs/release/screenshots/` 保存済み
+  - ✅ **UI/UX 全画面監査 便A完了 + NativeWind 撤去 (2026-09-04 01:09、commit 4e61544)** — 根本発見: NativeWind v4 の cssInterop が Pressable の関数形式 style を握り潰す。babel.config.js から NativeWind を撤去し一括解決。便A実装内容: SectionTitle uppercase 撤去・SectionHeader kicker 廃止・paddingHorizontal 直値52→0・rgba直値105→0・IconTextButton/ScreenFooter 新設・FocusedStatusBar 命令型化・disabled 色統一。tsc 0 / expo lint 0 / jest 45 pass。便B (タスク系・お宝箱系) と便C (タブ直下・認証・振り返り) を並列起動中
   - ✅ **UI/UX 全画面監査完了 (2026-09-04 00:22)** — S1 70 / S2 86 / S3 11 件。AUDIT.md + スクショ 51 枚 (`design/audit-2026-09-03/`)。主所見: paddingHorizontal 20 vs CONTENT_GUTTER 16 の 4pt ズレが全画面、旧暖色 rgba(28,25,23,*) が 43 ファイル 98 箇所、作成系 3 画面の主 CTA がタブバー下に埋没、アイコン+テキスト行が 4 画面で潰れ切れ。3 便に分割: 便 A (共通部品・トークン) → 便 B (tms/projects + treasure-box) → 便 C (タブ直下・認証・振り返り)。便 A builder 起動済 (2026-09-04 00:23)
 - **次のアクション (2026-09-03 以降、優先度順)**:
   - [ ] UI/UX 修正: 便 A builder 完了 → 便 B・C 並列 → Opus 検収 → commit (3 便構成)
