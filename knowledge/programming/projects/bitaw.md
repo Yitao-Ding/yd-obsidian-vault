@@ -116,3 +116,9 @@ haiku が遅いのは出力の大半が思考トークンだから。単純な�
 ## build 13 (2026-09-03): 発話スキップ = クリア
 
 友達の実使用フィードバック「外にいる時にもやりたいから、声出して読むやつはやらなくてもステージクリアになるように」。`LessonView.markSpeakSkipped` は不正解と同じ扱い (answered++ と retry.append) だったので、レッスンが終わらなかった。クリア扱いに変更: retry に戻さず、answered にも数えない (正確さは実際に答えた問題だけで計算、答えが 0 問なら「—」)。ボタンは「スキップ」→「声を出さずに次へ」、押すと青いパネル (`FeedbackPanel(skipped:)`) でお手本の文・カナ・意味・再生ボタンを出す。発話の練習機会自体は残す (次回同じレッスンでまた出る)。
+
+## build 14 (2026-09-04): 短い語の音声と文法
+
+ElevenLabs eleven_v3 は 1〜2 語だけの入力だと言語を判定できず英語として読む (usa → U・S・A、lima → ライマ、upat → ユーパット)。文脈のある文は問題ない。対策: 1〜2 語のフレーズは `eleven_turbo_v2_5` + `language_code: "fil"` で生成する (Cebuano は language_code に無いが、Filipino の綴り読みで母音が正しく出る。v3 は language_code を受け付けない)。`gen_audio.py --short 2 --model eleven_turbo_v2_5 --lang fil`、`gen_story_audio.py` と relay の `elevenTTS` も語数で自動切替。検証は faster-whisper (tl デコード) で旧 "USA" → 新 "Usa"。turbo は 0.5 クレジット/文字なので 116 語で約 500。
+
+文法: `content/grammar.json` (15 テーマ、`scripts/gen_grammar.py`)。各テーマ = 説明段落 (専門用語禁止、焦点・格などは言わせない) + 例文 (教材フレーズは phraseId で音声再利用、スター可) + 確認 3 問。`GrammarRecord` で確認済みを記録。学ぶタブの「文法」ボタン (sheet) と 聞くタブの行から開く。
