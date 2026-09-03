@@ -2953,3 +2953,4 @@
 [2026-09-03 14:08] autosave(project-agent-application): knowledge/programming/tools/ios_simulator_screenshots.md, knowledge/programming/patterns/reusable.md (昇格候補追記)
 [2026-09-03 14:10] ai-researcher collect: raw=109 dedup=52 relevant=8 kept=8
 [2026-09-03 14:24] cowork: active_projects.md更新 (ハタチたちHP: hatachitachi.com/studiometali.com 取得完了・お名前ID20382623団体名義・1,894円・ドメイン情報認証9/17期限 / 位置づけ=彼女の団体の代行)
+[2026-09-03 14:39] cowork: docs/accounts.md書き換え (ハタチたちHP: 前提修正=スタジオメタリは彼女個人の屋号・ハタチたちはその中の企画・PD不変なので個人アカウントでOK / microCMS無料枠はAPI5本に更新 / 認証期限9-17を明記)
