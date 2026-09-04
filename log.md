@@ -3023,3 +3023,4 @@
 [2026-09-05 01:42] autosave(scratch-2026-09-04-38db1d): current_state/active_projects.md (hatachitachi スマホUI修正デプロイ済み・ABOUT font fix ローカル完了・未push)
 [2026-09-05 02:04] ai-researcher collect: raw=111 dedup=25 relevant=0 kept=0
 [2026-09-05 03:03] ai-researcher collect: raw=110 dedup=25 relevant=0 kept=0
+[2026-09-05 04:05] ai-researcher collect: raw=114 dedup=29 relevant=3 kept=3
