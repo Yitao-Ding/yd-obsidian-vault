@@ -3014,3 +3014,4 @@
 [2026-09-04 22:04] ai-researcher collect: raw=110 dedup=25 relevant=1 kept=1
 [2026-09-04 23:03] ai-researcher collect: raw=110 dedup=24 relevant=0 kept=0
 [2026-09-05 00:05] ai-researcher collect: raw=110 dedup=26 relevant=2 kept=2
+[2026-09-05 00:38] autosave(scratch-2026-09-04-38db1d): current_state/active_projects.md (hatachitachi DNS方針更新・ドメイン登録確認・www追加記録)
