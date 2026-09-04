@@ -40,8 +40,10 @@ update_frequency: 週1回以上
 - **✅ ドメイン登録確認済み (2026-09-05)**: お名前.com Navi でステータス「契約中」・自動更新「設定済み」を目視確認。強制停止なし。ドメイン情報認証メールの9/17期限は YD 側で要確認
 - **★ DNS設定方針 (2026-09-05 YD決定)**: お名前.com側に直接 A/CNAME レコードを入れる（Vercelネームサーバーへの移管はしない）。手順書 = `docs/domain-setup.md`。実際のレコード値 (www用CNAMEとapex用A) はVercelダッシュボードのdomain cardに表示されるものを使う（CLIでは取得不可、Vercel公式も「dashboard card が唯一の正解」と明言）。**YDが自分でお名前.com Naviにログインして入力する**
 - **補足 — Domain Connect**: VercelのDomain Connect (自動DNS設定) はCloudflare管理ドメインのみ対応。お名前.com は非対応 (2025-02告知から "more providers coming soon" のまま)。お名前.com デフォルトNS (`dns1/dns2.onamae.com`) はパーキング用でDNSレコード設定が効かない (01〜04.dnsv.jpへのNS変更が必要だが、それよりVercel直接入力の方が手数が少ない)
-- **Vercel側の追加済みドメイン**: `hatachitachi.com` (前セッション) + `www.hatachitachi.com` (2026-09-05 追加)。DNS未設定のため証明書未発行
-- **残 (Claude作業)**: DNS設定 (YDログイン後) → Phase2 microCMS疎通 → Phase3 実素材差し替え → `NEXT_PUBLIC_SITE_URL` 設定して検索避け解除 → Webhook → Phase5 非エンジニア向け更新マニュアル
+- **✅ DNS設定完了・公開済み (2026-09-05)**: A @ 216.198.79.1 / CNAME www → 05944606fa304010.vercel-dns-017.com をお名前.com に登録、NS → 01-04.dnsv.jp 切替済み。apex SSL証明書は自動発行が出なかったため `vercel certs issue hatachitachi.com` で手動発行 (12秒)。**https://hatachitachi.com 公開中**
+- **✅ microCMS不使用に決定 (2026-09-05 YD指示)**: site.ts の直書き管理。更新は Claude に口頭で伝えて push。[[2026-09-05_ハタチたちHP_microCMS不使用_sitets管理に決定]]
+- **スマホUI修正中 (2026-09-05)**: ヒーロー svh 全画面化・Instagram iframe (X-Frame-Options deny で壊れていた) をスマホでは1枚+ボタンに変更。ローカル確認済、未デプロイ
+- **残 (Claude作業)**: スマホUI修正をデプロイ → `NEXT_PUBLIC_SITE_URL` 設定して robots.txt の検索避け解除 → Phase3 実素材差し替え
 - **関連**: [[2026-08-28_ハタチたちHP_スタック確定]]
 
 ### ★ プペルOP映像 YF-13 (紗幕投影35秒、クライアント: はるきさん) ✅✅納品済み (YD口頭確認 2026-08-11)
