@@ -3006,3 +3006,4 @@
 [2026-09-04 17:15] プペル琴: 音量指摘を計測で切り分け。元FX30 −11.44 LUFS と書き出し −11.34 LUFS が一致、レベルではなく帯域バランス (300Hz帯と2kHz以上が15.2dB差) が原因と判明。EQ+リミッターで v2 を作成 https://128.gigafile.nu/1213-e3136e72e6e442ba4bd2be4c2b6790f4a 。SSD は14:05頃からI/Oハング、16:41にforce unmount成功もUSBが固まったままで物理抜き差し待ち。定点は20/21完了、残りは finale。
 [2026-09-04 18:05] ai-researcher collect: raw=110 dedup=27 relevant=2 kept=2
 [2026-09-04 19:04] ai-researcher collect: raw=110 dedup=26 relevant=1 kept=1
+[2026-09-04 20:03] ai-researcher collect: raw=110 dedup=25 relevant=0 kept=0
