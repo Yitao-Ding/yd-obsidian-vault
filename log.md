@@ -3013,3 +3013,4 @@
 [2026-09-04 21:0x] プペル琴: YDの判断で琴Numberの作業は中止 (v2の差し替えは行わない)。作業用ファイル /tmp/koto を削除。v1 (https://126.gigafile.nu/1213-l049347e5f5828dfc890bf4b3d99931b5) と v2 (https://128.gigafile.nu/1213-e3136e72e6e442ba4bd2be4c2b6790f4a) は両方ギガファイル上に100日残る。
 [2026-09-04 22:04] ai-researcher collect: raw=110 dedup=25 relevant=1 kept=1
 [2026-09-04 23:03] ai-researcher collect: raw=110 dedup=24 relevant=0 kept=0
+[2026-09-05 00:05] ai-researcher collect: raw=110 dedup=26 relevant=2 kept=2
