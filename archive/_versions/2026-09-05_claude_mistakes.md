@@ -820,27 +820,13 @@
 
 - Wix (および同様にデフォルトで www CNAME を持つレジストラ) では、www は**最初から CNAME `cname.vercel-dns.com` で設定する** のが王道。A レコードで設定しようとせず、既存 CNAME の値を書き換えるルート。
 - Vercel CLI の `vercel domains add` 出力は「a) A レコード推奨」と提示してくるが、これは「レジストラ側に既存設定がない」前提。レジストラごとに事情が違う。
-- 一般則: **Apex は A レコード、サブドメイン (www 含む) は CNAME**。ただし **値は暗記しない** (2026-09-05 修正、下記)。
-
-**2026-09-05 追記 — 上の `76.76.21.21` / `cname.vercel-dns.com` は legacy 値になった**:
-
-`hatachitachi.com` をお名前.com から Vercel に繋いだとき、`vercel domains inspect` は apex にも www にも
-`A 76.76.21.21` を出してきたが、ダッシュボードの domain card の実値は `A 216.198.79.1` と
-`CNAME 05944606fa304010.vercel-dns-017.com` (プロジェクト固有) だった。Vercel 公式は「domain card が
-single source of truth。検証はプロジェクトが期待する厳密な値に対して行われるので、他所で見た IP を貼ると
-Invalid Configuration のままになる」と明記している。legacy 値も動くとカードに注記があるが、
-**新しいプロジェクトほど別の anycast IP が割り当たるので、過去のプロジェクトの値を使い回さない**。
-
-つまり CLI を信じない場面が2つある。①レジストラ側の既存設定を無視した推奨を出す (A-13 本体)
-②legacy 値を出す (この追記)。どちらも**ダッシュボードのカードを見に行けば解決する**。
+- 一般則: **Apex は A レコード (`76.76.21.21`)、サブドメイン (www 含む) は CNAME (`cname.vercel-dns.com`)** が Vercel 公式推奨。
 
 **再発防止**:
 
 - 新しいドメインを Vercel に紐付ける前に、`dig CNAME www.<domain> +short` で www の既存 CNAME を確認する習慣
 - レジストラの DNS 編集 UI で「A レコード追加」より先に「CNAME 編集 or 既存 CNAME 削除」のルートを提案
-- **レコード値は必ず Vercel ダッシュボードの Project Settings → Domains →「View DNS configuration」から取る。
-  CLI の出力も、このノートに書いてある過去の値も、そのまま使わない**
-- 関連: [[2026-05-25_Salamat_WBS_独自ドメイン化]] / [[vercel]] (独自ドメイン接続の節)
+- 関連: [[2026-05-25_Salamat_WBS_独自ドメイン化]]
 
 ---
 

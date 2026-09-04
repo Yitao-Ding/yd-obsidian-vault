@@ -3016,3 +3016,5 @@
 [2026-09-05 00:05] ai-researcher collect: raw=110 dedup=26 relevant=2 kept=2
 [2026-09-05 00:38] autosave(scratch-2026-09-04-38db1d): current_state/active_projects.md (hatachitachi DNS方針更新・ドメイン登録確認・www追加記録)
 [2026-09-05 01:0x] hatachitachi.com を Vercel に接続。お名前.com の DNSレコード設定に A @ 216.198.79.1 と CNAME www 05944606fa304010.vercel-dns-017.com を登録し、ネームサーバーを 01-04.dnsv.jp に変更 (レジストリ委任は即日反映、ゾーン実体は待ち)。Vercel 側は www→apex の 308 リダイレクトを設定。studiometali.com は YD 判断で放置。手順と落とし穴は hatachi-tachi-website/docs/domain-setup.md
+[2026-09-05 01:1x] hatachitachi.com 接続完了。apex 200 / www 308→apex。apex の SSL が自動発行されず vercel certs issue で12秒で解決 (toyo-salamat.com 2026-05-25 と同症状・同CLIバージョン 50.44.0)。claude_mistakes A-13 の「76.76.21.21 / cname.vercel-dns.com」を legacy 値として訂正し、値はダッシュボードの domain card から取る旨を追記。vercel.md にも節を追加。
+[2026-09-05 01:03] ai-researcher collect: raw=110 dedup=24 relevant=0 kept=0

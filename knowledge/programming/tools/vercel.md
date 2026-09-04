@@ -219,3 +219,12 @@ Vercel 公式も「domain card が single source of truth。検証はプロジ�
 
 お名前.com 側の手順と落とし穴は [[onamae_ドメイン未反映_2026-09-03]] と
 `~/AI projects/hatachi-tachi-website/docs/domain-setup.md`。
+
+### apex の SSL 証明書が自動発行されない (2回発生、どちらも CLI 50.44.0)
+
+- 2026-05-25 toyo-salamat.com: 15分待っても `vercel certs ls` が空 → `vercel certs issue` で11秒
+- 2026-09-05 hatachitachi.com: www の証明書だけ発行され apex が無い → `vercel certs issue hatachitachi.com` で12秒
+
+DNS が正しく引けて HTTP も通っているのに HTTPS だけ `no alternative certificate subject name matches`
+で落ちる場合はこれ。`vercel certs ls` で apex の行が無いことを確認して、待たずに手動発行してよい。
+2回とも CLI 50.44.0 なので、CLI を上げると直る可能性がある (2026-09-05 時点の最新は 59.11.2)。
