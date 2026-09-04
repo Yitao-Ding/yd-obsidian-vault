@@ -3,6 +3,7 @@
 > このVaultへの全ての変更・操作を時系列で記録する
 > Append-only (削除しない)
 > Format: `[YYYY-MM-DD HH:MM] <操作内容>`
+[2026-09-04 10:30] autosave(project-agent-application): active_projects.md更新(TestFlight demo build 5 EAS送信・毎バッチ自動提出運用確定)
 [2026-09-04 04:27] autosave(project-agent-application): active_projects.md更新(UI/UX監査 再検収Pass・HEAD 18e5f60・次のアクション反映)
 [2026-09-04 03:50] autosave(project-agent-application): decisions/2026-09-04_PAA_タスクフィルタ2段構成採用.md 新規作成、active_projects.md更新(Loop1 Fail→loop1完了・タスクフィルタ2段採用決定)
 [2026-09-04 03:19] autosave(project-agent-application): 保存対象なし (仕上げ便完了・検収エージェント起動・Wrapped photo修復採用は既存エントリに記録済み)

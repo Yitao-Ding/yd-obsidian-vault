@@ -1,6 +1,6 @@
 ---
 type: current_state
-last_updated: 2026-09-04 04:27 (PAA: UI/UX監査 再検収Pass・残1文言+読み上げ4件も修正・HEAD 18e5f60・未push 10コミット・YD Day1待ち)
+last_updated: 2026-09-04 10:30 (PAA: TestFlight demo build 5 EAS送信中・毎バッチ自動提出の運用確定)
 update_frequency: 週1回以上
 ---
 
@@ -318,6 +318,7 @@ update_frequency: 週1回以上
   - ✅ **UI/UX 全画面監査 便A完了 + NativeWind 撤去 (2026-09-04 01:09、commit 4e61544)** — 根本発見: NativeWind v4 の cssInterop が Pressable の関数形式 style を握り潰す。babel.config.js から NativeWind を撤去し一括解決。便A実装内容: SectionTitle uppercase 撤去・SectionHeader kicker 廃止・paddingHorizontal 直値52→0・rgba直値105→0・IconTextButton/ScreenFooter 新設・FocusedStatusBar 命令型化・disabled 色統一。tsc 0 / expo lint 0 / jest 45 pass。便B (タスク系・お宝箱系) と便C (タブ直下・認証・振り返り) を並列起動中
   - ✅ **UI/UX 全画面監査 便B+C完了 (2026-09-04 02:18、commit 3ec0415)** — 便B: 32 ファイル、パレット外5色・英大文字14箇所・用語統一 (団体/振り返り)・digest detail カバーメトリクス位置修正 (22% top)。便C: タブ直下・認証・振り返り全画面の文言敬体化・orange撤去・英大文字ラベル全廃。BlueHeader overline をシステムフォント11pxに変更 (日本語ラベルで字間崩れ防止)・ColorChip 選択リングを `colors.primary.base` に修正。tsc 0 / expo lint 0 / jest 45 pass
   - ✅ **UI/UX 全画面監査 仕上げ便完了 (2026-09-04 02:46)** — 7 項目: ActionMenu uppercase transform 撤去 + destructive 色を青→赤に修正・SectionTitle danger 赤統一・Wrapped photo tile palette 全9枚クール変換 (パーセント幅+aspect-ratio 高さゼロバグも修正)・digest list ghost number 「26」除去・mock data の「PJ」→「プロジェクト」20箇所・uppercase sweep (public profile 等10箇所)・task filter を 2行化 (チームタブ+ソート/フィルター3種、130pt→88pt)。BUILD_FINISH.md + shots-finish/ 14枚
+  - ✅ **TestFlight demo build 5 EAS 送信開始 (2026-09-04 10:13)** — YD「終わったら毎回 Apple にアップして欲しい」指示を受け、今後は「検収 Pass → commit → EAS demo build → 自動 TestFlight 提出」を毎バッチ確認なしで実行する運用に確定。build 5 (デモ profile、MOCK、UI 整備版) が EAS ビルド中・完了後に自動提出。RELEASE_PLAN の番号も繰り下がり: ビルド 1〜4 がデモ・5 が今回のデモ → production は build 6 以降
   - ✅ **UI/UX 監査 再検収 Pass (2026-09-04 04:24、HEAD 18e5f60)** — ui-eval: 前回 23 件中 22 件修正確認。残 Fail 1 件は `src/lib/api/digests.ts` の「振り返りができたよ」(呼び出し元 0、dead code)。読み上げラベル 4 件 (TM設定 等) も検出。これら 5 件を orchestrator が即時修正・commit。新規劣化 0 件。ゲート tsc 0 / lint 0 / jest 45 pass。**UI/UX 整備完了**。branch overhaul/2026-07、未 push 10 コミット、YD Day 1 待ち。Loop 1 内容: ui-eval 判定 S1 Fail 1 (戻るボタン3様式) / 新規劣化 2 / 未修正 S1 相当 5 / S2 Fail 4 / 文言残 7 → ui-finish が全件対応 (commit 744f1d3)。MOCK dueAt は fixture 書き日固定のため実時計差が毎日増加していた → 日数シフトで全 dueAt を今日基準に修正 (原因側対処、値の置き換えではない)。**決定: タスクフィルタ 2 段構成を正とする** (decisions/2026-09-04_PAA_タスクフィルタ2段構成採用.md 参照)
   - ✅ **UI/UX 全画面監査完了 (2026-09-04 00:22)** — S1 70 / S2 86 / S3 11 件。AUDIT.md + スクショ 51 枚 (`design/audit-2026-09-03/`)。主所見: paddingHorizontal 20 vs CONTENT_GUTTER 16 の 4pt ズレが全画面、旧暖色 rgba(28,25,23,*) が 43 ファイル 98 箇所、作成系 3 画面の主 CTA がタブバー下に埋没、アイコン+テキスト行が 4 画面で潰れ切れ。3 便に分割: 便 A (共通部品・トークン) → 便 B (tms/projects + treasure-box) → 便 C (タブ直下・認証・振り返り)。便 A builder 起動済 (2026-09-04 00:23)
 - **次のアクション (2026-09-03 以降、優先度順)**:
