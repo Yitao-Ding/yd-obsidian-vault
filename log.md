@@ -2995,3 +2995,4 @@
 [2026-09-04 08:06] ai-researcher collect: raw=109 dedup=34 relevant=2 kept=2
 [2026-09-04 09:03] ai-researcher collect: raw=109 dedup=32 relevant=0 kept=0
 [2026-09-04 10:04] ai-researcher collect: raw=79 dedup=20 relevant=0 kept=0
+[2026-09-04 11:01] autosave(project-agent-application): active_projects.md更新(Build 5 TestFlight Apple upload完了 10:39・エラーなし)

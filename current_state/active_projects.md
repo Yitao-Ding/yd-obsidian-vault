@@ -1,6 +1,6 @@
 ---
 type: current_state
-last_updated: 2026-09-04 10:30 (PAA: TestFlight demo build 5 EAS送信中・毎バッチ自動提出の運用確定)
+last_updated: 2026-09-04 11:01 (PAA: TestFlight demo build 5 Apple upload完了 10:39・テスターに届くまで10〜30分)
 update_frequency: 週1回以上
 ---
 
