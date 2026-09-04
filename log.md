@@ -3019,3 +3019,4 @@
 [2026-09-05 01:1x] hatachitachi.com 接続完了。apex 200 / www 308→apex。apex の SSL が自動発行されず vercel certs issue で12秒で解決 (toyo-salamat.com 2026-05-25 と同症状・同CLIバージョン 50.44.0)。claude_mistakes A-13 の「76.76.21.21 / cname.vercel-dns.com」を legacy 値として訂正し、値はダッシュボードの domain card から取る旨を追記。vercel.md にも節を追加。
 [2026-09-05 01:03] ai-researcher collect: raw=110 dedup=24 relevant=0 kept=0
 [2026-09-05 01:10] autosave(scratch-2026-09-04-38db1d): decisions/2026-09-05_ハタチたちHP_microCMS不使用_sitets管理に決定.md, current_state/active_projects.md (hatachitachi DNS完了・microCMS不使用決定・スマホUI修正中)
+[2026-09-05 01:3x] ハタチたちHP: microCMS は使わない方針に変更 (YD)。env 未設定のフォールバックのまま運用し、更新は src/content/site.ts を直接編集する。あわせてスマホ表示を修正して本番反映。ヒーロー 500px→844px (100svh 中央寄せ、構図の 3:4 は維持)、縦書き 11.7/14px→16.4/18.7px、Instagram 小4枚をスマホで非表示 (1枚185pxで埋め込みの最小幅を割り見切れ+ボタン重なりが出ていた) でセクション 2301px→990px、ページ全体 7202px→6235px。デスクトップは 16:9 のまま非退行。
