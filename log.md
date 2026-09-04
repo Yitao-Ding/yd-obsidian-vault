@@ -3,6 +3,7 @@
 > このVaultへの全ての変更・操作を時系列で記録する
 > Append-only (削除しない)
 > Format: `[YYYY-MM-DD HH:MM] <操作内容>`
+[2026-09-04 23:05] autosave(project-agent-application): knowledge/filmmaking/ffmpeg_lut_grade_pipeline.md 新規、active_projects.md更新(プペルnumber/琴 書き出し完了→琴_定点_2.mp4・未解決ビットレート差・LUTルック衝突)
 [2026-09-04 22:33] autosave(project-agent-application): knowledge/filmmaking/multicam_audio_sync_crosscorrelation.md 新規、active_projects.md更新(プペルnumber/琴 音声同期完了・カラーグレード3D LUT生成中)
 [2026-09-04 10:30] autosave(project-agent-application): active_projects.md更新(TestFlight demo build 5 EAS送信・毎バッチ自動提出運用確定)
 [2026-09-04 04:27] autosave(project-agent-application): active_projects.md更新(UI/UX監査 再検収Pass・HEAD 18e5f60・次のアクション反映)
