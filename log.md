@@ -3021,3 +3021,4 @@
 [2026-09-05 01:10] autosave(scratch-2026-09-04-38db1d): decisions/2026-09-05_ハタチたちHP_microCMS不使用_sitets管理に決定.md, current_state/active_projects.md (hatachitachi DNS完了・microCMS不使用決定・スマホUI修正中)
 [2026-09-05 01:3x] ハタチたちHP: microCMS は使わない方針に変更 (YD)。env 未設定のフォールバックのまま運用し、更新は src/content/site.ts を直接編集する。あわせてスマホ表示を修正して本番反映。ヒーロー 500px→844px (100svh 中央寄せ、構図の 3:4 は維持)、縦書き 11.7/14px→16.4/18.7px、Instagram 小4枚をスマホで非表示 (1枚185pxで埋め込みの最小幅を割り見切れ+ボタン重なりが出ていた) でセクション 2301px→990px、ページ全体 7202px→6235px。デスクトップは 16:9 のまま非退行。
 [2026-09-05 01:42] autosave(scratch-2026-09-04-38db1d): current_state/active_projects.md (hatachitachi スマホUI修正デプロイ済み・ABOUT font fix ローカル完了・未push)
+[2026-09-05 02:04] ai-researcher collect: raw=111 dedup=25 relevant=0 kept=0
