@@ -3049,3 +3049,5 @@
 [2026-09-05 15:50] autosave(ittou): current_state/active_projects.md (ゆかやねん カラーグレード+音声差し替えタスク追加)
 [2026-09-05 16:03] ai-researcher collect: raw=110 dedup=25 relevant=0 kept=0
 [2026-09-05 16:15] ハタチたちHP: PD指摘2件 (ヒーロー文字位置をスマホで写真の縁に / LOOK BACK 2枠を Instagram リンク) 実装・commit。レビューWF 13エージェント、確定1件 (docs 追記) 反映。push待ち
+
+[2026-09-05 16:55] プペル ゆかやねん夜: iPhone IMG_2202.mov を FX30 寄りの色に合わせ、音声を FX30 に差し替えて 4K30p HEVC 30Mbps で書き出し (number/ゆかやねん/ゆかやねん_夜_IMG2202_FX30match.mp4、881MB)。同期は音声相関 (0.3728s, -25.7ppm)、色は露出比を外した上でアフィン+MLPを分布一致で学習。知見 knowledge/filmmaking/iphone_to_fx30_color_match.md、作業一式 number/_grade/ゆかやねん_IMG2202_色合わせ/
