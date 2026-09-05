@@ -20,6 +20,17 @@ update_frequency: 週1回以上
 - **残**: ①Rina の招待承諾待ち ②TestFlight は 90 日で期限切れ → 11 月末までに再アップロード ③Supabase (YD、未着手、無くても動く) ④Mac スリープ対策とセブ持参 ⑤ElevenLabs 無料枠 (今月 5,400 / 10,000 文字使用)
 - **パス**: `~/AI projects/bitaw/` (git、tag v1.0.0、push 未)。引き継ぎ正本 = `HANDOVER.md`、知識 = [[bitaw]]、決定 = [[2026-09-02_Bitaw_ビサヤ語会話アプリ_設計確定]]
 
+### ★ スタジオメタリ 公式ホームページ (2026-09-06 着手) ★
+- **状況**: 🔄 **Vercel デプロイ実行中 (03:38 時点、完了未確認)**。ビルド・lint 緑、localhost:3211 でレイアウト確認済み。GitHub push 完了
+- **経緯**: 2026-09-03「スタジオメタリのHPは今回作らない」決定を YD が覆し、LINE 履歴をもとにゼロから制作。YD「全て承認」一括承認で自走
+- **スタック**: Next.js 16 + Tailwind + Vercel (ハタチたち HP 同一スタック。microCMS なし、site.ts 直書き)
+- **パス**: `/Users/ittou/AI projects/Studiometali HP/site` (GitHub: `Yitao-Ding/studiometali-website` public)
+- **ドメイン**: studiometali.com (取得済み、DNS 未設定)
+- **素材**: YouTube @Studio_Metali / Instagram @metalina_831 / つんた・HiMe・Rina の撮影写真 (Metalina 本人提供待ち)
+- **Canva モックアップ**: 7本全滅 (ログイン要求 or 空デザイン)。LINE 履歴から意向を抽出してゼロ設計
+- **次のアクション**: ① Vercel デプロイ完了確認 ② `NEXT_PUBLIC_SITE_URL` 設定 ③ DNS (お名前.com Navi → ハタチたちと同手順) ④ 写真・メールアドレスを Metalina に確認
+- **関連**: [[2026-09-06_スタジオメタリHP_新規着手]]
+
 ### ★ ハタチたち 公式ホームページ (2026-08-28 着手) ★
 - **状況**: 🟢 **多観点レビュー反映済 (v5)** — Phase 1 実装後、11エージェント多観点レビュー (46件) + 完全性クリティック (14件) を反映。主要修正: next/font変数を `<html>` へ移動 (明朝フォント全ページ有効化) / 日本語preload 123→1 / YouTube facade実装 / microCMS error shape修正 / ビルド・lint緑・`git commit`完了。HANDOVER.md + docs/3ファイル (microcms-setup.md / assets-list.md / accounts.md) 整備済み
 - **パス**: `~/AI projects/hatachi-tachi-website` (※`projects/` でなく `AI projects/` 配下)。**引き継ぎ正本=同ディレクトリの `HANDOVER.md`**

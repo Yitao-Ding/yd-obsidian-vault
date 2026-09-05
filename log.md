@@ -3082,3 +3082,4 @@
 [2026-09-06 01:37] autosave(ittou): 保存対象なし (セッション a69b093b 01:11-01:12 はセッション内保存済み)
 [2026-09-06 02:03] ai-researcher collect: raw=109 dedup=24 relevant=0 kept=0
 [2026-09-06 03:03] ai-researcher collect: raw=109 dedup=25 relevant=0 kept=0
+[2026-09-06 03:38] autosave(ittou): decisions/2026-09-06_スタジオメタリHP_新規着手.md, current_state/active_projects.md (スタジオメタリHP追加)
