@@ -3,6 +3,8 @@
 > このVaultへの全ての変更・操作を時系列で記録する
 > Append-only (削除しない)
 > Format: `[YYYY-MM-DD HH:MM] <操作内容>`
+[2026-09-05 16:57] autosave(ittou): 保存対象なし (セッション内保存済み: knowledge/filmmaking/iphone_to_fx30_color_match.md・active_projects.md・log.md)
+[2026-09-05 16:56] autosave(ittou): 保存対象なし (セッション内保存済み: active_projects.md・log.md。42f8adb コミット完了、push未)
 [2026-09-05 16:24] autosave(ittou): 保存対象なし (ハタチたちHP ヒーロー文字縁寄せ + LOOKBACKアーカイブInstagramリンク化 作業中断点)
 [2026-09-05 16:22] autosave(ittou): knowledge/filmmaking/neural_color_matching_pipeline.md 新規、active_projects.md更新(プペルnumber/ゆかやねん ニューラル色変換モデル+時変ゲイン曲線 学習完了・render.pyテスト中)
 [2026-09-04 23:05] autosave(project-agent-application): knowledge/filmmaking/ffmpeg_lut_grade_pipeline.md 新規、active_projects.md更新(プペルnumber/琴 書き出し完了→琴_定点_2.mp4・未解決ビットレート差・LUTルック衝突)
