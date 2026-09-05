@@ -3080,3 +3080,4 @@
 [2026-09-06 01:04] ai-researcher collect: raw=110 dedup=26 relevant=1 kept=1
 [2026-09-06 01:13] ハタチたちHP: セキュリティ整備3コミット (1435216/6951cce/8169f59) を push。本番で7ヘッダ・vercel.app 308・preview 404・robots Allow・canonical https://hatachitachi.com を確認
 [2026-09-06 01:37] autosave(ittou): 保存対象なし (セッション a69b093b 01:11-01:12 はセッション内保存済み)
+[2026-09-06 02:03] ai-researcher collect: raw=109 dedup=24 relevant=0 kept=0
