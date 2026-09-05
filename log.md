@@ -3037,3 +3037,4 @@
 [2026-09-05 12:45] autosave(scratch-2026-09-04-38db1d): current_state/active_projects.md (ハタチたちHP LINE 3件 fix デプロイ済みに更新), mistakes/claude_mistakes.md (md: vs max-md: Tailwind誤用を追記)
 [2026-09-05 13:03] ai-researcher collect: raw=110 dedup=25 relevant=0 kept=0
 [2026-09-05 14:03] ai-researcher collect: raw=110 dedup=25 relevant=0 kept=0
+[2026-09-05 14:47] autosave(ittou): 保存対象なし (セッション a69b093b はプロジェクト読み込みと確認質問のみ、意思決定・ミス・知識の新規追加なし)
