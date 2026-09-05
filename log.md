@@ -3056,3 +3056,4 @@
 [2026-09-05 17:02] ハタチたちHP: commit 42f8adb を push。Vercel Ready、hatachitachi.com でヒーロー位置クラスと Instagram リンク2本を確認
 [2026-09-05 17:03] ai-researcher collect: raw=109 dedup=24 relevant=0 kept=0
 [2026-09-05 17:05] プペル ゆかやねん夜 IMG2202 FX30match: ギガファイル便アップ完了 https://1.gigafile.nu/1214-o31bc424dcd836a75ea4eade6814cfdc6 (881MB、有効期限 2026-12-14、サイズ検証OK)。_tools/teiten_results.jsonl に追記
+[2026-09-05 17:25] ハタチたちHP: ヒーロー文字がスマホで写真に食い込む (YD指摘) → 重ねない配置に変更、375/430px ピクセル検査で写真内の珊瑚0px・隙間9〜13px。commit 146c334、push待ち
