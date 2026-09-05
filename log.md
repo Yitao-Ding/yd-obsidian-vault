@@ -3,6 +3,8 @@
 > このVaultへの全ての変更・操作を時系列で記録する
 > Append-only (削除しない)
 > Format: `[YYYY-MM-DD HH:MM] <操作内容>`
+[2026-09-05 18:59] autosave(ittou): log.md のみ追記 (active_projects.md はセッション内更新済み・保存対象なし)
+[2026-09-05 18:37] ハタチたちHP セキュリティ整備着手: レスポンスヘッダ確認・pnpm audit・シークレットスキャン・Playwright ネットワーク監査の4観点ワークフロー起動中。結果待ちで次セッションへ持ち越し。active_projects.md はセッション内更新済み
 [2026-09-05 17:59] autosave(ittou): 保存対象なし (active_projects.md・log.md はセッション内で保存済み)
 [2026-09-05 16:57] autosave(ittou): 保存対象なし (セッション内保存済み: knowledge/filmmaking/iphone_to_fx30_color_match.md・active_projects.md・log.md)
 [2026-09-05 16:56] autosave(ittou): 保存対象なし (セッション内保存済み: active_projects.md・log.md。42f8adb コミット完了、push未)
@@ -3061,3 +3063,4 @@
 [2026-09-05 17:28] autosave(ittou): 保存対象なし (session内の📥報告と重複)
 [2026-09-05 17:58] ハタチたちHP: 146c334 を push、Vercel Ready、hatachitachi.com でヒーロー新クラス (top 20.4% / bottom 24.6%) 確認
 [2026-09-05 18:03] ai-researcher collect: raw=111 dedup=26 relevant=0 kept=0
+[2026-09-05 19:00] autosave(ittou): 保存対象なし (プペルゆかやねん夜 ホモグラフィ精査・スポットチェック作業中断点、意思決定・知識・ミス新規追加なし)
