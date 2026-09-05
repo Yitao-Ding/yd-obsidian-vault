@@ -90,12 +90,12 @@ update_frequency: 週1回以上
 - **知見**: [[multicam_audio_sync_crosscorrelation]] / [[ffmpeg_lut_grade_pipeline]]
 
 ### プペル number/ゆかやねん カラーグレード + 音声差し替え (2026-09-05 着手)
-- **状況**: 🔄 **作業中** — 音声同期 + ホモグラフィーベース色合わせパイプライン構築中 (`/tmp/yuka/`)
+- **状況**: 🔄 **作業中** — ニューラル色変換モデル (fit6/model7) + 時変ゲイン曲線 (r_topn) 学習完了。render.py でテストセグメント (3秒) 書き出し中 (`/tmp/yuka/`)
 - **要件**: iPhone 映像 (`~/Downloads/IMG_2202.mov`) の色味を FX30 ゆかやねん_夜_寄り.MP4 に合わせる。音声は FX30 に差し替え。出力 4K30p / H.265 / ~30Mbps
 - **素材**: iPhone=`IMG_2202.mov` (ギガファイルから 9/5 朝 DL)。FX30参照=`ゆかやねん_夜_寄り.MP4` + `ゆかやねん_昼_引き.MP4` @ `/Volumes/Extreme Pro/プペル/number/ゆかやねん/`
-- **アプローチ**: ① 音声クロス相関で同期オフセット算出 (-0.37秒前後) ② FX30↔iPhone の平均フレームでホモグラフィー推定 → ステージ領域マスクでピクセル統計取得 ③ 線形色変換 (RGB各ch スケール+オフセット) or 3D LUT 生成 → ffmpeg で焼き込み
-- **次のアクション**: ホモグラフィー精度確認 → 色変換係数算出 → テスト書き出し → YD確認
-- **知見**: [[multicam_audio_sync_crosscorrelation]] / [[ffmpeg_lut_grade_pipeline]]
+- **パイプライン**: ① 音声クロス相関で同期オフセット算出 ② ホモグラフィー (H_refined.npy) でピクセル対応 ③ ae_probe で AE 時変ゲイン分離 ④ PyTorch (MPS) ニューラル色変換モデル学習 ⑤ render.py → ffmpeg H.265 書き出し
+- **次のアクション**: テストセグメント YD 目視確認 → 問題なければ全尺レンダー → はるきさん確認
+- **知見**: [[multicam_audio_sync_crosscorrelation]] / [[ffmpeg_lut_grade_pipeline]] / [[neural_color_matching_pipeline]]
 
 ### ★ ダンちゃり長野ドキュメンタリー「一匹でも」編集 (2026-07-16 夜間自走ビルド) ★
 - **状況**: 🟢 **本編完成** — `動画/2025-07-06_Nagano/編集_1本版/preview/一匹でも_preview_v1.mp4` (7:42、1080p、字幕63キュー焼込、-15.0 LUFS)。Resolveプロジェクト「一匹でも_ダンちゃり長野」/タイムライン「一匹でも_v2」が手直し用の正。検収=`編集_1本版/REPORT_一匹でも_納品検収.md` (指示書チェックリスト9 PASS+ラウドネス1件記録付き逸脱)
