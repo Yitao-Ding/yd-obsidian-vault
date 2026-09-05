@@ -3048,3 +3048,4 @@
 [2026-09-05 15:49] autosave(ittou): 保存対象なし (15:40-15:41 のセッション内保存で全件処理済み)
 [2026-09-05 15:50] autosave(ittou): current_state/active_projects.md (ゆかやねん カラーグレード+音声差し替えタスク追加)
 [2026-09-05 16:03] ai-researcher collect: raw=110 dedup=25 relevant=0 kept=0
+[2026-09-05 16:15] ハタチたちHP: PD指摘2件 (ヒーロー文字位置をスマホで写真の縁に / LOOK BACK 2枠を Instagram リンク) 実装・commit。レビューWF 13エージェント、確定1件 (docs 追記) 反映。push待ち
