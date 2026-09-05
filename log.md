@@ -3,6 +3,7 @@
 > このVaultへの全ての変更・操作を時系列で記録する
 > Append-only (削除しない)
 > Format: `[YYYY-MM-DD HH:MM] <操作内容>`
+[2026-09-05 21:35] autosave(ittou): active_projects.md 更新 (ゆかやねんv2レンダー完了・YD確認待ちに変更)
 [2026-09-05 21:03] autosave(ittou): 保存対象なし (セッション区間 19:00-19:09 はホモグラフィ追跡スクリプト実行のみ、意思決定・ミス・進捗変化なし)
 [2026-09-05 21:01] autosave(ittou): decisions/2026-09-05_ハタチたちHP_next16.3.4セキュリティ監査結果.md 新規, active_projects.md 更新
 [2026-09-05 18:59] autosave(ittou): log.md のみ追記 (active_projects.md はセッション内更新済み・保存対象なし)
@@ -3070,3 +3071,4 @@
 [2026-09-05 20:03] ai-researcher collect: raw=111 dedup=26 relevant=0 kept=0
 [2026-09-05 21:03] ai-researcher collect: raw=111 dedup=26 relevant=0 kept=0
 [2026-09-05 21:20] ハタチたちHP: セキュリティ整備 (監査WF→ヘッダ/CSP/308/preview閉鎖/next16.3.4/Dependabot/ruleset/docs/security.md)。本番ビルドで検証済み、commit・push待ち。decisions ノート作成
+[2026-09-05 21:34] autosave(ittou): 保存対象なし (21:10-21:20 区間はセッション内で既保存済み)
