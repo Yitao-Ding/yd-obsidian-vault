@@ -3069,3 +3069,4 @@
 [2026-09-05 19:03] ai-researcher collect: raw=112 dedup=27 relevant=0 kept=0
 [2026-09-05 20:03] ai-researcher collect: raw=111 dedup=26 relevant=0 kept=0
 [2026-09-05 21:03] ai-researcher collect: raw=111 dedup=26 relevant=0 kept=0
+[2026-09-05 21:20] ハタチたちHP: セキュリティ整備 (監査WF→ヘッダ/CSP/308/preview閉鎖/next16.3.4/Dependabot/ruleset/docs/security.md)。本番ビルドで検証済み、commit・push待ち。decisions ノート作成
