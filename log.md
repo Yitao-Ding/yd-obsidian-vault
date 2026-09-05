@@ -3,6 +3,8 @@
 > このVaultへの全ての変更・操作を時系列で記録する
 > Append-only (削除しない)
 > Format: `[YYYY-MM-DD HH:MM] <操作内容>`
+[2026-09-05 21:03] autosave(ittou): 保存対象なし (セッション区間 19:00-19:09 はホモグラフィ追跡スクリプト実行のみ、意思決定・ミス・進捗変化なし)
+[2026-09-05 21:01] autosave(ittou): decisions/2026-09-05_ハタチたちHP_next16.3.4セキュリティ監査結果.md 新規, active_projects.md 更新
 [2026-09-05 18:59] autosave(ittou): log.md のみ追記 (active_projects.md はセッション内更新済み・保存対象なし)
 [2026-09-05 18:37] ハタチたちHP セキュリティ整備着手: レスポンスヘッダ確認・pnpm audit・シークレットスキャン・Playwright ネットワーク監査の4観点ワークフロー起動中。結果待ちで次セッションへ持ち越し。active_projects.md はセッション内更新済み
 [2026-09-05 17:59] autosave(ittou): 保存対象なし (active_projects.md・log.md はセッション内で保存済み)
@@ -3066,3 +3068,4 @@
 [2026-09-05 19:00] autosave(ittou): 保存対象なし (プペルゆかやねん夜 ホモグラフィ精査・スポットチェック作業中断点、意思決定・知識・ミス新規追加なし)
 [2026-09-05 19:03] ai-researcher collect: raw=112 dedup=27 relevant=0 kept=0
 [2026-09-05 20:03] ai-researcher collect: raw=111 dedup=26 relevant=0 kept=0
+[2026-09-05 21:03] ai-researcher collect: raw=111 dedup=26 relevant=0 kept=0
