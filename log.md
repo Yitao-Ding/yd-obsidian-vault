@@ -3033,3 +3033,4 @@
 [2026-09-05 10:04] ai-researcher collect: raw=109 dedup=25 relevant=0 kept=0
 [2026-09-05 11:05] ai-researcher collect: raw=111 dedup=28 relevant=2 kept=2
 [2026-09-05 12:04] ai-researcher collect: raw=81 dedup=19 relevant=0 kept=0
+[2026-09-05 01:4x] ABOUT 本文をスマホ 24px→16px (サイトの基準は NEWS 15px / リンク 16px。ABOUT だけ1.6倍外れていた)。セクション高 1694→1304px。デスクトップは 24px のまま非退行。YD 指示で hatachi-tachi-website は以降 push を確認なしで自動実行する → decisions/2026-09-05_ハタチたちHP_push自動化.md
