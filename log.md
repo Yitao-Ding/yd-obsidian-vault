@@ -3045,3 +3045,4 @@
 [2026-09-05 15:41] ハタチたちHP: commit 0c5015f + 866b74f を push。Vercel Ready、hatachitachi.com で反映確認 (フッターアンカー /#、maxresdefault、リール主役、/news にフッター)
 [2026-09-05 15:49] autosave(ittou): 保存対象なし (15:40-15:41 のセッション内保存で全件処理済み)
 [2026-09-05 15:50] autosave(ittou): current_state/active_projects.md (ゆかやねん カラーグレード+音声差し替えタスク追加)
+[2026-09-05 16:03] ai-researcher collect: raw=110 dedup=25 relevant=0 kept=0
