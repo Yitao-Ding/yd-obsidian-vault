@@ -3060,3 +3060,4 @@
 [2026-09-05 17:25] ハタチたちHP: ヒーロー文字がスマホで写真に食い込む (YD指摘) → 重ねない配置に変更、375/430px ピクセル検査で写真内の珊瑚0px・隙間9〜13px。commit 146c334、push待ち
 [2026-09-05 17:28] autosave(ittou): 保存対象なし (session内の📥報告と重複)
 [2026-09-05 17:58] ハタチたちHP: 146c334 を push、Vercel Ready、hatachitachi.com でヒーロー新クラス (top 20.4% / bottom 24.6%) 確認
+[2026-09-05 18:03] ai-researcher collect: raw=111 dedup=26 relevant=0 kept=0
