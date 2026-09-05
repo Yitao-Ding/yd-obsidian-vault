@@ -3041,3 +3041,5 @@
 [2026-09-05 15:03] ai-researcher collect: raw=110 dedup=25 relevant=0 kept=0
 [2026-09-05 15:12] ハタチたちHP: INSTAGRAM埋め込みを募集リールに差し替え + デスクトップの横溢れ2206px修正 (列幅345px固定、大1+小1)。知識ノート instagram_embed_width.md 作成
 [2026-09-05 15:18] autosave(ittou): 保存対象なし (セッション内 15:12 保存で全件処理済み)
+[2026-09-05 15:40] ハタチたちHP: スマホ・PC UI一斉点検 (5幅×3ページ実測)。フッタータップ領域/LOOK BACK行数/サムネ解像度/ABOUT md文字サイズ/サブページのフッター追加/アンカー修正/一覧見出し帯 の7件を修正・commit。push待ち
+[2026-09-05 15:41] ハタチたちHP: commit 0c5015f + 866b74f を push。Vercel Ready、hatachitachi.com で反映確認 (フッターアンカー /#、maxresdefault、リール主役、/news にフッター)
