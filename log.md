@@ -3065,3 +3065,4 @@
 [2026-09-05 18:03] ai-researcher collect: raw=111 dedup=26 relevant=0 kept=0
 [2026-09-05 19:00] autosave(ittou): 保存対象なし (プペルゆかやねん夜 ホモグラフィ精査・スポットチェック作業中断点、意思決定・知識・ミス新規追加なし)
 [2026-09-05 19:03] ai-researcher collect: raw=112 dedup=27 relevant=0 kept=0
+[2026-09-05 20:03] ai-researcher collect: raw=111 dedup=26 relevant=0 kept=0
