@@ -3073,3 +3073,4 @@
 [2026-09-05 21:20] ハタチたちHP: セキュリティ整備 (監査WF→ヘッダ/CSP/308/preview閉鎖/next16.3.4/Dependabot/ruleset/docs/security.md)。本番ビルドで検証済み、commit・push待ち。decisions ノート作成
 [2026-09-05 21:34] autosave(ittou): 保存対象なし (21:10-21:20 区間はセッション内で既保存済み)
 [2026-09-05 21:40] プペル ゆかやねん夜 IMG2202 FX30match v2: YD指摘の白飛び (t=53-55 ソロスポット) の原因は FX30 寄りが操作カメラで画角が動いていたこと。1秒ごとのホモグラフィ追跡 (SIFT+ECC) に変更し露出比・色変換を再学習、再レンダリング (878MB)。SSD差し替え (v1は _old/)、ギガファイル再アップ https://44.gigafile.nu/1214-k997e182da97ad29ff01d233bb83c687b 。mistakes/knowledge/README 更新
+[2026-09-05 22:03] ai-researcher collect: raw=111 dedup=26 relevant=0 kept=0
