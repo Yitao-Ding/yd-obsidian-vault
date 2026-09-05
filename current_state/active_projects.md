@@ -43,8 +43,9 @@ update_frequency: 週1回以上
 - **✅ DNS設定完了・公開済み (2026-09-05)**: A @ 216.198.79.1 / CNAME www → 05944606fa304010.vercel-dns-017.com をお名前.com に登録、NS → 01-04.dnsv.jp 切替済み。apex SSL証明書は自動発行が出なかったため `vercel certs issue hatachitachi.com` で手動発行 (12秒)。**https://hatachitachi.com 公開中**
 - **✅ microCMS不使用に決定 (2026-09-05 YD指示)**: site.ts の直書き管理。更新は Claude に口頭で伝えて push。[[2026-09-05_ハタチたちHP_microCMS不使用_sitets管理に決定]]
 - **✅ スマホUI修正デプロイ済み (2026-09-05)**: ヒーロー 500px→844px (100svh 中央寄せ、上下グラデでコラージュを紙色に溶かす)・Instagram スマホで1枚+ボタン表示に変更 (小4枚 185px は埋め込み最小幅を割り見切れ+ボタン重なりが原因)。本番 https://hatachitachi.com 反映済み
-- **ABOUT スマホ文字サイズ修正 ローカル完了・未push (2026-09-05)**: 本文 24px→16px (スマホのみ)。サイト内他セクション (NEWS 15px / Instagram 16px) に合わせた。セクション高 1694px→1304px。デスクトップは 24px のまま非退行。YDの push 許可待ち
-- **残 (Claude作業)**: ABOUT fix を push → `NEXT_PUBLIC_SITE_URL` 設定して robots.txt の検索避け解除 → Phase3 実素材差し替え
+- **✅ ABOUT スマホ文字サイズ修正 push済み (2026-09-05)**: 本文 24px→16px (スマホのみ)。セクション高 1694px→1304px。デスクトップは 24px のまま。
+- **✅ LINE スマホ指摘3件 修正・デプロイ済み (2026-09-05)**: ①LOOK BACK カード見出しが2行に割れる → 19px/0.15em が幅167pxに入らず年だけ折返し → 15px/0.04em で6枠1行 ②縦書きが写真に食い込む (実測5px) → `max-md:leading-[1.15]` + 写真を left 16%/幅 69% に調整。字面左右20pxで揃え ③平成たち祭に集合写真追加 → `build-assets.mjs` に定義追加、4:3→anchor 0.62で16:9カット
+- **残 (Claude作業)**: `NEXT_PUBLIC_SITE_URL` 設定して robots.txt の検索避け解除 → Phase3 実素材差し替え
 - **関連**: [[2026-08-28_ハタチたちHP_スタック確定]]
 
 ### ★ プペルOP映像 YF-13 (紗幕投影35秒、クライアント: はるきさん) ✅✅納品済み (YD口頭確認 2026-08-11)

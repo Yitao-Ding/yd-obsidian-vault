@@ -3034,4 +3034,4 @@
 [2026-09-05 11:05] ai-researcher collect: raw=111 dedup=28 relevant=2 kept=2
 [2026-09-05 12:04] ai-researcher collect: raw=81 dedup=19 relevant=0 kept=0
 [2026-09-05 01:4x] ABOUT 本文をスマホ 24px→16px (サイトの基準は NEWS 15px / リンク 16px。ABOUT だけ1.6倍外れていた)。セクション高 1694→1304px。デスクトップは 24px のまま非退行。YD 指示で hatachi-tachi-website は以降 push を確認なしで自動実行する → decisions/2026-09-05_ハタチたちHP_push自動化.md
-[2026-09-05 12:4x] ハタチたちHP: LINE でもらったスマホ指摘3件を反映して本番デプロイ。①LOOK BACK のカード見出しが2行に割れる → カード幅167pxに対し19px/0.15emが入りきらず年だけ折返していた。15px/0.04emで6枠とも1行 ②ヒーローの縦書きが写真に貼り付く → 縦書きは行の高さが横方向の太さになるので継承値1.9が箱を膨らませていた。max-mdで1.15に詰め写真をleft16%/幅69%へ。字面の間隔は左右20px (指摘時点は左が写真に5px食い込んでいた) ③平成たち祭に集合写真を追加 (build-assets.mjs に定義追加、4:3をanchor0.62で16:9に切る)。md:leading-normal を当てると1.5が入りデスクトップの縦書きが数px動くので max-md: で書く、が学び。
+[2026-09-05 12:45] autosave(scratch-2026-09-04-38db1d): current_state/active_projects.md (ハタチたちHP LINE 3件 fix デプロイ済みに更新), mistakes/claude_mistakes.md (md: vs max-md: Tailwind誤用を追記)
