@@ -3076,3 +3076,4 @@
 [2026-09-05 22:03] ai-researcher collect: raw=111 dedup=26 relevant=0 kept=0
 [2026-09-05 22:06] autosave(ittou): 保存対象なし (21:35-21:38 区間はセッション内で既保存済み)
 [2026-09-05 23:03] ai-researcher collect: raw=111 dedup=26 relevant=0 kept=0
+[2026-09-06 00:03] ai-researcher collect: raw=109 dedup=25 relevant=0 kept=0
