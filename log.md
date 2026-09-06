@@ -3111,3 +3111,4 @@
 [2026-09-06 22:03] ai-researcher collect: raw=107 dedup=24 relevant=0 kept=0
 [2026-09-06 23:03] ai-researcher collect: raw=105 dedup=23 relevant=0 kept=0
 [2026-09-07 00:03] ai-researcher collect: raw=105 dedup=24 relevant=0 kept=0
+- 2026-09-06 Bitaw build 17: 「Init kaayo!」の音声が4秒の引き伸ばし母音になっていた (YD の画面録画で報告)。turbo v2.5 が短文で稀に出す不良テイク。全371音声を whisper で総点検 → コース7件 (p093 p165 p191 p250 p294 p298 p302) が不良、ミニ会話は全部OK。7件を再生成し、gen_audio.py と relay.mjs に長さ・無音の検品と再試行 (安定度を上げる → v3 に退避) を追加。tts-cache は archive/ へ退避して空に。commit e4a3ebb
