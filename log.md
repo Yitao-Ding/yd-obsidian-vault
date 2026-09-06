@@ -3096,3 +3096,4 @@
 [2026-09-06 11:35] プペル ゆかやねん夜 IMG2202 FX30match v3: 暗い場面の被写体が暗い問題を、iPhoneのモヤをフレームごとに引く項 (veil) で修正して再レンダリング (770MB)。SSD差し替え (v2は _old/)、ギガファイル再アップ https://22.gigafile.nu/1215-e3e5c46c86c2f3016bba013f852b57637 。README/knowledge 更新
 [2026-09-06 11:41] autosave(ittou): 保存対象なし
 [2026-09-06 12:05] ai-researcher collect: raw=80 dedup=18 relevant=1 kept=1
+[2026-09-06 13:03] ai-researcher collect: raw=110 dedup=24 relevant=0 kept=0
