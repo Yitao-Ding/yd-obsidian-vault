@@ -3105,3 +3105,4 @@
 [2026-09-06 19:03] ai-researcher collect: raw=108 dedup=24 relevant=0 kept=0
 [2026-09-06 20:03] ai-researcher collect: raw=108 dedup=24 relevant=0 kept=0
 [2026-09-06 21:03] ai-researcher collect: raw=108 dedup=24 relevant=0 kept=0
+[2026-09-06] 通称の日本での使用を検討開始 (名乗りと住民票記載の切り分け、中央区の資料要件) → knowledge/personal_admin/通称_日本での使用.md 新規。同セッションで Claude が tool_search の空振りを理由に「Vault未接続」と2回誤宣言 → tool_usage_mistakes.md に追記

@@ -59,3 +59,23 @@ Google Drive→HDDの559GiB rclone copy中、大容量ファイル4本が「100%
 1. rclone大容量転送の完了間際の0 B/sは、まずiostat -d -w 3で対象ディスクのMB/sを見る (今回これで一発確定した)
 2. multi-thread copyは完了後にローカル再読込のハッシュ検証がある仕様を前提に待つ (12GB×4なら15〜40分)
 3. プロセスをkillする判断は「ネットワーク0 + ディスク0 + CPU 0」が揃ってから
+
+---
+
+### tool_search の1回の空振りで「Vault未接続」と宣言した (頻度: 中、最終発生: 2026-09-06)
+
+**状況**:
+デスクトップチャットの新セッションで YD が「おはよう」。起動シーケンスを走らせる前に利用可能ツールを確認したが、Desktop Commander を見つけられず「Vault未接続」と返した。YD が「これMacで送ってる、Vault読み込んで」と指摘して発覚。
+
+**過去のやらかし**:
+- 2026-09-06: `tool_search("read local file desktop commander filesystem")` と `tool_search("github repository read file contents")` の2回が Canva/Figma/Zoom を返しただけだったため、「この環境に Desktop Commander も GitHub コネクタも無い」と断定。同じセッション内で2回「Vault未接続」と宣言し、2回目の「おはよう」でも訂正しなかった。実際は `tool_search("Desktop Commander read_multiple_files list_directory")` で一発でロードできた。カタログには最初から Desktop Commander 26件 / Control your Mac / Control Chrome が載っていた
+
+**正しい挙動**:
+- 遅延ロード方式の環境では、tool_search はサーバー名とツール名をそのまま入れる。機能の説明文 (「read local file」「filesystem」) で引くと意味の近い他社ツールに埋もれる
+- 空振りしたら「無い」ではなく「クエリが悪い」を先に疑う。ツールカタログの一覧に名前が載っているかを確認してから結論を出す
+- 00_CLAUDE_BOOT.md §B の「ローカルファイルにアクセスできないとは絶対に言わない」に真っ向から反する宣言をしていた
+
+**再発防止**:
+- Vault を読む前の tool_search は必ず `Desktop Commander read_multiple_files list_directory` の形 (サーバー名 + 具体的ツール名) で引く
+- 「Vault未接続」と書きそうになったら、その前に最低3通りのクエリで tool_search を試す。1回の空振りは根拠にしない
+- YD が Mac から送っていることは既定値。接続が無いように見えたら環境ではなく自分の探し方を疑う
