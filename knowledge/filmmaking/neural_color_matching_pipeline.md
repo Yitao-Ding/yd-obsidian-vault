@@ -107,6 +107,11 @@ ffmpeg -f rawvideo -pix_fmt rgb24 -s WxH -r FPS -i pipe:0 \
 | fit5.py | ae_probe 組み込み、gain_t 同時学習 |
 | fit6.py | seed=1、delta 正則化強化、ae_probe2 使用 |
 | model7 | r_topn (上位 N% 比) ゲイン曲線 + fit6 構造 |
+| r_v6.py / r_v7.py | 露出補正: 正則化係数を dreg=(delta²×0.15 + Δdelta²×1.0) に緩和 (過剰平滑抑制) |
+| r_skin.py | 露出基準: 顔/肌色ピクセルの上位 N% を基準値として gain 正規化 |
+| r_motion.py | 露出基準: フレーム差分で「動いている画素 = ダンサー」を抽出し基準に使う (光源・モヤは静止しているため除外可能) |
+| fit10.py | 上部領域への過ウェイト補正: `sw_top` で上半分ピクセルのウェイトを分割 |
+| fit12.py | motion 重みつきペアサンプリング + v チャネル (輝度) を gain_t に追加 (gt.shape[1]>2 で対応) |
 
 ---
 
@@ -122,6 +127,11 @@ ffmpeg -f rawvideo -pix_fmt rgb24 -s WxH -r FPS -i pipe:0 \
 - clamp(0,1) の端での勾配消失 → clamp(1e-5, 1) に変更
 - 最大値ゲインは照明 spike で発散 → パーセンタイル (上位 5%) に切り替え
 - floor_gain の最小値設定がないと暗転フレームでゲインが 5× 超に発散
+
+❌ 詰まったこと (2026-09-06 続き)
+- 暗部指摘 (「こういう部分が暗い」) に対して ae_probe 基準が光源・モヤに引きずられていた → 動体差分マスク (r_motion) で静止物を除外する方向へ
+- 肌色基準 (r_skin) も試みたが顔領域が小さいフレームで不安定な可能性あり
+- render_v3 は 2026-09-06 11:03 時点で実行中 (結果未確認)
 
 📋 次回同じことをするときのチェックリスト
 1. 事前確認: iPhone と FX30 の fps 差・タイムコード有無 → 音声クロス相関で同期オフセット算出 (multicam_audio_sync_crosscorrelation)

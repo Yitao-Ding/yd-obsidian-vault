@@ -3091,3 +3091,5 @@
 [2026-09-06 08:03] ai-researcher collect: raw=109 dedup=24 relevant=0 kept=0
 [2026-09-06 09:03] ai-researcher collect: raw=110 dedup=25 relevant=0 kept=0
 [2026-09-06 10:04] ai-researcher collect: raw=109 dedup=24 relevant=0 kept=0
+[2026-09-06 11:06] ai-researcher collect: raw=80 dedup=18 relevant=1 kept=0
+[2026-09-06 11:06] autosave(ittou): knowledge/filmmaking/neural_color_matching_pipeline.md (r_v6/r_skin/r_motion/fit10/fit12 手法追記)
