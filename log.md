@@ -3143,3 +3143,4 @@
 [2026-09-08 03:03] ai-researcher collect: raw=105 dedup=24 relevant=0 kept=0
 [2026-09-08 04:04] ai-researcher collect: raw=105 dedup=25 relevant=1 kept=1
 [2026-09-08 04:15] autosave(cc_company): 監査ジョブ失敗(モデル"fable[1m]"不存在) — 保存対象なし、log.mdのみ更新
+[2026-09-08 05:04] ai-researcher collect: raw=104 dedup=25 relevant=1 kept=1
