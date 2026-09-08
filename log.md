@@ -3162,3 +3162,4 @@
 - 2026-09-08 Insta360 X6 Essentials Bundle 購入。knowledge/filmmaking/gear.md を新規作成 (index から参照されていたが実体なし)。Tapul 撮影での 360 活用案あり
 [2026-09-08 23:09] ai-researcher collect: raw=105 dedup=25 relevant=2 kept=2
 [2026-09-09 00:04] ai-researcher collect: raw=107 dedup=26 relevant=1 kept=1
+[2026-09-09 01:05] ai-researcher collect: raw=109 dedup=30 relevant=3 kept=3
