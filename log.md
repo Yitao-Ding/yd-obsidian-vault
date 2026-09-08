@@ -3160,3 +3160,4 @@
 [2026-09-08 21:03] ai-researcher collect: raw=105 dedup=23 relevant=0 kept=0
 [2026-09-08 21:16] autosave(ittou): 保存対象なし (本セッション中に全件保存済み)
 - 2026-09-08 Insta360 X6 Essentials Bundle 購入。knowledge/filmmaking/gear.md を新規作成 (index から参照されていたが実体なし)。Tapul 撮影での 360 活用案あり
+[2026-09-08 23:09] ai-researcher collect: raw=105 dedup=25 relevant=2 kept=2
