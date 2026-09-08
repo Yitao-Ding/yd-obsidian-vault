@@ -3155,3 +3155,4 @@
 [2026-09-08 19:04] ai-researcher collect: raw=106 dedup=25 relevant=1 kept=1
 [2026-09-08 20:04] ai-researcher collect: raw=105 dedup=24 relevant=1 kept=1
 [2026-09-08 20:13] autosave(ittou): active_projects.md (ゆかやねん v4 レンダー中に更新)
+[2026-09-08 20:45] autosave(ittou): active_projects.md (ゆかやねん v5 完了・Extreme Pro 転送・ギガファイル便アップ中に更新)
