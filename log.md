@@ -3157,3 +3157,4 @@
 [2026-09-08 20:13] autosave(ittou): active_projects.md (ゆかやねん v4 レンダー中に更新)
 [2026-09-08 20:45] autosave(ittou): active_projects.md (ゆかやねん v5 完了・Extreme Pro 転送・ギガファイル便アップ中に更新)
 [2026-09-08 20:52] プペル ゆかやねん IMG2202 FX30match v5: 暗い場面 (96-100s 群舞 / 110s トップスポット / 164s) の人物を FX30 実測に合わせて持ち上げ。Extreme Pro 差し替え、ギガファイル便 https://23.gigafile.nu/1217-o2a6e2fd605816e7dcd11f9597311be89 (期限 2026-12-17)。README/active_projects/knowledge 更新
+[2026-09-08 21:03] ai-researcher collect: raw=105 dedup=23 relevant=0 kept=0
