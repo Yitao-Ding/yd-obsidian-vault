@@ -3202,3 +3202,5 @@
 [2026-09-10 02:05] ai-researcher collect: raw=107 dedup=31 relevant=3 kept=3
 [2026-09-10 02:27] autosave(inbox): decisions/2026-09-09_アマナ1day採用_自己PR構成と写真選定.md (v5追記), mistakes/claude_mistakes.md (E-4追加)
 [2026-09-10 03:04] ai-researcher collect: raw=105 dedup=28 relevant=2 kept=2
+
+- 2026-09-10 アマナ1day自己PR(5分): 軸「差をゼロにする」で構成決定、原稿v1作成 → knowledge/career/2026-09-10_amana_1day_jikoPR.md
