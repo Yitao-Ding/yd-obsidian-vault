@@ -1,4 +1,5 @@
 # Vault 操作ログ
+[2026-09-10 01:57] autosave(inbox): decisions/2026-09-09_アマナ1day採用_自己PR構成と写真選定.md 追記 (つかみ強化3案・最終稿v4の7技術・冒頭締め確定版)
 [2026-09-10 01:26] autosave(inbox): decisions/2026-09-09_アマナ1day採用_自己PR構成と写真選定.md 追記 (理念扱い・原稿v3変更点・写真プリント配布決定)
 [2026-09-10 00:54] autosave(inbox): decisions/2026-09-09_アマナ1day採用_自己PR構成と写真選定.md 新規 (自己PRキャッチ確定・写真3枚選定と順番・台本)
 [2026-09-10 00:23] autosave(inbox): knowledge/career/アマナ_1day採用_当日メモ.md 新規 (当日情報・最終面接想定QA)
