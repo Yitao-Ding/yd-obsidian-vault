@@ -3172,3 +3172,4 @@
 [2026-09-09 14:40] ai-researcher collect: raw=0 dedup=0 relevant=0 kept=0
 [2026-09-09 15:05] アマナ1day選考(9/10)の前日準備。YD方針=「主導権はYD、Claudeはサポートとリサーチ」。内蔵ドライブを実走査して手元の納品映像を確定(プペルOP 35.4秒 / エンドロール4K 3:53 は実在、長野「一匹でも」とJAMBOREE Lite OPは内蔵に無し)。active_projectsの「納品mp4消失」記述を訂正。アマナ側を追加調査(3年ぶりのP新卒採用・2024年経営陣交代・ビジョン「世界にノイズと美意識を」・2026年の主戦場は生成AI: AI Creative Architecture / らしさAI / GreatRIVER AI STUDIO)。準備ノートをArtifact公開 https://claude.ai/code/artifact/367b0f26-3839-4b80-b461-71373cc97f19 。就活_応募状況ボード.md / active_projects.md 更新
 [2026-09-09 15:10] ai-researcher collect: raw=111 dedup=58 relevant=8 kept=8
+[2026-09-09 15:40] アマナの経営理念を一次情報から確定。knowledge/career/アマナ_経営理念.md 新規 (3階建ての理念全文、ノイズ/美意識の定義、求人票の人物像7項目との対応表、必須3セクション)。代表者名の誤りを訂正 (金子祐亮→金子剛章、2023-12-28就任)。就活_応募状況ボード.md に訂正と理念サマリを追記
