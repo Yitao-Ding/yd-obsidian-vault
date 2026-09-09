@@ -3170,3 +3170,4 @@
 [2026-09-09 12:07] ai-researcher collect: raw=77 dedup=25 relevant=5 kept=5
 [2026-09-09 13:10] ai-researcher collect: raw=108 dedup=59 relevant=8 kept=8
 [2026-09-09 14:40] ai-researcher collect: raw=0 dedup=0 relevant=0 kept=0
+[2026-09-09 15:05] アマナ1day選考(9/10)の前日準備。YD方針=「主導権はYD、Claudeはサポートとリサーチ」。内蔵ドライブを実走査して手元の納品映像を確定(プペルOP 35.4秒 / エンドロール4K 3:53 は実在、長野「一匹でも」とJAMBOREE Lite OPは内蔵に無し)。active_projectsの「納品mp4消失」記述を訂正。アマナ側を追加調査(3年ぶりのP新卒採用・2024年経営陣交代・ビジョン「世界にノイズと美意識を」・2026年の主戦場は生成AI: AI Creative Architecture / らしさAI / GreatRIVER AI STUDIO)。準備ノートをArtifact公開 https://claude.ai/code/artifact/367b0f26-3839-4b80-b461-71373cc97f19 。就活_応募状況ボード.md / active_projects.md 更新
