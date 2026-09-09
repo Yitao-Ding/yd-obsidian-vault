@@ -1,4 +1,5 @@
 # Vault 操作ログ
+[2026-09-10 00:23] autosave(inbox): knowledge/career/アマナ_1day採用_当日メモ.md 新規 (当日情報・最終面接想定QA)
 [2026-09-09 23:52] autosave(inbox): knowledge/career/アマナ_経営理念.md 追記 (PD職「営業寄り」訂正・75%は売上構成の注記・面接対応方針)
 [2026-09-09 23:21] autosave(inbox): knowledge/career/アマナ_経営理念.md 追記 (PD職採用詳細 note記事: HR担当・3年ぶり採用・75%/25%比率・先輩の声)
 [2026-09-09 22:48] autosave(inbox): knowledge/career/アマナ_志望動機素材.md 追記 (キャッチコピー確定・7項目方針・尺調整), mistakes/claude_mistakes.md 追記 (C-5: 言い換え依頼に構成論で返す)
