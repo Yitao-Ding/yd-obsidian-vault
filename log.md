@@ -3198,3 +3198,4 @@
 - 2026-09-09 アマナ自己PR通し原稿(約1,650字)をチャットで確定。冒頭「感動を減らさない人」、アー写3枚全画面、Salamatはつながり動機+行動、締めは理念キーワード+「人と一緒に何かをつくることにワクワク」。スライド4枚(一言+写真3)。YD指示: 成果物はチャットに書く、HTML/MD化しない
 - 2026-09-09 アマナ自己PRスライド(4枚、黒背景、一言+写真3枚)を作成 → ~/Downloads/アマナプレゼン資料/amana_selfPR.pptx
 [2026-09-10 01:03] ai-researcher collect: raw=108 dedup=31 relevant=0 kept=0
+[2026-09-10 02:05] ai-researcher collect: raw=107 dedup=31 relevant=3 kept=3
