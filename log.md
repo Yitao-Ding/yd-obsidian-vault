@@ -3178,3 +3178,4 @@
 [2026-09-09 17:10] アマナ志望動機の素材をYDが全部書き出し、整形。knowledge/career/アマナ_志望動機素材.md 新規。最大の修正=「制作に没頭すると新しいものに排他的になる」という技術職を下げる論法を撤去し、つくる側と頼む側の両方の言葉を持っているという立て方に変更。未使用の強い実績2件(納期8日前倒し / ゆかやねんの±10%翻訳)を指摘。準備ノートArtifactに「志望動機の言い直し」節を追加
 [2026-09-09 17:34] ai-researcher collect: raw=20 dedup=1 relevant=0 kept=0
 [2026-09-09 18:10] ai-researcher collect: raw=111 dedup=48 relevant=8 kept=8
+[2026-09-09 19:08] ai-researcher collect: raw=111 dedup=42 relevant=8 kept=8
