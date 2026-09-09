@@ -3190,3 +3190,4 @@
 [2026-09-09 22:04] ai-researcher collect: raw=110 dedup=33 relevant=1 kept=1
 - 2026-09-09 アマナ 1day採用(プロデューサー職)一次選考の自己PR5分原稿を添削・再構成。原稿は inbox/2026-09-09_amana_1day採用_自己PR原稿.md。面接は 09-10
 [2026-09-09 23:05] ai-researcher collect: raw=111 dedup=35 relevant=3 kept=3
+[2026-09-10 00:05] ai-researcher collect: raw=111 dedup=35 relevant=2 kept=2
