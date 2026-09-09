@@ -3180,4 +3180,4 @@
 [2026-09-09 18:10] ai-researcher collect: raw=111 dedup=48 relevant=8 kept=8
 [2026-09-09 19:08] ai-researcher collect: raw=111 dedup=42 relevant=8 kept=8
 [2026-09-09 20:04] ai-researcher collect: raw=110 dedup=34 relevant=1 kept=1
-[2026-09-09 20:30] バスーラの家 (四ノ宮浩監督のマニラ・トンド支援拠点) を調査。knowledge/arte_grow/basura_house_四ノ宮浩.md 新規、HTML レポート basura_house_research.html を Cowork で出力。公式情報は 2011〜2017 で止まっており現況は要問い合わせ
+[2026-09-09 20:30] バスーラの家 (四ノ宮浩監督のマニラ・トンド支援拠点) を調査。knowledge/arte_grow/basura_house_四ノ宮浩.md 新規、HTML レポート basura_house_research.html を Cowork で出力。公式情報は 2011〜2017 で止まっており現況は要問い合わせ[2026-09-09 20:40] YD指示「質問の回答はチャットに直接、htmlやめて」→ identity/preferences.md の成果物形式ルールを改定 (HTMLは明示依頼時のみ)。メモリ側も同期
