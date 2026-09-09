@@ -3207,3 +3207,4 @@
 
 - 2026-09-10 アマナ1day自己PR(5分): 軸「差をゼロにする」で構成決定、原稿v1作成 → knowledge/career/2026-09-10_amana_1day_jikoPR.md
 [2026-09-10 04:07] ai-researcher collect: raw=106 dedup=29 relevant=3 kept=3
+[2026-09-10 05:04] ai-researcher collect: raw=109 dedup=29 relevant=1 kept=1
