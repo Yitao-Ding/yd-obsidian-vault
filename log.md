@@ -3181,3 +3181,4 @@
 [2026-09-09 19:08] ai-researcher collect: raw=111 dedup=42 relevant=8 kept=8
 [2026-09-09 20:04] ai-researcher collect: raw=110 dedup=34 relevant=1 kept=1
 [2026-09-09 20:30] バスーラの家 (四ノ宮浩監督のマニラ・トンド支援拠点) を調査。knowledge/arte_grow/basura_house_四ノ宮浩.md 新規、HTML レポート basura_house_research.html を Cowork で出力。公式情報は 2011〜2017 で止まっており現況は要問い合わせ[2026-09-09 20:40] YD指示「質問の回答はチャットに直接、htmlやめて」→ identity/preferences.md の成果物形式ルールを改定 (HTMLは明示依頼時のみ)。メモリ側も同期[2026-09-09 21:03] ai-researcher collect: raw=110 dedup=33 relevant=0 kept=0
+[2026-09-09 18:00] アマナ志望動機の続き。YDの「会社に貢献できることがない」という前提を実績リストで否定(納品完了・8日前倒し・279名テロップ・±10%翻訳・260名運営・アクティブ率20→50%・Bitaw)。〇〇力は事実を先に言って最後に名前をつける順に、理念一致は共感の表明でなく行動で示す、という原則を整理。Appleのグループデモの中身をapple_specialist_resume.md/interview_prep.mdから抽出(5分→15分、3→5テーマ、目的は同じで伝わり方を変えた)、集客数2倍は不使用ルールにより除外。志望動機ノートのAppleとクリエイティブ経験の穴を埋めた
