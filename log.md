@@ -3257,3 +3257,4 @@
 [2026-09-12 04:12] autosave(cc_company): 保存対象なし (セッションはモデルエラー "fable[1m]" で即失敗、会話なし)
 [2026-09-12 05:04] ai-researcher collect: raw=107 dedup=30 relevant=1 kept=1
 [2026-09-12 06:03] ai-researcher collect: raw=108 dedup=29 relevant=0 kept=0
+[2026-09-12 07:04] ai-researcher collect: raw=107 dedup=29 relevant=1 kept=1
