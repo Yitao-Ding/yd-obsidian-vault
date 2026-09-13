@@ -3289,3 +3289,4 @@
 [2026-09-14 02:05] ai-researcher collect: raw=108 dedup=29 relevant=1 kept=1
 [2026-09-14 03:06] ai-researcher collect: raw=106 dedup=29 relevant=1 kept=1
 [2026-09-14 03:35] 平成たち祭ダイジェスト サムネイル3案を Claude Design キャンバスで作成 (A シネマ=縦組み明朝 推奨 / B 平成文化祭=珊瑚+紺の学級新聞風 / C YouTube強=縁取り太字)。素材226本から各2〜3フレーム全数目視→0U4A2708/2706/A016C056 を1秒刻み精査、C-Log3 は自作LUT (clog3_709_v2.cube: CinemaGamut→709 + 彩度72%) で709化。https://claude.ai/code/artifact/530607e4-68ac-413f-8bdd-57236cfea345
+[2026-09-14 03:49] autosave(scratch-2026-09-13-ca6933): current_state/active_projects.md (平成たち祭サムネB案決定・ハイミーコナン衣装追記)
