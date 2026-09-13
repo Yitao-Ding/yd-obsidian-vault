@@ -3299,3 +3299,4 @@
 [2026-09-14 06:01] ai-researcher weekly: 2026-W37.md (top 10)
 [2026-09-14 06:04] ai-researcher collect: raw=76 dedup=17 relevant=0 kept=0
 [2026-09-14 07:06] ai-researcher collect: raw=80 dedup=21 relevant=2 kept=2
+[2026-09-14 08:03] ai-researcher collect: raw=80 dedup=19 relevant=0 kept=0
