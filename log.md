@@ -1,4 +1,5 @@
 # Vault 操作ログ
+[2026-09-13 15:16] autosave(cc_company): 保存対象なし (cc_company監査ジョブがモデルエラー "fable[1m]" で即時失敗、実質的な作業なし)
 [2026-09-11 04:10] autosave(cc_company): 保存対象なし (cc_company監査ジョブがモデルエラー "fable[1m]" で即時失敗、実質的な作業なし)
 [2026-09-10 04:02] autosave(cc_company): 保存対象なし (セッション内容: cc_company監査ジョブがモデルエラー "fable[1m]" で即時失敗、実質的な作業なし)
 [2026-09-10 03:30] autosave(inbox): decisions/2026-09-09_アマナ1day採用_自己PR構成と写真選定.md 追記 (写真位置づけ修正・v7 Salamat主役・締め一言確定)
