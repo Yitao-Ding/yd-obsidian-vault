@@ -3325,3 +3325,4 @@
 [2026-09-15 02:07] ai-researcher collect: raw=79 dedup=23 relevant=5 kept=5
 [2026-09-15 02:12] Notion コネクタ有効化を確認。接続先は s14102302553@toyo.jp の「Arte Grow」ワークスペース。Vault記録の重要ID3件 (539af299 / 88caf299 / 33baf299) は全て404 = 別ワークスペースのものと判明。profile.md の Notion セクションを実測値で全面更新 (旧版 archive/_versions/2026-09-15_profile.md)
 [2026-09-15 03:05] ai-researcher collect: raw=79 dedup=18 relevant=1 kept=1
+[2026-09-15 03:35] Notion「Grow me:) 9月フィリピン計画」の先頭に日程表DBを新設 (17件、テーブル+ギャラリーの2ビュー、ページカバーはUnsplash)。確定は Dela Chambre / Hotel Asia / Project PEARLS の3件のみ、スクショで読めなかった5件は「要確認」。決定は decisions/2026-09-15_フィリピン日程表DB作成.md
