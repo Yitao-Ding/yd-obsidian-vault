@@ -124,7 +124,7 @@ Cowork は「組織に入っているコネクタ」と「このチャットで�
 2026-09-15 02:00 時点の実測:
 
 - このチャットで有効: Canva / Figma / Gmail / Goodnotes / Google Calendar / Google Drive / Zoom
-- **Notion は無効** (installState: unknown / enabledInChat: false)。ツール一覧に `mcp__Notion__*` が存在しない。使うにはこのチャットのコネクタ設定で ON にし、恐らく再認証も要る
+- **Notion は 02:10 に YD が ON にして有効化済み** (それまでは enabledInChat: false でツールが一切無かった)。接続先は toyo.jp アカウントの「Arte Grow」ワークスペース。詳細と到達可能なページ/DBは [[profile]] の Notion セクション参照
 - artlist / Miro: needs_reconnect (認証切れ)
 - Microsoft 365: unknown / 無効
 - デバイスブリッジ経由で Desktop Commander は使える (`/Users/ittou/` 配下フルアクセス、Vault 読み書き可)
