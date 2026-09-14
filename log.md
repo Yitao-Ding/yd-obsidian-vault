@@ -3321,3 +3321,4 @@
 [2026-09-15 01:15] ai-researcher collect: raw=76 dedup=25 relevant=8 kept=5
 [2026-09-15 01:19] autosave(平成たち祭定点): 平成たち祭定点15本をナンバーリネーム→Gigafile個別アップロード実行中 (1/15完了時点でセッション保存)
 [2026-09-15 01:40] 平成たち祭 vol.2 定点納品: 15本を影アナwhisper照合でナンバー名リネーム → ギガファイル便100日で1本1リンク、全件サイズ検証OK。一覧 ~/Downloads/平成たち祭定点/納品リンク一覧.txt、知見を gigafile_cli_delivery.md に追記
+[2026-09-15 02:03] Cowork セッション起動・Vault読込。コネクタ実測: Notion はこのチャットで無効 (enabledInChat: false)、Canva/Figma/Gmail/Goodnotes/GCal/GDrive/Zoom は有効、artlist/Miro は認証切れ。tools_available.md に Cowork セクション追加

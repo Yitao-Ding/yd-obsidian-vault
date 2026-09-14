@@ -117,6 +117,20 @@ claude
 ### Manus
 - 引き継ぎドキュメント経由
 
+## ☁️ Cowork (クラウドセッション) — 2026-09-15 実測
+
+Cowork は「組織に入っているコネクタ」と「このチャットで有効なコネクタ」が別物。ListConnectors で毎回確認する。
+
+2026-09-15 02:00 時点の実測:
+
+- このチャットで有効: Canva / Figma / Gmail / Goodnotes / Google Calendar / Google Drive / Zoom
+- **Notion は無効** (installState: unknown / enabledInChat: false)。ツール一覧に `mcp__Notion__*` が存在しない。使うにはこのチャットのコネクタ設定で ON にし、恐らく再認証も要る
+- artlist / Miro: needs_reconnect (認証切れ)
+- Microsoft 365: unknown / 無効
+- デバイスブリッジ経由で Desktop Commander は使える (`/Users/ittou/` 配下フルアクセス、Vault 読み書き可)
+
+「Notion 常時接続中」は claude.ai デスクトップアプリ前提の記述。Cowork では前提にしない。
+
 ## ⚠️ 注意事項
 
 ### Claudeがやりがちなミス
