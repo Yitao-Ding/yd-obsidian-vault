@@ -3330,3 +3330,4 @@
 [2026-09-15 03:50] 日程表の写真を実写に差し替え (Dela Chambre 公式 / フィリピン政府観光省のサンチャゴ要塞 / Project PEARLS 公式 / Hotel Asia 公式 / CEC のセブのゴミ山)。ギャラリーのカードプレビュー対策で全17ページの本文先頭にも画像ブロックを挿入。設計図の manila / Cebu ページに日程表のリンクドビュー (都市でフィルタ、ギャラリー+テーブル) を追加。フライト3件の都市を移動→マニラ/セブに変更
 [2026-09-15 04:20] LINE「じじばばGrowMe」全ログ + 8/7・8/25 のGemini議事録2本を読み、Notion 日程表19件を全面改訂。CFA=Children of the Future Alliance と判明、9/27=セルマ+ダンススタジオ / 9/28=ルンバニ+ダンススタジオ に確定、Hotel Asia を 9/26-10/1 に修正、リゾートとCFA泊を確定に変更、Fairplay for All と「ジブリのような街」を候補として追加。知見は knowledge/arte_grow/2026-09_フィリピン渡航.md
 [2026-09-15 04:04] ai-researcher collect: raw=80 dedup=18 relevant=0 kept=0
+[2026-09-15 05:00] CFA の正体を訂正: Christ for Asia International (CFAI)。YD の Messenger (Control Chrome 経由) の「JapaneseVisitors- Oct.1-3,2026」を読み、宿泊条件・食事・10/3 4:00 AM 発と 0:30 出発・見積もり未着・Manuel 未返信を Notion 3件と knowledge に反映。ミスを mistakes/claude_mistakes.md に記録

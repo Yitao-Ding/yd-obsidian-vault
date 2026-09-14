@@ -1311,3 +1311,8 @@ YD の「なんかめっちゃ音小さくない?」に対して、測定前に�
 - 何をした: 自己PRの通し原稿を、体言止め・整った並列・決め台詞の多い書き言葉で書いた
 - 何が問題: YDから「AIっぽさがにじみ出て気持ち悪い」と指摘。面接でしゃべる原稿は話し言葉でないと本人の言葉にならない
 - 再発防止: 口頭原稿は「〜なんです」「〜で、」でつなぐ話し言葉で書く。文の長さをばらす。体言止めとスローガン調を避ける。YDが実際に使う言い回しを先に聞いて口調を合わせる
+
+## 2026-09-15 CFA を「Children of the Future Alliance」と断定した #hallucination
+- 何をした: 8/7 の Gemini 議事録に「CFA（チルドレン・オブ・ザ・フューチャー・アライアンス）」とあったのをそのまま採用し、Notion 日程表と Vault に書いた
+- 何が問題: 正しくは Christ for Asia International (christforasia.info)。Salamat が代々世話になっている団体で、YD の Messenger にはグループ「JapaneseVisitors- Oct.1-3,2026」と「CFA × Salamat 17th」があり、Rose (Rudimrose Mejares) と Lea とのやり取りに全部書いてあった。AI が書き起こした固有名詞を一次情報に当たらず信じた。YD から「違います」「モッかいちゃんと調べろ」と指摘
+- 再発防止: 議事録の固有名詞、特に略称の展開は文字起こしの誤りが起きやすい。団体名は公式サイトか本人のメッセージで裏を取る。YD が Salamat で関わった団体なら Messenger のスレッドを先に検索する。Chrome は claude-in-chrome 拡張が落ちていても Control Chrome (デバイスブリッジ) で開ける
