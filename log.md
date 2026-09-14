@@ -3307,3 +3307,4 @@
 [2026-09-14 11:40] 平成たち祭サムネ: YD「どっちも書き出し」→ 黒ブレザー2人組版 (0U4A2711 69.5s) と 青ブレザー+赤蝶ネクタイ版 (0U4A2713 45.0s) の2枚を1280x720 PNGで納品。キャンバスは page-1 に両版を並べて更新
 [2026-09-14 12:05] ai-researcher collect: raw=76 dedup=18 relevant=3 kept=3
 [2026-09-14 12:07] 平成たち祭: ダイジェスト 04_2min_v3_chrono.mp4 (896MB) + サムネ2枚をギガファイル便 100日でまとめ発行 https://19.gigafile.nu/1223-083cd05263ed767cac751bc16f87d254 (期限 2026-12-23、削除キー a18d、gfup.py 転用・3ファイル検証OK)
+[2026-09-14 13:13] ai-researcher collect: raw=45 dedup=12 relevant=0 kept=0
