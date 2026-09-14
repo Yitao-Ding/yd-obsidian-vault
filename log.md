@@ -3303,3 +3303,4 @@
 [2026-09-14 09:04] ai-researcher collect: raw=80 dedup=19 relevant=0 kept=0
 [2026-09-14 10:03] ai-researcher collect: raw=79 dedup=18 relevant=0 kept=0
 [2026-09-14 11:06] ai-researcher collect: raw=79 dedup=20 relevant=2 kept=2
+[2026-09-14 11:40] 平成たち祭サムネ: YD「どっちも書き出し」→ 黒ブレザー2人組版 (0U4A2711 69.5s) と 青ブレザー+赤蝶ネクタイ版 (0U4A2713 45.0s) の2枚を1280x720 PNGで納品。キャンバスは page-1 に両版を並べて更新
