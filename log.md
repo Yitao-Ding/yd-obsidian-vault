@@ -3332,3 +3332,4 @@
 [2026-09-15 04:04] ai-researcher collect: raw=80 dedup=18 relevant=0 kept=0
 [2026-09-15 05:00] CFA の正体を訂正: Christ for Asia International (CFAI)。YD の Messenger (Control Chrome 経由) の「JapaneseVisitors- Oct.1-3,2026」を読み、宿泊条件・食事・10/3 4:00 AM 発と 0:30 出発・見積もり未着・Manuel 未返信を Notion 3件と knowledge に反映。ミスを mistakes/claude_mistakes.md に記録
 [2026-09-15 05:09] ai-researcher collect: raw=110 dedup=49 relevant=8 kept=8
+[2026-09-15 06:11] ai-researcher collect: raw=110 dedup=42 relevant=8 kept=8
