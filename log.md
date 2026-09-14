@@ -3311,3 +3311,4 @@
 [2026-09-14 13:26] autosave(scratch-2026-09-13-ca6933): 保存対象なし (log.md / active_projects.md は当該セッション内で保存済み)
 [2026-09-14 15:05] ai-researcher collect: raw=0 dedup=0 relevant=0 kept=0
 [2026-09-14 16:07] ai-researcher collect: raw=66 dedup=17 relevant=3 kept=3
+[2026-09-14 17:06] ai-researcher collect: raw=67 dedup=16 relevant=1 kept=1
