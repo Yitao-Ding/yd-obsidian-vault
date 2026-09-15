@@ -125,9 +125,3 @@ YD指示「AIの出力は全部がうるさい、引き算を知らない」「�
 - 英語: em dash (—) 禁止。delve / leverage / robust / seamless / comprehensive 等のAI語彙禁止。"not just X, but Y" 禁止
 - 書き終えたら装飾・前置き・重複を2割削ってから出す
 - スキル本体: `~/.claude/skills/hikizan/SKILL.md` (Claude Code) / Cowork・Appはアカウントスキル「hikizan」
-
-### ★ モデルの使い分け (2026-09-16 YD指示、常時適用)
-YD「fable の使用量を抑えてほしい。シンプルタスクや実装などは Opus 以下のモデルにやらせて。頭使う系だけ Fable やって」。
-- Claude Code のメインセッションが Fable のときも、サブエージェント / Workflow のエージェントは既定で `model: 'opus'` (単純な確認・反証・整形・機械チェックは `'sonnet'`) を指定する。Fable に残すのは設計判断・根本原因の切り分け・仕様の解釈のような「頭を使う」部分だけ
-- 実装 (スクリプト書き、ビルド、GUI 操作の手順実行、ドキュメント整形、Vault 転記) は Opus に振る
-- Workflow を組むときは agent() の opts に model を明示する (省略すると親 = Fable を継承してしまう)
