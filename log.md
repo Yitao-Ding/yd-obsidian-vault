@@ -3350,3 +3350,5 @@
 [2026-09-15 17:20] Notion 設計図の manila / Cebu ページに「支援団体」(関係あり / 検討中、リンク付き)、ダンス ページに「ダンススタジオ」(Knapsack / G-force / Encore Blvd / 市営スポーツセンター) を追記。Manuel から返信あり (10/1-2 在セブ、寄付は現金でもUSD口座でも可)、返信案を作成
 [2026-09-15 17:09] ai-researcher collect: raw=81 dedup=23 relevant=5 kept=5
 [2026-09-15 17:22] autosave(scratch-2026-09-15-567c03): 保存対象なし (セッション内で disk_cleanup.md + log.md 保存済み)
+[2026-09-15 18:04] ai-researcher collect: raw=80 dedup=19 relevant=1 kept=1
+- 2026-09-15 Notion To do「CFA 代表」「リゾート関連」に進捗を記入 (Messenger の Rose/Lea、Manuel、Mitzi スレッド参照)。リゾートは未予約、Mitzi の返信待ち。イントラムロス行の「ジブリのような街」は裏取りのみで編集は戻した (#drift 記録済み)。
