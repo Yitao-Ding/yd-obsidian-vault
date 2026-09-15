@@ -3401,3 +3401,4 @@
 [2026-09-16 04:10] ai-researcher collect: raw=100 dedup=43 relevant=8 kept=8
 [2026-09-16 04:56] autosave(ittou): 保存対象なし (log.md/knowledge/gdrive_backup_audit.md/mistakes A-25 はセッション内(eb58e196)で保存済み)
 [2026-09-16 05:10] ai-researcher collect: raw=110 dedup=37 relevant=8 kept=8
+[2026-09-16 06:56] ai-researcher collect: raw=0 dedup=0 relevant=0 kept=0
