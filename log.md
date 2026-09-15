@@ -1,4 +1,5 @@
 # Vault 操作ログ
+[2026-09-15 23:45] autosave(ハタチたち説明会_座談会): active_projects.md 更新 (ハタチたち名称統一完了32箇所・座談会顔検出実行中)
 [2026-09-15 21:01] autosave(ハタチたち説明会_座談会): decisions/2026-09-15_ハタチたち説明会座談会_合体動画構成決定.md 新規
 [2026-09-15 20:31] autosave(ハタチたち説明会_座談会): 保存対象なし (19:59-20:06 区間の内容はセッション内 20:06 に保存済み: decisions/2026-09-15_ハタチたち5説明会動画_FCP自動編集.md / knowledge/filmmaking/fcpxml_auto_edit_pipeline.md / active_projects.md)
 [2026-09-15 19:59] autosave(ハタチたち説明会_座談会): decisions/2026-09-15_ハタチたち5説明会_4K60p化.md 新規, knowledge/filmmaking/fcpxml_auto_edit_pipeline.md 追記 (4K対応), active_projects.md 更新 (4K v2 読み込み済み)
