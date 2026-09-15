@@ -3359,3 +3359,4 @@
 - 2026-09-15 Shorts の投稿先は「じじばば」名義 (YD 決定)。プラットフォーム・ハンドルは未確認。ダンス対決ページのプロパティ落ちを修正
 [2026-09-15 19:05] Grow me:) Tシャツを YD 指摘 (文字の見切れ、繋ぎ合わせではなくリメイク) でベクター描き直し。4案再公開 (同URL v2)、印刷データ更新 ~/AI projects/GrowMe-Tshirt/print/、正本 work/gen.py。decisions/2026-09-15_GrowMe_Tシャツデザイン案.md を書き換え (旧版は archive/_versions/)
 [2026-09-15 19:00] ハタチたち5 説明会動画 (平成たち祭vol.2 A027C007 10:52) を FCPXML 自動生成で編集し FCP ライブラリ 26.9.15~ に「ハタチたち5 説明会 v5」として納品。whisper→カット→YuNet顔追従→Canva PNG/MP4→FCPXML v1〜v5 (position単位1080/100・静止画キーフレーム属性・空間適合なし無効・FCPウインドウ無し起動の4罠)。知見 knowledge/filmmaking/fcpxml_auto_edit_pipeline.md、決定 decisions/2026-09-15_ハタチたち5説明会動画_FCP自動編集.md
+[2026-09-15 19:25] Grow me:) Tシャツ: YD 指示でスマイルをレンズから e に移動 (Hi,Me の e が顔)。レンズは普通のレンズに。キャンバス v3 再公開、印刷データと work/ を更新。decisions/2026-09-15_GrowMe_Tシャツデザイン案.md に追記
