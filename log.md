@@ -3374,3 +3374,5 @@
 [2026-09-15 19:55] CFAI 請求書の費用内訳 (1人あたり・円換算・エアコン要確認) を Notion 日程表「CFAI ゲストハウス泊」の本文と事前メモに記入
 [2026-09-15 21:55] 座談会 C008 の話題マップ (16 話題、価値スコア、引用候補、話者推定) を _FCP納品/座談会_話題マップ.md に保存。YD の座談会指示待ち
 [2026-09-15 21:33] autosave(ハタチたち説明会_座談会): current_state/active_projects.md (構成v2完成・座談会マップ完成に更新)
+[2026-09-15 22:35] ai-researcher collect: raw=0 dedup=0 relevant=0 kept=0
+[2026-09-15 23:28] ai-researcher collect: raw=45 dedup=12 relevant=0 kept=0
