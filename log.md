@@ -1,4 +1,5 @@
 # Vault 操作ログ
+[2026-09-15 17:54] autosave(ハタチたち説明会_座談会): decisions/2026-09-15_ハタチたち説明会_編集スタイル決定.md 新規, active_projects.md 更新 (Apple発表会スタイル・Canva PiP・進捗)
 [2026-09-15 17:22] autosave(ハタチたち説明会_座談会): active_projects.md (ハタチたち説明会&座談会 編集着手エントリ追加)
 [2026-09-15 16:51] autosave(scratch-2026-09-15-567c03): knowledge/programming/tools/disk_cleanup.md に2026-09-15の調査結果を追記 (Google Drive 201GB・Claude vm_bundles 13GB 等の新発見、YD承認削除リスト)
 [2026-09-15 01:50] autosave(平成たち祭定点): 保存対象なし (全15本ギガファイル便アップロード完了。Vault保存はセッション内 01:37 に実施済み)
