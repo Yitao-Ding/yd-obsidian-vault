@@ -3344,3 +3344,4 @@
 [2026-09-15 14:08] ai-researcher collect: raw=81 dedup=24 relevant=5 kept=5
 [2026-09-15 15:04] ai-researcher collect: raw=81 dedup=20 relevant=1 kept=1
 [2026-09-15 16:30] ai-researcher collect: raw=0 dedup=0 relevant=0 kept=0
+[2026-09-15 16:45] Mac内蔵SSD整理: システムデータ内キャッシュ削除 + snapshot thin で 152GB→313GB (+161GB)。Hasselblad RAW 24GB と Google Drive ミラー 201GB は保留 → disk_cleanup.md 追記
