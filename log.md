@@ -3361,3 +3361,4 @@
 [2026-09-15 19:00] ハタチたち5 説明会動画 (平成たち祭vol.2 A027C007 10:52) を FCPXML 自動生成で編集し FCP ライブラリ 26.9.15~ に「ハタチたち5 説明会 v7」として納品。whisper→カット→YuNet顔追従→Canva PNG/MP4→FCPXML v1〜v7 (position単位1080/100・静止画キーフレーム属性・空間適合なし無効・FCPウインドウ無し起動の4罠)。知見 knowledge/filmmaking/fcpxml_auto_edit_pipeline.md、決定 decisions/2026-09-15_ハタチたち5説明会動画_FCP自動編集.md
 [2026-09-15 19:25] Grow me:) Tシャツ: YD 指示でスマイルをレンズから e に移動 (Hi,Me の e が顔)。レンズは普通のレンズに。キャンバス v3 再公開、印刷データと work/ を更新。decisions/2026-09-15_GrowMe_Tシャツデザイン案.md に追記
 [2026-09-15 19:05] ai-researcher collect: raw=80 dedup=19 relevant=1 kept=1
+[2026-09-15 19:12] 同上: 最終は v7 (丸窓を 1920x1080 透過素材に変更・字幕26字折返し・エンドカード上部)。FCP ライブラリ 26.9.15~ の検証用イベント v3〜v6 と未登録フォルダ v1/v2 は YD 側で削除可
