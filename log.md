@@ -1,4 +1,5 @@
 # Vault 操作ログ
+[2026-09-16 02:55] autosave(ハタチたち説明会_座談会): 保存対象なし (v6_v3完成・HANDOVER/README/SRT/decisions/active_projects はセッション内02:53に保存済み)
 [2026-09-16 02:22] autosave(ハタチたち説明会_座談会): active_projects.md 更新 (v5完了・FCP確認済・round-2監査3件・v6ビルド中), fcpxml_auto_edit_pipeline.md (59.94p NDF TC計算式追記)
 [2026-09-16 01:50] autosave(ハタチたち説明会_座談会): active_projects.md 更新 (v5ワークフロー起動中 / Fable使い分け指示はpreferences.mdに保存済み)
 [2026-09-16 01:19] autosave(ハタチたち説明会_座談会): active_projects.md 更新 (v4完成・4エージェント監査中・FCP承認済み)
@@ -3394,3 +3395,4 @@
 [2026-09-16 02:50] ハタチたち5 説明会 構成v6_v2 完成。v3 の残存不良 (言い直し採用・言いかけ・境界断片15・丸窓の偽陽性17%) を別エージェント監査 → 反証 → 判定で2周潰し、丸窓修正素材4本を4K原本から焼き直し。本編6:22.2+エンドカード6秒、ショット48/字幕28/丸窓28、DTD・構造チェック OK。YouTube 用 SRT 95件、HANDOVER.md と _FCP納品/README.md を全面書き直し。v6_v2 の FCP 読み込み確認中
 [2026-09-16 02:45] YITAO HDD → Extreme pro: プペル/ゆかやねんNumber 映像9本 13GB コピー完了 (サイズ照合OK)。続けてHDD+Extreme全体のGoogle Driveバックアップ監査を実施 (25,438ファイル/3,931GB を Drive 26,192ファイルと名前+サイズで突合)。未バックアップ2,450GB (重複293GB除くと2,157GB) に対しDrive空き1,715GB。台湾旅の動画622GBのみ除外して1,530GBのアップロードを開始。有線LANが100baseTXリンクで頭打ち (9.5MiB/s) と判明、完走見込み約45時間。
 [2026-09-16 02:53] ハタチたち5 説明会 構成v6_v3 完成・FCP 読み込み実画確認済 (Opus 担当)。監査2周 (51+22件) → v4/v5/v6 で全対応。引き継ぎ HANDOVER.md / README / SRT 95件 / decisions 1件 / knowledge 追記。YD 判断待ち 9 件を HANDOVER に記載
+[2026-09-16 02:54] autosave(ittou): 保存対象なし (log.md/gdrive_backup_audit.md/mistakes A-25 はセッション内保存済み)
