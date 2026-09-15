@@ -1,4 +1,6 @@
 # Vault 操作ログ
+[2026-09-16 00:48] autosave(ハタチたち説明会_座談会): active_projects.md 更新 (v4準備: cuts_v4.json / wrap_ja2.py / pip_validate2 / edge_listen2)
+[2026-09-16 00:48] autosave(ハタチたち説明会_座談会): 保存対象なし (00:18-00:20 区間はセッション内 00:45 に保存済み)
 [2026-09-16 00:16] autosave(ハタチたち説明会_座談会): mistakes/claude_mistakes.md 追記 (動画QC未実施), active_projects.md 更新 (説明会v3修正ビルド中)
 [2026-09-15 23:45] autosave(ハタチたち説明会_座談会): active_projects.md 更新 (ハタチたち名称統一完了32箇所・座談会顔検出実行中)
 [2026-09-15 21:01] autosave(ハタチたち説明会_座談会): decisions/2026-09-15_ハタチたち説明会座談会_合体動画構成決定.md 新規
