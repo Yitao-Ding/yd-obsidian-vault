@@ -1,4 +1,5 @@
 # Vault 操作ログ
+[2026-09-16 02:22] autosave(ハタチたち説明会_座談会): active_projects.md 更新 (v5完了・FCP確認済・round-2監査3件・v6ビルド中), fcpxml_auto_edit_pipeline.md (59.94p NDF TC計算式追記)
 [2026-09-16 01:50] autosave(ハタチたち説明会_座談会): active_projects.md 更新 (v5ワークフロー起動中 / Fable使い分け指示はpreferences.mdに保存済み)
 [2026-09-16 01:19] autosave(ハタチたち説明会_座談会): active_projects.md 更新 (v4完成・4エージェント監査中・FCP承認済み)
 [2026-09-16 00:48] autosave(ハタチたち説明会_座談会): active_projects.md 更新 (v4準備: cuts_v4.json / wrap_ja2.py / pip_validate2 / edge_listen2)
