@@ -1,4 +1,5 @@
 # Vault 操作ログ
+[2026-09-15 16:51] autosave(scratch-2026-09-15-567c03): knowledge/programming/tools/disk_cleanup.md に2026-09-15の調査結果を追記 (Google Drive 201GB・Claude vm_bundles 13GB 等の新発見、YD承認削除リスト)
 [2026-09-15 01:50] autosave(平成たち祭定点): 保存対象なし (全15本ギガファイル便アップロード完了。Vault保存はセッション内 01:37 に実施済み)
 [2026-09-14 11:57] autosave(scratch-2026-09-13-ca6933): 保存対象なし (平成たち祭サムネ2枚納品の続き、log.md/active_projects.mdは会話内で保存済み)
 [2026-09-14 05:26] autosave(scratch-2026-09-13-ca6933): 保存対象なし

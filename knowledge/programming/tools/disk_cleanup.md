@@ -63,6 +63,29 @@ YDのMacは**ディスクの大半が映像/写真の制作データ(900G超)**�
 7. 制作データ(映像/写真)は**絶対に勝手に消さない**。offloadは外付けSSD前提でYD判断。掃除とoffloadは別タスク
 8. node_modules/.venv/.next は再生成可だが、稼働中プロジェクトは次回 `npm install`/`uv sync` が要る → 「安全だが手間あり」枠として別提示
 
+## 2026-09-15 の整理記録 (システムデータ400GBの調査と実行)
+
+内蔵SSD 2TB中1.8TB使用、空き145GB。「システムデータ」400GBの正体は ~/Library 362GB + /Library 30GB。
+
+大容量マップ (2026-09-15 時点更新):
+
+| 場所 | サイズ | 中身 | 処置 |
+|---|---|---|---|
+| ~/Library/CloudStorage/GoogleDrive | 201GB | ミラーリング設定で全ファイルをローカルに保持。平成たち祭り CLIP の MP4 (1本1〜7GB) | ストリーミング設定に変更するかフォルダ単位でオフライン解除 |
+| ~/Library/Caches/Adobe/After Effects/26.3 | 39GB | AEディスクキャッシュ | `rm -rf` で安全。AE再起動時に再生成される |
+| ~/.cache/uv | 29GB | Pythonパッケージキャッシュ | `uv cache clean` で安全 |
+| ~/Library/Containers/2206B91E-B09E-4CE2-90E6-753592D6E17F | 24GB | Hasselblad Phocus Mobile 2 の RAW (.3FR) 126枚、3〜4月撮影分 | 他にバックアップ確認後に削除 |
+| ~/Library/Application Support/Claude/vm_bundles | 13GB | Claude デスクトップの仮想マシンイメージ | 削除可。Claude再起動で再ダウンロードされる可能性あり |
+| ~/Library/Developer/CoreSimulator + Xcode/DerivedData | 19GB | iOSシミュレータ11台分+ビルドキャッシュ | `xcrun simctl delete all` + DerivedData rm で安全 |
+| ~/.lmstudio/models | 42GB | LLMモデル | 使わないものは削除可 |
+| ~/Library/Containers/com.goodnotesapp.x | 16GB | Goodnotesノート実体 | 消すな |
+
+YD指示 (2026-09-15): 「Goodnotes と Claude 以外消していいよ」→ AEキャッシュ・uvキャッシュ・Xcode・Hasselblad RAW・LM Studio モデル・Android AVD の削除を承認。削除はセッション途中で終了、完了分不明。
+
+新規発見:
+- `~/Library/Application Support/Claude/vm_bundles` 13GB = Claudeデスクトップの VM イメージ。削除してもClaudeは動くが再ダウンロードが走る場合あり
+- Google Drive のミラーリング設定が200GB超を食う主因。`環境設定 > Google Drive > マイ Mac > ストリーミング` に切り替えると即日100GB以上回収可能
+
 ## 外付けドライブ(映像/写真アーカイブ)の重複整理 (sv q, 2026-06-02)
 
 内蔵と違い外付けは**重複が容量の主因**。映像は1ファイル数十GBなので「重複1グループ消すだけで数十G」。sv q(1.8TB/94%)で316G回収した時の手順:
