@@ -3345,3 +3345,4 @@
 [2026-09-15 15:04] ai-researcher collect: raw=81 dedup=20 relevant=1 kept=1
 [2026-09-15 16:30] ai-researcher collect: raw=0 dedup=0 relevant=0 kept=0
 [2026-09-15 16:45] Mac内蔵SSD整理: システムデータ内キャッシュ削除 + snapshot thin で 152GB→313GB (+161GB)。Hasselblad RAW 24GB と Google Drive ミラー 201GB は保留 → disk_cleanup.md 追記
+[2026-09-15 17:20] Notion 設計図の manila / Cebu ページに「支援団体」(関係あり / 検討中、リンク付き)、ダンス ページに「ダンススタジオ」(Knapsack / G-force / Encore Blvd / 市営スポーツセンター) を追記。Manuel から返信あり (10/1-2 在セブ、寄付は現金でもUSD口座でも可)、返信案を作成
