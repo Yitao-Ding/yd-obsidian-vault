@@ -3396,3 +3396,4 @@
 [2026-09-16 02:45] YITAO HDD → Extreme pro: プペル/ゆかやねんNumber 映像9本 13GB コピー完了 (サイズ照合OK)。続けてHDD+Extreme全体のGoogle Driveバックアップ監査を実施 (25,438ファイル/3,931GB を Drive 26,192ファイルと名前+サイズで突合)。未バックアップ2,450GB (重複293GB除くと2,157GB) に対しDrive空き1,715GB。台湾旅の動画622GBのみ除外して1,530GBのアップロードを開始。有線LANが100baseTXリンクで頭打ち (9.5MiB/s) と判明、完走見込み約45時間。
 [2026-09-16 02:53] ハタチたち5 説明会 構成v6_v3 完成・FCP 読み込み実画確認済 (Opus 担当)。監査2周 (51+22件) → v4/v5/v6 で全対応。引き継ぎ HANDOVER.md / README / SRT 95件 / decisions 1件 / knowledge 追記。YD 判断待ち 9 件を HANDOVER に記載
 [2026-09-16 02:54] autosave(ittou): 保存対象なし (log.md/gdrive_backup_audit.md/mistakes A-25 はセッション内保存済み)
+[2026-09-16 03:10] ai-researcher collect: raw=107 dedup=48 relevant=8 kept=8
