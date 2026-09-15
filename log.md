@@ -3356,3 +3356,5 @@
 - 2026-09-15 Notion Shorts 企画 DB を整備 (列8本追加、既存5本を書き直し、宗教勧誘はボツ、新規9本追加、計13本+統合済1)。知見=knowledge/arte_grow/2026-09_Shorts企画.md
 [2026-09-15 18:40] Grow me:) 渡航Tシャツのロゴデザイン案を作成 (前面 A/B、背面 A/B、配置プレビュー)。キャンバス https://claude.ai/artifact/6q5zugKobq7qP7QdqxFhLN、印刷データ ~/AI projects/GrowMe-Tshirt/print/。Notion To do「ジジババTシャツ作成」を進行中に更新。決定=decisions/2026-09-15_GrowMe_Tシャツデザイン案.md
 - 2026-09-15 Shorts の投稿先は「じじばば」名義 (YD 決定)。プラットフォーム・ハンドルは未確認。ダンス対決ページのプロパティ落ちを修正
+[2026-09-15 19:05] Grow me:) Tシャツを YD 指摘 (文字の見切れ、繋ぎ合わせではなくリメイク) でベクター描き直し。4案再公開 (同URL v2)、印刷データ更新 ~/AI projects/GrowMe-Tshirt/print/、正本 work/gen.py。decisions/2026-09-15_GrowMe_Tシャツデザイン案.md を書き換え (旧版は archive/_versions/)
+[2026-09-15 19:00] ハタチたち5 説明会動画 (平成たち祭vol.2 A027C007 10:52) を FCPXML 自動生成で編集し FCP ライブラリ 26.9.15~ に「ハタチたち5 説明会 v5」として納品。whisper→カット→YuNet顔追従→Canva PNG/MP4→FCPXML v1〜v5 (position単位1080/100・静止画キーフレーム属性・空間適合なし無効・FCPウインドウ無し起動の4罠)。知見 knowledge/filmmaking/fcpxml_auto_edit_pipeline.md、決定 decisions/2026-09-15_ハタチたち5説明会動画_FCP自動編集.md
