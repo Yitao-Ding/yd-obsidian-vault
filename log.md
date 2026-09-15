@@ -3369,3 +3369,4 @@
 [2026-09-15 20:05] ai-researcher collect: raw=79 dedup=17 relevant=0 kept=0
 [2026-09-15 20:05] ハタチたち5 説明会動画を YD 指示で 4K 59.94p に作り替え (4K v4 が最終、FCP ライブラリ 26.9.15~)。スライドは Canva 印刷PDF→3840x2160 ラスタライズ、丸窓は区間ごと 4K 焼き、寄り 180%。Canva 内動画は 1080p 書き出し止まりで FCP 側 2 倍拡大。知見は fcpxml_auto_edit_pipeline.md 追記
 [2026-09-15 21:05] ai-researcher collect: raw=78 dedup=18 relevant=1 kept=1
+[2026-09-15 19:40] CFAI から宿泊の請求書受領 (₱11,160 = 宿泊 5,760 + 食事 3,456 + 送迎 1,080 + エアコン 864)。内訳を通訳し、knowledge/arte_grow/cfai_guesthouse_2026-10.md と Notion To do「CFA 代表」に記入。エアコン数量 (2 vs 4) を要確認
