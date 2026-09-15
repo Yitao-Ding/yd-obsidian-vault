@@ -3378,3 +3378,4 @@
 [2026-09-15 22:35] ai-researcher collect: raw=0 dedup=0 relevant=0 kept=0
 [2026-09-15 23:28] ai-researcher collect: raw=45 dedup=12 relevant=0 kept=0
 [2026-09-15 23:45] YD 入浴中に FCP 操作再開。構成v2_v2 を 26.9.15~ に読み込み、プロジェクトを開いて 16 か所を実画確認 (字幕ボックス・丸窓・動画全画面・スライド+動画・整音レーン、全部設計どおり)。YD 指示「全部ハタチたちに統一」→ 字幕は既に統一済み、C007/C008 の文字起こしも正規化コピー作成。座談会の顔・口の動き解析を背景で実行中。A-23 (zsh 単語分割) 再発を mistakes に追記
+[2026-09-16 00:05] ai-researcher collect: raw=74 dedup=18 relevant=2 kept=2
