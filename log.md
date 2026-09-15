@@ -3353,3 +3353,5 @@
 [2026-09-15 17:22] autosave(scratch-2026-09-15-567c03): 保存対象なし (セッション内で disk_cleanup.md + log.md 保存済み)
 [2026-09-15 18:04] ai-researcher collect: raw=80 dedup=19 relevant=1 kept=1
 - 2026-09-15 Notion To do「CFA 代表」「リゾート関連」に進捗を記入 (Messenger の Rose/Lea、Manuel、Mitzi スレッド参照)。リゾートは未予約、Mitzi の返信待ち。イントラムロス行の「ジブリのような街」は裏取りのみで編集は戻した (#drift 記録済み)。
+- 2026-09-15 Notion Shorts 企画 DB を整備 (列8本追加、既存5本を書き直し、宗教勧誘はボツ、新規9本追加、計13本+統合済1)。知見=knowledge/arte_grow/2026-09_Shorts企画.md
+[2026-09-15 18:40] Grow me:) 渡航Tシャツのロゴデザイン案を作成 (前面 A/B、背面 A/B、配置プレビュー)。キャンバス https://claude.ai/artifact/6q5zugKobq7qP7QdqxFhLN、印刷データ ~/AI projects/GrowMe-Tshirt/print/。Notion To do「ジジババTシャツ作成」を進行中に更新。決定=decisions/2026-09-15_GrowMe_Tシャツデザイン案.md
