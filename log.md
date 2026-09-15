@@ -1,4 +1,5 @@
 # Vault 操作ログ
+[2026-09-16 01:19] autosave(ハタチたち説明会_座談会): active_projects.md 更新 (v4完成・4エージェント監査中・FCP承認済み)
 [2026-09-16 00:48] autosave(ハタチたち説明会_座談会): active_projects.md 更新 (v4準備: cuts_v4.json / wrap_ja2.py / pip_validate2 / edge_listen2)
 [2026-09-16 00:48] autosave(ハタチたち説明会_座談会): 保存対象なし (00:18-00:20 区間はセッション内 00:45 に保存済み)
 [2026-09-16 00:16] autosave(ハタチたち説明会_座談会): mistakes/claude_mistakes.md 追記 (動画QC未実施), active_projects.md 更新 (説明会v3修正ビルド中)
