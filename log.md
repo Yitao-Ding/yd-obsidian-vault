@@ -3397,3 +3397,4 @@
 [2026-09-16 02:53] ハタチたち5 説明会 構成v6_v3 完成・FCP 読み込み実画確認済 (Opus 担当)。監査2周 (51+22件) → v4/v5/v6 で全対応。引き継ぎ HANDOVER.md / README / SRT 95件 / decisions 1件 / knowledge 追記。YD 判断待ち 9 件を HANDOVER に記載
 [2026-09-16 02:54] autosave(ittou): 保存対象なし (log.md/gdrive_backup_audit.md/mistakes A-25 はセッション内保存済み)
 [2026-09-16 03:10] ai-researcher collect: raw=107 dedup=48 relevant=8 kept=8
+[2026-09-16 04:10] ai-researcher collect: raw=100 dedup=43 relevant=8 kept=8
