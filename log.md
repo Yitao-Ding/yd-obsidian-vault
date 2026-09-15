@@ -1,4 +1,5 @@
 # Vault 操作ログ
+[2026-09-15 17:22] autosave(ハタチたち説明会_座談会): active_projects.md (ハタチたち説明会&座談会 編集着手エントリ追加)
 [2026-09-15 16:51] autosave(scratch-2026-09-15-567c03): knowledge/programming/tools/disk_cleanup.md に2026-09-15の調査結果を追記 (Google Drive 201GB・Claude vm_bundles 13GB 等の新発見、YD承認削除リスト)
 [2026-09-15 01:50] autosave(平成たち祭定点): 保存対象なし (全15本ギガファイル便アップロード完了。Vault保存はセッション内 01:37 に実施済み)
 [2026-09-14 11:57] autosave(scratch-2026-09-13-ca6933): 保存対象なし (平成たち祭サムネ2枚納品の続き、log.md/active_projects.mdは会話内で保存済み)
@@ -3347,3 +3348,4 @@
 [2026-09-15 16:45] Mac内蔵SSD整理: システムデータ内キャッシュ削除 + snapshot thin で 152GB→313GB (+161GB)。Hasselblad RAW 24GB と Google Drive ミラー 201GB は保留 → disk_cleanup.md 追記
 [2026-09-15 17:20] Notion 設計図の manila / Cebu ページに「支援団体」(関係あり / 検討中、リンク付き)、ダンス ページに「ダンススタジオ」(Knapsack / G-force / Encore Blvd / 市営スポーツセンター) を追記。Manuel から返信あり (10/1-2 在セブ、寄付は現金でもUSD口座でも可)、返信案を作成
 [2026-09-15 17:09] ai-researcher collect: raw=81 dedup=23 relevant=5 kept=5
+[2026-09-15 17:22] autosave(scratch-2026-09-15-567c03): 保存対象なし (セッション内で disk_cleanup.md + log.md 保存済み)
