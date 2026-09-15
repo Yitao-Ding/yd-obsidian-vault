@@ -3390,3 +3390,5 @@
 [2026-09-16 01:04] ai-researcher collect: raw=74 dedup=17 relevant=0 kept=0
 [2026-09-16 01:27] YD指示: Fable 使用量を抑える。サブエージェント/Workflow は既定 Opus (単純作業は Sonnet)、頭を使う判断だけ Fable。preferences.md に追記
 [2026-09-16 01:45] TYO PM職 秋募集 (締切 9/16 15:00): TYOを一次情報でリサーチ → knowledge/career/TYO_企業リサーチ_2026-09-16.md。ES 12問をマイページ survey.aspx に入力済み (未送信、YD確認待ち)。課題PDF ~/AI projects/TYO-entry/AT00053277-ding.yitao.pdf 作成 (1.9MB、未アップロード)。就活ボードに設問を追記[2026-09-16 02:08] ai-researcher collect: raw=76 dedup=21 relevant=4 kept=4
+
+[2026-09-16 02:50] ハタチたち5 説明会 構成v6_v2 完成。v3 の残存不良 (言い直し採用・言いかけ・境界断片15・丸窓の偽陽性17%) を別エージェント監査 → 反証 → 判定で2周潰し、丸窓修正素材4本を4K原本から焼き直し。本編6:22.2+エンドカード6秒、ショット48/字幕28/丸窓28、DTD・構造チェック OK。YouTube 用 SRT 95件、HANDOVER.md と _FCP納品/README.md を全面書き直し。v6_v2 の FCP 読み込み確認中
