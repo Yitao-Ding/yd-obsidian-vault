@@ -3368,3 +3368,4 @@
 [2026-09-15 19:12] 同上: 最終は v7 (丸窓を 1920x1080 透過素材に変更・字幕26字折返し・エンドカード上部)。FCP ライブラリ 26.9.15~ の検証用イベント v3〜v6 と未登録フォルダ v1/v2 は YD 側で削除可
 [2026-09-15 20:05] ai-researcher collect: raw=79 dedup=17 relevant=0 kept=0
 [2026-09-15 20:05] ハタチたち5 説明会動画を YD 指示で 4K 59.94p に作り替え (4K v4 が最終、FCP ライブラリ 26.9.15~)。スライドは Canva 印刷PDF→3840x2160 ラスタライズ、丸窓は区間ごと 4K 焼き、寄り 180%。Canva 内動画は 1080p 書き出し止まりで FCP 側 2 倍拡大。知見は fcpxml_auto_edit_pipeline.md 追記
+[2026-09-15 21:05] ai-researcher collect: raw=78 dedup=18 relevant=1 kept=1
