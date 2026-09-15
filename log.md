@@ -3388,4 +3388,4 @@
 [2026-09-16 00:57] ハタチたち5 説明会 構成v3 を監査: 噛み1件 (撮影場所の言い直し 226-232s)・言いかけ2件・境界断片15か所・丸窓の偽陽性 (スクリーンの文字/集合写真) を検出。v4 を生成 (cuts_v4/plan_shots_v4、SFace で丸窓 valid 再判定、ズーム連続化、2フレーム音声フェード、字幕折返し規則強化)、DTD 検証 OK。別エージェント監査 WF (4観点→3名反証) 実行中。FCP 未操作 (YD 使用中)
 [2026-09-16 01:04] ai-researcher collect: raw=74 dedup=17 relevant=0 kept=0
 [2026-09-16 01:27] YD指示: Fable 使用量を抑える。サブエージェント/Workflow は既定 Opus (単純作業は Sonnet)、頭を使う判断だけ Fable。preferences.md に追記
-[2026-09-16 01:45] TYO PM職 秋募集 (締切 9/16 15:00): TYOを一次情報でリサーチ → knowledge/career/TYO_企業リサーチ_2026-09-16.md。ES 12問をマイページ survey.aspx に入力済み (未送信、YD確認待ち)。課題PDF ~/AI projects/TYO-entry/AT00053277-ding.yitao.pdf 作成 (1.9MB、未アップロード)。就活ボードに設問を追記
+[2026-09-16 01:45] TYO PM職 秋募集 (締切 9/16 15:00): TYOを一次情報でリサーチ → knowledge/career/TYO_企業リサーチ_2026-09-16.md。ES 12問をマイページ survey.aspx に入力済み (未送信、YD確認待ち)。課題PDF ~/AI projects/TYO-entry/AT00053277-ding.yitao.pdf 作成 (1.9MB、未アップロード)。就活ボードに設問を追記[2026-09-16 02:08] ai-researcher collect: raw=76 dedup=21 relevant=4 kept=4
