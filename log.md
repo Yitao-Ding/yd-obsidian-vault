@@ -3419,3 +3419,4 @@
 
 [2026-09-16 14:20] TYO課題PDF v6 (提出版)。大見出しを「〇〇と、〇〇」の対句形にというYD指示を受け、映像側とバイタリティ/個性側を並べて「見た時の感動と、即断即決即実行。」に決定。41pxに拡大 (16文字で幅667/707)。即断即決即実行はVaultのidentityにあるYD自身の行動原理。A4縦1枚・2.6MB、キャンバス Version 6
 [2026-09-16 16:57] ai-researcher collect: 3 consecutive claude -p failures, kept 4
+[2026-09-16 17:12] ai-researcher collect: raw=109 dedup=47 relevant=8 kept=7
