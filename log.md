@@ -1,4 +1,5 @@
 # Vault 操作ログ
+[2026-09-17 04:17] autosave(cc_company): 保存対象なし (モデルエラー fable[1m] で即終了、前回と同パターン)
 [2026-09-16 08:13] autosave(ittou): 保存対象なし
 [2026-09-16 04:26] autosave(cc_company): 保存対象なし (セッションがモデルエラーで即終了 "fable[1m] not found")
 [2026-09-16 02:55] autosave(ハタチたち説明会_座談会): 保存対象なし (v6_v3完成・HANDOVER/README/SRT/decisions/active_projects はセッション内02:53に保存済み)
