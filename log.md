@@ -3423,3 +3423,4 @@
 [2026-09-16 17:55] じじばば渡航の日程を朝・昼・夜3枠で詰める案を作成 (団体訪問中心、チャット提示のみ・Notion未反映)。新規候補 (バスーラの家/Fairplay/ソルト・パヤタス/Rise Above/Bukas Palad/Pagtambayayong/SLPCパシルツアー) の裏取りを knowledge/arte_grow/2026-09_フィリピン渡航.md に追記
 [2026-09-16 18:09] ai-researcher collect: raw=111 dedup=42 relevant=8 kept=8
 [2026-09-16 20:34] ai-researcher collect: raw=0 dedup=0 relevant=0 kept=0
+[2026-09-16 21:09] ai-researcher collect: raw=112 dedup=41 relevant=8 kept=8
