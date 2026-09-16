@@ -3408,4 +3408,4 @@
 [2026-09-16 09:03] ai-researcher collect: raw=109 dedup=24 relevant=0 kept=0
 [2026-09-16 09:15] TYO を4観点で深掘りリサーチ (選考実態/作品/業界経営/ブランドと人、サブエージェント4本並列) → knowledge/career/TYO_企業リサーチ_2026-09-16.md に追記。ES Q5/Q6 を修正 (AOI Pro.も生成AIをやっているという YD の指摘を検証し、言い切りの引用から実績と時期の比較に置き換え。年間800本→1,000本以上に訂正。プロデューサー出身社長への転換を追加)。課題PDFも同じ数字を訂正して再生成。主要発見=適性検査はほぼWeb-CAB、配属は入社前に決まりPM職は4ブランド、YDにはThirdが適合[2026-09-16 10:05] ai-researcher collect: raw=109 dedup=25 relevant=1 kept=1
 [2026-09-16 11:08] ai-researcher collect: raw=110 dedup=28 relevant=4 kept=4
-[2026-09-16 10:40] YD の書き殴り (火の話・映像の好き・Salamat 石川3点・Apple・即断即決即実行・アマナ面接素材) を knowledge/career/TYO_面接素材_2026-09-16.md に質問別 13 項目で整形。空欄5つ (原点の1シーン・失敗の具体例・10年後・好きなCM・クラファン額) は YD 待ち。ES/課題は未提出 (締切 15:00)
+[2026-09-16 10:40] YD の書き殴り (火の話・映像の好き・Salamat 石川3点・Apple・即断即決即実行・アマナ面接素材) を knowledge/career/TYO_面接素材_2026-09-16.md に質問別 13 項目で整形。空欄5つ (原点の1シーン・失敗の具体例・10年後・好きなCM・クラファン額) は YD 待ち。ES/課題は未提出 (締切 15:00)[2026-09-16 12:08] ai-researcher collect: raw=100 dedup=28 relevant=4 kept=4
