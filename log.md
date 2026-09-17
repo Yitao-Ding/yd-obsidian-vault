@@ -3450,3 +3450,4 @@
 [2026-09-17 18:11] ai-researcher collect: raw=106 dedup=37 relevant=8 kept=8
 [2026-09-17 18:10] YD のカレンダー最新版 (リゾート 9/28 へ移動、10/1 空き) を knowledge に反映。10/1 を Bappa Shota 風のスラム取材日にする方針 (YD)。SLPC (CEC ジャパンネットワーク info@cecj.net) 宛の問い合わせを Gmail 下書きに作成、未送信
 [2026-09-17 19:29] ai-researcher collect: raw=20 dedup=1 relevant=0 kept=0
+[2026-09-17 18:40] YD 指示で Notion 日程表をカレンダー (9/27-10/3) に合わせて修正: 9/27 を Malanata / スクール&スポセンの2行に分割、リゾートDay を 9/28 5:00-19:00 へ、ルンバニ&セルマを 9/29 へ、セルマジム@HIME WS と「いろんなスラムとかゴミ回りたい」を新規追加、CFA ファミセン・Feeding を 10/2 へ。10/1 は空欄のまま
