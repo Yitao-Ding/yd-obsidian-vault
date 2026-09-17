@@ -3467,3 +3467,4 @@
 [2026-09-18 04:03] ai-researcher collect: raw=106 dedup=28 relevant=0 kept=0
 [2026-09-18 05:04] ai-researcher collect: raw=105 dedup=28 relevant=0 kept=0
 [2026-09-18 06:04] ai-researcher collect: raw=107 dedup=31 relevant=1 kept=1
+[2026-09-18 07:04] ai-researcher collect: raw=106 dedup=29 relevant=1 kept=1
