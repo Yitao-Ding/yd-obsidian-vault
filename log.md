@@ -3445,3 +3445,5 @@
 [2026-09-17 15:10] ai-researcher collect: raw=96 dedup=48 relevant=8 kept=8
 [2026-09-17 10:30] じじばば渡航の撮影計画案 (Shorts 採用5本と NIBALIK KO を訪問日程に重ねた案) をチャットで提示。Notion Shorts DB が 9/15 の Vault メモ (採用7本) と食い違っていたので knowledge/arte_grow/2026-09_Shorts企画.md に現状を追記
 [2026-09-17 16:38] ai-researcher collect: raw=40 dedup=1 relevant=0 kept=0
+[2026-09-17 17:11] ai-researcher collect: raw=106 dedup=46 relevant=8 kept=8
+[2026-09-17 17:30] SUM (辻さんの Claude) による Notion 日程表の更新 (カレンダー由来の時刻・正式名称・HiMe 撮影行) とリゾートページの追記を差分確認し、knowledge/arte_grow/2026-09_フィリピン渡航.md に反映。リゾート未予約・9/28 セルマ同日・10/2 HiMe 撮影が既存案と衝突
