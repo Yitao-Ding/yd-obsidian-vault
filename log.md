@@ -3443,3 +3443,4 @@
 [2026-09-17 13:21] ai-researcher collect: raw=20 dedup=1 relevant=0 kept=0
 [2026-09-17 14:11] ai-researcher collect: raw=96 dedup=54 relevant=8 kept=8
 [2026-09-17 15:10] ai-researcher collect: raw=96 dedup=48 relevant=8 kept=8
+[2026-09-17 10:30] じじばば渡航の撮影計画案 (Shorts 採用5本と NIBALIK KO を訪問日程に重ねた案) をチャットで提示。Notion Shorts DB が 9/15 の Vault メモ (採用7本) と食い違っていたので knowledge/arte_grow/2026-09_Shorts企画.md に現状を追記
