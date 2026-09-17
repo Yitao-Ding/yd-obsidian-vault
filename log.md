@@ -3447,3 +3447,5 @@
 [2026-09-17 16:38] ai-researcher collect: raw=40 dedup=1 relevant=0 kept=0
 [2026-09-17 17:11] ai-researcher collect: raw=106 dedup=46 relevant=8 kept=8
 [2026-09-17 17:30] SUM (辻さんの Claude) による Notion 日程表の更新 (カレンダー由来の時刻・正式名称・HiMe 撮影行) とリゾートページの追記を差分確認し、knowledge/arte_grow/2026-09_フィリピン渡航.md に反映。リゾート未予約・9/28 セルマ同日・10/2 HiMe 撮影が既存案と衝突
+[2026-09-17 18:11] ai-researcher collect: raw=106 dedup=37 relevant=8 kept=8
+[2026-09-17 18:10] YD のカレンダー最新版 (リゾート 9/28 へ移動、10/1 空き) を knowledge に反映。10/1 を Bappa Shota 風のスラム取材日にする方針 (YD)。SLPC (CEC ジャパンネットワーク info@cecj.net) 宛の問い合わせを Gmail 下書きに作成、未送信
