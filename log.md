@@ -3458,3 +3458,4 @@
 [2026-09-17 21:00] 友達向け日程テキストの詳細版を作成 (場所の説明・持ち物・費用の目安・渡航前ルールを追加、Vault と Notion の既存情報のみ使用)
 [2026-09-17 21:09] ai-researcher collect: raw=106 dedup=33 relevant=7 kept=7
 [2026-09-17 22:03] ai-researcher collect: raw=106 dedup=26 relevant=0 kept=0
+[2026-09-17 23:03] ai-researcher collect: raw=105 dedup=27 relevant=0 kept=0
