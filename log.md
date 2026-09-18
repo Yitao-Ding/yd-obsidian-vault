@@ -3471,3 +3471,4 @@
 [2026-09-18 08:03] ai-researcher collect: raw=107 dedup=29 relevant=0 kept=0
 [2026-09-18 09:04] ai-researcher collect: raw=109 dedup=31 relevant=1 kept=1
 [2026-09-18 10:47] ai-researcher collect: raw=0 dedup=0 relevant=0 kept=0
+[2026-09-18 11:05] Messenger (Control Chrome) を読んで Notion を更新。Manuel: 10/2 は 学校→児童ホーム(ダンスWS)→フィーディング、ファミリーセンターは 10/2 休みなので 10/1 午後に戻す (時間は返信待ち)、フィーディング参加は無料、寄付は現金手渡し予定 (USD口座の提示あり、ペソかUSDかは未回答)。コニー: グアダルーペ/ルンバニDCC近くの体育館を 10/1 午後で打診中。Mitzi: 9/16 に「3番(オスメニャ+キャニオニアリング)、9/29」と伝達済みで予約は未。Hotel Asia: スタンダードダブル2部屋、206/207号室、更新SOA受領
